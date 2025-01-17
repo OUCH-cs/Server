@@ -31,7 +31,4 @@ public class UserCreateRequest {
 
 	private Long nationId;
 
-	private String address;
-
-	// private UserStatus status;
 }

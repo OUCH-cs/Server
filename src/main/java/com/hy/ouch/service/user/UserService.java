@@ -56,7 +56,6 @@ public class UserService {
 			.email(request.getEmail())
 			.language(wantedLanguage)
 			.nation(wantedNation)
-			.address(request.getAddress())
 			.status(UserStatus.ACTIVE)
 			.build();
 
@@ -111,9 +110,6 @@ public class UserService {
 		}
 		if (request.getEmail() != null) {
 			user.setEmail(request.getEmail());
-		}
-		if (request.getAddress() != null) {
-			user.setAddress(request.getAddress());
 		}
 	}
 

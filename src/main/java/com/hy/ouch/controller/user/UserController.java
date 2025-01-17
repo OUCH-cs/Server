@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hy.ouch.domain.User;
 import com.hy.ouch.dto.MessageResponse;
+import com.hy.ouch.dto.MessageResponse2;
 import com.hy.ouch.dto.language.request.AllLangsRequest;
 import com.hy.ouch.dto.language.response.UserLangResponse;
 import com.hy.ouch.dto.user.request.MypageUserInfoUpdateRequest;
@@ -79,12 +80,20 @@ public class UserController {
 
 	//내 정보 수정
 	@PutMapping("/mypage/users/{userId}")
-	public ResponseEntity<?> updateMyInfo(@PathVariable Long userId, @RequestBody MypageUserInfoUpdateRequest request) {
-		System.out.println("userId = " + userId);
+	public ResponseEntity<MessageResponse2<String>> updateMyInfo(@PathVariable Long userId,
+		@RequestBody MypageUserInfoUpdateRequest request) {
+		// System.out.println("userId = " + userId);
 		userService.updateMyInfo(userId, request);
-		return ResponseEntity.ok("User updated successfully.");
+		MessageResponse2<String> body = new MessageResponse2<>(
+			true,
+			"COMMON200",
+			"요청이 성공적으로 처리되었습니다.",
+			"유저 정보가 성공적으로 수정되었습니다."
+		);
+		return ResponseEntity.ok(body);
 	}
 
+	//////추가///////(혹시 모르니 일단 남겨둘게요.)
 	//모든 사용자 조회
 	@GetMapping("/users/users")
 	public List<AllUsersResponse> getUsers1() {
