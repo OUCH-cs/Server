@@ -9,29 +9,12 @@ import com.hy.ouch.domain.enums.Gender;
 import com.hy.ouch.domain.enums.UserStatus;
 import com.hy.ouch.domain.mapping.VisitHistory;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Getter
 @Builder
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class User extends BaseEntity {
@@ -65,7 +48,7 @@ public class User extends BaseEntity {
 	@Column(nullable = false, length = 30)
 	private String email;
 
-	@Column(length = 100)
+	@Column(nullable = true, length = 100)
 	private String address;
 
 	@Enumerated(EnumType.STRING)
@@ -84,7 +67,7 @@ public class User extends BaseEntity {
 
 	// @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	// private List<Terms> termsList = new ArrayList<>();
-
+	//
 	// @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	// private List<Notification> notificationList = new ArrayList<>();
 
