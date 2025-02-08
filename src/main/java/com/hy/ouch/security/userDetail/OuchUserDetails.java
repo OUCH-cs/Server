@@ -1,4 +1,4 @@
-package com.hy.ouch.security.userdetail;
+package com.hy.ouch.security.userDetail;
 
 import java.util.Collection;
 import java.util.List;
