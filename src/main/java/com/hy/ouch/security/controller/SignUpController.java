@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hy.ouch.apiPayload.ApiResponse;
 import com.hy.ouch.security.service.SignUpService;
-import com.hy.ouch.dto.user.request.SignUpRequest;
+import com.hy.ouch.security.dto.request.SignUpRequest;
 
 import lombok.RequiredArgsConstructor;
 

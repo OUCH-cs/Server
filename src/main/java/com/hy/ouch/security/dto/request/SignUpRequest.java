@@ -1,4 +1,4 @@
-package com.hy.ouch.dto.user.request;
+package com.hy.ouch.security.dto.request;
 
 import java.time.LocalDate;
 

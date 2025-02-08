@@ -9,9 +9,9 @@ public class OuchAuthenticationToken extends UsernamePasswordAuthenticationToken
 
 	private final Long id;
 
-	public OuchAuthenticationToken(Object principal, Object credentials, Long id) {
+	public OuchAuthenticationToken(Object principal, Object credentials) {
 		super(principal, credentials);
-		this.id = null;
+		id = null;
 	}
 
 	public OuchAuthenticationToken(Object principal, Object credentials,

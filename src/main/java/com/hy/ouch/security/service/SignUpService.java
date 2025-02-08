@@ -8,7 +8,7 @@ import com.hy.ouch.apiPayload.exception.OuchException;
 import com.hy.ouch.domain.Language;
 import com.hy.ouch.domain.Nation;
 import com.hy.ouch.domain.User;
-import com.hy.ouch.dto.user.request.SignUpRequest;
+import com.hy.ouch.security.dto.request.SignUpRequest;
 import com.hy.ouch.repository.language.LanguageRepository;
 import com.hy.ouch.repository.nation.NationRepository;
 import com.hy.ouch.repository.user.UserRepository;
