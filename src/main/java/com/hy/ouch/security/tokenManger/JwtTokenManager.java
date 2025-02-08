@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.crypto.SecretKey;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,10 +28,10 @@ import io.jsonwebtoken.security.SignatureException;
 @Component
 public class JwtTokenManager implements TokenManager {
 
-	private final String secretKey;
+	private final SecretKey secretKey;
 
 	public JwtTokenManager(@Value("${jwt.secret}") String secretKey) {
-		this.secretKey = secretKey;
+		this.secretKey = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
 	}
 
 	@Override
@@ -79,7 +81,7 @@ public class JwtTokenManager implements TokenManager {
 			))
 			.setIssuedAt(new Date())
 			.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)) // ms 단위, 24시간
-			.signWith(Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8)))
+			.signWith(secretKey)
 			.compact();
 	}
 }
