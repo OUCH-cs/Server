@@ -37,10 +37,10 @@ public class JwtTokenManager implements TokenManager {
 	public OuchAuthenticationToken readToken(String token) throws
 		SignatureException, UnsupportedJwtException, MalformedJwtException, ExpiredJwtException {
 
-		JwtParser jwtParser = Jwts.parserBuilder()
+		Claims claims = Jwts.parser()
 			.setSigningKey(secretKey)
-			.build();
-		Claims claims = jwtParser.parseClaimsJws(token)
+			.build()
+			.parseClaimsJws(token)
 			.getBody();
 
 		String loginId = claims.get("loginId", String.class); // 로그인 시 사용하는 id값
