@@ -1,4 +1,4 @@
-package com.hy.ouch.controller.user;
+package com.hy.ouch.security.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
