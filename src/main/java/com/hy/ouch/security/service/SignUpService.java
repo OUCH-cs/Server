@@ -1,4 +1,4 @@
-package com.hy.ouch.service.security;
+package com.hy.ouch.security.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
