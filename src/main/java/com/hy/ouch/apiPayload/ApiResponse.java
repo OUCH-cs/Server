@@ -1,39 +1,48 @@
 package com.hy.ouch.apiPayload;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.hy.ouch.apiPayload.code.BaseCode;
-import com.hy.ouch.apiPayload.code.status.SuccessStatus;
+import com.hy.ouch.apiPayload.code.error.ErrorCode;
+import com.hy.ouch.apiPayload.code.success.CommonSuccessCode;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
-@JsonPropertyOrder({"isSuccess", "code", "message", "result"})
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@JsonPropertyOrder({"success", "code", "message", "data"})
 public class ApiResponse<T> {
 
-	@JsonProperty("isSuccess")
-	private final Boolean isSuccess;
+	private final boolean success;
 	private final String code;
 	private final String message;
-	@JsonInclude(JsonInclude.Include.NON_NULL)
-	private T result;
+	private final T data;
 
-	// 성공한 경우 응답 생성
-	public static <T> ApiResponse<T> onSuccess(T result) {
-		return new ApiResponse<>(true, SuccessStatus._OK.getCode(), SuccessStatus._OK.getMessage(), result);
+	public static <T> ApiResponse<T> success(T data) {
+		return new ApiResponse<>(true, CommonSuccessCode.SUCCESS.getCode(),
+			CommonSuccessCode.SUCCESS.getMessage(), data);
 	}
 
-	public static <T> ApiResponse<T> of(BaseCode code, T result) {
-		return new ApiResponse<>(true, code.getReasonHttpStatus().getCode(), code.getReasonHttpStatus().getMessage(),
-			result);
+	public static ApiResponse<Void> successWithNoData() {
+		return new ApiResponse<>(true, CommonSuccessCode.SUCCESS.getCode(),
+			CommonSuccessCode.SUCCESS.getMessage(), null);
 	}
 
-	// 실패한 경우 응답 생성
-	public static <T> ApiResponse<T> onFailure(String code, String message, T data) {
-		return new ApiResponse<>(false, code, message, data);
+	public static <T> ApiResponse<T> created(T data) {
+		return new ApiResponse<>(true, CommonSuccessCode.CREATED.getCode(),
+			CommonSuccessCode.CREATED.getMessage(), data);
+	}
+
+	public static ApiResponse<Void> createdWithNoData() {
+		return new ApiResponse<>(true, CommonSuccessCode.CREATED.getCode(),
+			CommonSuccessCode.CREATED.getMessage(), null);
+	}
+
+	public static ApiResponse<?> createFail(ErrorCode errorCode) {
+		return new ApiResponse<>(false, errorCode.getCode(), errorCode.getMessage(), null);
+	}
+
+	public static ApiResponse<?> createFail(ErrorCode errorCode, String message) {
+		return new ApiResponse<>(false, errorCode.getCode(), message, null);
 	}
 }
-

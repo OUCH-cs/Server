@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.hy.ouch.apiPayload.code.status.ErrorStatus;
-import com.hy.ouch.apiPayload.exception.GeneralException;
+import com.hy.ouch.apiPayload.code.error.CommonErrorCode;
+import com.hy.ouch.apiPayload.exception.OuchException;
 import com.hy.ouch.domain.Language;
 import com.hy.ouch.repository.language.LanguageRepository;
 import com.hy.ouch.web.dto.LanguageDto;
@@ -30,7 +30,7 @@ public class LanguageService {
 
 	public void updateLanguage(Long id, LanguageDto languageDto) {
 		Language existingLanguage = languageRepository.findById(id)
-			.orElseThrow(() -> new GeneralException(ErrorStatus.RESOURCE_NOT_FOUND));
+			.orElseThrow(() -> new OuchException(CommonErrorCode.RESOURCE_NOT_FOUND));
 
 		existingLanguage.updateLanguageFields(
 			languageDto.getName(),
@@ -41,7 +41,7 @@ public class LanguageService {
 
 	public void deleteLanguage(Long id) {
 		if (!languageRepository.existsById(id)) {
-			throw new GeneralException(ErrorStatus.RESOURCE_NOT_FOUND);
+			throw new OuchException(CommonErrorCode.RESOURCE_NOT_FOUND);
 		}
 		languageRepository.deleteById(id);
 	}
