@@ -26,12 +26,8 @@ public abstract class SignUpService {
 	private final NationRepository nationRepository;
 
 	public void signUpUser(SignUpRequest signUpRequest) {
-		if (isDuplicated(signUpRequest.getLoginId())) {
-			throw new OuchException(SecurityErrorCode.IDENTIFIER_DUPLICATED);
-		}
-		if (isDuplicatedNickName(signUpRequest.getNickname())) {
-			throw new OuchException(SecurityErrorCode.NICKNAME_DUPLICATED);
-		}
+		checkDuplicatedLoginId(signUpRequest.getLoginId());
+		checkDuplicatedNickname(signUpRequest.getNickname());
 
 		// ID를 통해 실제 Entity 조회
 		Language language = languageRepository.findById(signUpRequest.getLanguageId())
@@ -44,11 +40,15 @@ public abstract class SignUpService {
 		userRepository.save(user);
 	}
 
-	public boolean isDuplicated(String loginId) {
-		return userRepository.findByLoginId(loginId).isPresent();
+	public void checkDuplicatedLoginId(String loginId) {
+		if (userRepository.findByLoginId(loginId).isPresent()) {
+			throw new OuchException(SecurityErrorCode.IDENTIFIER_DUPLICATED);
+		}
 	}
 
-	public boolean isDuplicatedNickName(String nickname) {
-		return userRepository.findByNickname(nickname).isPresent();
+	public void checkDuplicatedNickname(String nickname) {
+		if (userRepository.findByNickname(nickname).isPresent()) {
+			throw new OuchException(SecurityErrorCode.NICKNAME_DUPLICATED);
+		}
 	}
 }

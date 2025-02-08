@@ -30,15 +30,15 @@ public class SignUpController {
 	}
 
 	@GetMapping("/duplicate/id")
-	public ResponseEntity<ApiResponse<Void>> checkDuplicateId(@RequestParam("id") String id) {
-		signUpService.isDuplicated(id);
+	public ResponseEntity<ApiResponse<Void>> checkDuplicateLoginId(@RequestParam("id") String id) {
+		signUpService.checkDuplicatedLoginId(id);
 		return ResponseEntity.ok()
 			.body(ApiResponse.successWithNoData());
 	}
 
 	@GetMapping("/duplicate/nickname")
-	public ResponseEntity<ApiResponse<Void>> checkDuplicateNickName(@RequestParam("nickname") String nickname) {
-		signUpService.isDuplicatedNickName(nickname);
+	public ResponseEntity<ApiResponse<Void>> checkDuplicateNickname(@RequestParam("nickname") String nickname) {
+		signUpService.checkDuplicatedNickname(nickname);
 		return ResponseEntity.ok()
 			.body(ApiResponse.successWithNoData());
 	}
