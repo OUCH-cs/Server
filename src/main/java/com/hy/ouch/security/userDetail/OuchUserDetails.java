@@ -11,7 +11,7 @@ import com.hy.ouch.domain.User;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class OuchUserDetails extends UserDetails {
+public class OuchUserDetails implements UserDetails {
 
 	private final User user;
 

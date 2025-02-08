@@ -8,6 +8,7 @@ import com.hy.ouch.domain.common.BaseEntity;
 import com.hy.ouch.domain.enums.Gender;
 import com.hy.ouch.domain.enums.UserStatus;
 import com.hy.ouch.domain.mapping.VisitHistory;
+import com.hy.ouch.security.authority.OuchAuthority;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -94,4 +95,8 @@ public class User extends BaseEntity {
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<VisitHistory> visitHistoryList = new ArrayList<>();
+
+	public OuchAuthority getAuthority() {
+		return OuchAuthority.INDIVIDUAL;
+	}
 }
