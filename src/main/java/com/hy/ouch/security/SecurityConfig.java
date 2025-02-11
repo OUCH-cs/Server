@@ -12,6 +12,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import com.hy.ouch.security.filter.JwtAuthenticationFilter;
 import com.hy.ouch.security.tokenManger.TokenManager;
 
 import lombok.RequiredArgsConstructor;
@@ -33,9 +34,18 @@ public class SecurityConfig {
 		http.addFilterAt(new JwtAuthenticationFilter(tokenManager), BasicAuthenticationFilter.class);
 		http.authorizeHttpRequests(
 			(authorizeRequests)
-				-> authorizeRequests.anyRequest().permitAll()
+				-> authorizeRequests.anyRequest().permitAll() // 모든 사용자 접근 가능
+			//	-> authorizeRequests.anyRequest().authenticated() // 로그인한 사용자만 접근 가능
 		);
 		return http.build();
+
+		/*
+		http.authorizeHttpRequests(authorizeRequests ->
+			authorizeRequests
+				.antMatchers("/login", "/signup").permitAll()  // 로그인, 회원가입 페이지는 모두 허용
+				.anyRequest().authenticated()                    // 그 외의 요청은 인증 필요
+		);
+		*/
 	}
 
 	public CorsConfigurationSource corsConfigurationSource() {
