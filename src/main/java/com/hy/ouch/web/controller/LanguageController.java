@@ -29,27 +29,27 @@ public class LanguageController {
 	private final LanguageService languageService;
 
 	@PostMapping
-	public ResponseEntity<ApiResponse> addLanguage(@Valid @RequestBody LanguageDto languageDto) {
+	public ResponseEntity<ApiResponse<Long>> addLanguage(@Valid @RequestBody LanguageDto languageDto) {
 		Long languageId = languageService.addLanguage(languageDto);
-		return ResponseEntity.ok(ApiResponse.onSuccess(Map.of("languageId", languageId)));
+		return ResponseEntity.ok(ApiResponse.success(languageId));
 	}
 
 	@PatchMapping("/{languageId}")
-	public ResponseEntity<ApiResponse> updateLanguage(@PathVariable("languageId") Long id,
+	public ResponseEntity<ApiResponse<Void>> updateLanguage(@PathVariable("languageId") Long id,
 		@RequestBody LanguageDto languageDto) {
 		languageService.updateLanguage(id, languageDto);
-		return ResponseEntity.ok(ApiResponse.onSuccess("언어 데이터가 성공적으로 수정되었습니다."));
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	@DeleteMapping("/{languageId}")
-	public ResponseEntity<ApiResponse> deleteLanguage(@PathVariable("languageId") Long id) {
+	public ResponseEntity<ApiResponse<Void>> deleteLanguage(@PathVariable("languageId") Long id) {
 		languageService.deleteLanguage(id);
-		return ResponseEntity.ok(ApiResponse.onSuccess("언어 데이터가 성공적으로 삭제되었습니다."));
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	@GetMapping // 전체 언어 목록 조회
-	public ResponseEntity<ApiResponse> getAllLanguages() {
+	public ResponseEntity<ApiResponse<List<LanguageDto>>> getAllLanguages() {
 		List<LanguageDto> languages = languageService.getAllLanguages();
-		return ResponseEntity.ok(ApiResponse.onSuccess(Map.of("languages", languages)));
+		return ResponseEntity.ok(ApiResponse.success(languages));
 	}
 }
