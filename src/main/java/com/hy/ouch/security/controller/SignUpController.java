@@ -12,8 +12,11 @@ import com.hy.ouch.apiPayload.ApiResponse;
 import com.hy.ouch.security.service.SignUpService;
 import com.hy.ouch.security.dto.request.SignUpRequest;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
+@Tag(name = "회원가입 API", description = "회원가입 API입니다.")
 @RestController
 @RequestMapping("/users/signup")
 @RequiredArgsConstructor
@@ -21,6 +24,7 @@ public class SignUpController {
 
 	private final SignUpService signUpService;
 
+	@Operation(summary = "회원가입 API", description = "회원가입 API입니다.")
 	@PostMapping
 	public ResponseEntity<ApiResponse<Void>> signUpPersonal(
 		@RequestBody SignUpRequest signUpRequest) {
@@ -29,6 +33,7 @@ public class SignUpController {
 			.body(ApiResponse.createdWithNoData());
 	}
 
+	@Operation(summary = "아이디 중복 확인 API", description = "아이디 중복 확인 API입니다.")
 	@GetMapping("/duplicate/id")
 	public ResponseEntity<ApiResponse<Void>> checkDuplicateLoginId(@RequestParam("id") String id) {
 		signUpService.checkDuplicatedLoginId(id);
@@ -36,6 +41,7 @@ public class SignUpController {
 			.body(ApiResponse.successWithNoData());
 	}
 
+	@Operation(summary = "닉네임 중복 확인 API", description = "닉네임 중복 확인 API입니다.")
 	@GetMapping("/duplicate/nickname")
 	public ResponseEntity<ApiResponse<Void>> checkDuplicateNickname(@RequestParam("nickname") String nickname) {
 		signUpService.checkDuplicatedNickname(nickname);
