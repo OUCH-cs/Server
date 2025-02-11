@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 
 @Transactional
 @RequiredArgsConstructor
-public abstract class SignUpService {
+public class SignUpService {
 
 	private final UserRepository userRepository;
 	public final PasswordEncoder passwordEncoder;
