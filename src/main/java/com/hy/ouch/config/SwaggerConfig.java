@@ -26,8 +26,8 @@ public class SwaggerConfig {
 	@Bean
 	public OpenAPI LckAPI() {
 		Info info = new Info()
-			.title("Brainpix Server API")
-			.description("Brainpix API 명세서")
+			.title("Ouch Server API")
+			.description("Ouch API 명세서")
 			.version("1.0.0");
 
 		final String JWT_SCHEME = "JWT Token";
