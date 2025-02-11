@@ -1,6 +1,7 @@
 package com.hy.ouch.security.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.hy.ouch.apiPayload.code.error.CommonErrorCode;
 import com.hy.ouch.apiPayload.code.error.SecurityErrorCode;
@@ -18,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 
 @Transactional
 @RequiredArgsConstructor
+@Service
 public class SignUpService {
 
 	private final UserRepository userRepository;
