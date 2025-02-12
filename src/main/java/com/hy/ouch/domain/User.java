@@ -63,7 +63,6 @@ public class User extends BaseEntity {
 	@Column(nullable = false)
 	private String email;
 
-	@Column(length = 100)
 	private String address;
 
 	@Enumerated(EnumType.STRING)

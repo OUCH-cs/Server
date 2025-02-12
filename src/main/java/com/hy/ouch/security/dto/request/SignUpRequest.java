@@ -6,6 +6,7 @@ import com.hy.ouch.domain.Language;
 import com.hy.ouch.domain.Nation;
 import com.hy.ouch.domain.User;
 import com.hy.ouch.domain.enums.Gender;
+import com.hy.ouch.domain.enums.UserStatus;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,8 @@ public class SignUpRequest {
 	private Gender gender;
 	private LocalDate birthday;
 	private String email;
+	private String address;
+	private UserStatus status;
 	private Long languageId;
 	private Long nationId;
 
@@ -35,6 +38,8 @@ public class SignUpRequest {
 			.gender(gender)
 			.birthday(birthday)
 			.email(email)
+			.address(address)
+			.status(UserStatus.ACTIVE)
 			.language(language)
 			.nation(nation)
 			.build();
