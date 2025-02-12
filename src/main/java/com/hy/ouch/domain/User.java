@@ -39,29 +39,28 @@ public class User extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false, length = 20)
+	@Column(nullable = false)
 	private String loginId;
 
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false)
 	private String password;
 
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false)
 	private String name;
 
-	@Column(nullable = false, length = 20)
+	@Column(nullable = false)
 	private String nickname;
 
-	@Column(nullable = false, length = 15)
+	@Column(nullable = false)
 	private String phoneNumber;
 
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "VARCHAR(6)")
 	private Gender gender;
 
 	@Column(nullable = false)
 	private LocalDate birthday;
 
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false)
 	private String email;
 
 	@Column(length = 100)
