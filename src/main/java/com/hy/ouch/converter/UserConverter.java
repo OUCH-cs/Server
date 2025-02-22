@@ -9,13 +9,13 @@ import com.hy.ouch.dto.user.response.UserInfoResponse;
 @Component
 public class UserConverter {
 
-	public UserInfoResponse convertToUserInfoResponse(User user) {
+	public UserInfoResponse user2UserInfoResponse(User user) {
 		return new UserInfoResponse(user.getLoginId(), user.getPassword(), user.getName(), user.getNickname(),
 			user.getPhoneNumber(), user.getGender(), user.getBirthday(), user.getEmail(), user.getLanguage().getId(),
 			user.getNation().getId());
 	}
 
-	public MypageUserInfoResponse convertToMypageUserInfoResponse(User user) {
+	public MypageUserInfoResponse user2MypageUserInfoResponse(User user) {
 		return new MypageUserInfoResponse(user.getNickname(), user.getEmail(), user.getLanguage().getId());
 	}
 }
