@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Ouch CI Pipeline for checking build and merge simulation
 
 on:
   pull_request:
