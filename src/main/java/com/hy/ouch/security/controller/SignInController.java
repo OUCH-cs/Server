@@ -1,5 +1,6 @@
 package com.hy.ouch.security.controller;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -29,10 +30,10 @@ public class SignInController {
 
 	@Operation(summary = "로그인 API", description = "권한에 관계없이 1개의 API로 통합되어 있습니다.")
 	@PostMapping
-	public ResponseEntity<ApiResponse<SignInResponse>> singIn(@RequestBody SignInRequest signInRequest) {
+	public ResponseEntity<ApiResponse<Void>> singIn(@RequestBody SignInRequest signInRequest) {
 		Authentication authentication = authenticationManager.authenticate(
 			SignInConverter.toAuthenticationToken(signInRequest));
 		String jwt = tokenManager.writeToken(authentication);
-		return ResponseEntity.ok(ApiResponse.success(new SignInResponse("Bearer " + jwt)));
+		return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, "Bearer " + jwt).build();
 	}
 }
