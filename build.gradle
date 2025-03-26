@@ -4,8 +4,16 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.6'
 }
 
-group = 'com.hy'
-version = '0.0.1-SNAPSHOT'
+group = 'com.onebridge'
+version = '0.0.1'
+
+bootJar {
+	archiveFileName = 'ouch.jar'
+}
+
+jar {
+	enabled = false
+}
 
 java {
 	toolchain {
@@ -45,6 +53,9 @@ dependencies {
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+	//yml 파일 암호화
+	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'
 }
 
 tasks.named('test') {
