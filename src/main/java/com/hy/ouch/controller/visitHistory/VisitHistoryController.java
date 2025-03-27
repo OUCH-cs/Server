@@ -37,7 +37,7 @@ public class VisitHistoryController {
 		return visitHistoryService.createVisitHistory(request, userId);
 	}
 
-	// 특정 사용자의 의료기록 조회
+	// 특정 의료기록 조회
 	@GetMapping("/{userId}/{visitHistoryId}")
 	public VisitHistoryUpdateResponse getVisitHistory(@PathVariable Long visitHistoryId) {
 		return visitHistoryService.getVisitHistory(visitHistoryId);
