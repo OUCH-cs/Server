@@ -60,4 +60,6 @@ public class VisitHistory extends BaseEntity {
 		this.setSummary(summary);
 		summary.setVisitHistory(this);
 	}
+
+	//테스트 (이슈 #32)
 }
