@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.onebridge.ouch.dto.MessageResponse;
+import com.onebridge.ouch.apiPayload.ApiResponse;
 import com.onebridge.ouch.dto.visitHistory.request.VisitHistoryCreateRequest;
 import com.onebridge.ouch.dto.visitHistory.request.VisitHistoryUpdateRequest;
 import com.onebridge.ouch.dto.visitHistory.response.DateAndHospital;
@@ -32,35 +32,41 @@ public class VisitHistoryController {
 
 	// 의료기록 생성
 	@PostMapping("/{userId}")
-	public VisitHistoryCreateResponse createVisitHistory(@RequestBody @Valid VisitHistoryCreateRequest request,
+	public ResponseEntity<ApiResponse<VisitHistoryCreateResponse>> createVisitHistory(
+		@RequestBody @Valid VisitHistoryCreateRequest request,
 		@PathVariable Long userId) {
-		return visitHistoryService.createVisitHistory(request, userId);
+		VisitHistoryCreateResponse response = visitHistoryService.createVisitHistory(request, userId);
+		return ResponseEntity.ok(ApiResponse.created(response));
 	}
 
 	// 특정 의료기록 조회
 	@GetMapping("/{userId}/{medicalRecordId}")
-	public VisitHistoryUpdateResponse getVisitHistory(@PathVariable Long medicalRecordId) {
-		return visitHistoryService.getVisitHistory(medicalRecordId);
+	public ResponseEntity<ApiResponse<VisitHistoryUpdateResponse>> getVisitHistory(@PathVariable Long medicalRecordId) {
+		VisitHistoryUpdateResponse response = visitHistoryService.getVisitHistory(medicalRecordId);
+		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
 	// 특정 사용자의 모든 의료기록 조회 (의료기록 메인 페이지용)
 	@GetMapping("/get-all/{userId}")
-	public List<DateAndHospital> getUsersAllVisitHistory(@PathVariable Long userId) {
-		return visitHistoryService.getUsersAllVisitHistory(userId);
+	public ResponseEntity<ApiResponse<List<DateAndHospital>>> getUsersAllVisitHistory(@PathVariable Long userId) {
+		List<DateAndHospital> list = visitHistoryService.getUsersAllVisitHistory(userId);
+		return ResponseEntity.ok(ApiResponse.success(list));
 	}
 
 	//특정 의료기록 삭제
 	@DeleteMapping("/{userId}/{medicalRecordId}")
-	public ResponseEntity<MessageResponse> deleteVisitHistory(@PathVariable Long medicalRecordId) {
+	public ResponseEntity<ApiResponse<Void>> deleteVisitHistory(@PathVariable Long medicalRecordId) {
 		visitHistoryService.deleteVisitHistory(medicalRecordId);
-		return ResponseEntity.ok(new MessageResponse("The medical record has been deleted."));
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	//특정 의료기록 수정
 	@PutMapping("/{userId}/{medicalRecordId}")
-	public VisitHistoryUpdateResponse updateVisitHistory(@RequestBody @Valid VisitHistoryUpdateRequest request,
+	public ResponseEntity<ApiResponse<VisitHistoryUpdateResponse>> updateVisitHistory(
+		@RequestBody @Valid VisitHistoryUpdateRequest request,
 		@PathVariable Long medicalRecordId) {
-		return visitHistoryService.updateVisitHistory(request, medicalRecordId);
+		VisitHistoryUpdateResponse response = visitHistoryService.updateVisitHistory(request, medicalRecordId);
+		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
 }
