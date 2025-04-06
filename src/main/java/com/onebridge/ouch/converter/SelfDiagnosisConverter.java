@@ -5,17 +5,29 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.onebridge.ouch.apiPayload.code.error.DiagnosisErrorCode;
+import com.onebridge.ouch.apiPayload.exception.OuchException;
 import com.onebridge.ouch.domain.SelfDiagnosis;
+import com.onebridge.ouch.domain.Symptom;
 import com.onebridge.ouch.domain.mapping.SelfSymptom;
+import com.onebridge.ouch.domain.mapping.compositeKey.DiagnosisSymptomPK;
+import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisCreateRequest;
+import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisUpdateRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisCreateResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisCreateResponseDetailed;
 import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisUpdateResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisByUserIdResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetSymptomsOfDiagnosisResponse;
+import com.onebridge.ouch.repository.user.UserRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Component
+@RequiredArgsConstructor
 public class SelfDiagnosisConverter {
+
+	private final UserRepository userRepository;
 
 	public static DiagnosisUpdateResponse diagnosis2DiagnosisUpdateResponse(SelfDiagnosis updatedDiagnosis) {
 		List<String> symptoms = new ArrayList<>();
@@ -67,5 +79,40 @@ public class SelfDiagnosisConverter {
 			symptoms.add(symptom.getSymptom().getName());
 		}
 		return new GetSymptomsOfDiagnosisResponse(symptoms);
+	}
+
+	public SelfDiagnosis DiagnosisCreateRequest2SelfDiagnosis(DiagnosisCreateRequest request) {
+		return SelfDiagnosis.builder()
+			.user(userRepository.findById(request.getUserId())
+				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND)))
+			.visitType(request.getVisitType())
+			.selfSymptomList(new ArrayList<>())
+			.duration(request.getDuration())
+			.painSeverity(request.getPainSeverity())
+			.additionalNote(request.getAdditionalNote())
+			.build();
+	}
+
+	public SelfSymptom SelfSymptomWithSelfDiagnosis(SelfDiagnosis selfDiagnosis, Symptom foundSymptom) {
+		return SelfSymptom.builder()
+			.selfDiagnosis(selfDiagnosis)
+			.symptom(foundSymptom)
+			.diagnosisSymptomPk(new DiagnosisSymptomPK(selfDiagnosis.getId(),
+				foundSymptom.getId()))
+			.build();
+	}
+
+	public SelfDiagnosis DiagnosisUpdateRequest2SelfDiagnosis(SelfDiagnosis diagnosis, Long userId,
+		DiagnosisUpdateRequest request) {
+		return diagnosis.toBuilder()
+			.user(userRepository.findById(userId)
+				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND)))
+			.visitType(request.getVisitType())
+			.selfSymptomList(new ArrayList<>())
+			.duration(request.getDuration())
+			.painSeverity(request.getPainSeverity())
+			.additionalNote(request.getAdditionalNote())
+			.createdAt(diagnosis.getCreatedAt())
+			.build();
 	}
 }

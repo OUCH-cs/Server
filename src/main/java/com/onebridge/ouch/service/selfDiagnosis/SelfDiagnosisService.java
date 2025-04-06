@@ -14,7 +14,6 @@ import com.onebridge.ouch.domain.SelfDiagnosis;
 import com.onebridge.ouch.domain.Symptom;
 import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.mapping.SelfSymptom;
-import com.onebridge.ouch.domain.mapping.compositeKey.DiagnosisSymptomPK;
 import com.onebridge.ouch.dto.selfDiagnosis.request.AddSymptomsToDiagnosisRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisCreateRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisUpdateRequest;
@@ -44,15 +43,7 @@ public class SelfDiagnosisService {
 	public DiagnosisCreateResponseDetailed createDiagnosis(DiagnosisCreateRequest request) {
 
 		//일단 증상 리스트는 비워둔 채로 SelfDiagnosis 객체 생성
-		SelfDiagnosis selfDiagnosis = SelfDiagnosis.builder()
-			.user(userRepository.findById(request.getUserId())
-				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND)))
-			.visitType(request.getVisitType())
-			.selfSymptomList(new ArrayList<>())
-			.duration(request.getDuration())
-			.painSeverity(request.getPainSeverity())
-			.additionalNote(request.getAdditionalNote())
-			.build();
+		SelfDiagnosis selfDiagnosis = selfDiagnosisConverter.DiagnosisCreateRequest2SelfDiagnosis(request);
 
 		//dto 로 받은 selfSymptom(리스트)의 각 요소가 Symptom table 에 존재하는지 확인
 		for (String symptom : request.getSymptoms()) { //(단순 문자열로 된) 리스트를 돌면서
@@ -60,16 +51,8 @@ public class SelfDiagnosisService {
 			Symptom foundSymptom = symptomRepository.findByName(symptom) //증상이 Symptom table 에 존재하면
 				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
 
-			//Symptom id 찾아두기
-			Long symptomId = foundSymptom.getId();
-
 			//SelfSymptom 객체 생성
-			SelfSymptom symptom1 = SelfSymptom.builder()
-				.selfDiagnosis(selfDiagnosis)
-				.symptom(foundSymptom)
-				.diagnosisSymptomPk(new DiagnosisSymptomPK(selfDiagnosis.getId(),
-					symptomId))
-				.build();
+			SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(selfDiagnosis, foundSymptom);
 
 			//SelfDiagnosis 의 selfSymptomList 에 해당 증상 추가
 			selfDiagnosis.getSelfSymptomList().add(symptom1);
@@ -131,32 +114,16 @@ public class SelfDiagnosisService {
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
-		SelfDiagnosis updatedDiagnosis = diagnosis.toBuilder()
-			.user(userRepository.findById(userId)
-				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND)))
-			.visitType(request.getVisitType())
-			.selfSymptomList(new ArrayList<>())
-			.duration(request.getDuration())
-			.painSeverity(request.getPainSeverity())
-			.additionalNote(request.getAdditionalNote())
-			.createdAt(diagnosis.getCreatedAt())
-			.build();
+		SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.DiagnosisUpdateRequest2SelfDiagnosis(diagnosis, userId,
+			request);
 
 		for (String symptom : request.getSymptoms()) { //(단순 문자열로 된) 리스트를 돌면서
 
 			Symptom foundSymptom = symptomRepository.findByName(symptom) //증상이 Symptom table 에 존재하면
 				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
 
-			//Symptom id 찾아두기
-			Long symptomId = foundSymptom.getId();
-
 			//SelfSymptom 객체 생성
-			SelfSymptom symptom1 = SelfSymptom.builder()
-				.selfDiagnosis(updatedDiagnosis)
-				.symptom(foundSymptom)
-				.diagnosisSymptomPk(new DiagnosisSymptomPK(updatedDiagnosis.getId(),
-					symptomId))
-				.build();
+			SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(updatedDiagnosis, foundSymptom);
 
 			//SelfDiagnosis 의 selfSymptomList 에 해당 증상 추가
 			updatedDiagnosis.getSelfSymptomList().add(symptom1);
@@ -168,6 +135,7 @@ public class SelfDiagnosisService {
 		return SelfDiagnosisConverter.diagnosis2DiagnosisUpdateResponse(updatedDiagnosis);
 	}
 
+	//특정 자가진단표에 증상 추가
 	@Transactional
 	public void addSymptomsToSelfDiagnosis(Long diagnosisId, AddSymptomsToDiagnosisRequest request) {
 
@@ -185,14 +153,7 @@ public class SelfDiagnosisService {
 			Symptom foundSymptom = symptomRepository.findByName(symptom)
 				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
 
-			Long symptomId = foundSymptom.getId();
-
-			SelfSymptom symptom1 = SelfSymptom.builder()
-				.selfDiagnosis(diagnosis)
-				.symptom(foundSymptom)
-				.diagnosisSymptomPk(new DiagnosisSymptomPK(diagnosis.getId(),
-					symptomId))
-				.build();
+			SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(diagnosis, foundSymptom);
 
 			diagnosis.getSelfSymptomList().add(symptom1);
 
