@@ -40,7 +40,7 @@ public class SelfDiagnosisController {
 	public ResponseEntity<ApiResponse<DiagnosisCreateResponseDetailed>> createDiagnosis(
 		@RequestBody @Valid DiagnosisCreateRequest request) {
 		DiagnosisCreateResponseDetailed response = selfDiagnosisService.createDiagnosis(request);
-		return ResponseEntity.ok(ApiResponse.success(response));
+		return ResponseEntity.ok(ApiResponse.created(response));
 	}
 
 	//(자가진단표)id로 자가진단표 조회
