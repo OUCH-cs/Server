@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
 import com.onebridge.ouch.apiPayload.code.error.DiagnosisErrorCode;
 import com.onebridge.ouch.apiPayload.exception.OuchException;
@@ -36,7 +35,6 @@ public class SelfDiagnosisService {
 	private final SymptomRepository symptomRepository;
 	private final UserRepository userRepository;
 	private final SelfDiagnosisConverter selfDiagnosisConverter;
-	private final RequestMappingHandlerAdapter requestMappingHandlerAdapter;
 
 	//자가진단표 생성
 	@Transactional

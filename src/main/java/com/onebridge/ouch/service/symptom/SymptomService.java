@@ -1,6 +1,5 @@
 package com.onebridge.ouch.service.symptom;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -23,12 +22,6 @@ public class SymptomService {
 	@Transactional
 	public List<GetSymptomResponse> getSymptomsList() {
 		List<Symptom> symptoms = symptomRepository.findAll();
-
-		List<GetSymptomResponse> responseList = new ArrayList<>();
-		for (Symptom symptom : symptoms) {
-			responseList.add(symptomConverter.symptom2GetSymptomsResponse(symptom));
-		}
-
-		return responseList;
+		return symptomConverter.symptoms2GetSymptomsResponse(symptoms);
 	}
 }
