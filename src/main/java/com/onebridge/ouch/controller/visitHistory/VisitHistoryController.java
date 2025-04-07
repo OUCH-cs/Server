@@ -79,5 +79,4 @@ public class VisitHistoryController {
 		VisitHistoryUpdateResponse response = visitHistoryService.updateVisitHistory(request, medicalRecordId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
-
 }

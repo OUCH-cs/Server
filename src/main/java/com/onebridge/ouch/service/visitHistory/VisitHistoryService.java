@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.onebridge.ouch.apiPayload.code.error.VisitHistoryErrorCode;
 import com.onebridge.ouch.apiPayload.exception.OuchException;
 import com.onebridge.ouch.converter.VisitHistoryConverter;
+import com.onebridge.ouch.domain.Department;
+import com.onebridge.ouch.domain.Hospital;
 import com.onebridge.ouch.domain.Summary;
 import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.mapping.VisitHistory;
@@ -39,8 +41,19 @@ public class VisitHistoryService {
 	//의료 기록 생성
 	@Transactional
 	public VisitHistoryCreateResponse createVisitHistory(VisitHistoryCreateRequest request, Long userId) {
+
+		User user = userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.USER_NOT_FOUND));
+
+		Hospital hospital = hospitalRepository.findByName(request.getVisitingHospital())
+			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.HOSPITAL_NOT_FOUND));
+
+		Department department = departmentRepository.findByName(request.getMedicalSubject())
+			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.DEPARTMENT_NOT_FOUND));
+
 		// 1. VisitHistory 먼저 저장
-		VisitHistory visitHistory = visitHistoryConverter.visitHistoryCreateRequest2VisitHistory(request, userId);
+		VisitHistory visitHistory = visitHistoryConverter.visitHistoryCreateRequest2VisitHistory(request, user,
+			hospital, department);
 
 		// 2. Summary 생성
 		Summary summary = visitHistoryConverter.visitHistoryCreateRequest2Summary(request, visitHistory);
@@ -92,10 +105,16 @@ public class VisitHistoryService {
 		VisitHistory visitHistory = visitHistoryRepository.findById(visitHistoryId)
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_NOT_FOUND));
 
+		Hospital hospital = hospitalRepository.findByName(request.getVisitingHospital())
+			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.HOSPITAL_NOT_FOUND));
+
+		Department department = departmentRepository.findByName(request.getMedicalSubject()
+		).orElseThrow(() -> new OuchException(VisitHistoryErrorCode.DEPARTMENT_NOT_FOUND));
+
 		Summary summary = visitHistory.getSummary();
-		
+
 		VisitHistory updatedVisitHistory = visitHistoryConverter.visitHistoryUpdateRequest2VisitHistory(request,
-			visitHistory);
+			visitHistory, hospital, department);
 
 		Summary updatedSummary = visitHistoryConverter.visitHistoryUpdateRequest2Summary(request, updatedVisitHistory,
 			summary);
