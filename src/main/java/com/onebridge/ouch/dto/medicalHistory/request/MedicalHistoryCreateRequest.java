@@ -3,10 +3,8 @@ package com.onebridge.ouch.dto.medicalHistory.request;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
 public class MedicalHistoryCreateRequest {
 
 	@NotBlank(message = "Disease is required.")

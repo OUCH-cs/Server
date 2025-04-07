@@ -32,15 +32,8 @@ public class MedicalHistoryService {
 	//건강상태 생성
 	@Transactional
 	public MedicalHistoryCreateResponse createMedicalHistory(MedicalHistoryCreateRequest request, Long userId) {
-		MedicalHistory medicalHistory = MedicalHistory.builder()
-			.user(userRepository.findById(userId)
-				.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.USER_NOT_FOUND)))
-			.disease(request.getDisease())
-			.allergy(request.getAllergy())
-			.bloodPressure(request.getBloodPressure())
-			.bloodSugar(request.getBloodSugar())
-			.medicineHistory(request.getMedicineHistory())
-			.build();
+		MedicalHistory medicalHistory = medicalHistoryConverter.medicalHistoryCreateRequest2MedicalHistory(request,
+			userId);
 
 		medicalHistoryRepository.save(medicalHistory);
 
@@ -73,13 +66,8 @@ public class MedicalHistoryService {
 		MedicalHistory medicalHistory = medicalHistoryRepository.findById(medicalHistoryId)
 			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.MEDICAL_HISTORY_NOT_FOUND));
 
-		MedicalHistory updatedMedicalHistory = medicalHistory.toBuilder()
-			.disease(request.getDisease())
-			.allergy(request.getAllergy())
-			.bloodPressure(request.getBloodPressure())
-			.bloodSugar(request.getBloodSugar())
-			.medicineHistory(request.getMedicineHistory())
-			.build();
+		MedicalHistory updatedMedicalHistory = medicalHistoryConverter
+			.medicalHistoryUpdateRequest2MedicalHistory(medicalHistory, request);
 
 		medicalHistoryRepository.save(updatedMedicalHistory);
 
