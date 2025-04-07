@@ -75,7 +75,7 @@ public class MedicalHistoryController {
 	}
 
 	//특정 건강상태 삭제
-	@DeleteMapping("/update/{healthStatusId}")
+	@DeleteMapping("/delete/{healthStatusId}")
 	public ResponseEntity<ApiResponse<Void>> deleteMedicalHistory(@PathVariable Long healthStatusId) {
 		medicalHistoryService.deleteMedicalHistory(healthStatusId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());

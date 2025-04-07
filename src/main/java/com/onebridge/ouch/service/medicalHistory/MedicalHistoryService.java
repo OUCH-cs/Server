@@ -32,8 +32,12 @@ public class MedicalHistoryService {
 	//건강상태 생성
 	@Transactional
 	public MedicalHistoryCreateResponse createMedicalHistory(MedicalHistoryCreateRequest request, Long userId) {
+
+		User user = userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.USER_NOT_FOUND));
+
 		MedicalHistory medicalHistory = medicalHistoryConverter.medicalHistoryCreateRequest2MedicalHistory(request,
-			userId);
+			user);
 
 		medicalHistoryRepository.save(medicalHistory);
 

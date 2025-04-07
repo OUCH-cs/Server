@@ -5,24 +5,17 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.onebridge.ouch.apiPayload.code.error.MedicalHistoryErrorCode;
-import com.onebridge.ouch.apiPayload.exception.OuchException;
 import com.onebridge.ouch.domain.MedicalHistory;
+import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.dto.medicalHistory.request.MedicalHistoryCreateRequest;
 import com.onebridge.ouch.dto.medicalHistory.request.MedicalHistoryUpdateRequest;
 import com.onebridge.ouch.dto.medicalHistory.response.DateAndDisease;
 import com.onebridge.ouch.dto.medicalHistory.response.GetMedicalHistoryResponse;
 import com.onebridge.ouch.dto.medicalHistory.response.MedicalHistoryCreateResponse;
 import com.onebridge.ouch.dto.medicalHistory.response.MedicalHistoryUpdateResponse;
-import com.onebridge.ouch.repository.user.UserRepository;
 
 @Component
 public class MedicalHistoryConverter {
-	private final UserRepository userRepository;
-
-	public MedicalHistoryConverter(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
 
 	public MedicalHistoryCreateResponse medicalHistory2MedicalHistoryResponse(MedicalHistory medicalHistory,
 		Long userId) {
@@ -56,10 +49,9 @@ public class MedicalHistoryConverter {
 			medicalHistory.getMedicineHistory());
 	}
 
-	public MedicalHistory medicalHistoryCreateRequest2MedicalHistory(MedicalHistoryCreateRequest request, Long userId) {
+	public MedicalHistory medicalHistoryCreateRequest2MedicalHistory(MedicalHistoryCreateRequest request, User user) {
 		return MedicalHistory.builder()
-			.user(userRepository.findById(userId)
-				.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.USER_NOT_FOUND)))
+			.user(user)
 			.disease(request.getDisease())
 			.allergy(request.getAllergy())
 			.bloodPressure(request.getBloodPressure())
