@@ -40,8 +40,11 @@ public class SelfDiagnosisService {
 	@Transactional
 	public DiagnosisCreateResponseDetailed createDiagnosis(DiagnosisCreateRequest request) {
 
+		User user = userRepository.findById(request.getUserId())
+			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
+
 		//일단 증상 리스트는 비워둔 채로 SelfDiagnosis 객체 생성
-		SelfDiagnosis selfDiagnosis = selfDiagnosisConverter.DiagnosisCreateRequest2SelfDiagnosis(request);
+		SelfDiagnosis selfDiagnosis = selfDiagnosisConverter.DiagnosisCreateRequest2SelfDiagnosis(request, user);
 
 		//dto 로 받은 selfSymptom(리스트)의 각 요소가 Symptom table 에 존재하는지 확인
 		for (String symptom : request.getSymptoms()) { //(단순 문자열로 된) 리스트를 돌면서
@@ -112,7 +115,10 @@ public class SelfDiagnosisService {
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
-		SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.DiagnosisUpdateRequest2SelfDiagnosis(diagnosis, userId,
+		User user = userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
+
+		SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.DiagnosisUpdateRequest2SelfDiagnosis(diagnosis, user,
 			request);
 
 		for (String symptom : request.getSymptoms()) { //(단순 문자열로 된) 리스트를 돌면서
