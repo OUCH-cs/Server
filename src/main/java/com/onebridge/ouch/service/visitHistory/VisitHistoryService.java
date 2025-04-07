@@ -40,23 +40,10 @@ public class VisitHistoryService {
 	@Transactional
 	public VisitHistoryCreateResponse createVisitHistory(VisitHistoryCreateRequest request, Long userId) {
 		// 1. VisitHistory 먼저 저장
-		VisitHistory visitHistory = VisitHistory.builder()
-			.user(userRepository.findById(userId)
-				.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.USER_NOT_FOUND)))
-			.visitDate(request.getVisitDate())
-			.hospital(hospitalRepository.findByName(request.getVisitingHospital())
-				.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.HOSPITAL_NOT_FOUND)))
-			.department(departmentRepository.findByName(request.getMedicalSubject())
-				.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.DEPARTMENT_NOT_FOUND)))
-			.symptoms(request.getSymptoms())
-			.build();
+		VisitHistory visitHistory = visitHistoryConverter.visitHistoryCreateRequest2VisitHistory(request, userId);
 
-		// 2. Summary 저장
-		Summary summary = Summary.builder()
-			.visitHistory(visitHistory)
-			.contents(request.getTreatmentSummary())
-			.contents_summary(request.getTreatmentSummary())
-			.build();
+		// 2. Summary 생성
+		Summary summary = visitHistoryConverter.visitHistoryCreateRequest2Summary(request, visitHistory);
 
 		summary = summaryRepository.save(summary); // Summary 저장
 
@@ -106,23 +93,12 @@ public class VisitHistoryService {
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_NOT_FOUND));
 
 		Summary summary = visitHistory.getSummary();
+		
+		VisitHistory updatedVisitHistory = visitHistoryConverter.visitHistoryUpdateRequest2VisitHistory(request,
+			visitHistory);
 
-		VisitHistory updatedVisitHistory = visitHistory.toBuilder()
-			.visitDate(request.getVisitDate())
-			.hospital(hospitalRepository.findByName(request.getVisitingHospital())
-				.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.HOSPITAL_NOT_FOUND))
-			)
-			.department(departmentRepository.findByName(request.getMedicalSubject())
-				.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.DEPARTMENT_NOT_FOUND))
-			)
-			.symptoms(request.getSymptoms())
-			.build();
-
-		Summary updatedSummary = summary.toBuilder()
-			.visitHistory(updatedVisitHistory)
-			.contents(request.getTreatmentSummary())
-			.contents_summary(request.getTreatmentSummary())
-			.build();
+		Summary updatedSummary = visitHistoryConverter.visitHistoryUpdateRequest2Summary(request, updatedVisitHistory,
+			summary);
 
 		summary = summaryRepository.save(updatedSummary); // Summary 저장
 

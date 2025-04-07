@@ -3,6 +3,7 @@ package com.onebridge.ouch.controller.visitHistory;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.onebridge.ouch.dto.visitHistory.request.VisitHistoryUpdateRequest;
 import com.onebridge.ouch.dto.visitHistory.response.DateAndHospital;
 import com.onebridge.ouch.dto.visitHistory.response.VisitHistoryCreateResponse;
 import com.onebridge.ouch.dto.visitHistory.response.VisitHistoryUpdateResponse;
+import com.onebridge.ouch.security.userDetail.OuchUserDetails;
 import com.onebridge.ouch.service.visitHistory.VisitHistoryService;
 
 import jakarta.validation.Valid;
@@ -31,37 +33,46 @@ public class VisitHistoryController {
 	private final VisitHistoryService visitHistoryService;
 
 	// 의료기록 생성
-	@PostMapping("/{userId}")
+	// @PostMapping("/{userId}") //테스트를 위해 주석으로 남겨두겠습니다.
+	@PostMapping("/create")
 	public ResponseEntity<ApiResponse<VisitHistoryCreateResponse>> createVisitHistory(
 		@RequestBody @Valid VisitHistoryCreateRequest request,
-		@PathVariable Long userId) {
+		// @PathVariable Long userId
+		@AuthenticationPrincipal OuchUserDetails userDetails
+	) {
+		Long userId = userDetails.getDatabaseId();
 		VisitHistoryCreateResponse response = visitHistoryService.createVisitHistory(request, userId);
 		return ResponseEntity.ok(ApiResponse.created(response));
 	}
 
 	// 특정 의료기록 조회
-	@GetMapping("/{userId}/{medicalRecordId}")
+	@GetMapping("/get/{medicalRecordId}")
 	public ResponseEntity<ApiResponse<VisitHistoryUpdateResponse>> getVisitHistory(@PathVariable Long medicalRecordId) {
 		VisitHistoryUpdateResponse response = visitHistoryService.getVisitHistory(medicalRecordId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
 	// 특정 사용자의 모든 의료기록 조회 (의료기록 메인 페이지용)
-	@GetMapping("/get-all/{userId}")
-	public ResponseEntity<ApiResponse<List<DateAndHospital>>> getUsersAllVisitHistory(@PathVariable Long userId) {
+	// @GetMapping("/get-all/{userId}")
+	@GetMapping("/get-all")
+	public ResponseEntity<ApiResponse<List<DateAndHospital>>> getUsersAllVisitHistory(
+		// @PathVariable Long userId
+		@AuthenticationPrincipal OuchUserDetails userDetails
+	) {
+		Long userId = userDetails.getDatabaseId();
 		List<DateAndHospital> list = visitHistoryService.getUsersAllVisitHistory(userId);
 		return ResponseEntity.ok(ApiResponse.success(list));
 	}
 
 	//특정 의료기록 삭제
-	@DeleteMapping("/{userId}/{medicalRecordId}")
+	@DeleteMapping("/delete/{medicalRecordId}")
 	public ResponseEntity<ApiResponse<Void>> deleteVisitHistory(@PathVariable Long medicalRecordId) {
 		visitHistoryService.deleteVisitHistory(medicalRecordId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	//특정 의료기록 수정
-	@PutMapping("/{userId}/{medicalRecordId}")
+	@PutMapping("/update/{medicalRecordId}")
 	public ResponseEntity<ApiResponse<VisitHistoryUpdateResponse>> updateVisitHistory(
 		@RequestBody @Valid VisitHistoryUpdateRequest request,
 		@PathVariable Long medicalRecordId) {
