@@ -42,24 +42,11 @@ public class SelfDiagnosisService {
 	@Transactional
 	public DiagnosisCreateResponseDetailed createDiagnosis(DiagnosisCreateRequest request, Long userId) {
 
-		User user = userRepository.findById(request.getUserId()) //userId 로 바꾸기
+		User user = userRepository.findById(userId) //userId 로 바꾸기
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
 
 		//일단 증상 리스트는 비워둔 채로 SelfDiagnosis 객체 생성
 		SelfDiagnosis selfDiagnosis = selfDiagnosisConverter.DiagnosisCreateRequestToSelfDiagnosis(request, user);
-
-		//dto 로 받은 selfSymptom(리스트)의 각 요소가 Symptom table 에 존재하는지 확인
-		// for (String symptom : request.getSymptoms()) { //(단순 문자열로 된) 리스트를 돌면서
-		//
-		// 	Symptom foundSymptom = symptomRepository.findByName(symptom) //증상이 Symptom table 에 존재하면
-		// 		.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
-		//
-		// 	//SelfSymptom 객체 생성
-		// 	SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(selfDiagnosis, foundSymptom);
-		//
-		// 	//SelfDiagnosis 의 selfSymptomList 에 해당 증상 추가
-		// 	selfDiagnosis.getSelfSymptomList().add(symptom1);
-		// }
 
 		List<String> symptomNames = request.getSymptoms();
 		List<Symptom> foundSymptoms = symptomRepository.findByNameIn(symptomNames); // 1개의 쿼리
@@ -149,17 +136,21 @@ public class SelfDiagnosisService {
 		SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.DiagnosisUpdateRequestToSelfDiagnosis(diagnosis, user,
 			request);
 
-		for (String symptom : request.getSymptoms()) { //(단순 문자열로 된) 리스트를 돌면서
+		List<String> symptomNames = request.getSymptoms();
+		List<Symptom> foundSymptoms = symptomRepository.findByNameIn(symptomNames); // 1개의 쿼리
 
-			Symptom foundSymptom = symptomRepository.findByName(symptom) //증상이 Symptom table 에 존재하면
-				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
+		// 이름으로 빠르게 찾기 위해 Map 으로 변환
+		Map<String, Symptom> symptomMap = foundSymptoms.stream()
+			.collect(Collectors.toMap(Symptom::getName, s -> s));
 
-			//SelfSymptom 객체 생성
+		for (String symptomName : symptomNames) {
+			Symptom foundSymptom = symptomMap.get(symptomName);
+			if (foundSymptom == null) {
+				throw new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND);
+			}
+
 			SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(updatedDiagnosis, foundSymptom);
-
-			//SelfDiagnosis 의 selfSymptomList 에 해당 증상 추가
 			updatedDiagnosis.getSelfSymptomList().add(symptom1);
-
 		}
 
 		selfDiagnosisRepository.save(updatedDiagnosis);

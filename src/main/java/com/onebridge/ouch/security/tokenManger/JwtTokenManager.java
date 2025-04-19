@@ -74,9 +74,16 @@ public class JwtTokenManager implements TokenManager {
 				"provider", "ouch",
 				"type", "accessToken"
 			))
+			// .setClaims(Map.of(
+			// 	"loginId", authentication.getPrincipal(),
+			// 	"authorities", authentication.getAuthorities(),
+			// 	"id", authentication.getDetails()
+			// ))
 			.setClaims(Map.of(
-				"loginId", authentication.getPrincipal(),
-				"authorities", authentication.getAuthorities(),
+				"loginId", authentication.getName(),
+				"authorities", authentication.getAuthorities().stream()
+					.map(GrantedAuthority::getAuthority)
+					.toList(),
 				"id", authentication.getDetails()
 			))
 			.setIssuedAt(new Date())
