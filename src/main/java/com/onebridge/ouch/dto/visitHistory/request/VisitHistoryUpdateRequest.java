@@ -3,12 +3,13 @@ package com.onebridge.ouch.dto.visitHistory.request;
 import java.time.LocalDate;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 @Getter
 public class VisitHistoryUpdateRequest {
 
-	@NotBlank(message = "Visit date is required.")
+	@NotNull(message = "Visit date is required.")
 	private LocalDate visitDate;
 
 	@NotBlank(message = "Visiting hospital is required.")

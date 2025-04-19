@@ -65,7 +65,6 @@ public class VisitHistoryConverter {
 
 	public Summary visitHistoryCreateRequestToSummary(VisitHistoryCreateRequest request, VisitHistory visitHistory) {
 		return Summary.builder()
-			.visitHistory(visitHistory)
 			.contents(request.getTreatmentSummary())
 			.contents_summary(request.getTreatmentSummary())
 			.build();
@@ -84,7 +83,6 @@ public class VisitHistoryConverter {
 	public Summary visitHistoryUpdateRequestToSummary(VisitHistoryUpdateRequest request,
 		VisitHistory updatedVisitHistory, Summary summary) {
 		return summary.toBuilder()
-			.visitHistory(updatedVisitHistory)
 			.contents(request.getTreatmentSummary())
 			.contents_summary(request.getTreatmentSummary())
 			.build();

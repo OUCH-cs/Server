@@ -50,17 +50,7 @@ public class VisitHistory extends BaseEntity {
 
 	private String symptoms;
 
-	@OneToOne(mappedBy = "visitHistory", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	// @JoinColumn(name = "summary_id") -> visitHistory 를 삭제할 때(또는 User 를 삭제할 때) 오류 발생
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "summary_id")
 	private Summary summary;
-
-	private void setSummary(Summary summary) {
-		this.summary = summary;
-	}
-
-	public void assignSummary(Summary summary) {
-		this.setSummary(summary);
-		summary.setVisitHistory(this);
-	}
-
 }

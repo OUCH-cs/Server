@@ -51,25 +51,33 @@ public class VisitHistoryService {
 		Department department = departmentRepository.findByName(request.getMedicalSubject())
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.DEPARTMENT_NOT_FOUND));
 
-		// 1. VisitHistory 먼저 저장
-		VisitHistory visitHistory = visitHistoryConverter.visitHistoryCreateRequestToVisitHistory(request, user,
-			hospital, department);
+		// Summary 생성
+		Summary summary = Summary.builder()
+			.contents(request.getTreatmentSummary())
+			.contents_summary(request.getTreatmentSummary())
+			.build();
 
-		// 2. Summary 생성
-		Summary summary = visitHistoryConverter.visitHistoryCreateRequestToSummary(request, visitHistory);
+		// VisitHistory 생성
+		VisitHistory visitHistory = VisitHistory.builder()
+			.user(user)
+			.hospital(hospital)
+			.department(department)
+			.visitDate(request.getVisitDate())
+			.symptoms(request.getSymptoms())
+			.summary(summary)
+			.build();
 
-		summary = summaryRepository.save(summary); // Summary 저장
-
-		visitHistory.assignSummary(summary);
-
-		visitHistoryRepository.save(visitHistory); // 다시 저장 (연관관계 반영)
+		visitHistoryRepository.save(visitHistory);
 
 		return visitHistoryConverter.visitHistoryToVisitHistoryCreateResponse(visitHistory);
 	}
 
 	//특정 의료기록 조회
 	@Transactional
-	public VisitHistoryUpdateResponse getVisitHistory(Long visitHistoryId) {
+	public VisitHistoryUpdateResponse getVisitHistory(Long visitHistoryId, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.USER_NOT_FOUND));
+
 		VisitHistory visitHistory = visitHistoryRepository.findById(visitHistoryId)
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_NOT_FOUND));
 
@@ -89,7 +97,10 @@ public class VisitHistoryService {
 
 	//특정 의료기록 삭제
 	@Transactional
-	public void deleteVisitHistory(Long visitHistoryId) {
+	public void deleteVisitHistory(Long visitHistoryId, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.USER_NOT_FOUND));
+
 		VisitHistory visitHistory = visitHistoryRepository.findById(visitHistoryId)
 			.orElseThrow(
 				() -> new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_NOT_FOUND));
@@ -98,10 +109,12 @@ public class VisitHistoryService {
 	}
 
 	//특정 의료기록 수정
-	//VisitHistory entity 클래스에 update 메서드를 추가하는 방식으로 바꿀까요?
 	@Transactional
 	public VisitHistoryUpdateResponse updateVisitHistory(@Valid VisitHistoryUpdateRequest request,
-		Long visitHistoryId) {
+		Long visitHistoryId, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.USER_NOT_FOUND));
+
 		VisitHistory visitHistory = visitHistoryRepository.findById(visitHistoryId)
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_NOT_FOUND));
 
@@ -111,19 +124,20 @@ public class VisitHistoryService {
 		Department department = departmentRepository.findByName(request.getMedicalSubject()
 		).orElseThrow(() -> new OuchException(VisitHistoryErrorCode.DEPARTMENT_NOT_FOUND));
 
-		Summary summary = visitHistory.getSummary();
+		Summary summary = visitHistory.getSummary().toBuilder()
+			.contents(request.getTreatmentSummary())
+			.contents_summary(request.getTreatmentSummary())
+			.build();
 
-		VisitHistory updatedVisitHistory = visitHistoryConverter.visitHistoryUpdateRequestToVisitHistory(request,
-			visitHistory, hospital, department);
+		VisitHistory updatedVisitHistory = visitHistory.toBuilder()
+			.visitDate(request.getVisitDate())
+			.hospital(hospital)
+			.department(department)
+			.symptoms(request.getSymptoms())
+			.summary(summary)
+			.build();
 
-		Summary updatedSummary = visitHistoryConverter.visitHistoryUpdateRequestToSummary(request, updatedVisitHistory,
-			summary);
-
-		summary = summaryRepository.save(updatedSummary); // Summary 저장
-
-		visitHistory.assignSummary(summary);
-
-		visitHistoryRepository.save(updatedVisitHistory); // 다시 저장 (연관관계 반영)
+		visitHistoryRepository.save(updatedVisitHistory);
 
 		return visitHistoryConverter.visitHistoryToVisitHistoryUpdateResponse(visitHistory);
 	}
