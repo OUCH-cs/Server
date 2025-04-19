@@ -24,8 +24,8 @@ public class Summary extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(columnDefinition = "TEXT")
-	private String contents;
+	// @Column(columnDefinition = "TEXT")
+	// private String contents;
 
 	@Column(columnDefinition = "TEXT")
 	private String contents_summary;

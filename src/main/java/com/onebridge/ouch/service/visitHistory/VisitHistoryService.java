@@ -53,7 +53,6 @@ public class VisitHistoryService {
 
 		// Summary 생성
 		Summary summary = Summary.builder()
-			.contents(request.getTreatmentSummary())
 			.contents_summary(request.getTreatmentSummary())
 			.build();
 
@@ -125,7 +124,6 @@ public class VisitHistoryService {
 		).orElseThrow(() -> new OuchException(VisitHistoryErrorCode.DEPARTMENT_NOT_FOUND));
 
 		Summary summary = visitHistory.getSummary().toBuilder()
-			.contents(request.getTreatmentSummary())
 			.contents_summary(request.getTreatmentSummary())
 			.build();
 

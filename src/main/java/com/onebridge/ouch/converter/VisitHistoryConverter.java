@@ -26,14 +26,14 @@ public class VisitHistoryConverter {
 		return new VisitHistoryCreateResponse(visitHistory.getId(), visitHistory.getVisitDate(),
 			visitHistory.getHospital().getName(),
 			visitHistory.getDepartment().getName(), visitHistory.getSymptoms(),
-			visitHistory.getSummary().getContents());
+			visitHistory.getSummary().getContents_summary());
 	}
 
 	public VisitHistoryUpdateResponse visitHistoryToGetVisitHistoryResponse(VisitHistory visitHistory) {
 		return new VisitHistoryUpdateResponse(visitHistory.getId(), visitHistory.getVisitDate(),
 			visitHistory.getHospital().getName(),
 			visitHistory.getDepartment().getName(), visitHistory.getSymptoms(),
-			visitHistory.getSummary().getContents());
+			visitHistory.getSummary().getContents_summary());
 	}
 
 	public List<DateAndHospital> visitHistoryToGetUsersAllVisitHistoryResponse(List<VisitHistory> visitHistory) {
@@ -49,7 +49,7 @@ public class VisitHistoryConverter {
 		return new VisitHistoryUpdateResponse(visitHistory.getId(), visitHistory.getVisitDate(),
 			visitHistory.getHospital().getName(),
 			visitHistory.getDepartment().getName(), visitHistory.getSymptoms(),
-			visitHistory.getSummary().getContents());
+			visitHistory.getSummary().getContents_summary());
 	}
 
 	public VisitHistory visitHistoryCreateRequestToVisitHistory(VisitHistoryCreateRequest request, User user,
@@ -65,7 +65,6 @@ public class VisitHistoryConverter {
 
 	public Summary visitHistoryCreateRequestToSummary(VisitHistoryCreateRequest request, VisitHistory visitHistory) {
 		return Summary.builder()
-			.contents(request.getTreatmentSummary())
 			.contents_summary(request.getTreatmentSummary())
 			.build();
 	}
@@ -83,7 +82,6 @@ public class VisitHistoryConverter {
 	public Summary visitHistoryUpdateRequestToSummary(VisitHistoryUpdateRequest request,
 		VisitHistory updatedVisitHistory, Summary summary) {
 		return summary.toBuilder()
-			.contents(request.getTreatmentSummary())
 			.contents_summary(request.getTreatmentSummary())
 			.build();
 	}
