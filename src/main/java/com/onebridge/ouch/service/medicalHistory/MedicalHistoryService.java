@@ -36,20 +36,23 @@ public class MedicalHistoryService {
 		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.USER_NOT_FOUND));
 
-		MedicalHistory medicalHistory = medicalHistoryConverter.medicalHistoryCreateRequest2MedicalHistory(request,
+		MedicalHistory medicalHistory = medicalHistoryConverter.medicalHistoryCreateRequestToMedicalHistory(request,
 			user);
 
 		medicalHistoryRepository.save(medicalHistory);
 
-		return medicalHistoryConverter.medicalHistory2MedicalHistoryResponse(medicalHistory, userId);
+		return medicalHistoryConverter.medicalHistoryToMedicalHistoryResponse(medicalHistory, userId);
 	}
 
 	//특정 건강상태 조회
 	@Transactional
-	public GetMedicalHistoryResponse getMedicalHistory(Long medicalHistoryId) {
+	public GetMedicalHistoryResponse getMedicalHistory(Long medicalHistoryId, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.USER_NOT_FOUND));
+
 		MedicalHistory medicalHistory = medicalHistoryRepository.findById(medicalHistoryId)
 			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.MEDICAL_HISTORY_NOT_FOUND));
-		return medicalHistoryConverter.medicalHistory2GetMedicalHistoryResponse(medicalHistory);
+		return medicalHistoryConverter.medicalHistoryToGetMedicalHistoryResponse(medicalHistory);
 	}
 
 	//특정 사용자의 모든 건강상태 조회
@@ -60,27 +63,33 @@ public class MedicalHistoryService {
 			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.USER_NOT_FOUND));
 
 		List<MedicalHistory> medicalHistory = medicalHistoryRepository.findAllByUserId(userId);
-		return medicalHistoryConverter.medicalHistory2GetUsersAllMedicalHistoryResponse(medicalHistory);
+		return medicalHistoryConverter.medicalHistoryToGetUsersAllMedicalHistoryResponse(medicalHistory);
 	}
 
 	//특정 건강상태 수정
 	@Transactional
 	public MedicalHistoryUpdateResponse updateMedicalHistory(MedicalHistoryUpdateRequest request,
-		Long medicalHistoryId) {
+		Long medicalHistoryId, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.USER_NOT_FOUND));
+
 		MedicalHistory medicalHistory = medicalHistoryRepository.findById(medicalHistoryId)
 			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.MEDICAL_HISTORY_NOT_FOUND));
 
 		MedicalHistory updatedMedicalHistory = medicalHistoryConverter
-			.medicalHistoryUpdateRequest2MedicalHistory(medicalHistory, request);
+			.medicalHistoryUpdateRequestToMedicalHistory(medicalHistory, request);
 
 		medicalHistoryRepository.save(updatedMedicalHistory);
 
-		return medicalHistoryConverter.medicalHistory2MedicalHistoryUpdateResponse(updatedMedicalHistory);
+		return medicalHistoryConverter.medicalHistoryToMedicalHistoryUpdateResponse(updatedMedicalHistory);
 	}
 
 	//특정 건강상태 삭제
 	@Transactional
-	public void deleteMedicalHistory(Long medicalHistoryId) {
+	public void deleteMedicalHistory(Long medicalHistoryId, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.USER_NOT_FOUND));
+
 		MedicalHistory medicalHistory = medicalHistoryRepository.findById(medicalHistoryId)
 			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.MEDICAL_HISTORY_NOT_FOUND));
 

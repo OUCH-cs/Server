@@ -17,7 +17,7 @@ import com.onebridge.ouch.dto.medicalHistory.response.MedicalHistoryUpdateRespon
 @Component
 public class MedicalHistoryConverter {
 
-	public MedicalHistoryCreateResponse medicalHistory2MedicalHistoryResponse(MedicalHistory medicalHistory,
+	public MedicalHistoryCreateResponse medicalHistoryToMedicalHistoryResponse(MedicalHistory medicalHistory,
 		Long userId) {
 		return new MedicalHistoryCreateResponse(medicalHistory.getId(),
 			medicalHistory.getDisease(),
@@ -25,7 +25,7 @@ public class MedicalHistoryConverter {
 			medicalHistory.getBloodPressure(), medicalHistory.getBloodSugar(), medicalHistory.getMedicineHistory());
 	}
 
-	public List<DateAndDisease> medicalHistory2GetUsersAllMedicalHistoryResponse(
+	public List<DateAndDisease> medicalHistoryToGetUsersAllMedicalHistoryResponse(
 		List<MedicalHistory> medicalHistory) {
 
 		List<DateAndDisease> list = new ArrayList<>();
@@ -37,19 +37,19 @@ public class MedicalHistoryConverter {
 		return list;
 	}
 
-	public GetMedicalHistoryResponse medicalHistory2GetMedicalHistoryResponse(MedicalHistory medicalHistory) {
+	public GetMedicalHistoryResponse medicalHistoryToGetMedicalHistoryResponse(MedicalHistory medicalHistory) {
 		return new GetMedicalHistoryResponse(medicalHistory.getId(), medicalHistory.getDisease(),
 			medicalHistory.getAllergy(), medicalHistory.getBloodPressure(), medicalHistory.getBloodSugar(),
 			medicalHistory.getMedicineHistory());
 	}
 
-	public MedicalHistoryUpdateResponse medicalHistory2MedicalHistoryUpdateResponse(MedicalHistory medicalHistory) {
+	public MedicalHistoryUpdateResponse medicalHistoryToMedicalHistoryUpdateResponse(MedicalHistory medicalHistory) {
 		return new MedicalHistoryUpdateResponse(medicalHistory.getId(), medicalHistory.getDisease(),
 			medicalHistory.getAllergy(), medicalHistory.getBloodPressure(), medicalHistory.getBloodSugar(),
 			medicalHistory.getMedicineHistory());
 	}
 
-	public MedicalHistory medicalHistoryCreateRequest2MedicalHistory(MedicalHistoryCreateRequest request, User user) {
+	public MedicalHistory medicalHistoryCreateRequestToMedicalHistory(MedicalHistoryCreateRequest request, User user) {
 		return MedicalHistory.builder()
 			.user(user)
 			.disease(request.getDisease())
@@ -60,7 +60,7 @@ public class MedicalHistoryConverter {
 			.build();
 	}
 
-	public MedicalHistory medicalHistoryUpdateRequest2MedicalHistory(MedicalHistory medicalHistory,
+	public MedicalHistory medicalHistoryUpdateRequestToMedicalHistory(MedicalHistory medicalHistory,
 		MedicalHistoryUpdateRequest request) {
 		return medicalHistory.toBuilder()
 			.disease(request.getDisease())

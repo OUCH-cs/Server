@@ -34,11 +34,9 @@ public class MedicalHistoryController {
 	private final MedicalHistoryService medicalHistoryService;
 
 	//건강상태 생성
-	// @PostMapping("/{userId}")
-	@PostMapping("/create")
+	@PostMapping
 	public ResponseEntity<ApiResponse<MedicalHistoryCreateResponse>> createMedicalHistory(
 		@RequestBody @Valid MedicalHistoryCreateRequest request,
-		// @PathVariable Long userId
 		@AuthenticationPrincipal OuchUserDetails userDetails
 	) {
 		Long userId = userDetails.getDatabaseId();
@@ -47,17 +45,18 @@ public class MedicalHistoryController {
 	}
 
 	//특정 건강상태 조회
-	@GetMapping("/get/{healthStatusId}")
-	public ResponseEntity<ApiResponse<GetMedicalHistoryResponse>> getMedicalHistory(@PathVariable Long healthStatusId) {
-		GetMedicalHistoryResponse response = medicalHistoryService.getMedicalHistory(healthStatusId);
+	@GetMapping("/{healthStatusId}")
+	public ResponseEntity<ApiResponse<GetMedicalHistoryResponse>> getMedicalHistory(@PathVariable Long healthStatusId,
+		@AuthenticationPrincipal OuchUserDetails userDetails
+	) {
+		Long userId = userDetails.getDatabaseId();
+		GetMedicalHistoryResponse response = medicalHistoryService.getMedicalHistory(healthStatusId, userId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
 	//특정 사용자의 모든 건강상태 조회
-	// @GetMapping("/get-all/{userId}")
-	@GetMapping("/get-all")
+	@GetMapping
 	public ResponseEntity<ApiResponse<List<DateAndDisease>>> getUsersAllMedicalHistory(
-		// @PathVariable Long userId
 		@AuthenticationPrincipal OuchUserDetails userDetails
 	) {
 		Long userId = userDetails.getDatabaseId();
@@ -66,18 +65,25 @@ public class MedicalHistoryController {
 	}
 
 	//특정 건강상태 수정
-	@PutMapping("/update/{healthStatusId}")
+	@PutMapping("/{healthStatusId}")
 	public ResponseEntity<ApiResponse<MedicalHistoryUpdateResponse>> updateMedicalHistory(
 		@RequestBody @Valid MedicalHistoryUpdateRequest request,
-		@PathVariable Long healthStatusId) {
-		MedicalHistoryUpdateResponse response = medicalHistoryService.updateMedicalHistory(request, healthStatusId);
+		@PathVariable Long healthStatusId,
+		@AuthenticationPrincipal OuchUserDetails userDetails
+	) {
+		Long userId = userDetails.getDatabaseId();
+		MedicalHistoryUpdateResponse response = medicalHistoryService.updateMedicalHistory(request, healthStatusId,
+			userId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
 	//특정 건강상태 삭제
-	@DeleteMapping("/delete/{healthStatusId}")
-	public ResponseEntity<ApiResponse<Void>> deleteMedicalHistory(@PathVariable Long healthStatusId) {
-		medicalHistoryService.deleteMedicalHistory(healthStatusId);
+	@DeleteMapping("/{healthStatusId}")
+	public ResponseEntity<ApiResponse<Void>> deleteMedicalHistory(@PathVariable Long healthStatusId,
+		@AuthenticationPrincipal OuchUserDetails userDetails
+	) {
+		Long userId = userDetails.getDatabaseId();
+		medicalHistoryService.deleteMedicalHistory(healthStatusId, userId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 }
