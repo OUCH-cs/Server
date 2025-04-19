@@ -42,14 +42,14 @@ public class SelfDiagnosisService {
 	@Transactional
 	public DiagnosisCreateResponseDetailed createDiagnosis(DiagnosisCreateRequest request, Long userId) {
 
-		User user = userRepository.findById(userId) //userId 로 바꾸기
+		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
 
 		//일단 증상 리스트는 비워둔 채로 SelfDiagnosis 객체 생성
 		SelfDiagnosis selfDiagnosis = selfDiagnosisConverter.DiagnosisCreateRequestToSelfDiagnosis(request, user);
 
 		List<String> symptomNames = request.getSymptoms();
-		List<Symptom> foundSymptoms = symptomRepository.findByNameIn(symptomNames); // 1개의 쿼리
+		List<Symptom> foundSymptoms = symptomRepository.findByNameIn(symptomNames);
 
 		// 이름으로 빠르게 찾기 위해 Map 으로 변환
 		Map<String, Symptom> symptomMap = foundSymptoms.stream()
@@ -65,7 +65,6 @@ public class SelfDiagnosisService {
 			selfDiagnosis.getSelfSymptomList().add(symptom1);
 		}
 
-		//SelfDiagnosis table 에 저장
 		selfDiagnosisRepository.save(selfDiagnosis);
 
 		return selfDiagnosisConverter.diagnosisToDiagnosisCreateResponseDetailed(selfDiagnosis);
@@ -124,7 +123,6 @@ public class SelfDiagnosisService {
 	}
 
 	//자가진단표 수정
-	//SelfDiagnosis entity 클래스에 update 메서드를 추가하는 방식으로 바꿀까요?
 	@Transactional
 	public DiagnosisUpdateResponse updateDiagnosis(Long diagnosisId, Long userId, DiagnosisUpdateRequest request) {
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
@@ -137,7 +135,7 @@ public class SelfDiagnosisService {
 			request);
 
 		List<String> symptomNames = request.getSymptoms();
-		List<Symptom> foundSymptoms = symptomRepository.findByNameIn(symptomNames); // 1개의 쿼리
+		List<Symptom> foundSymptoms = symptomRepository.findByNameIn(symptomNames);
 
 		// 이름으로 빠르게 찾기 위해 Map 으로 변환
 		Map<String, Symptom> symptomMap = foundSymptoms.stream()
