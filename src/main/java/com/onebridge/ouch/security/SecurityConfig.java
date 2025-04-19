@@ -55,9 +55,9 @@ public class SecurityConfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 
-		//configuration.addAllowedOriginPattern("*");
-		configuration.addAllowedOrigin("http://localhost:5173");
-		configuration.addAllowedOrigin("https://ouchs.netlify.app");
+		configuration.addAllowedOriginPattern("*");
+		// configuration.addAllowedOrigin("http://localhost:5173");
+		// configuration.addAllowedOrigin("https://ouchs.netlify.app");
 
 		configuration.addAllowedHeader("*");
 		configuration.addAllowedMethod("*");
@@ -73,6 +73,7 @@ public class SecurityConfig {
 	// http.cors() 설정은 Spring Security가 인식할 수 있도록 등록하는 용도
 	// 그런데 Spring Security의 인증 필터가 우선 적용돼서 OPTIONS 요청이 필터에서 차단되는 경우가 있음
 	// 그래서 별도로 FilterRegistrationBean<CorsFilter>를 추가하면 이 필터가 모든 요청에서 가장 우선 실행되어서 확실히 적용됨
+	/*
 	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilter() {
 		CorsConfiguration config = new CorsConfiguration();
@@ -91,4 +92,5 @@ public class SecurityConfig {
 		bean.setOrder(0); // 필터 최우선 순위 설정
 		return bean;
 	}
+	*/
 }
