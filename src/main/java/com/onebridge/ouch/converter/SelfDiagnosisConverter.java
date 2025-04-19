@@ -22,7 +22,7 @@ import com.onebridge.ouch.dto.selfDiagnosis.response.GetSymptomsOfDiagnosisRespo
 @Component
 public class SelfDiagnosisConverter {
 
-	public static DiagnosisUpdateResponse diagnosis2DiagnosisUpdateResponse(SelfDiagnosis updatedDiagnosis) {
+	public DiagnosisUpdateResponse diagnosisToDiagnosisUpdateResponse(SelfDiagnosis updatedDiagnosis) {
 		List<String> symptoms = new ArrayList<>();
 		for (SelfSymptom symptom : updatedDiagnosis.getSelfSymptomList()) {
 			symptoms.add(symptom.getSymptom().getName());
@@ -32,7 +32,7 @@ public class SelfDiagnosisConverter {
 			updatedDiagnosis.getCreatedAt().toString());
 	}
 
-	public DiagnosisCreateResponseDetailed diagnosis2DiagnosisCreateResponseDetailed(SelfDiagnosis diagnosis) {
+	public DiagnosisCreateResponseDetailed diagnosisToDiagnosisCreateResponseDetailed(SelfDiagnosis diagnosis) {
 		List<String> symotimList = new ArrayList<>();
 		for (SelfSymptom symptom : diagnosis.getSelfSymptomList()) {
 			symotimList.add(symptom.getSymptom().getName());
@@ -42,11 +42,11 @@ public class SelfDiagnosisConverter {
 			diagnosis.getAdditionalNote(), diagnosis.getCreatedAt().toString());
 	}
 
-	public DiagnosisCreateResponse diagnosis2DiagnosisCreateResponse(SelfDiagnosis diagnosis) {
+	public DiagnosisCreateResponse diagnosisToDiagnosisCreateResponse(SelfDiagnosis diagnosis) {
 		return new DiagnosisCreateResponse(diagnosis.getId(), "Self-diagnosis submitted successfully.");
 	}
 
-	public GetDiagnosisResponse diagnosis2GetDiagnosisResponse(SelfDiagnosis diagnosis) {
+	public GetDiagnosisResponse diagnosisToGetDiagnosisResponse(SelfDiagnosis diagnosis) {
 		List<String> selfSymotimList = new ArrayList<>();
 		for (SelfSymptom symptom : diagnosis.getSelfSymptomList()) {
 			selfSymotimList.add(symptom.getSymptom().getName());
@@ -56,7 +56,7 @@ public class SelfDiagnosisConverter {
 			diagnosis.getPainSeverity(), diagnosis.getAdditionalNote(), diagnosis.getCreatedAt().toString());
 	}
 
-	public GetDiagnosisByUserIdResponse diagnosis2GetDiagnosisByUserIdResponse(SelfDiagnosis diagnosis) {
+	public GetDiagnosisByUserIdResponse diagnosisToGetDiagnosisByUserIdResponse(SelfDiagnosis diagnosis) {
 		List<String> selfSymotimList = new ArrayList<>();
 		for (SelfSymptom symptom : diagnosis.getSelfSymptomList()) {
 			selfSymotimList.add(symptom.getSymptom().getName());
@@ -66,7 +66,7 @@ public class SelfDiagnosisConverter {
 			diagnosis.getCreatedAt().toString());
 	}
 
-	public GetSymptomsOfDiagnosisResponse diagnosis2GetSymptomsOfDiagnosisResponse(SelfDiagnosis diagnosis) {
+	public GetSymptomsOfDiagnosisResponse diagnosisToGetSymptomsOfDiagnosisResponse(SelfDiagnosis diagnosis) {
 		List<String> symptoms = new ArrayList<>();
 		for (SelfSymptom symptom : diagnosis.getSelfSymptomList()) {
 			symptoms.add(symptom.getSymptom().getName());
@@ -74,7 +74,7 @@ public class SelfDiagnosisConverter {
 		return new GetSymptomsOfDiagnosisResponse(symptoms);
 	}
 
-	public SelfDiagnosis DiagnosisCreateRequest2SelfDiagnosis(DiagnosisCreateRequest request, User user) {
+	public SelfDiagnosis DiagnosisCreateRequestToSelfDiagnosis(DiagnosisCreateRequest request, User user) {
 		return SelfDiagnosis.builder()
 			.user(user)
 			.visitType(request.getVisitType())
@@ -94,7 +94,7 @@ public class SelfDiagnosisConverter {
 			.build();
 	}
 
-	public SelfDiagnosis DiagnosisUpdateRequest2SelfDiagnosis(SelfDiagnosis diagnosis, User user,
+	public SelfDiagnosis DiagnosisUpdateRequestToSelfDiagnosis(SelfDiagnosis diagnosis, User user,
 		DiagnosisUpdateRequest request) {
 		return diagnosis.toBuilder()
 			.user(user)

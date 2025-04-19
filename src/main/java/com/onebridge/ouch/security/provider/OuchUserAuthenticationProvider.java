@@ -30,11 +30,17 @@ public class OuchUserAuthenticationProvider implements AuthenticationProvider {
 		UserDetails userDetails = ouchUserDetailService.loadUserByUsername(loginId);
 
 		if (passwordEncoder.matches(password, userDetails.getPassword())) {
+			// return new OuchAuthenticationToken(
+			// 	userDetails.getUsername(),
+			// 	userDetails.getPassword(),
+			// 	userDetails.getAuthorities(),
+			// 	((OuchUserDetails)userDetails).getDatabaseId());
 			return new OuchAuthenticationToken(
-				userDetails.getUsername(),
-				userDetails.getPassword(),
+				userDetails,
+				null,
 				userDetails.getAuthorities(),
-				((OuchUserDetails)userDetails).getDatabaseId());
+				((OuchUserDetails)userDetails).getDatabaseId()
+			);
 		} else {
 			throw new OuchException(AuthorityErrorCode.PASSWORD_NOT_MATCH);
 		}

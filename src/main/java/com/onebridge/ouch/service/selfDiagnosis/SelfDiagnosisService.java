@@ -2,6 +2,8 @@ package com.onebridge.ouch.service.selfDiagnosis;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,53 +40,73 @@ public class SelfDiagnosisService {
 
 	//자가진단표 생성
 	@Transactional
-	public DiagnosisCreateResponseDetailed createDiagnosis(DiagnosisCreateRequest request) {
+	public DiagnosisCreateResponseDetailed createDiagnosis(DiagnosisCreateRequest request, Long userId) {
 
-		User user = userRepository.findById(request.getUserId())
+		User user = userRepository.findById(request.getUserId()) //userId 로 바꾸기
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
 
 		//일단 증상 리스트는 비워둔 채로 SelfDiagnosis 객체 생성
-		SelfDiagnosis selfDiagnosis = selfDiagnosisConverter.DiagnosisCreateRequest2SelfDiagnosis(request, user);
+		SelfDiagnosis selfDiagnosis = selfDiagnosisConverter.DiagnosisCreateRequestToSelfDiagnosis(request, user);
 
 		//dto 로 받은 selfSymptom(리스트)의 각 요소가 Symptom table 에 존재하는지 확인
-		for (String symptom : request.getSymptoms()) { //(단순 문자열로 된) 리스트를 돌면서
+		// for (String symptom : request.getSymptoms()) { //(단순 문자열로 된) 리스트를 돌면서
+		//
+		// 	Symptom foundSymptom = symptomRepository.findByName(symptom) //증상이 Symptom table 에 존재하면
+		// 		.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
+		//
+		// 	//SelfSymptom 객체 생성
+		// 	SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(selfDiagnosis, foundSymptom);
+		//
+		// 	//SelfDiagnosis 의 selfSymptomList 에 해당 증상 추가
+		// 	selfDiagnosis.getSelfSymptomList().add(symptom1);
+		// }
 
-			Symptom foundSymptom = symptomRepository.findByName(symptom) //증상이 Symptom table 에 존재하면
-				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
+		List<String> symptomNames = request.getSymptoms();
+		List<Symptom> foundSymptoms = symptomRepository.findByNameIn(symptomNames); // 1개의 쿼리
 
-			//SelfSymptom 객체 생성
+		// 이름으로 빠르게 찾기 위해 Map 으로 변환
+		Map<String, Symptom> symptomMap = foundSymptoms.stream()
+			.collect(Collectors.toMap(Symptom::getName, s -> s));
+
+		for (String symptomName : symptomNames) {
+			Symptom foundSymptom = symptomMap.get(symptomName);
+			if (foundSymptom == null) {
+				throw new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND);
+			}
+
 			SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(selfDiagnosis, foundSymptom);
-
-			//SelfDiagnosis 의 selfSymptomList 에 해당 증상 추가
 			selfDiagnosis.getSelfSymptomList().add(symptom1);
 		}
 
 		//SelfDiagnosis table 에 저장
 		selfDiagnosisRepository.save(selfDiagnosis);
 
-		return selfDiagnosisConverter.diagnosis2DiagnosisCreateResponseDetailed(selfDiagnosis);
+		return selfDiagnosisConverter.diagnosisToDiagnosisCreateResponseDetailed(selfDiagnosis);
 	}
 
 	//특정 자가진단표 조회
 	@Transactional(readOnly = true)
-	public GetDiagnosisResponse getDiagnosis(Long diagnosisId) {
+	public GetDiagnosisResponse getDiagnosis(Long diagnosisId, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
+
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
-		return selfDiagnosisConverter.diagnosis2GetDiagnosisResponse(diagnosis);
+		return selfDiagnosisConverter.diagnosisToGetDiagnosisResponse(diagnosis);
 	}
 
 	//특정 사용자의 모든 자가진단표 조회
 	@Transactional(readOnly = true)
 	public List<GetDiagnosisByUserIdResponse> getAllDiagnosisByUserId(Long userId) {
-		User user = userRepository.findById(userId)
+		userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
 
 		List<SelfDiagnosis> diagnosisList = selfDiagnosisRepository.findAllByUserId(userId);
 
 		List<GetDiagnosisByUserIdResponse> responseList = new ArrayList<>();
 		for (SelfDiagnosis diagnosis : diagnosisList) {
-			responseList.add(selfDiagnosisConverter.diagnosis2GetDiagnosisByUserIdResponse(diagnosis));
+			responseList.add(selfDiagnosisConverter.diagnosisToGetDiagnosisByUserIdResponse(diagnosis));
 		}
 
 		return responseList;
@@ -92,7 +114,10 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표 삭제
 	@Transactional
-	public void deleteDiagnosis(Long diagnosisId) {
+	public void deleteDiagnosis(Long diagnosisId, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
+
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
@@ -101,11 +126,14 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표의 증상 목록 조회
 	@Transactional(readOnly = true)
-	public GetSymptomsOfDiagnosisResponse getSymptomsOfDiagnosis(Long diagnosisId) {
+	public GetSymptomsOfDiagnosisResponse getSymptomsOfDiagnosis(Long diagnosisId, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
+
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
-		return selfDiagnosisConverter.diagnosis2GetSymptomsOfDiagnosisResponse(diagnosis);
+		return selfDiagnosisConverter.diagnosisToGetSymptomsOfDiagnosisResponse(diagnosis);
 	}
 
 	//자가진단표 수정
@@ -118,7 +146,7 @@ public class SelfDiagnosisService {
 		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
 
-		SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.DiagnosisUpdateRequest2SelfDiagnosis(diagnosis, user,
+		SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.DiagnosisUpdateRequestToSelfDiagnosis(diagnosis, user,
 			request);
 
 		for (String symptom : request.getSymptoms()) { //(단순 문자열로 된) 리스트를 돌면서
@@ -136,12 +164,14 @@ public class SelfDiagnosisService {
 
 		selfDiagnosisRepository.save(updatedDiagnosis);
 
-		return SelfDiagnosisConverter.diagnosis2DiagnosisUpdateResponse(updatedDiagnosis);
+		return selfDiagnosisConverter.diagnosisToDiagnosisUpdateResponse(updatedDiagnosis);
 	}
 
 	//특정 자가진단표에 증상 추가
 	@Transactional
-	public void addSymptomsToSelfDiagnosis(Long diagnosisId, AddSymptomsToDiagnosisRequest request) {
+	public void addSymptomsToSelfDiagnosis(Long diagnosisId, AddSymptomsToDiagnosisRequest request, Long userId) {
+		userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.USER_NOT_FOUND));
 
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));

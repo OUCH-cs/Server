@@ -1,5 +1,6 @@
 package com.onebridge.ouch.repository.Symptom;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,4 +14,6 @@ public interface SymptomRepository extends JpaRepository<Symptom, Long> {
 	boolean existsByName(String name);
 
 	Optional<Symptom> findByName(String name);
+
+	List<Symptom> findByNameIn(List<String> names);
 }
