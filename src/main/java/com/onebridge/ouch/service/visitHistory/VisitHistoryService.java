@@ -52,11 +52,11 @@ public class VisitHistoryService {
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.DEPARTMENT_NOT_FOUND));
 
 		// 1. VisitHistory 먼저 저장
-		VisitHistory visitHistory = visitHistoryConverter.visitHistoryCreateRequest2VisitHistory(request, user,
+		VisitHistory visitHistory = visitHistoryConverter.visitHistoryCreateRequestToVisitHistory(request, user,
 			hospital, department);
 
 		// 2. Summary 생성
-		Summary summary = visitHistoryConverter.visitHistoryCreateRequest2Summary(request, visitHistory);
+		Summary summary = visitHistoryConverter.visitHistoryCreateRequestToSummary(request, visitHistory);
 
 		summary = summaryRepository.save(summary); // Summary 저장
 
@@ -64,7 +64,7 @@ public class VisitHistoryService {
 
 		visitHistoryRepository.save(visitHistory); // 다시 저장 (연관관계 반영)
 
-		return visitHistoryConverter.visitHistory2VisitHistoryCreateResponse(visitHistory);
+		return visitHistoryConverter.visitHistoryToVisitHistoryCreateResponse(visitHistory);
 	}
 
 	//특정 의료기록 조회
@@ -73,7 +73,7 @@ public class VisitHistoryService {
 		VisitHistory visitHistory = visitHistoryRepository.findById(visitHistoryId)
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_NOT_FOUND));
 
-		return visitHistoryConverter.visitHistory2GetVisitHistoryResponse(visitHistory);
+		return visitHistoryConverter.visitHistoryToGetVisitHistoryResponse(visitHistory);
 	}
 
 	//특정 사용자의 모든 의료기록 조회
@@ -84,7 +84,7 @@ public class VisitHistoryService {
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.USER_NOT_FOUND));
 
 		List<VisitHistory> visitHistory = visitHistoryRepository.findAllByUserId(userId);
-		return visitHistoryConverter.visitHistory2GetUsersAllVisitHistoryResponse(visitHistory);
+		return visitHistoryConverter.visitHistoryToGetUsersAllVisitHistoryResponse(visitHistory);
 	}
 
 	//특정 의료기록 삭제
@@ -113,10 +113,10 @@ public class VisitHistoryService {
 
 		Summary summary = visitHistory.getSummary();
 
-		VisitHistory updatedVisitHistory = visitHistoryConverter.visitHistoryUpdateRequest2VisitHistory(request,
+		VisitHistory updatedVisitHistory = visitHistoryConverter.visitHistoryUpdateRequestToVisitHistory(request,
 			visitHistory, hospital, department);
 
-		Summary updatedSummary = visitHistoryConverter.visitHistoryUpdateRequest2Summary(request, updatedVisitHistory,
+		Summary updatedSummary = visitHistoryConverter.visitHistoryUpdateRequestToSummary(request, updatedVisitHistory,
 			summary);
 
 		summary = summaryRepository.save(updatedSummary); // Summary 저장
@@ -125,7 +125,7 @@ public class VisitHistoryService {
 
 		visitHistoryRepository.save(updatedVisitHistory); // 다시 저장 (연관관계 반영)
 
-		return visitHistoryConverter.visitHistory2VisitHistoryUpdateResponse(visitHistory);
+		return visitHistoryConverter.visitHistoryToVisitHistoryUpdateResponse(visitHistory);
 	}
 
 }

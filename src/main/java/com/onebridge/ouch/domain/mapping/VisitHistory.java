@@ -1,5 +1,7 @@
 package com.onebridge.ouch.domain.mapping;
 
+import java.time.LocalDate;
+
 import com.onebridge.ouch.domain.Department;
 import com.onebridge.ouch.domain.Hospital;
 import com.onebridge.ouch.domain.Summary;
@@ -36,7 +38,7 @@ public class VisitHistory extends BaseEntity {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	private String visitDate;
+	private LocalDate visitDate;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "hospital_id")

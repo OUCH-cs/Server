@@ -22,21 +22,21 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class VisitHistoryConverter {
 
-	public VisitHistoryCreateResponse visitHistory2VisitHistoryCreateResponse(VisitHistory visitHistory) {
+	public VisitHistoryCreateResponse visitHistoryToVisitHistoryCreateResponse(VisitHistory visitHistory) {
 		return new VisitHistoryCreateResponse(visitHistory.getId(), visitHistory.getVisitDate(),
 			visitHistory.getHospital().getName(),
 			visitHistory.getDepartment().getName(), visitHistory.getSymptoms(),
 			visitHistory.getSummary().getContents());
 	}
 
-	public VisitHistoryUpdateResponse visitHistory2GetVisitHistoryResponse(VisitHistory visitHistory) {
+	public VisitHistoryUpdateResponse visitHistoryToGetVisitHistoryResponse(VisitHistory visitHistory) {
 		return new VisitHistoryUpdateResponse(visitHistory.getId(), visitHistory.getVisitDate(),
 			visitHistory.getHospital().getName(),
 			visitHistory.getDepartment().getName(), visitHistory.getSymptoms(),
 			visitHistory.getSummary().getContents());
 	}
 
-	public List<DateAndHospital> visitHistory2GetUsersAllVisitHistoryResponse(List<VisitHistory> visitHistory) {
+	public List<DateAndHospital> visitHistoryToGetUsersAllVisitHistoryResponse(List<VisitHistory> visitHistory) {
 		List<DateAndHospital> list = new ArrayList<>();
 		for (VisitHistory history : visitHistory) {
 			list.add(new DateAndHospital(history.getId(), history.getUpdatedAt().toString(),
@@ -45,14 +45,14 @@ public class VisitHistoryConverter {
 		return list;
 	}
 
-	public VisitHistoryUpdateResponse visitHistory2VisitHistoryUpdateResponse(VisitHistory visitHistory) {
+	public VisitHistoryUpdateResponse visitHistoryToVisitHistoryUpdateResponse(VisitHistory visitHistory) {
 		return new VisitHistoryUpdateResponse(visitHistory.getId(), visitHistory.getVisitDate(),
 			visitHistory.getHospital().getName(),
 			visitHistory.getDepartment().getName(), visitHistory.getSymptoms(),
 			visitHistory.getSummary().getContents());
 	}
 
-	public VisitHistory visitHistoryCreateRequest2VisitHistory(VisitHistoryCreateRequest request, User user,
+	public VisitHistory visitHistoryCreateRequestToVisitHistory(VisitHistoryCreateRequest request, User user,
 		Hospital hospital, Department department) {
 		return VisitHistory.builder()
 			.user(user)
@@ -63,7 +63,7 @@ public class VisitHistoryConverter {
 			.build();
 	}
 
-	public Summary visitHistoryCreateRequest2Summary(VisitHistoryCreateRequest request, VisitHistory visitHistory) {
+	public Summary visitHistoryCreateRequestToSummary(VisitHistoryCreateRequest request, VisitHistory visitHistory) {
 		return Summary.builder()
 			.visitHistory(visitHistory)
 			.contents(request.getTreatmentSummary())
@@ -71,7 +71,7 @@ public class VisitHistoryConverter {
 			.build();
 	}
 
-	public VisitHistory visitHistoryUpdateRequest2VisitHistory(VisitHistoryUpdateRequest request,
+	public VisitHistory visitHistoryUpdateRequestToVisitHistory(VisitHistoryUpdateRequest request,
 		VisitHistory visitHistory, Hospital hospital, Department department) {
 		return visitHistory.toBuilder()
 			.visitDate(request.getVisitDate())
@@ -81,7 +81,7 @@ public class VisitHistoryConverter {
 			.build();
 	}
 
-	public Summary visitHistoryUpdateRequest2Summary(VisitHistoryUpdateRequest request,
+	public Summary visitHistoryUpdateRequestToSummary(VisitHistoryUpdateRequest request,
 		VisitHistory updatedVisitHistory, Summary summary) {
 		return summary.toBuilder()
 			.visitHistory(updatedVisitHistory)
