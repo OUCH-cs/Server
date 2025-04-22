@@ -21,9 +21,12 @@ import com.onebridge.ouch.dto.visitHistory.response.VisitHistoryUpdateResponse;
 import com.onebridge.ouch.security.authorization.UserId;
 import com.onebridge.ouch.service.visitHistory.VisitHistoryService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+@Tag(name = "의료기록 API", description = "의료기록 API 입니다.")
 @RestController
 @RequestMapping("/medical-record")
 @RequiredArgsConstructor
@@ -32,6 +35,7 @@ public class VisitHistoryController {
 	private final VisitHistoryService visitHistoryService;
 
 	// 의료기록 생성
+	@Operation(summary = "의료기록 생성 API", description = "의료기록을 생성 API 입니다.")
 	@PostMapping
 	public ResponseEntity<ApiResponse<VisitHistoryCreateResponse>> createVisitHistory(
 		@RequestBody @Valid VisitHistoryCreateRequest request,
@@ -42,6 +46,7 @@ public class VisitHistoryController {
 	}
 
 	// 특정 의료기록 조회
+	@Operation(summary = "의료기록 조회 API", description = "의료기록을 조회 API 입니다.")
 	@GetMapping("/{medicalRecordId}")
 	public ResponseEntity<ApiResponse<VisitHistoryUpdateResponse>> getVisitHistory(@PathVariable Long medicalRecordId,
 		@UserId Long userId
@@ -51,6 +56,7 @@ public class VisitHistoryController {
 	}
 
 	// 특정 사용자의 모든 의료기록 조회 (의료기록 메인 페이지용)
+	@Operation(summary = "특정 사용자의 모든 의료기록 조회 API", description = "특정 사용자의 모든 의료기록 조회 API 입니다.")
 	@GetMapping
 	public ResponseEntity<ApiResponse<List<DateAndHospital>>> getUsersAllVisitHistory(
 		@UserId Long userId
@@ -60,6 +66,7 @@ public class VisitHistoryController {
 	}
 
 	//특정 의료기록 삭제
+	@Operation(summary = "의료기록 삭제 API", description = "의료기록을 삭제 API 입니다.")
 	@DeleteMapping("/{medicalRecordId}")
 	public ResponseEntity<ApiResponse<Void>> deleteVisitHistory(@PathVariable Long medicalRecordId,
 		@UserId Long userId
@@ -69,6 +76,7 @@ public class VisitHistoryController {
 	}
 
 	//특정 의료기록 수정
+	@Operation(summary = "의료기록 수정 API", description = "의료기록을 수정 API 입니다.")
 	@PutMapping("/{medicalRecordId}")
 	public ResponseEntity<ApiResponse<VisitHistoryUpdateResponse>> updateVisitHistory(
 		@RequestBody @Valid VisitHistoryUpdateRequest request,
