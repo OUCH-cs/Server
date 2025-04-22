@@ -22,9 +22,12 @@ import com.onebridge.ouch.dto.medicalHistory.response.MedicalHistoryUpdateRespon
 import com.onebridge.ouch.security.authorization.UserId;
 import com.onebridge.ouch.service.medicalHistory.MedicalHistoryService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+@Tag(name = "건강 상태 API", description = "건강 상태 API")
 @RestController
 @RequestMapping("/health-status")
 @RequiredArgsConstructor
@@ -33,6 +36,7 @@ public class MedicalHistoryController {
 	private final MedicalHistoryService medicalHistoryService;
 
 	//건강상태 생성
+	@Operation(summary = "건강상태 생성 API", description = "건강상태 생성 API 입니다.")
 	@PostMapping
 	public ResponseEntity<ApiResponse<MedicalHistoryCreateResponse>> createMedicalHistory(
 		@RequestBody @Valid MedicalHistoryCreateRequest request,
@@ -43,6 +47,7 @@ public class MedicalHistoryController {
 	}
 
 	//특정 건강상태 조회
+	@Operation(summary = "건강상태 조회 API", description = "건강상태 조회 API 입니다.")
 	@GetMapping("/{healthStatusId}")
 	public ResponseEntity<ApiResponse<GetMedicalHistoryResponse>> getMedicalHistory(@PathVariable Long healthStatusId,
 		@UserId Long userId
@@ -52,6 +57,7 @@ public class MedicalHistoryController {
 	}
 
 	//특정 사용자의 모든 건강상태 조회
+	@Operation(summary = "특정 사용자의 모든 건강상태 조회 API", description = "특정 사용자의 모든 건강상태 조회 API 입니다.")
 	@GetMapping
 	public ResponseEntity<ApiResponse<List<DateAndDisease>>> getUsersAllMedicalHistory(
 		@UserId Long userId
@@ -61,6 +67,7 @@ public class MedicalHistoryController {
 	}
 
 	//특정 건강상태 수정
+	@Operation(summary = "건강상태 수정 API", description = "건강상태 수정 API 입니다.")
 	@PutMapping("/{healthStatusId}")
 	public ResponseEntity<ApiResponse<MedicalHistoryUpdateResponse>> updateMedicalHistory(
 		@RequestBody @Valid MedicalHistoryUpdateRequest request,
@@ -73,6 +80,7 @@ public class MedicalHistoryController {
 	}
 
 	//특정 건강상태 삭제
+	@Operation(summary = "건강상태 삭제 API", description = "건강상태 삭제 API 입니다.")
 	@DeleteMapping("/{healthStatusId}")
 	public ResponseEntity<ApiResponse<Void>> deleteMedicalHistory(@PathVariable Long healthStatusId,
 		@UserId Long userId
