@@ -5,16 +5,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.onebridge.ouch.domain.Department;
-import com.onebridge.ouch.domain.Hospital;
 import com.onebridge.ouch.domain.Summary;
 import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.mapping.VisitHistory;
 import com.onebridge.ouch.dto.visitHistory.request.VisitHistoryCreateRequest;
 import com.onebridge.ouch.dto.visitHistory.request.VisitHistoryUpdateRequest;
 import com.onebridge.ouch.dto.visitHistory.response.DateAndHospital;
-import com.onebridge.ouch.dto.visitHistory.response.VisitHistoryCreateResponse;
-import com.onebridge.ouch.dto.visitHistory.response.VisitHistoryUpdateResponse;
+import com.onebridge.ouch.dto.visitHistory.response.GetVisitHistoryResponse;
 
 import lombok.AllArgsConstructor;
 
@@ -22,17 +19,10 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class VisitHistoryConverter {
 
-	public VisitHistoryCreateResponse visitHistoryToVisitHistoryCreateResponse(VisitHistory visitHistory) {
-		return new VisitHistoryCreateResponse(visitHistory.getId(), visitHistory.getVisitDate(),
-			visitHistory.getHospital().getName(),
-			visitHistory.getDepartment().getName(), visitHistory.getSymptoms(),
-			visitHistory.getSummary().getContents_summary());
-	}
-
-	public VisitHistoryUpdateResponse visitHistoryToGetVisitHistoryResponse(VisitHistory visitHistory) {
-		return new VisitHistoryUpdateResponse(visitHistory.getId(), visitHistory.getVisitDate(),
-			visitHistory.getHospital().getName(),
-			visitHistory.getDepartment().getName(), visitHistory.getSymptoms(),
+	public GetVisitHistoryResponse visitHistoryToGetVisitHistoryResponse(VisitHistory visitHistory) {
+		return new GetVisitHistoryResponse(visitHistory.getId(), visitHistory.getVisitDate().toString(),
+			visitHistory.getHospital(),
+			visitHistory.getDepartment(), visitHistory.getSymptoms(),
 			visitHistory.getSummary().getContents_summary());
 	}
 
@@ -40,50 +30,31 @@ public class VisitHistoryConverter {
 		List<DateAndHospital> list = new ArrayList<>();
 		for (VisitHistory history : visitHistory) {
 			list.add(new DateAndHospital(history.getId(), history.getUpdatedAt().toString(),
-				history.getHospital().getName()));
+				history.getHospital()));
 		}
 		return list;
 	}
 
-	public VisitHistoryUpdateResponse visitHistoryToVisitHistoryUpdateResponse(VisitHistory visitHistory) {
-		return new VisitHistoryUpdateResponse(visitHistory.getId(), visitHistory.getVisitDate(),
-			visitHistory.getHospital().getName(),
-			visitHistory.getDepartment().getName(), visitHistory.getSymptoms(),
-			visitHistory.getSummary().getContents_summary());
-	}
-
 	public VisitHistory visitHistoryCreateRequestToVisitHistory(VisitHistoryCreateRequest request, User user,
-		Hospital hospital, Department department) {
+		Summary summary) {
 		return VisitHistory.builder()
 			.user(user)
 			.visitDate(request.getVisitDate())
-			.hospital(hospital)
-			.department(department)
+			.hospital(request.getVisitingHospital())
+			.department(request.getMedicalSubject())
 			.symptoms(request.getSymptoms())
+			.summary(summary)
 			.build();
 	}
 
-	public Summary visitHistoryCreateRequestToSummary(VisitHistoryCreateRequest request, VisitHistory visitHistory) {
-		return Summary.builder()
-			.contents_summary(request.getTreatmentSummary())
-			.build();
-	}
-
-	public VisitHistory visitHistoryUpdateRequestToVisitHistory(VisitHistoryUpdateRequest request,
-		VisitHistory visitHistory, Hospital hospital, Department department) {
+	public VisitHistory visitHistoryUpdateRequestToVisitHistory(VisitHistory visitHistory,
+		VisitHistoryUpdateRequest request, Summary summary) {
 		return visitHistory.toBuilder()
 			.visitDate(request.getVisitDate())
-			.hospital(hospital)
-			.department(department)
+			.hospital(request.getVisitingHospital())
+			.department(request.getMedicalSubject())
 			.symptoms(request.getSymptoms())
+			.summary(summary)
 			.build();
 	}
-
-	public Summary visitHistoryUpdateRequestToSummary(VisitHistoryUpdateRequest request,
-		VisitHistory updatedVisitHistory, Summary summary) {
-		return summary.toBuilder()
-			.contents_summary(request.getTreatmentSummary())
-			.build();
-	}
-
 }

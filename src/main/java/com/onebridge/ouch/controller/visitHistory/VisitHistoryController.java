@@ -16,8 +16,7 @@ import com.onebridge.ouch.apiPayload.ApiResponse;
 import com.onebridge.ouch.dto.visitHistory.request.VisitHistoryCreateRequest;
 import com.onebridge.ouch.dto.visitHistory.request.VisitHistoryUpdateRequest;
 import com.onebridge.ouch.dto.visitHistory.response.DateAndHospital;
-import com.onebridge.ouch.dto.visitHistory.response.VisitHistoryCreateResponse;
-import com.onebridge.ouch.dto.visitHistory.response.VisitHistoryUpdateResponse;
+import com.onebridge.ouch.dto.visitHistory.response.GetVisitHistoryResponse;
 import com.onebridge.ouch.security.authorization.UserId;
 import com.onebridge.ouch.service.visitHistory.VisitHistoryService;
 
@@ -37,21 +36,21 @@ public class VisitHistoryController {
 	// 의료기록 생성
 	@Operation(summary = "의료기록 생성 API", description = "의료기록을 생성 API 입니다.")
 	@PostMapping
-	public ResponseEntity<ApiResponse<VisitHistoryCreateResponse>> createVisitHistory(
+	public ResponseEntity<ApiResponse<Void>> createVisitHistory(
 		@RequestBody @Valid VisitHistoryCreateRequest request,
 		@UserId Long userId
 	) {
-		VisitHistoryCreateResponse response = visitHistoryService.createVisitHistory(request, userId);
-		return ResponseEntity.ok(ApiResponse.created(response));
+		visitHistoryService.createVisitHistory(request, userId);
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	// 특정 의료기록 조회
 	@Operation(summary = "의료기록 조회 API", description = "의료기록을 조회 API 입니다.")
 	@GetMapping("/{medicalRecordId}")
-	public ResponseEntity<ApiResponse<VisitHistoryUpdateResponse>> getVisitHistory(@PathVariable Long medicalRecordId,
+	public ResponseEntity<ApiResponse<GetVisitHistoryResponse>> getVisitHistory(@PathVariable Long medicalRecordId,
 		@UserId Long userId
 	) {
-		VisitHistoryUpdateResponse response = visitHistoryService.getVisitHistory(medicalRecordId, userId);
+		GetVisitHistoryResponse response = visitHistoryService.getVisitHistory(medicalRecordId, userId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
@@ -71,19 +70,19 @@ public class VisitHistoryController {
 	public ResponseEntity<ApiResponse<Void>> deleteVisitHistory(@PathVariable Long medicalRecordId,
 		@UserId Long userId
 	) {
-		visitHistoryService.deleteVisitHistory(medicalRecordId, userId);
+		visitHistoryService.deleteVisitHistory(medicalRecordId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	//특정 의료기록 수정
 	@Operation(summary = "의료기록 수정 API", description = "의료기록을 수정 API 입니다.")
 	@PutMapping("/{medicalRecordId}")
-	public ResponseEntity<ApiResponse<VisitHistoryUpdateResponse>> updateVisitHistory(
+	public ResponseEntity<ApiResponse<Void>> updateVisitHistory(
 		@RequestBody @Valid VisitHistoryUpdateRequest request,
 		@PathVariable Long medicalRecordId,
 		@UserId Long userId
 	) {
-		VisitHistoryUpdateResponse response = visitHistoryService.updateVisitHistory(request, medicalRecordId, userId);
-		return ResponseEntity.ok(ApiResponse.success(response));
+		visitHistoryService.updateVisitHistory(request, medicalRecordId);
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 }

@@ -9,10 +9,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum VisitHistoryErrorCode implements ErrorCode {
 
-	USER_NOT_FOUND(HttpStatus.NOT_FOUND, "MEDICAL-RECORD400", "User not found."),
-	VISIT_HISTORY_NOT_FOUND(HttpStatus.NOT_FOUND, "MEDICAL-RECORD401", "Medical record not found."),
-	HOSPITAL_NOT_FOUND(HttpStatus.NOT_FOUND, "MEDICAL-RECORD402", "Hospital not found."),
-	DEPARTMENT_NOT_FOUND(HttpStatus.NOT_FOUND, "MEDICAL-RECORD403", "Department not found."),
+	VISIT_HISTORY_NOT_FOUND(HttpStatus.NOT_FOUND, "MEDICAL-RECORD401", "의료기록이 존재하지 않습니다."),
+	HOSPITAL_NOT_FOUND(HttpStatus.NOT_FOUND, "MEDICAL-RECORD402", "입력한 병원이 존재하지 않습니다."),
+	DEPARTMENT_NOT_FOUND(HttpStatus.NOT_FOUND, "MEDICAL-RECORD403", "입력한 진료 과가 존재하지 않습니다."),
+	VISIT_HISTORY_USER_NOT_MATCH(HttpStatus.FORBIDDEN, "MEDICAL-RECORD404", "해당 사용자의 의료기록이 아닙니다."),
 	;
 
 	private final HttpStatus httpStatus;
