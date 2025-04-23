@@ -22,6 +22,6 @@ public class SymptomService {
 	@Transactional
 	public List<GetSymptomResponse> getSymptomsList() {
 		List<Symptom> symptoms = symptomRepository.findAll();
-		return symptomConverter.symptoms2GetSymptomsResponse(symptoms);
+		return symptomConverter.symptomsToGetSymptomsResponse(symptoms);
 	}
 }

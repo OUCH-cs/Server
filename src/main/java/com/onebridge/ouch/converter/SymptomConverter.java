@@ -10,11 +10,11 @@ import com.onebridge.ouch.dto.symptom.response.GetSymptomResponse;
 @Component
 public class SymptomConverter {
 
-	public GetSymptomResponse symptom2GetSymptomsResponse(Symptom symptom) {
+	public GetSymptomResponse symptomToGetSymptomsResponse(Symptom symptom) {
 		return new GetSymptomResponse(symptom.getId(), symptom.getName());
 	}
 
-	public List<GetSymptomResponse> symptoms2GetSymptomsResponse(List<Symptom> symptoms) {
-		return symptoms.stream().map(this::symptom2GetSymptomsResponse).toList();
+	public List<GetSymptomResponse> symptomsToGetSymptomsResponse(List<Symptom> symptoms) {
+		return symptoms.stream().map(this::symptomToGetSymptomsResponse).toList();
 	}
 }
