@@ -53,7 +53,7 @@ public class SelfDiagnosisController {
 		@PathVariable Long diagnosisId,
 		@UserId Long userId
 	) {
-		GetDiagnosisResponse response = selfDiagnosisService.getDiagnosis(diagnosisId, userId);
+		GetDiagnosisResponse response = selfDiagnosisService.getDiagnosis(diagnosisId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
@@ -73,7 +73,7 @@ public class SelfDiagnosisController {
 	public ResponseEntity<ApiResponse<Void>> deleteDiagnosis(@PathVariable Long diagnosisId,
 		@UserId Long userId
 	) {
-		selfDiagnosisService.deleteDiagnosis(diagnosisId, userId);
+		selfDiagnosisService.deleteDiagnosis(diagnosisId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
@@ -84,7 +84,7 @@ public class SelfDiagnosisController {
 		@PathVariable Long diagnosisId,
 		@UserId Long userId
 	) {
-		GetSymptomsOfDiagnosisResponse response = selfDiagnosisService.getSymptomsOfDiagnosis(diagnosisId, userId);
+		GetSymptomsOfDiagnosisResponse response = selfDiagnosisService.getSymptomsOfDiagnosis(diagnosisId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
@@ -106,7 +106,7 @@ public class SelfDiagnosisController {
 		@RequestBody @Valid AddSymptomsToDiagnosisRequest request,
 		@UserId Long userId
 	) {
-		selfDiagnosisService.addSymptomsToSelfDiagnosis(diagnosisId, request, userId);
+		selfDiagnosisService.addSymptomsToSelfDiagnosis(diagnosisId, request);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 }

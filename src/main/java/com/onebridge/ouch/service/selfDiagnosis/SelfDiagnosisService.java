@@ -41,7 +41,6 @@ public class SelfDiagnosisService {
 	//자가진단표 생성
 	@Transactional
 	public void createDiagnosis(DiagnosisCreateRequest request, Long userId) {
-
 		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
@@ -70,10 +69,7 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표 조회
 	@Transactional(readOnly = true)
-	public GetDiagnosisResponse getDiagnosis(Long diagnosisId, Long userId) {
-		userRepository.findById(userId)
-			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
-
+	public GetDiagnosisResponse getDiagnosis(Long diagnosisId) {
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
@@ -83,9 +79,6 @@ public class SelfDiagnosisService {
 	//특정 사용자의 모든 자가진단표 조회
 	@Transactional(readOnly = true)
 	public List<GetDiagnosisByUserIdResponse> getAllDiagnosisByUserId(Long userId) {
-		userRepository.findById(userId)
-			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
-
 		List<SelfDiagnosis> diagnosisList = selfDiagnosisRepository.findAllByUserId(userId);
 
 		List<GetDiagnosisByUserIdResponse> responseList = new ArrayList<>();
@@ -98,10 +91,7 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표 삭제
 	@Transactional
-	public void deleteDiagnosis(Long diagnosisId, Long userId) {
-		userRepository.findById(userId)
-			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
-
+	public void deleteDiagnosis(Long diagnosisId) {
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
@@ -110,10 +100,7 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표의 증상 목록 조회
 	@Transactional(readOnly = true)
-	public GetSymptomsOfDiagnosisResponse getSymptomsOfDiagnosis(Long diagnosisId, Long userId) {
-		userRepository.findById(userId)
-			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
-
+	public GetSymptomsOfDiagnosisResponse getSymptomsOfDiagnosis(Long diagnosisId) {
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
@@ -156,9 +143,7 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표에 증상 추가
 	@Transactional
-	public void addSymptomsToSelfDiagnosis(Long diagnosisId, AddSymptomsToDiagnosisRequest request, Long userId) {
-		userRepository.findById(userId)
-			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
+	public void addSymptomsToSelfDiagnosis(Long diagnosisId, AddSymptomsToDiagnosisRequest request) {
 
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));

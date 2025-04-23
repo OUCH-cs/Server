@@ -12,8 +12,6 @@ import com.onebridge.ouch.domain.mapping.SelfSymptom;
 import com.onebridge.ouch.domain.mapping.compositeKey.DiagnosisSymptomPK;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisCreateRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisUpdateRequest;
-import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisCreateResponse;
-import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisCreateResponseDetailed;
 import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisUpdateResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisByUserIdResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisResponse;
@@ -30,20 +28,6 @@ public class SelfDiagnosisConverter {
 		return new DiagnosisUpdateResponse(updatedDiagnosis.getId(), updatedDiagnosis.getVisitType(), symptoms,
 			updatedDiagnosis.getDuration(), updatedDiagnosis.getPainSeverity(), updatedDiagnosis.getAdditionalNote(),
 			updatedDiagnosis.getCreatedAt().toString());
-	}
-
-	public DiagnosisCreateResponseDetailed diagnosisToDiagnosisCreateResponseDetailed(SelfDiagnosis diagnosis) {
-		List<String> symotimList = new ArrayList<>();
-		for (SelfSymptom symptom : diagnosis.getSelfSymptomList()) {
-			symotimList.add(symptom.getSymptom().getName());
-		}
-		return new DiagnosisCreateResponseDetailed(diagnosis.getId(),
-			diagnosis.getVisitType(), symotimList, diagnosis.getDuration(), diagnosis.getPainSeverity(),
-			diagnosis.getAdditionalNote(), diagnosis.getCreatedAt().toString());
-	}
-
-	public DiagnosisCreateResponse diagnosisToDiagnosisCreateResponse(SelfDiagnosis diagnosis) {
-		return new DiagnosisCreateResponse(diagnosis.getId(), "Self-diagnosis submitted successfully.");
 	}
 
 	public GetDiagnosisResponse diagnosisToGetDiagnosisResponse(SelfDiagnosis diagnosis) {
