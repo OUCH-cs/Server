@@ -42,13 +42,6 @@ public class UserService {
 
 		userRepository.save(deactivatedUser);
 	}
-
-	//유저 삭제(테스트용)
-	@Transactional
-	public void deleteUser(Long id) {
-		User user = userRepository.findById(id).orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
-		userRepository.delete(user);
-	}
 }
 
 
