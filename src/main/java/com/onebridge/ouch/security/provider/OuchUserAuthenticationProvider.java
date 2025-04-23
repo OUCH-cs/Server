@@ -30,17 +30,11 @@ public class OuchUserAuthenticationProvider implements AuthenticationProvider {
 		UserDetails userDetails = ouchUserDetailService.loadUserByUsername(loginId);
 
 		if (passwordEncoder.matches(password, userDetails.getPassword())) {
-			// return new OuchAuthenticationToken(
-			// 	userDetails.getUsername(),
-			// 	userDetails.getPassword(),
-			// 	userDetails.getAuthorities(),
-			// 	((OuchUserDetails)userDetails).getDatabaseId());
 			return new OuchAuthenticationToken(
-				userDetails,
-				null,
+				userDetails,                       // principal은 UserDetails 객체, 기존에는 userDetails.getUsername()로 string으로 받음
+				null,                              // 인증 후 credentials는 null, 기존에는 userDetails.getPassword()로 비밀번호 유지 인증 후 credentials는 null
 				userDetails.getAuthorities(),
-				((OuchUserDetails)userDetails).getDatabaseId()
-			);
+				((OuchUserDetails)userDetails).getDatabaseId()); // PK를 getDetails()로 받기 위해 따로 만든 메소드이므로 다운캐스팅
 		} else {
 			throw new OuchException(AuthorityErrorCode.PASSWORD_NOT_MATCH);
 		}
