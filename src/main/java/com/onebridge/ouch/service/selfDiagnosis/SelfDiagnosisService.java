@@ -69,8 +69,8 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표 조회
 	@Transactional(readOnly = true)
-	public GetDiagnosisResponse getDiagnosis(Long diagnosisId) {
-		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
+	public GetDiagnosisResponse getDiagnosis(Long diagnosisId, Long userId) {
+		SelfDiagnosis diagnosis = selfDiagnosisRepository.findByIdAndUserId(diagnosisId, userId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
 		return selfDiagnosisConverter.diagnosisToGetDiagnosisResponse(diagnosis);
@@ -91,8 +91,8 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표 삭제
 	@Transactional
-	public void deleteDiagnosis(Long diagnosisId) {
-		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
+	public void deleteDiagnosis(Long diagnosisId, Long userId) {
+		SelfDiagnosis diagnosis = selfDiagnosisRepository.findByIdAndUserId(diagnosisId, userId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
 		selfDiagnosisRepository.delete(diagnosis);
@@ -100,8 +100,8 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표의 증상 목록 조회
 	@Transactional(readOnly = true)
-	public GetSymptomsOfDiagnosisResponse getSymptomsOfDiagnosis(Long diagnosisId) {
-		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
+	public GetSymptomsOfDiagnosisResponse getSymptomsOfDiagnosis(Long diagnosisId, Long userId) {
+		SelfDiagnosis diagnosis = selfDiagnosisRepository.findByIdAndUserId(diagnosisId, userId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
 		return selfDiagnosisConverter.diagnosisToGetSymptomsOfDiagnosisResponse(diagnosis);
@@ -110,7 +110,7 @@ public class SelfDiagnosisService {
 	//자가진단표 수정
 	@Transactional
 	public DiagnosisUpdateResponse updateDiagnosis(Long diagnosisId, Long userId, DiagnosisUpdateRequest request) {
-		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
+		SelfDiagnosis diagnosis = selfDiagnosisRepository.findByIdAndUserId(diagnosisId, userId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
 		User user = userRepository.findById(userId)
@@ -143,9 +143,9 @@ public class SelfDiagnosisService {
 
 	//특정 자가진단표에 증상 추가
 	@Transactional
-	public void addSymptomsToSelfDiagnosis(Long diagnosisId, AddSymptomsToDiagnosisRequest request) {
+	public void addSymptomsToSelfDiagnosis(Long diagnosisId, AddSymptomsToDiagnosisRequest request, Long userId) {
 
-		SelfDiagnosis diagnosis = selfDiagnosisRepository.findById(diagnosisId)
+		SelfDiagnosis diagnosis = selfDiagnosisRepository.findByIdAndUserId(diagnosisId, userId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
 		for (String symptom : request.getSymptoms()) {
