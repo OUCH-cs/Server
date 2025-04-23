@@ -42,8 +42,8 @@ public class MedicalHistoryService {
 
 	//특정 건강상태 조회
 	@Transactional
-	public GetMedicalHistoryResponse getMedicalHistory(Long medicalHistoryId) {
-		MedicalHistory medicalHistory = medicalHistoryRepository.findById(medicalHistoryId)
+	public GetMedicalHistoryResponse getMedicalHistory(Long medicalHistoryId, Long userId) {
+		MedicalHistory medicalHistory = medicalHistoryRepository.findByIdAndUserId(medicalHistoryId, userId)
 			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.MEDICAL_HISTORY_NOT_FOUND));
 		return medicalHistoryConverter.medicalHistoryToGetMedicalHistoryResponse(medicalHistory);
 	}
@@ -58,8 +58,8 @@ public class MedicalHistoryService {
 	//특정 건강상태 수정
 	@Transactional
 	public void updateMedicalHistory(MedicalHistoryUpdateRequest request,
-		Long medicalHistoryId) {
-		MedicalHistory medicalHistory = medicalHistoryRepository.findById(medicalHistoryId)
+		Long medicalHistoryId, Long userId) {
+		MedicalHistory medicalHistory = medicalHistoryRepository.findByIdAndUserId(medicalHistoryId, userId)
 			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.MEDICAL_HISTORY_NOT_FOUND));
 
 		MedicalHistory updatedMedicalHistory = medicalHistoryConverter
@@ -70,8 +70,8 @@ public class MedicalHistoryService {
 
 	//특정 건강상태 삭제
 	@Transactional
-	public void deleteMedicalHistory(Long medicalHistoryId) {
-		MedicalHistory medicalHistory = medicalHistoryRepository.findById(medicalHistoryId)
+	public void deleteMedicalHistory(Long medicalHistoryId, Long userId) {
+		MedicalHistory medicalHistory = medicalHistoryRepository.findByIdAndUserId(medicalHistoryId, userId)
 			.orElseThrow(() -> new OuchException(MedicalHistoryErrorCode.MEDICAL_HISTORY_NOT_FOUND));
 
 		medicalHistoryRepository.delete(medicalHistory);

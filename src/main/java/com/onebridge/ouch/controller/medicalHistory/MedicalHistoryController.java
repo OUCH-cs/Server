@@ -50,7 +50,7 @@ public class MedicalHistoryController {
 	public ResponseEntity<ApiResponse<GetMedicalHistoryResponse>> getMedicalHistory(@PathVariable Long healthStatusId,
 		@UserId Long userId
 	) {
-		GetMedicalHistoryResponse response = medicalHistoryService.getMedicalHistory(healthStatusId);
+		GetMedicalHistoryResponse response = medicalHistoryService.getMedicalHistory(healthStatusId, userId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
@@ -72,7 +72,7 @@ public class MedicalHistoryController {
 		@PathVariable Long healthStatusId,
 		@UserId Long userId
 	) {
-		medicalHistoryService.updateMedicalHistory(request, healthStatusId);
+		medicalHistoryService.updateMedicalHistory(request, healthStatusId, userId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
@@ -82,7 +82,7 @@ public class MedicalHistoryController {
 	public ResponseEntity<ApiResponse<Void>> deleteMedicalHistory(@PathVariable Long healthStatusId,
 		@UserId Long userId
 	) {
-		medicalHistoryService.deleteMedicalHistory(healthStatusId);
+		medicalHistoryService.deleteMedicalHistory(healthStatusId, userId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 }
