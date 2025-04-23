@@ -17,8 +17,6 @@ import com.onebridge.ouch.dto.medicalHistory.request.MedicalHistoryCreateRequest
 import com.onebridge.ouch.dto.medicalHistory.request.MedicalHistoryUpdateRequest;
 import com.onebridge.ouch.dto.medicalHistory.response.DateAndDisease;
 import com.onebridge.ouch.dto.medicalHistory.response.GetMedicalHistoryResponse;
-import com.onebridge.ouch.dto.medicalHistory.response.MedicalHistoryCreateResponse;
-import com.onebridge.ouch.dto.medicalHistory.response.MedicalHistoryUpdateResponse;
 import com.onebridge.ouch.security.authorization.UserId;
 import com.onebridge.ouch.service.medicalHistory.MedicalHistoryService;
 
@@ -38,12 +36,12 @@ public class MedicalHistoryController {
 	//건강상태 생성
 	@Operation(summary = "건강상태 생성 API", description = "건강상태 생성 API 입니다.")
 	@PostMapping
-	public ResponseEntity<ApiResponse<MedicalHistoryCreateResponse>> createMedicalHistory(
+	public ResponseEntity<ApiResponse<Void>> createMedicalHistory(
 		@RequestBody @Valid MedicalHistoryCreateRequest request,
 		@UserId Long userId
 	) {
-		MedicalHistoryCreateResponse response = medicalHistoryService.createMedicalHistory(request, userId);
-		return ResponseEntity.ok(ApiResponse.created(response));
+		medicalHistoryService.createMedicalHistory(request, userId);
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	//특정 건강상태 조회
@@ -52,7 +50,7 @@ public class MedicalHistoryController {
 	public ResponseEntity<ApiResponse<GetMedicalHistoryResponse>> getMedicalHistory(@PathVariable Long healthStatusId,
 		@UserId Long userId
 	) {
-		GetMedicalHistoryResponse response = medicalHistoryService.getMedicalHistory(healthStatusId, userId);
+		GetMedicalHistoryResponse response = medicalHistoryService.getMedicalHistory(healthStatusId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
@@ -69,14 +67,13 @@ public class MedicalHistoryController {
 	//특정 건강상태 수정
 	@Operation(summary = "건강상태 수정 API", description = "건강상태 수정 API 입니다.")
 	@PutMapping("/{healthStatusId}")
-	public ResponseEntity<ApiResponse<MedicalHistoryUpdateResponse>> updateMedicalHistory(
+	public ResponseEntity<ApiResponse<Void>> updateMedicalHistory(
 		@RequestBody @Valid MedicalHistoryUpdateRequest request,
 		@PathVariable Long healthStatusId,
 		@UserId Long userId
 	) {
-		MedicalHistoryUpdateResponse response = medicalHistoryService.updateMedicalHistory(request, healthStatusId,
-			userId);
-		return ResponseEntity.ok(ApiResponse.success(response));
+		medicalHistoryService.updateMedicalHistory(request, healthStatusId);
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	//특정 건강상태 삭제
@@ -85,7 +82,7 @@ public class MedicalHistoryController {
 	public ResponseEntity<ApiResponse<Void>> deleteMedicalHistory(@PathVariable Long healthStatusId,
 		@UserId Long userId
 	) {
-		medicalHistoryService.deleteMedicalHistory(healthStatusId, userId);
+		medicalHistoryService.deleteMedicalHistory(healthStatusId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 }

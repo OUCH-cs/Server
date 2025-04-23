@@ -9,8 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MedicalHistoryErrorCode implements ErrorCode {
 
-	USER_NOT_FOUND(HttpStatus.NOT_FOUND, "HEALTH-STATUS400", "User not found."),
-	MEDICAL_HISTORY_NOT_FOUND(HttpStatus.NOT_FOUND, "HEALTH-STATUS401", "Health status not found.");
+	MEDICAL_HISTORY_NOT_FOUND(HttpStatus.NOT_FOUND, "HEALTH-STATUS401", "건강상태가 존재하지 않습니다.");
 
 	private final HttpStatus httpStatus;
 	private final String code;

@@ -11,19 +11,9 @@ import com.onebridge.ouch.dto.medicalHistory.request.MedicalHistoryCreateRequest
 import com.onebridge.ouch.dto.medicalHistory.request.MedicalHistoryUpdateRequest;
 import com.onebridge.ouch.dto.medicalHistory.response.DateAndDisease;
 import com.onebridge.ouch.dto.medicalHistory.response.GetMedicalHistoryResponse;
-import com.onebridge.ouch.dto.medicalHistory.response.MedicalHistoryCreateResponse;
-import com.onebridge.ouch.dto.medicalHistory.response.MedicalHistoryUpdateResponse;
 
 @Component
 public class MedicalHistoryConverter {
-
-	public MedicalHistoryCreateResponse medicalHistoryToMedicalHistoryResponse(MedicalHistory medicalHistory,
-		Long userId) {
-		return new MedicalHistoryCreateResponse(medicalHistory.getId(),
-			medicalHistory.getDisease(),
-			medicalHistory.getAllergy(),
-			medicalHistory.getBloodPressure(), medicalHistory.getBloodSugar(), medicalHistory.getMedicineHistory());
-	}
 
 	public List<DateAndDisease> medicalHistoryToGetUsersAllMedicalHistoryResponse(
 		List<MedicalHistory> medicalHistory) {
@@ -39,12 +29,6 @@ public class MedicalHistoryConverter {
 
 	public GetMedicalHistoryResponse medicalHistoryToGetMedicalHistoryResponse(MedicalHistory medicalHistory) {
 		return new GetMedicalHistoryResponse(medicalHistory.getId(), medicalHistory.getDisease(),
-			medicalHistory.getAllergy(), medicalHistory.getBloodPressure(), medicalHistory.getBloodSugar(),
-			medicalHistory.getMedicineHistory());
-	}
-
-	public MedicalHistoryUpdateResponse medicalHistoryToMedicalHistoryUpdateResponse(MedicalHistory medicalHistory) {
-		return new MedicalHistoryUpdateResponse(medicalHistory.getId(), medicalHistory.getDisease(),
 			medicalHistory.getAllergy(), medicalHistory.getBloodPressure(), medicalHistory.getBloodSugar(),
 			medicalHistory.getMedicineHistory());
 	}
