@@ -39,7 +39,6 @@ public class VisitHistoryService {
 	//의료 기록 생성
 	@Transactional
 	public void createVisitHistory(VisitHistoryCreateRequest request, Long userId) {
-
 		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
@@ -57,15 +56,8 @@ public class VisitHistoryService {
 	//특정 의료기록 조회
 	@Transactional
 	public GetVisitHistoryResponse getVisitHistory(Long visitHistoryId, Long userId) {
-		VisitHistory visitHistory = visitHistoryRepository.findById(visitHistoryId)
+		VisitHistory visitHistory = visitHistoryRepository.findByIdAndUserId(visitHistoryId, userId)
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_NOT_FOUND));
-
-		User user = userRepository.findById(userId)
-			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
-
-		if (visitHistory.getUser() != user) {
-			throw new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_USER_NOT_MATCH);
-		}
 
 		return visitHistoryConverter.visitHistoryToGetVisitHistoryResponse(visitHistory);
 	}
@@ -79,8 +71,8 @@ public class VisitHistoryService {
 
 	//특정 의료기록 삭제
 	@Transactional
-	public void deleteVisitHistory(Long visitHistoryId) {
-		VisitHistory visitHistory = visitHistoryRepository.findById(visitHistoryId)
+	public void deleteVisitHistory(Long visitHistoryId, Long userId) {
+		VisitHistory visitHistory = visitHistoryRepository.findByIdAndUserId(visitHistoryId, userId)
 			.orElseThrow(
 				() -> new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_NOT_FOUND));
 
@@ -90,8 +82,8 @@ public class VisitHistoryService {
 	//특정 의료기록 수정
 	@Transactional
 	public void updateVisitHistory(@Valid VisitHistoryUpdateRequest request,
-		Long visitHistoryId) {
-		VisitHistory visitHistory = visitHistoryRepository.findById(visitHistoryId)
+		Long visitHistoryId, Long userId) {
+		VisitHistory visitHistory = visitHistoryRepository.findByIdAndUserId(visitHistoryId, userId)
 			.orElseThrow(() -> new OuchException(VisitHistoryErrorCode.VISIT_HISTORY_NOT_FOUND));
 
 		Summary summary = visitHistory.getSummary().toBuilder()

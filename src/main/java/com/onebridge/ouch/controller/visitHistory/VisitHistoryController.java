@@ -70,7 +70,7 @@ public class VisitHistoryController {
 	public ResponseEntity<ApiResponse<Void>> deleteVisitHistory(@PathVariable Long medicalRecordId,
 		@UserId Long userId
 	) {
-		visitHistoryService.deleteVisitHistory(medicalRecordId);
+		visitHistoryService.deleteVisitHistory(medicalRecordId, userId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
@@ -82,7 +82,7 @@ public class VisitHistoryController {
 		@PathVariable Long medicalRecordId,
 		@UserId Long userId
 	) {
-		visitHistoryService.updateVisitHistory(request, medicalRecordId);
+		visitHistoryService.updateVisitHistory(request, medicalRecordId, userId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 }
