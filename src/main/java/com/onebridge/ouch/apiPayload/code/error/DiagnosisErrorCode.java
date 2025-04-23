@@ -9,10 +9,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum DiagnosisErrorCode implements ErrorCode {
 
-	USER_NOT_FOUND(HttpStatus.NOT_FOUND, "DIAGNOSIS400", "User not found."),
-	SYMPTOM_NOT_FOUND(HttpStatus.NOT_FOUND, "DIAGNOSIS401", "Symptom not found."),
-	DIAGNOSIS_NOT_FOUND(HttpStatus.NOT_FOUND, "DIAGNOSIS402", "Diagnosis not found."),
-	SYMPTOM_ALREADY_ADDED(HttpStatus.BAD_REQUEST, "DIAGNOSIS403", "Symptom already added."),
+	SYMPTOM_NOT_FOUND(HttpStatus.NOT_FOUND, "DIAGNOSIS401", "입력한 증상이 존재하지 않습니다."),
+	DIAGNOSIS_NOT_FOUND(HttpStatus.NOT_FOUND, "DIAGNOSIS402", "자가진단표가 존재하지 않습니다."),
+	SYMPTOM_ALREADY_ADDED(HttpStatus.BAD_REQUEST, "DIAGNOSIS403", "해당 증상이 이미 존재합니다."),
 	;
 
 	private final HttpStatus httpStatus;

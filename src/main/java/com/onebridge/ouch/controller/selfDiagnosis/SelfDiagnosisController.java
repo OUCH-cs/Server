@@ -16,8 +16,6 @@ import com.onebridge.ouch.apiPayload.ApiResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.request.AddSymptomsToDiagnosisRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisCreateRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisUpdateRequest;
-import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisCreateResponseDetailed;
-import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisUpdateResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisByUserIdResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetSymptomsOfDiagnosisResponse;
@@ -40,12 +38,12 @@ public class SelfDiagnosisController {
 	//자가진단표 생성
 	@Operation(summary = "자가진단표 생성 API", description = "자가진단표 생성 API 입니다.")
 	@PostMapping
-	public ResponseEntity<ApiResponse<DiagnosisCreateResponseDetailed>> createDiagnosis( //request dto 에 userid 지우기
+	public ResponseEntity<ApiResponse<Void>> createDiagnosis( //request dto 에 userid 지우기
 		@RequestBody @Valid DiagnosisCreateRequest request,
 		@UserId Long userId
 	) {
-		DiagnosisCreateResponseDetailed response = selfDiagnosisService.createDiagnosis(request, userId);
-		return ResponseEntity.ok(ApiResponse.created(response));
+		selfDiagnosisService.createDiagnosis(request, userId);
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	//(자가진단표)id로 자가진단표 조회
@@ -93,12 +91,12 @@ public class SelfDiagnosisController {
 	//자가진단표 수정
 	@Operation(summary = "자가진단표 수정 API", description = "자가진단표 수정 API 입니다.")
 	@PutMapping("/{diagnosisId}")
-	public ResponseEntity<ApiResponse<DiagnosisUpdateResponse>> updateDiagnosis(@PathVariable Long diagnosisId,
+	public ResponseEntity<ApiResponse<Void>> updateDiagnosis(@PathVariable Long diagnosisId,
 		@RequestBody @Valid DiagnosisUpdateRequest request,
 		@UserId Long userId
 	) {
-		DiagnosisUpdateResponse response = selfDiagnosisService.updateDiagnosis(diagnosisId, userId, request);
-		return ResponseEntity.ok(ApiResponse.success(response));
+		selfDiagnosisService.updateDiagnosis(diagnosisId, userId, request);
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
 	//자가진단표에 증상 추가
