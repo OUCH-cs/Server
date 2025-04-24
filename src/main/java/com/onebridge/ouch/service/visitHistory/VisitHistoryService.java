@@ -16,8 +16,6 @@ import com.onebridge.ouch.dto.visitHistory.request.VisitHistoryCreateRequest;
 import com.onebridge.ouch.dto.visitHistory.request.VisitHistoryUpdateRequest;
 import com.onebridge.ouch.dto.visitHistory.response.DateAndHospital;
 import com.onebridge.ouch.dto.visitHistory.response.GetVisitHistoryResponse;
-import com.onebridge.ouch.repository.department.DepartmentRepository;
-import com.onebridge.ouch.repository.hospital.HospitalRepository;
 import com.onebridge.ouch.repository.summary.SummaryRepository;
 import com.onebridge.ouch.repository.user.UserRepository;
 import com.onebridge.ouch.repository.visitHistory.VisitHistoryRepository;
@@ -30,8 +28,6 @@ import lombok.RequiredArgsConstructor;
 public class VisitHistoryService {
 
 	private final UserRepository userRepository;
-	private final HospitalRepository hospitalRepository;
-	private final DepartmentRepository departmentRepository;
 	private final VisitHistoryRepository visitHistoryRepository;
 	private final VisitHistoryConverter visitHistoryConverter;
 	private final SummaryRepository summaryRepository;
