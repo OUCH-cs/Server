@@ -1,4 +1,4 @@
-package com.onebridge.ouch.dto.visitHistory.request;
+package com.onebridge.ouch.dto.medicalRecord.request;
 
 import java.time.LocalDate;
 
@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 @Getter
-public class VisitHistoryUpdateRequest {
+public class MedicalRecordCreateRequest {
 
 	@NotNull(message = "Visit date is required.")
 	private LocalDate visitDate;
