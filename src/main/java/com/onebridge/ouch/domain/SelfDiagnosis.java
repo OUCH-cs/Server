@@ -28,6 +28,6 @@ public class SelfDiagnosis extends BaseEntity {
 	private String contents;
 
 	@OneToMany(mappedBy = "selfDiagnosis", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<DiagnosisSymptom> selfSymptomList = new ArrayList<>();
+	private List<DiagnosisSymptom> diagnosisSymptomList = new ArrayList<>();
 
 }

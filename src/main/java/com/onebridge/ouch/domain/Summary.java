@@ -14,10 +14,10 @@ import lombok.*;
 public class Summary extends BaseEntity {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@MapsId
 	@JoinColumn(name = "medical_record_id")
 	private MedicalRecord medicalRecord;
 
