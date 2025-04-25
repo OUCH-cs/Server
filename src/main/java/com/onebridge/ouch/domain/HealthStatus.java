@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,16 +24,14 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class MedicalHistory extends BaseEntity {
+public class HealthStatus extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY) //cascade = CascadeType.ALL -> medicalHistory 삭제 시 user 도 삭제됨
-	// @JoinColumn(name = "user_id") //외래 키 이름을 user_id로 설정
-	@JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_medical_history_user",
-		value = ConstraintMode.CONSTRAINT, foreignKeyDefinition = "ON DELETE CASCADE"))
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	@Column(nullable = true, columnDefinition = "TEXT")
