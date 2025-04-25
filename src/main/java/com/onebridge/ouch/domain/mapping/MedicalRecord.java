@@ -27,7 +27,6 @@ public class MedicalRecord extends BaseEntity {
 	@JoinColumn(name = "hospital_id")
 	private Hospital hospital;
 
-	@OneToOne(mappedBy = "summary", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	@JoinColumn(name = "summary_id")
+	@OneToOne(mappedBy = "medicalRecord", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Summary summary;
 }
