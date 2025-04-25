@@ -19,6 +19,7 @@ public class LanguageService {
 
 	private final LanguageRepository languageRepository;
 
+	/*
 	public Long addLanguage(LanguageDto languageDto) {
 		Language language = Language.builder()
 			.name(languageDto.getName())
@@ -45,6 +46,7 @@ public class LanguageService {
 		}
 		languageRepository.deleteById(id);
 	}
+	 */
 
 	public List<LanguageDto> getAllLanguages() {
 		List<Language> languages = languageRepository.findAll();
@@ -52,5 +54,4 @@ public class LanguageService {
 			.map(language -> new LanguageDto(language.getName(), language.getCode()))
 			.collect(Collectors.toList());
 	}
-
 }

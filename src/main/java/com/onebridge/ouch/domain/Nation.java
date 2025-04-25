@@ -2,6 +2,7 @@ package com.onebridge.ouch.domain;
 
 import com.onebridge.ouch.domain.common.BaseEntity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +24,10 @@ public class Nation extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
+	// 국가 코드
+	@Column(nullable = false, length = 4)
+	private String code;
 
+	@Column(nullable = false, length = 30)
+	private String name;
 }
