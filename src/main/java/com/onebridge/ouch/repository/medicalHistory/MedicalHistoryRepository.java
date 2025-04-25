@@ -6,11 +6,11 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.onebridge.ouch.domain.MedicalHistory;
+import com.onebridge.ouch.domain.HealthStatus;
 
 @Repository
-public interface MedicalHistoryRepository extends JpaRepository<MedicalHistory, Long> {
-	List<MedicalHistory> findAllByUserId(Long userId);
+public interface MedicalHistoryRepository extends JpaRepository<HealthStatus, Long> {
+	List<HealthStatus> findAllByUserId(Long userId);
 
-	Optional<MedicalHistory> findByIdAndUserId(Long medicalHistoryId, Long userId);
+	Optional<HealthStatus> findByIdAndUserId(Long medicalHistoryId, Long userId);
 }
