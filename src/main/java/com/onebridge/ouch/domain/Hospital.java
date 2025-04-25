@@ -26,6 +26,6 @@ public class Hospital extends BaseEntity {
 	@Column(nullable = false, length = 100)
 	private String address;
 
-	@OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<HospitalDepartment> hospitalDepartmentList = new ArrayList<>();
 }

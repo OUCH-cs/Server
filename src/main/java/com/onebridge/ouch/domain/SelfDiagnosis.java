@@ -6,22 +6,10 @@ import java.util.List;
 import com.onebridge.ouch.domain.common.BaseEntity;
 import com.onebridge.ouch.domain.enums.SymptomDuration;
 import com.onebridge.ouch.domain.enums.VisitType;
-import com.onebridge.ouch.domain.mapping.SelfSymptom;
+import com.onebridge.ouch.domain.mapping.DiagnosisSymptom;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Entity
@@ -39,10 +27,13 @@ public class SelfDiagnosis extends BaseEntity {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	private VisitType visitType;
+	@Column(columnDefinition = "TEXT")
+	private String contents;
 
 	@OneToMany(mappedBy = "selfDiagnosis", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<SelfSymptom> selfSymptomList = new ArrayList<>();
+	private List<DiagnosisSymptom> diagnosisSymptomList = new ArrayList<>();
+
+	private VisitType visitType;
 
 	private SymptomDuration duration;
 
