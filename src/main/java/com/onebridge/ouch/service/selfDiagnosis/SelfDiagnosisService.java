@@ -15,7 +15,7 @@ import com.onebridge.ouch.converter.SelfDiagnosisConverter;
 import com.onebridge.ouch.domain.SelfDiagnosis;
 import com.onebridge.ouch.domain.Symptom;
 import com.onebridge.ouch.domain.User;
-import com.onebridge.ouch.domain.mapping.SelfSymptom;
+import com.onebridge.ouch.domain.mapping.DiagnosisSymptom;
 import com.onebridge.ouch.dto.selfDiagnosis.request.AddSymptomsToDiagnosisRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisCreateRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisUpdateRequest;
@@ -60,8 +60,9 @@ public class SelfDiagnosisService {
 				throw new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND);
 			}
 
-			SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(selfDiagnosis, foundSymptom);
-			selfDiagnosis.getSelfSymptomList().add(symptom1);
+			DiagnosisSymptom symptom1 = selfDiagnosisConverter.BuildDiagnosisSymptom(selfDiagnosis,
+				foundSymptom);
+			selfDiagnosis.getDiagnosisSymptomList().add(symptom1);
 		}
 
 		selfDiagnosisRepository.save(selfDiagnosis);
@@ -132,8 +133,9 @@ public class SelfDiagnosisService {
 				throw new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND);
 			}
 
-			SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(updatedDiagnosis, foundSymptom);
-			updatedDiagnosis.getSelfSymptomList().add(symptom1);
+			DiagnosisSymptom symptom1 = selfDiagnosisConverter.BuildDiagnosisSymptom(updatedDiagnosis,
+				foundSymptom);
+			updatedDiagnosis.getDiagnosisSymptomList().add(symptom1);
 		}
 
 		selfDiagnosisRepository.save(updatedDiagnosis);
@@ -150,18 +152,18 @@ public class SelfDiagnosisService {
 
 		for (String symptom : request.getSymptoms()) {
 
-			if (diagnosis.getSelfSymptomList()
+			if (diagnosis.getDiagnosisSymptomList()
 				.stream()
-				.anyMatch(selfSymptom -> selfSymptom.getSymptom().getName().equals(symptom))) {
+				.anyMatch(diagnosisSymptom -> diagnosisSymptom.getSymptom().getName().equals(symptom))) {
 				throw new OuchException(DiagnosisErrorCode.SYMPTOM_ALREADY_ADDED);
 			}
 
 			Symptom foundSymptom = symptomRepository.findByName(symptom)
 				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
 
-			SelfSymptom symptom1 = selfDiagnosisConverter.SelfSymptomWithSelfDiagnosis(diagnosis, foundSymptom);
+			DiagnosisSymptom symptom1 = selfDiagnosisConverter.BuildDiagnosisSymptom(diagnosis, foundSymptom);
 
-			diagnosis.getSelfSymptomList().add(symptom1);
+			diagnosis.getDiagnosisSymptomList().add(symptom1);
 
 		}
 	}

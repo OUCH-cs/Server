@@ -8,8 +8,7 @@ import org.springframework.stereotype.Component;
 import com.onebridge.ouch.domain.SelfDiagnosis;
 import com.onebridge.ouch.domain.Symptom;
 import com.onebridge.ouch.domain.User;
-import com.onebridge.ouch.domain.mapping.SelfSymptom;
-import com.onebridge.ouch.domain.mapping.compositeKey.DiagnosisSymptomPK;
+import com.onebridge.ouch.domain.mapping.DiagnosisSymptom;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisCreateRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisUpdateRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisUpdateResponse;
@@ -50,19 +49,17 @@ public class SelfDiagnosisConverter {
 		return SelfDiagnosis.builder()
 			.user(user)
 			.visitType(request.getVisitType())
-			.selfSymptomList(new ArrayList<>())
+			.diagnosisSymptomList(new ArrayList<>())
 			.duration(request.getDuration())
 			.painSeverity(request.getPainSeverity())
 			.additionalNote(request.getAdditionalNote())
 			.build();
 	}
 
-	public SelfSymptom SelfSymptomWithSelfDiagnosis(SelfDiagnosis selfDiagnosis, Symptom foundSymptom) {
-		return SelfSymptom.builder()
+	public DiagnosisSymptom BuildDiagnosisSymptom(SelfDiagnosis selfDiagnosis, Symptom foundSymptom) {
+		return DiagnosisSymptom.builder()
 			.selfDiagnosis(selfDiagnosis)
 			.symptom(foundSymptom)
-			.diagnosisSymptomPk(new DiagnosisSymptomPK(selfDiagnosis.getId(),
-				foundSymptom.getId()))
 			.build();
 	}
 
@@ -71,7 +68,7 @@ public class SelfDiagnosisConverter {
 		return diagnosis.toBuilder()
 			.user(user)
 			.visitType(request.getVisitType())
-			.selfSymptomList(new ArrayList<>())
+			.diagnosisSymptomList(new ArrayList<>())
 			.duration(request.getDuration())
 			.painSeverity(request.getPainSeverity())
 			.additionalNote(request.getAdditionalNote())
@@ -81,7 +78,7 @@ public class SelfDiagnosisConverter {
 
 	public List<String> SymptomListForResponseDto(SelfDiagnosis selfDiagnosis) {
 		List<String> symptoms = new ArrayList<>();
-		for (SelfSymptom symptom : selfDiagnosis.getSelfSymptomList()) {
+		for (DiagnosisSymptom symptom : selfDiagnosis.getDiagnosisSymptomList()) {
 			symptoms.add(symptom.getSymptom().getName());
 		}
 		return symptoms;
