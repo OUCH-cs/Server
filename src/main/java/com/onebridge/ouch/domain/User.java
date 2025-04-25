@@ -7,7 +7,7 @@ import java.util.List;
 import com.onebridge.ouch.domain.common.BaseEntity;
 import com.onebridge.ouch.domain.enums.Gender;
 import com.onebridge.ouch.domain.enums.UserStatus;
-import com.onebridge.ouch.domain.mapping.VisitHistory;
+import com.onebridge.ouch.domain.mapping.MedicalRecord;
 import com.onebridge.ouch.security.authority.OuchAuthority;
 
 import jakarta.persistence.CascadeType;
@@ -92,7 +92,7 @@ public class User extends BaseEntity {
 	private List<SelfDiagnosis> selfDiagnosisList = new ArrayList<>();
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<VisitHistory> visitHistoryList = new ArrayList<>();
+	private List<MedicalRecord> visitHistoryList = new ArrayList<>();
 
 	public OuchAuthority getAuthority() {
 		return OuchAuthority.INDIVIDUAL;

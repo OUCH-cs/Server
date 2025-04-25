@@ -1,7 +1,7 @@
 package com.onebridge.ouch.domain;
 
 import com.onebridge.ouch.domain.common.BaseEntity;
-import com.onebridge.ouch.domain.mapping.VisitHistory;
+import com.onebridge.ouch.domain.mapping.MedicalRecord;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,8 +18,8 @@ public class Summary extends BaseEntity {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@MapsId
-	@JoinColumn(name = "visit_history_id")
-	private VisitHistory visitHistory;
+	@JoinColumn(name = "medical_record_id")
+	private MedicalRecord medicalRecord;
 
 	@Column(columnDefinition = "TEXT")
 	private String contents;
