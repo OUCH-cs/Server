@@ -20,32 +20,32 @@ import com.onebridge.ouch.dto.selfDiagnosis.response.GetSymptomsOfDiagnosisRespo
 public class SelfDiagnosisConverter {
 
 	public DiagnosisUpdateResponse diagnosisToDiagnosisUpdateResponse(SelfDiagnosis updatedDiagnosis) {
-		List<String> symptoms = SymptomListForResponseDto(updatedDiagnosis);
+		List<String> symptoms = symptomListForResponseDto(updatedDiagnosis);
 		return new DiagnosisUpdateResponse(updatedDiagnosis.getId(), updatedDiagnosis.getVisitType(), symptoms,
 			updatedDiagnosis.getDuration(), updatedDiagnosis.getPainSeverity(), updatedDiagnosis.getAdditionalNote(),
 			updatedDiagnosis.getCreatedAt().toString());
 	}
 
 	public GetDiagnosisResponse diagnosisToGetDiagnosisResponse(SelfDiagnosis diagnosis) {
-		List<String> symptoms = SymptomListForResponseDto(diagnosis);
+		List<String> symptoms = symptomListForResponseDto(diagnosis);
 		return new GetDiagnosisResponse(diagnosis.getUser().getId(), diagnosis.getVisitType(), symptoms,
 			diagnosis.getDuration(),
 			diagnosis.getPainSeverity(), diagnosis.getAdditionalNote(), diagnosis.getCreatedAt().toString());
 	}
 
 	public GetDiagnosisByUserIdResponse diagnosisToGetDiagnosisByUserIdResponse(SelfDiagnosis diagnosis) {
-		List<String> symptoms = SymptomListForResponseDto(diagnosis);
+		List<String> symptoms = symptomListForResponseDto(diagnosis);
 		return new GetDiagnosisByUserIdResponse(diagnosis.getId(), diagnosis.getVisitType(), symptoms,
 			diagnosis.getDuration(), diagnosis.getPainSeverity(), diagnosis.getAdditionalNote(),
 			diagnosis.getCreatedAt().toString());
 	}
 
 	public GetSymptomsOfDiagnosisResponse diagnosisToGetSymptomsOfDiagnosisResponse(SelfDiagnosis diagnosis) {
-		List<String> symptoms = SymptomListForResponseDto(diagnosis);
+		List<String> symptoms = symptomListForResponseDto(diagnosis);
 		return new GetSymptomsOfDiagnosisResponse(symptoms);
 	}
 
-	public SelfDiagnosis DiagnosisCreateRequestToSelfDiagnosis(DiagnosisCreateRequest request, User user) {
+	public SelfDiagnosis diagnosisCreateRequestToSelfDiagnosis(DiagnosisCreateRequest request, User user) {
 		return SelfDiagnosis.builder()
 			.user(user)
 			.visitType(request.getVisitType())
@@ -56,14 +56,14 @@ public class SelfDiagnosisConverter {
 			.build();
 	}
 
-	public DiagnosisSymptom BuildDiagnosisSymptom(SelfDiagnosis selfDiagnosis, Symptom foundSymptom) {
+	public DiagnosisSymptom buildDiagnosisSymptom(SelfDiagnosis selfDiagnosis, Symptom foundSymptom) {
 		return DiagnosisSymptom.builder()
 			.selfDiagnosis(selfDiagnosis)
 			.symptom(foundSymptom)
 			.build();
 	}
 
-	public SelfDiagnosis DiagnosisUpdateRequestToSelfDiagnosis(SelfDiagnosis diagnosis, User user,
+	public SelfDiagnosis diagnosisUpdateRequestToSelfDiagnosis(SelfDiagnosis diagnosis, User user,
 		DiagnosisUpdateRequest request) {
 		return diagnosis.toBuilder()
 			.user(user)
@@ -76,7 +76,7 @@ public class SelfDiagnosisConverter {
 			.build();
 	}
 
-	public List<String> SymptomListForResponseDto(SelfDiagnosis selfDiagnosis) {
+	public List<String> symptomListForResponseDto(SelfDiagnosis selfDiagnosis) {
 		List<String> symptoms = new ArrayList<>();
 		for (DiagnosisSymptom symptom : selfDiagnosis.getDiagnosisSymptomList()) {
 			symptoms.add(symptom.getSymptom().getName());

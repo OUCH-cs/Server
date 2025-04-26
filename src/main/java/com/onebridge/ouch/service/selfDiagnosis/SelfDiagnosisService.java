@@ -45,7 +45,7 @@ public class SelfDiagnosisService {
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
 		//일단 증상 리스트는 비워둔 채로 SelfDiagnosis 객체 생성
-		SelfDiagnosis selfDiagnosis = selfDiagnosisConverter.DiagnosisCreateRequestToSelfDiagnosis(request, user);
+		SelfDiagnosis selfDiagnosis = selfDiagnosisConverter.diagnosisCreateRequestToSelfDiagnosis(request, user);
 
 		List<String> symptomNames = request.getSymptoms();
 		List<Symptom> foundSymptoms = symptomRepository.findByNameIn(symptomNames);
@@ -60,7 +60,7 @@ public class SelfDiagnosisService {
 				throw new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND);
 			}
 
-			DiagnosisSymptom symptom1 = selfDiagnosisConverter.BuildDiagnosisSymptom(selfDiagnosis,
+			DiagnosisSymptom symptom1 = selfDiagnosisConverter.buildDiagnosisSymptom(selfDiagnosis,
 				foundSymptom);
 			selfDiagnosis.getDiagnosisSymptomList().add(symptom1);
 		}
@@ -117,7 +117,7 @@ public class SelfDiagnosisService {
 		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
-		SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.DiagnosisUpdateRequestToSelfDiagnosis(diagnosis, user,
+		SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.diagnosisUpdateRequestToSelfDiagnosis(diagnosis, user,
 			request);
 
 		List<String> symptomNames = request.getSymptoms();
@@ -133,7 +133,7 @@ public class SelfDiagnosisService {
 				throw new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND);
 			}
 
-			DiagnosisSymptom symptom1 = selfDiagnosisConverter.BuildDiagnosisSymptom(updatedDiagnosis,
+			DiagnosisSymptom symptom1 = selfDiagnosisConverter.buildDiagnosisSymptom(updatedDiagnosis,
 				foundSymptom);
 			updatedDiagnosis.getDiagnosisSymptomList().add(symptom1);
 		}
@@ -161,7 +161,7 @@ public class SelfDiagnosisService {
 			Symptom foundSymptom = symptomRepository.findByName(symptom)
 				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
 
-			DiagnosisSymptom symptom1 = selfDiagnosisConverter.BuildDiagnosisSymptom(diagnosis, foundSymptom);
+			DiagnosisSymptom symptom1 = selfDiagnosisConverter.buildDiagnosisSymptom(diagnosis, foundSymptom);
 
 			diagnosis.getDiagnosisSymptomList().add(symptom1);
 
