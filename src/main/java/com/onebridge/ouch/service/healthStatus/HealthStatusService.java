@@ -48,12 +48,14 @@ public class HealthStatusService {
 		return healthStatusConverter.healthStatusToGetHealthStatusResponse(healthStatus);
 	}
 
+
 	//특정 사용자의 모든 건강상태 조회
 	@Transactional
 	public List<DateAndDisease> getUsersAllHealthStatus(Long userId) {
 		List<HealthStatus> healthStatus = healthStatusRepository.findAllByUserId(userId);
 		return healthStatusConverter.healthStatusToGetUsersAllHealthStatusResponse(healthStatus);
 	}
+	 // 유저 한 명당 하나의 건강상태만 보유
 
 	//특정 건강상태 수정
 	@Transactional

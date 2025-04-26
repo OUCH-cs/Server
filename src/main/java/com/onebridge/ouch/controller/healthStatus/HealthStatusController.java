@@ -54,6 +54,7 @@ public class HealthStatusController {
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
+	/*
 	//특정 사용자의 모든 건강상태 조회
 	@Operation(summary = "특정 사용자의 모든 건강상태 조회 API", description = "특정 사용자의 모든 건강상태 조회 API 입니다.")
 	@GetMapping
@@ -63,6 +64,7 @@ public class HealthStatusController {
 		List<DateAndDisease> list = healthStatusService.getUsersAllHealthStatus(userId);
 		return ResponseEntity.ok(ApiResponse.success(list));
 	}
+	*/ // 건강 상태 한 개만 보유
 
 	//특정 건강상태 수정
 	@Operation(summary = "건강상태 수정 API", description = "건강상태 수정 API 입니다.")

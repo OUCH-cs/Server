@@ -15,6 +15,7 @@ import com.onebridge.ouch.dto.healthStatus.response.GetHealthStatusResponse;
 @Component
 public class HealthStatusConverter {
 
+	/*
 	public List<DateAndDisease> healthStatusToGetUsersAllHealthStatusResponse(
 		List<HealthStatus> healthStatus) {
 
@@ -26,6 +27,7 @@ public class HealthStatusConverter {
 
 		return list;
 	}
+	*/ // 유저 한 명당 건강상태기록 한 개만 보유
 
 	public GetHealthStatusResponse healthStatusToGetHealthStatusResponse(HealthStatus healthStatus) {
 		return new GetHealthStatusResponse(healthStatus.getId(), healthStatus.getDisease(),
