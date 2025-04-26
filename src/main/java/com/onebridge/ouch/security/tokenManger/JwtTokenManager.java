@@ -75,8 +75,10 @@ public class JwtTokenManager implements TokenManager {
 				"type", "accessToken"
 			))
 			.setClaims(Map.of(
-				"loginId", authentication.getPrincipal(),
-				"authorities", authentication.getAuthorities(),
+				"loginId", authentication.getName(), // 기존 .getPrincipal()로 UserDetails 전체가 직렬화됨(다만 principle을 userDetails.getUsername() 넣었어서 string으로 문제가 없었음 -> username(String)만
+				"authorities", authentication.getAuthorities().stream() // GrantedAuthority 객체 리스트 직렬화 문제 -> List<String>
+					.map(GrantedAuthority::getAuthority)
+					.toList(),
 				"id", authentication.getDetails()
 			))
 			.setIssuedAt(new Date())

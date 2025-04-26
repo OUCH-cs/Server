@@ -13,7 +13,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class VisitHistory extends BaseEntity {
+public class MedicalRecord extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,6 @@ public class VisitHistory extends BaseEntity {
 	@JoinColumn(name = "hospital_id")
 	private Hospital hospital;
 
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	@JoinColumn(name = "summary_id")
+	@OneToOne(mappedBy = "medicalRecord", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Summary summary;
 }

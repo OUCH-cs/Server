@@ -7,7 +7,7 @@ import java.util.List;
 import com.onebridge.ouch.domain.common.BaseEntity;
 import com.onebridge.ouch.domain.enums.Gender;
 import com.onebridge.ouch.domain.enums.UserStatus;
-import com.onebridge.ouch.domain.mapping.VisitHistory;
+import com.onebridge.ouch.domain.mapping.MedicalRecord;
 import com.onebridge.ouch.security.authority.OuchAuthority;
 
 import jakarta.persistence.CascadeType;
@@ -22,6 +22,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -79,6 +80,9 @@ public class User extends BaseEntity {
 	@JoinColumn(name = "nation_id", referencedColumnName = "id") // language_id를 외래 키로 설정
 	private Nation nation;
 
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	private HealthStatus healthStatus;
+
 	// @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	// private List<Terms> termsList = new ArrayList<>();
 
@@ -92,7 +96,7 @@ public class User extends BaseEntity {
 	private List<SelfDiagnosis> selfDiagnosisList = new ArrayList<>();
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<VisitHistory> visitHistoryList = new ArrayList<>();
+	private List<MedicalRecord> medicalRecordList = new ArrayList<>();
 
 	public OuchAuthority getAuthority() {
 		return OuchAuthority.INDIVIDUAL;
