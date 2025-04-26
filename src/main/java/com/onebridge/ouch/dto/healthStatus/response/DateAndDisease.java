@@ -1,4 +1,4 @@
-package com.onebridge.ouch.dto.medicalHistory.response;
+package com.onebridge.ouch.dto.healthStatus.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

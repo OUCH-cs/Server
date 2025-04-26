@@ -1,4 +1,4 @@
-package com.onebridge.ouch.repository.medicalHistory;
+package com.onebridge.ouch.repository.healthStatus;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.onebridge.ouch.domain.HealthStatus;
 
 @Repository
-public interface MedicalHistoryRepository extends JpaRepository<HealthStatus, Long> {
+public interface HealthStatusRepository extends JpaRepository<HealthStatus, Long> {
 	List<HealthStatus> findAllByUserId(Long userId);
 
 	Optional<HealthStatus> findByIdAndUserId(Long medicalHistoryId, Long userId);

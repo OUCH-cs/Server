@@ -1,11 +1,11 @@
-package com.onebridge.ouch.dto.medicalHistory.response;
+package com.onebridge.ouch.dto.healthStatus.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class GetMedicalHistoryResponse {
+public class GetHealthStatusResponse {
 
 	private Long id;
 	private String disease;
