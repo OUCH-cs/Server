@@ -80,8 +80,10 @@ public class User extends BaseEntity {
 	@JoinColumn(name = "nation_id", referencedColumnName = "id") // language_id를 외래 키로 설정
 	private Nation nation;
 
+	/*
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private HealthStatus healthStatus;
+	*/ // 단방향 설계로 수정
 
 	// @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	// private List<Terms> termsList = new ArrayList<>();
