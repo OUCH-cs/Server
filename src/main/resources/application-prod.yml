@@ -22,3 +22,10 @@ openai:
 
 jwt:
   secret: ${JWT_SECRET}
+
+# spring actuator 활용한 도커 헬스체크용
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
