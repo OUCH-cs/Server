@@ -69,9 +69,9 @@ jobs:
             docker system prune -af || true
 
             # 최신 이미지 pull
-            docker pull $DOCKER_USERNAME/$DOCKER_REPO:latest
+            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
 
-             # docker-compose.yml 생성
+            # docker-compose.yml 생성
             echo "version: '3'" > /home/ubuntu/docker-compose.yml
             echo "services:" >> /home/ubuntu/docker-compose.yml
             echo "  app:" >> /home/ubuntu/docker-compose.yml
@@ -103,9 +103,13 @@ jobs:
   
             # .env 파일 권한 설정
             chmod 600 /home/ubuntu/.env
-  
+            
+            # 기존 app 컨테이너 강제 제거 (없어도 에러 무시)
+            docker rm -f app || true
+            
             # docker-compose pull
             docker compose -f /home/ubuntu/docker-compose.yml pull
+            
             # docker-compose 재배포
             docker compose -f /home/ubuntu/docker-compose.yml up -d --force-recreate --remove-orphans
 
