@@ -37,11 +37,12 @@ public class SecurityConfig {
 		);
 		http.authorizeHttpRequests(
 			(authorizeRequests)
-				-> authorizeRequests.requestMatchers("/users/login", "/users/signup/**", "/actuator/health", "/health",
-					"/swagger-ui/**", "/v3/api-docs/**").permitAll() // 로그인, 회원가입 페이지는 모두 허용
-				.anyRequest().authenticated() // 그 외의 요청은 인증 필요
-		);
-		http.addFilterAfter(new JwtAuthenticationFilter(tokenManager), BasicAuthenticationFilter.class);
+				-> authorizeRequests.anyRequest().permitAll());
+		// 		-> authorizeRequests.requestMatchers("/users/login", "/users/signup/**", "/actuator/health", "/health",
+		// 			"/swagger-ui/**", "/v3/api-docs/**").permitAll() // 로그인, 회원가입 페이지는 모두 허용
+		// 		.anyRequest().authenticated() // 그 외의 요청은 인증 필요
+		// );
+		//http.addFilterAfter(new JwtAuthenticationFilter(tokenManager), BasicAuthenticationFilter.class);
 		return http.build();
 	}
 
