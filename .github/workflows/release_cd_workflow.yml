@@ -76,7 +76,7 @@ jobs:
 version: '3'
 services:
   app:
-    image: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
+    image: \${{ secrets.DOCKER_HUB_USERNAME }}/\${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
     container_name: app
     restart: always
     ports:
@@ -96,13 +96,13 @@ EOF
             # .env 파일 생성
             cat <<EOF > /home/ubuntu/.env
 SPRING_PROFILES_ACTIVE=prod
-RDS_HOST=${{ secrets.RDS_HOST }}
-RDS_PORT=${{ secrets.RDS_PORT }}
-RDS_DB=${{ secrets.RDS_DB }}
-RDS_USERNAME=${{ secrets.RDS_USERNAME }}
-RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}
-JWT_SECRET=${{ secrets.JWT_SECRET }}
-OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+RDS_HOST=\${{ secrets.RDS_HOST }}
+RDS_PORT=\${{ secrets.RDS_PORT }}
+RDS_DB=\${{ secrets.RDS_DB }}
+RDS_USERNAME=\${{ secrets.RDS_USERNAME }}
+RDS_PASSWORD=\${{ secrets.RDS_PASSWORD }}
+JWT_SECRET=\${{ secrets.JWT_SECRET }}
+OPENAI_API_KEY=\${{ secrets.OPENAI_API_KEY }}
 EOF
   
             # .env 파일 권한 설정
