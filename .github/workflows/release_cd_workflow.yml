@@ -58,17 +58,6 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # secrets를 미리 bash 변수에 담는다
-            DOCKER_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}
-            DOCKER_REPO=${{ secrets.DOCKER_HUB_REPOSITORY }}
-            RDS_HOST=${{ secrets.RDS_HOST }}
-            RDS_PORT=${{ secrets.RDS_PORT }}
-            RDS_DB=${{ secrets.RDS_DB }}
-            RDS_USERNAME=${{ secrets.RDS_USERNAME }}
-            RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}
-            JWT_SECRET=${{ secrets.JWT_SECRET }}
-            OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
-            
             # docker-compose 설치 여부 확인, 없으면 설치
             if ! command -v docker-compose &> /dev/null
             then
@@ -82,39 +71,35 @@ jobs:
             # 최신 이미지 pull
             docker pull $DOCKER_USERNAME/$DOCKER_REPO:latest
 
-            # docker-compose.yml 생성
-            cat <<EOF > /home/ubuntu/docker-compose.yml
-version: '3'
-services:
-  app:
-    image: $DOCKER_USERNAME/$DOCKER_REPO:latest
-    container_name: app
-    restart: always
-    ports:
-      - '8080:8080'
-    env_file:
-      - .env
-    read_only: true
-    tmpfs:
-      - /tmp
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-EOF
-  
+             # docker-compose.yml 생성
+            echo "version: '3'" > /home/ubuntu/docker-compose.yml
+            echo "services:" >> /home/ubuntu/docker-compose.yml
+            echo "  app:" >> /home/ubuntu/docker-compose.yml
+            echo "    image: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest" >> /home/ubuntu/docker-compose.yml
+            echo "    container_name: app" >> /home/ubuntu/docker-compose.yml
+            echo "    restart: always" >> /home/ubuntu/docker-compose.yml
+            echo "    ports:" >> /home/ubuntu/docker-compose.yml
+            echo "      - '8080:8080'" >> /home/ubuntu/docker-compose.yml
+            echo "    env_file:" >> /home/ubuntu/docker-compose.yml
+            echo "      - .env" >> /home/ubuntu/docker-compose.yml
+            echo "    read_only: true" >> /home/ubuntu/docker-compose.yml
+            echo "    tmpfs:" >> /home/ubuntu/docker-compose.yml
+            echo "      - /tmp" >> /home/ubuntu/docker-compose.yml
+            echo "    healthcheck:" >> /home/ubuntu/docker-compose.yml
+            echo "      test: [\"CMD\",\"curl\",\"-f\",\"http://localhost:8080/actuator/health\"]" >> /home/ubuntu/docker-compose.yml
+            echo "      interval: 30s" >> /home/ubuntu/docker-compose.yml
+            echo "      timeout: 5s" >> /home/ubuntu/docker-compose.yml
+            echo "      retries: 3" >> /home/ubuntu/docker-compose.yml
+
             # .env 파일 생성
-            cat <<EOF > /home/ubuntu/.env
-SPRING_PROFILES_ACTIVE=prod
-RDS_HOST=$RDS_HOST
-RDS_PORT=$RDS_PORT
-RDS_DB=$RDS_DB
-RDS_USERNAME=$RDS_USERNAME
-RDS_PASSWORD=$RDS_PASSWORD
-JWT_SECRET=$JWT_SECRET
-OPENAI_API_KEY=$OPENAI_API_KEY
-EOF
+            echo "SPRING_PROFILES_ACTIVE=prod" > /home/ubuntu/.env
+            echo "RDS_HOST=${{ secrets.RDS_HOST }}" >> /home/ubuntu/.env
+            echo "RDS_PORT=${{ secrets.RDS_PORT }}" >> /home/ubuntu/.env
+            echo "RDS_DB=${{ secrets.RDS_DB }}" >> /home/ubuntu/.env
+            echo "RDS_USERNAME=${{ secrets.RDS_USERNAME }}" >> /home/ubuntu/.env
+            echo "RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}" >> /home/ubuntu/.env
+            echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> /home/ubuntu/.env
+            echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> /home/ubuntu/.env
   
             # .env 파일 권한 설정
             chmod 600 /home/ubuntu/.env
