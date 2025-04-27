@@ -58,7 +58,18 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # docker-compose 설치 여부 확인
+            # secrets를 미리 bash 변수에 담는다
+            DOCKER_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}
+            DOCKER_REPO=${{ secrets.DOCKER_HUB_REPOSITORY }}
+            RDS_HOST=${{ secrets.RDS_HOST }}
+            RDS_PORT=${{ secrets.RDS_PORT }}
+            RDS_DB=${{ secrets.RDS_DB }}
+            RDS_USERNAME=${{ secrets.RDS_USERNAME }}
+            RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}
+            JWT_SECRET=${{ secrets.JWT_SECRET }}
+            OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+            
+            # docker-compose 설치 여부 확인, 없으면 설치
             if ! command -v docker-compose &> /dev/null
             then
               sudo apt-get update
@@ -69,14 +80,14 @@ jobs:
             docker system prune -af || true
 
             # 최신 이미지 pull
-            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
+            docker pull $DOCKER_USERNAME/$DOCKER_REPO:latest
 
             # docker-compose.yml 생성
             cat <<EOF > /home/ubuntu/docker-compose.yml
 version: '3'
 services:
   app:
-    image: \${{ secrets.DOCKER_HUB_USERNAME }}/\${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
+    image: $DOCKER_USERNAME/$DOCKER_REPO:latest
     container_name: app
     restart: always
     ports:
@@ -96,13 +107,13 @@ EOF
             # .env 파일 생성
             cat <<EOF > /home/ubuntu/.env
 SPRING_PROFILES_ACTIVE=prod
-RDS_HOST=\${{ secrets.RDS_HOST }}
-RDS_PORT=\${{ secrets.RDS_PORT }}
-RDS_DB=\${{ secrets.RDS_DB }}
-RDS_USERNAME=\${{ secrets.RDS_USERNAME }}
-RDS_PASSWORD=\${{ secrets.RDS_PASSWORD }}
-JWT_SECRET=\${{ secrets.JWT_SECRET }}
-OPENAI_API_KEY=\${{ secrets.OPENAI_API_KEY }}
+RDS_HOST=$RDS_HOST
+RDS_PORT=$RDS_PORT
+RDS_DB=$RDS_DB
+RDS_USERNAME=$RDS_USERNAME
+RDS_PASSWORD=$RDS_PASSWORD
+JWT_SECRET=$JWT_SECRET
+OPENAI_API_KEY=$OPENAI_API_KEY
 EOF
   
             # .env 파일 권한 설정
