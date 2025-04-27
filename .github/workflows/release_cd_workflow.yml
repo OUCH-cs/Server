@@ -33,6 +33,12 @@ jobs:
       - name: Build jar
         run: ./gradlew clean --refresh-dependencies --no-build-cache --no-daemon bootJar -x test #./gradlew --info clean bootJar -x test
 
+      # Actuator 포함 여부 검증
+      - name: Assert actuator present
+        run: |
+          jar tf build/libs/ouch.jar | grep spring-boot-actuator || {
+            echo "❌ Actuator not in JAR"; exit 1; }
+
       - name: docker login
         uses: docker/login-action@v3
         with:
@@ -60,15 +66,16 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            # 디스크 청소 두 줄 / Docker 이미지 정리
+            docker system prune -af || true
+            docker builder prune -af
+            
             # docker-compose 설치 여부 확인, 없으면 설치
             if ! command -v docker-compose &> /dev/null
             then
               sudo apt-get update
               sudo apt-get install -y docker-compose-plugin
             fi
-
-            # Docker 이미지 정리
-            docker system prune -af || true
 
             # 최신 이미지 pull
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
