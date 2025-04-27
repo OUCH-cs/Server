@@ -66,13 +66,11 @@ public class SelfDiagnosisConverter {
 	public SelfDiagnosis diagnosisUpdateRequestToSelfDiagnosis(SelfDiagnosis diagnosis, User user,
 		DiagnosisUpdateRequest request) {
 		return diagnosis.toBuilder()
-			.user(user)
 			.visitType(request.getVisitType())
 			.diagnosisSymptomList(new ArrayList<>())
 			.duration(request.getDuration())
 			.painSeverity(request.getPainSeverity())
 			.additionalNote(request.getAdditionalNote())
-			.createdAt(diagnosis.getCreatedAt())
 			.build();
 	}
 
