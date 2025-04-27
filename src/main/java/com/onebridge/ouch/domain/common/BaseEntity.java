@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -16,8 +17,7 @@ import lombok.experimental.SuperBuilder;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @Getter
-@SuperBuilder(toBuilder = true)
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public abstract class BaseEntity {
 
 	@CreatedDate
