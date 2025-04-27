@@ -60,9 +60,9 @@ public class SelfDiagnosisService {
 				throw new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND);
 			}
 
-			DiagnosisSymptom symptom1 = selfDiagnosisConverter.buildDiagnosisSymptom(selfDiagnosis,
+			DiagnosisSymptom diagnosisSymptom = selfDiagnosisConverter.buildDiagnosisSymptom(selfDiagnosis,
 				foundSymptom);
-			selfDiagnosis.getDiagnosisSymptomList().add(symptom1);
+			selfDiagnosis.getDiagnosisSymptomList().add(diagnosisSymptom);
 		}
 
 		selfDiagnosisRepository.save(selfDiagnosis);
@@ -133,9 +133,9 @@ public class SelfDiagnosisService {
 				throw new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND);
 			}
 
-			DiagnosisSymptom symptom1 = selfDiagnosisConverter.buildDiagnosisSymptom(updatedDiagnosis,
+			DiagnosisSymptom diagnosisSymptom = selfDiagnosisConverter.buildDiagnosisSymptom(updatedDiagnosis,
 				foundSymptom);
-			updatedDiagnosis.getDiagnosisSymptomList().add(symptom1);
+			updatedDiagnosis.getDiagnosisSymptomList().add(diagnosisSymptom);
 		}
 
 		selfDiagnosisRepository.save(updatedDiagnosis);
@@ -161,9 +161,9 @@ public class SelfDiagnosisService {
 			Symptom foundSymptom = symptomRepository.findByName(symptom)
 				.orElseThrow(() -> new OuchException(DiagnosisErrorCode.SYMPTOM_NOT_FOUND));
 
-			DiagnosisSymptom symptom1 = selfDiagnosisConverter.buildDiagnosisSymptom(diagnosis, foundSymptom);
+			DiagnosisSymptom diagnosisSymptom = selfDiagnosisConverter.buildDiagnosisSymptom(diagnosis, foundSymptom);
 
-			diagnosis.getDiagnosisSymptomList().add(symptom1);
+			diagnosis.getDiagnosisSymptomList().add(diagnosisSymptom);
 
 		}
 	}
