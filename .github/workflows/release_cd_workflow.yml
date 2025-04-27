@@ -69,7 +69,7 @@ jobs:
             JWT_SECRET=${{ secrets.JWT_SECRET }}
             OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
             
-            # docker-compose 설치 여부 확인
+            # docker-compose 설치 여부 확인, 없으면 설치
             if ! command -v docker-compose &> /dev/null
             then
               sudo apt-get update
