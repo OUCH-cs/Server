@@ -89,8 +89,9 @@ jobs:
             echo "      test: [\"CMD\",\"curl\",\"-f\",\"http://localhost:8080/actuator/health\"]" >> /home/ubuntu/docker-compose.yml
             echo "      interval: 30s" >> /home/ubuntu/docker-compose.yml
             echo "      timeout: 5s" >> /home/ubuntu/docker-compose.yml
-            echo "      retries: 3" >> /home/ubuntu/docker-compose.yml
-
+            echo "      retries: 5" >> /home/ubuntu/docker-compose.yml
+            echo "      start_period: 60s" >> /home/ubuntu/docker-compose.yml
+            
             # .env 파일 생성
             echo "SPRING_PROFILES_ACTIVE=prod" > /home/ubuntu/.env
             echo "RDS_HOST=${{ secrets.RDS_HOST }}" >> /home/ubuntu/.env
