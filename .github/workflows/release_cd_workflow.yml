@@ -125,7 +125,7 @@ jobs:
           
           # 반복 폴링 헬스체크
           HEALTH_STATUS="❌ 서버 비정상 작동"
-          for i in {1..12}; do
+          for i in {1..20}; do
           if curl -sSf http://localhost:8080/actuator/health; then
           HEALTH_STATUS="✅ 서버 정상 작동"
           break
