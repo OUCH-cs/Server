@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.onebridge.ouch.domain.common.BaseEntity;
+import com.onebridge.ouch.domain.enums.SymptomDuration;
+import com.onebridge.ouch.domain.enums.VisitType;
 import com.onebridge.ouch.domain.mapping.DiagnosisSymptom;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
-@Builder
+@Builder(toBuilder = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class SelfDiagnosis extends BaseEntity {
@@ -29,5 +32,14 @@ public class SelfDiagnosis extends BaseEntity {
 
 	@OneToMany(mappedBy = "selfDiagnosis", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<DiagnosisSymptom> diagnosisSymptomList = new ArrayList<>();
+
+	private VisitType visitType;
+
+	private SymptomDuration duration;
+
+	private Integer painSeverity;
+
+	@Column(columnDefinition = "TEXT")
+	private String additionalNote;
 
 }
