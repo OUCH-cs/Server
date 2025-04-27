@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
-@SuperBuilder(toBuilder = true)
+@Builder(toBuilder = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class SelfDiagnosis extends BaseEntity {
