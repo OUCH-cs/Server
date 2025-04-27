@@ -35,6 +35,7 @@ public class SecurityConfig {
 		http.cors(
 			cors -> cors.configurationSource(corsConfigurationSource())
 		);
+		http.addFilterAt(new JwtAuthenticationFilter(tokenManager), BasicAuthenticationFilter.class);
 		http.authorizeHttpRequests(
 			(authorizeRequests)
 				-> authorizeRequests.anyRequest().permitAll());
@@ -49,9 +50,9 @@ public class SecurityConfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 
-		configuration.addAllowedOriginPattern("*");
-		// configuration.addAllowedOrigin("http://localhost:5173");
-		// configuration.addAllowedOrigin("https://ouchs.netlify.app");
+		// configuration.addAllowedOriginPattern("*");
+		configuration.addAllowedOrigin("http://localhost:5173");
+		configuration.addAllowedOrigin("https://ouchs.netlify.app");
 
 		configuration.addAllowedHeader("*");
 		configuration.addAllowedMethod("*");
