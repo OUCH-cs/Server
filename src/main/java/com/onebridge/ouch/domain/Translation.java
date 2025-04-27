@@ -37,5 +37,7 @@ public class Translation {
 
 	private Long entityId;
 
+	private String fieldName;
+
 	private String value;
 }
