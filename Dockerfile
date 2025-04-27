@@ -1,5 +1,8 @@
 FROM openjdk:17
 
+# curl 설치 (헬스체크용)
+RUN apt-get update && apt-get install -y curl
+
 ARG JAR_FILE=build/libs/*.jar
 
 COPY ${JAR_FILE} ouch.jar
