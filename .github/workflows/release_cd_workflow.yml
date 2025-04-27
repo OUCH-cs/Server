@@ -125,12 +125,12 @@ jobs:
           
           # 반복 폴링 헬스체크
           HEALTH_STATUS="❌ 서버 비정상 작동"
-          for i in {1..20}; do
-          if curl -sSf http://localhost:8080/actuator/health; then
-          HEALTH_STATUS="✅ 서버 정상 작동"
-          break
-          fi
-          sleep 5
+          for i in {1..30}; do
+            if curl -sSf http://localhost:8080/actuator/health; then
+              HEALTH_STATUS="✅ 서버 정상 작동"
+              break
+            fi
+            sleep 5
           done
           
           MESSAGE="$EMOJI **Ouch 배포 결과**\\n상태: $STATUS\\n$HEALTH_STATUS\\n🔗 프로젝트: ${{ github.repository }}\\n👤 커밋: ${{ github.actor }}"
