@@ -106,10 +106,8 @@ jobs:
   
             # docker-compose pull
             docker compose -f /home/ubuntu/docker-compose.yml pull
-
             # docker-compose 재배포
-            docker compose -f /home/ubuntu/docker-compose.yml down || true
-            docker compose -f /home/ubuntu/docker-compose.yml up -d
+            docker compose -f /home/ubuntu/docker-compose.yml up -d --force-recreate --remove-orphans
 
       - name: Send Discord Notification
         if: always()
