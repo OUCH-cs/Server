@@ -49,6 +49,9 @@ dependencies {
     // 스프링 시큐리티
 	implementation "org.springframework.boot:spring-boot-starter-security"
 
+	// 도커 헬스체크용
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
     //jwt 토큰
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'

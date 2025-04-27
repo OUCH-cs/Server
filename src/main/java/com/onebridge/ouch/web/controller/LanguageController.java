@@ -26,6 +26,7 @@ public class LanguageController {
 
 	private final LanguageService languageService;
 
+	/*
 	@PostMapping
 	public ResponseEntity<ApiResponse<Long>> addLanguage(@Valid @RequestBody LanguageDto languageDto) {
 		Long languageId = languageService.addLanguage(languageDto);
@@ -44,6 +45,7 @@ public class LanguageController {
 		languageService.deleteLanguage(id);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
+	*/
 
 	@GetMapping // 전체 언어 목록 조회
 	public ResponseEntity<ApiResponse<List<LanguageDto>>> getAllLanguages() {
