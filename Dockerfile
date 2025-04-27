@@ -3,7 +3,7 @@ FROM openjdk:17-slim
 # curl 설치 (헬스체크용)
 RUN apt-get update && apt-get install -y curl
 
-ARG JAR_FILE=build/libs/*.jar
+ARG JAR_FILE=build/libs/ouch.jar
 
 COPY ${JAR_FILE} ouch.jar
 
