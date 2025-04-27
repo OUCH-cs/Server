@@ -9,18 +9,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4    # 저장소 코드를 가져옴
+      - uses: actions/checkout@v4
 
-      - name: Set up JDK 17    # 자바 설치
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'adopt'
 
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew    # gradlew 실행 권한 부여
+        run: chmod +x gradlew
 
-      - name: Gradle Caching    # Gradle 빌드 캐싱을 통해 속도 향상
+      - name: Gradle Caching
         uses: actions/cache@v3
         with:
           path: |
@@ -31,26 +31,24 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Build jar
-        run: ./gradlew --info clean bootJar -x test   # 테스트는 생략하고 bootJar로 .jar 파일 생성
+        run: ./gradlew --info clean bootJar -x test
 
-      - name: docker login   # Docker Hub 로그인
+      - name: docker login
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: docker build and push   #Docker 이미지 빌드 & 푸시
+      - name: docker build and push
         uses: docker/build-push-action@v5.1.0
         with:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
-#          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
-#          cache-to: type=inline  # 빌드 시 캐시 활용이 필요하면 추가(깃허브 액션)
 
-  deploy:  # SSH 접속 방식 (Self-hosted Runner 방식X) # 배포 자동화
+  deploy:
     runs-on: ubuntu-latest
-    needs: build-and-push-image  # build가 끝난 후 실행됨
+    needs: build-and-push-image
 
     steps:
       - name: SSH into EC2 and deploy
@@ -60,32 +58,85 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            # docker-compose 설치 여부 확인
+            if ! command -v docker-compose &> /dev/null
+            then
+              sudo apt-get update
+              sudo apt-get install -y docker-compose-plugin
+            fi
+
+            # Docker 이미지 정리
+            docker system prune -af || true
+
+            # 최신 이미지 pull
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
 
-            docker stop app || true
-            docker rm app || true
+            # docker-compose.yml 생성
+            cat <<EOF > /home/ubuntu/docker-compose.yml
+version: '3'
+services:
+  app:
+    image: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
+    container_name: app
+    restart: always
+    ports:
+      - '8080:8080'
+    env_file:
+      - .env
+    read_only: true
+    tmpfs:
+      - /tmp
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+EOF
+  
+            # .env 파일 생성
+            cat <<EOF > /home/ubuntu/.env
+SPRING_PROFILES_ACTIVE=prod
+RDS_HOST=${{ secrets.RDS_HOST }}
+RDS_PORT=${{ secrets.RDS_PORT }}
+RDS_DB=${{ secrets.RDS_DB }}
+RDS_USERNAME=${{ secrets.RDS_USERNAME }}
+RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}
+JWT_SECRET=${{ secrets.JWT_SECRET }}
+OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+EOF
+  
+            # .env 파일 권한 설정
+            chmod 600 /home/ubuntu/.env
+  
+            # docker-compose pull
+            docker compose -f /home/ubuntu/docker-compose.yml pull
 
-            docker run -d \
-              --name app \
-              --restart unless-stopped \
-              -p 8080:8080 \
-              --env SPRING_PROFILES_ACTIVE=prod \
-              --env RDS_HOST=${{ secrets.RDS_HOST }} \
-              --env RDS_PORT=${{ secrets.RDS_PORT }} \
-              --env RDS_DB=${{ secrets.RDS_DB }} \
-              --env RDS_USERNAME=${{ secrets.RDS_USERNAME }} \
-              --env RDS_PASSWORD=${{ secrets.RDS_PASSWORD }} \
-              --env OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
-              --env JWT_SECRET=${{ secrets.JWT_SECRET }} \
-              ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
+            # docker-compose 재배포
+            docker compose -f /home/ubuntu/docker-compose.yml down || true
+            docker compose -f /home/ubuntu/docker-compose.yml up -d
 
-      # 디스코드 배포 알림
       - name: Send Discord Notification
+        if: always()
         run: |
           STATUS="${{ job.status }}"
-          MESSAGE="🚀 **Ouch 배포 완료**\n배포 상태: $STATUS\n🔗 프로젝트: ${{ github.repository }}\n👤 커밋: ${{ github.actor }}"
+          if [ "$STATUS" == "success" ]; then
+            EMOJI="✅"
+          else
+            EMOJI="❌"
+          fi
+          
+          # 서버 Healthcheck
+          sleep 5
+          HEALTH=$(curl -s -o /dev/null -w "%{http_code}" http://${{ secrets.EC2_HOST }}:8080/actuator/health || true)
+          if [ "$HEALTH" == "200" ]; then
+            HEALTH_STATUS="✅ 서버 정상 작동"
+          else
+            HEALTH_STATUS="❌ 서버 비정상 작동"
+          fi
+          
+          MESSAGE="$EMOJI **Ouch 배포 결과**\\n상태: $STATUS\\n$HEALTH_STATUS\\n🔗 프로젝트: ${{ github.repository }}\\n👤 커밋: ${{ github.actor }}"
           
           curl -H "Content-Type: application/json" \
                -X POST \
                -d "{\"content\": \"$MESSAGE\"}" \
-               ${{ secrets.DISCORD_WEBHOOK_URL }}
+               ${{ secrets.DISCORD_WEBHOOK_URL }} || true
