@@ -2,7 +2,6 @@ package com.onebridge.ouch.security;
 
 import java.util.List;
 
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,7 +13,6 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
 import com.onebridge.ouch.security.filter.JwtAuthenticationFilter;
 import com.onebridge.ouch.security.tokenManger.TokenManager;
@@ -56,7 +54,10 @@ public class SecurityConfig {
 		configuration.addAllowedHeader("*");
 		configuration.addAllowedMethod("*");
 
-		configuration.setAllowCredentials(true);
+		configuration.setAllowCredentials(false);
+
+		// ***응답 헤더 노출***
+		configuration.setExposedHeaders(List.of("Authorization", "Refresh")); // 필요하면 추가
 
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
