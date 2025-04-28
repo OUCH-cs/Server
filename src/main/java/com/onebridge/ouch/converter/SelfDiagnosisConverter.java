@@ -11,20 +11,12 @@ import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.mapping.DiagnosisSymptom;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisCreateRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisUpdateRequest;
-import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisUpdateResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisByUserIdResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetSymptomsOfDiagnosisResponse;
 
 @Component
 public class SelfDiagnosisConverter {
-
-	public DiagnosisUpdateResponse diagnosisToDiagnosisUpdateResponse(SelfDiagnosis updatedDiagnosis) {
-		List<String> symptoms = symptomListForResponseDto(updatedDiagnosis);
-		return new DiagnosisUpdateResponse(updatedDiagnosis.getId(), updatedDiagnosis.getVisitType(), symptoms,
-			updatedDiagnosis.getDuration(), updatedDiagnosis.getPainSeverity(), updatedDiagnosis.getAdditionalNote(),
-			updatedDiagnosis.getCreatedAt().toString());
-	}
 
 	public GetDiagnosisResponse diagnosisToGetDiagnosisResponse(SelfDiagnosis diagnosis) {
 		List<String> symptoms = symptomListForResponseDto(diagnosis);
