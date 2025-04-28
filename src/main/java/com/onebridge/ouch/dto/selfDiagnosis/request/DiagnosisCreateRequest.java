@@ -14,9 +14,6 @@ import lombok.Getter;
 @Getter
 public class DiagnosisCreateRequest {
 
-	// @NotNull(message = "User Id is required.")
-	// private Long userId;
-
 	@NotNull(message = "Visit type is required.")
 	private VisitType visitType;
 
