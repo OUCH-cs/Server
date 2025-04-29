@@ -1,11 +1,7 @@
 package com.onebridge.ouch.controller.healthStatus;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.onebridge.ouch.apiPayload.ApiResponse;
 import com.onebridge.ouch.dto.healthStatus.request.HealthStatusCreateRequest;
 import com.onebridge.ouch.dto.healthStatus.request.HealthStatusUpdateRequest;
-import com.onebridge.ouch.dto.healthStatus.response.DateAndDisease;
 import com.onebridge.ouch.dto.healthStatus.response.GetHealthStatusResponse;
 import com.onebridge.ouch.security.authorization.UserId;
 import com.onebridge.ouch.service.healthStatus.HealthStatusService;
@@ -46,11 +41,9 @@ public class HealthStatusController {
 
 	//특정 건강상태 조회
 	@Operation(summary = "건강상태 조회 API", description = "건강상태 조회 API 입니다.")
-	@GetMapping("/{healthStatusId}")
-	public ResponseEntity<ApiResponse<GetHealthStatusResponse>> getHealthStatus(@PathVariable Long healthStatusId,
-		@UserId Long userId
-	) {
-		GetHealthStatusResponse response = healthStatusService.getHealthStatus(healthStatusId, userId);
+	@GetMapping
+	public ResponseEntity<ApiResponse<GetHealthStatusResponse>> getHealthStatus(@UserId Long userId) {
+		GetHealthStatusResponse response = healthStatusService.getHealthStatus(userId);
 		return ResponseEntity.ok(ApiResponse.success(response));
 	}
 
@@ -68,23 +61,22 @@ public class HealthStatusController {
 
 	//특정 건강상태 수정
 	@Operation(summary = "건강상태 수정 API", description = "건강상태 수정 API 입니다.")
-	@PutMapping("/{healthStatusId}")
+	@PutMapping
 	public ResponseEntity<ApiResponse<Void>> updateHealthStatus(
 		@RequestBody @Valid HealthStatusUpdateRequest request,
-		@PathVariable Long healthStatusId,
 		@UserId Long userId
 	) {
-		healthStatusService.updateHealthStatus(request, healthStatusId, userId);
+		healthStatusService.updateHealthStatus(request, userId);
 		return ResponseEntity.ok(ApiResponse.successWithNoData());
 	}
 
-	//특정 건강상태 삭제
-	@Operation(summary = "건강상태 삭제 API", description = "건강상태 삭제 API 입니다.")
-	@DeleteMapping("/{healthStatusId}")
-	public ResponseEntity<ApiResponse<Void>> deleteHealthStatus(@PathVariable Long healthStatusId,
-		@UserId Long userId
-	) {
-		healthStatusService.deleteHealthStatus(healthStatusId, userId);
-		return ResponseEntity.ok(ApiResponse.successWithNoData());
-	}
+	// //특정 건강상태 삭제 (필요 없어서 삭제)
+	// @Operation(summary = "건강상태 삭제 API", description = "건강상태 삭제 API 입니다.")
+	// @DeleteMapping("/{healthStatusId}")
+	// public ResponseEntity<ApiResponse<Void>> deleteHealthStatus(@PathVariable Long healthStatusId,
+	// 	@UserId Long userId
+	// ) {
+	// 	healthStatusService.deleteHealthStatus(healthStatusId, userId);
+	// 	return ResponseEntity.ok(ApiResponse.successWithNoData());
+	// }
 }
