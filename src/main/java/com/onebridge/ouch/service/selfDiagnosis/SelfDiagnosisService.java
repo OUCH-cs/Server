@@ -19,7 +19,6 @@ import com.onebridge.ouch.domain.mapping.DiagnosisSymptom;
 import com.onebridge.ouch.dto.selfDiagnosis.request.AddSymptomsToDiagnosisRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisCreateRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisUpdateRequest;
-import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisUpdateResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisByUserIdResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetSymptomsOfDiagnosisResponse;
@@ -110,7 +109,7 @@ public class SelfDiagnosisService {
 
 	//자가진단표 수정
 	@Transactional
-	public DiagnosisUpdateResponse updateDiagnosis(Long diagnosisId, Long userId, DiagnosisUpdateRequest request) {
+	public void updateDiagnosis(Long diagnosisId, Long userId, DiagnosisUpdateRequest request) {
 		SelfDiagnosis diagnosis = selfDiagnosisRepository.findByIdAndUserId(diagnosisId, userId)
 			.orElseThrow(() -> new OuchException(DiagnosisErrorCode.DIAGNOSIS_NOT_FOUND));
 
@@ -139,8 +138,6 @@ public class SelfDiagnosisService {
 		}
 
 		selfDiagnosisRepository.save(updatedDiagnosis);
-
-		return selfDiagnosisConverter.diagnosisToDiagnosisUpdateResponse(updatedDiagnosis);
 	}
 
 	//특정 자가진단표에 증상 추가
