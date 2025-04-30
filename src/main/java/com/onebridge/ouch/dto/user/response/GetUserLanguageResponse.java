@@ -1,15 +1,9 @@
-package com.onebridge.ouch.web.dto;
+package com.onebridge.ouch.dto.user.response;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class LanguageDto {
+public class GetUserLanguageResponse {
 
 	@NotBlank(message = "언어 이름은 필수입니다.")
 	private String name;
