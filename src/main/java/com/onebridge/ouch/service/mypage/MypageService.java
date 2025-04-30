@@ -38,10 +38,10 @@ public class MypageService {
 		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
-		Nation nation = nationRepository.findById(request.getNationId())
+		Nation nation = nationRepository.findByCode(request.getNationCode())
 			.orElseThrow(() -> new OuchException(CommonErrorCode.NATION_NOT_FOUND));
 
-		Language language = languageRepository.findById(request.getLanguageId())
+		Language language = languageRepository.findByCode(request.getLanguageCode())
 			.orElseThrow(() -> new OuchException(CommonErrorCode.LANGUAGE_NOT_FOUND));
 
 		User updatedUser = mypageConverter.updateUserByUpdateProfileRequest(user, request, nation, language);

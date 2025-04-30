@@ -2,6 +2,7 @@ package com.onebridge.ouch.dto.mypage.request;
 
 import com.onebridge.ouch.domain.enums.Gender;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,8 @@ public class MypageProfileUpdateRequest {
 	private Gender gender;
 
 	@NotNull(message = "Nation is mandatory.")
-	private Long nationId; //사용자가 직접 입력 or 드랍다운에서 선택..?
+	@Schema(example = "KO")
+	private String nationCode;
 
 	@NotBlank(message = "Phone number is mandatory.")
 	private String phoneNumber;
@@ -27,5 +29,6 @@ public class MypageProfileUpdateRequest {
 	private String email;
 
 	@NotNull(message = "Language is mandatory.")
-	private Long languageId; //사용자가 직접 입력 or 드랍다운에서 선택..?
+	@Schema(example = "kr")
+	private String languageCode;
 }
