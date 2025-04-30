@@ -13,4 +13,6 @@ public interface HealthStatusRepository extends JpaRepository<HealthStatus, Long
 	List<HealthStatus> findAllByUserId(Long userId);
 
 	Optional<HealthStatus> findByIdAndUserId(Long medicalHistoryId, Long userId);
+
+	Optional<HealthStatus> findByUserId(Long userId);
 }
