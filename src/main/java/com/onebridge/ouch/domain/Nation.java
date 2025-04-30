@@ -25,9 +25,9 @@ public class Nation extends BaseEntity {
 	private Long id;
 
 	// 국가 코드
-	@Column(nullable = false, length = 4)
+	@Column(unique = true, nullable = false, length = 4)
 	private String code;
 
-	@Column(nullable = false, length = 30)
+	@Column(unique = true, nullable = false, length = 30)
 	private String name;
 }

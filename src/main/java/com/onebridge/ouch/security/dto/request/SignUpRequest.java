@@ -8,6 +8,7 @@ import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.enums.Gender;
 import com.onebridge.ouch.domain.enums.UserStatus;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,7 +26,9 @@ public class SignUpRequest {
 	private String email;
 	private String address;
 	private UserStatus status;
+	@Schema(example = "kr")
 	private String languageCode;
+	@Schema(example = "KO")
 	private String nationCode;
 
 	public User toEntity(String encodedPassword, Language language, Nation nation) {
