@@ -1,0 +1,46 @@
+package com.onebridge.ouch.domain;
+
+import java.time.LocalDate;
+
+import com.onebridge.ouch.domain.common.BaseEntity;
+import com.onebridge.ouch.domain.enums.Agreement;
+import com.onebridge.ouch.domain.enums.TermEssential;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class Terms extends BaseEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	@Column(nullable = false, length = 30)
+	private String title;
+
+	@Column(columnDefinition = "text")
+	private String body;
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, columnDefinition = "VARCHAR(13)")
+	private TermEssential termEssential;
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, columnDefinition = "VARCHAR(13) DEFAULT 'NOT_AGREEMENT'")
+	private Agreement agreement;
+
+	private LocalDate agreementDate;
+
+	@Column(nullable = false, columnDefinition = "DEFAULT 1.0")
+	private Float version;
+
+}
