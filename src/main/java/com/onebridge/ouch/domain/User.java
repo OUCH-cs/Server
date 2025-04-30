@@ -103,4 +103,12 @@ public class User extends BaseEntity {
 	public OuchAuthority getAuthority() {
 		return OuchAuthority.INDIVIDUAL;
 	}
+
+	public void updateLanguage(Language language) {
+		this.language = language;
+	}
+
+	public void updateNation(Nation nation) {
+		this.nation = nation;
+	}
 }

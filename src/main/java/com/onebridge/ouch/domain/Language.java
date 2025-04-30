@@ -17,10 +17,10 @@ public class Language extends BaseEntity {
 	private Long id;
 
 	//국제 언어 코드
-	@Column(nullable = false, length = 4)
+	@Column(unique = true, nullable = false, length = 4)
 	private String code;
 
 	//언어 이름 - ex) 한국어, 영어
-	@Column(nullable = false, length = 30)
+	@Column(unique = true, nullable = false, length = 30)
 	private String name;
 }

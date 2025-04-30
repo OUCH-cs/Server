@@ -32,10 +32,10 @@ public class SignUpService {
 		checkDuplicatedNickname(signUpRequest.getNickname());
 
 		// ID를 통해 실제 Entity 조회
-		Language language = languageRepository.findById(signUpRequest.getLanguageId())
+		Language language = languageRepository.findByCode(signUpRequest.getLanguageCode())
 			.orElseThrow(() -> new OuchException(CommonErrorCode.LANGUAGE_NOT_FOUND));
 
-		Nation nation = nationRepository.findById(signUpRequest.getNationId())
+		Nation nation = nationRepository.findByCode(signUpRequest.getNationCode())
 			.orElseThrow(() -> new OuchException(CommonErrorCode.NATION_NOT_FOUND));
 
 		User user = signUpRequest.toEntity(passwordEncoder.encode(signUpRequest.getPassword()), language, nation);
