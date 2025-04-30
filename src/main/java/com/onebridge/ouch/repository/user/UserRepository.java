@@ -16,4 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	@EntityGraph(attributePaths = {"language"}) // language 필드를 즉시 조인 (fetch join 쿼리 최적화)
 	Optional<User> findWithLanguageById(Long id);
+
+	@EntityGraph(attributePaths = {"nation"}) // language 필드를 즉시 조인 (fetch join 쿼리 최적화)
+	Optional<User> findWithNationById(Long id);
 }

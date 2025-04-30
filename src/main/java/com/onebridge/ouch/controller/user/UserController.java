@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.onebridge.ouch.apiPayload.ApiResponse;
 import com.onebridge.ouch.dto.language.response.GetLanguageResponse;
+import com.onebridge.ouch.dto.nation.response.GetNationResponse;
 import com.onebridge.ouch.dto.user.response.UserInfoResponse;
 import com.onebridge.ouch.security.authorization.UserId;
 import com.onebridge.ouch.service.user.UserService;
@@ -57,5 +58,20 @@ public class UserController {
 		userService.getUserLanguage(userId);
 		GetLanguageResponse languageResponse = userService.getUserLanguage(userId);
 		return ResponseEntity.ok(ApiResponse.success(languageResponse));
+	}
+
+	@Operation(summary = "유저 국적 설정 변경 API", description = "국가코드를 전달받아 유저의 국적 설정을 변경합니다.")
+	@PatchMapping("/nations/{nationCode}")
+	public ResponseEntity<ApiResponse<Void>> updateUserNation(@UserId Long userId, @PathVariable("nationCode") String nationCode) {
+		userService.updateUserNation(userId, nationCode);
+		return ResponseEntity.ok(ApiResponse.successWithNoData());
+	}
+
+	@Operation(summary = "유저 설정 국적 조회 API", description = "로그인 된 유저의 설정된 국적를 조회합니다.")
+	@GetMapping("/nations")
+	public ResponseEntity<ApiResponse<GetNationResponse>> getUserNation(@UserId Long userId) {
+		userService.getUserNation(userId);
+		GetNationResponse nationResponse = userService.getUserNation(userId);
+		return ResponseEntity.ok(ApiResponse.success(nationResponse));
 	}
 }

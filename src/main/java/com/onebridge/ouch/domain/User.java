@@ -107,4 +107,8 @@ public class User extends BaseEntity {
 	public void updateLanguage(Language language) {
 		this.language = language;
 	}
+
+	public void updateNation(Nation nation) {
+		this.nation = nation;
+	}
 }

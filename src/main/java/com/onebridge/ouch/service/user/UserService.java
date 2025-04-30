@@ -7,9 +7,11 @@ import com.onebridge.ouch.apiPayload.code.error.CommonErrorCode;
 import com.onebridge.ouch.apiPayload.exception.OuchException;
 import com.onebridge.ouch.converter.UserConverter;
 import com.onebridge.ouch.domain.Language;
+import com.onebridge.ouch.domain.Nation;
 import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.enums.UserStatus;
 import com.onebridge.ouch.dto.language.response.GetLanguageResponse;
+import com.onebridge.ouch.dto.nation.response.GetNationResponse;
 import com.onebridge.ouch.dto.user.response.UserInfoResponse;
 import com.onebridge.ouch.repository.language.LanguageRepository;
 import com.onebridge.ouch.repository.nation.NationRepository;
@@ -69,5 +71,24 @@ public class UserService {
 		return new GetLanguageResponse(language.getName(), language.getCode());
 	}
 
+	@Transactional
+	public void updateUserNation(Long userId, String nationCode) {
+		User user = userRepository.findById(userId)
+			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
+		Nation nation = nationRepository.findByCode(nationCode)
+			.orElseThrow(() -> new OuchException(CommonErrorCode.LANGUAGE_NOT_FOUND));
+
+		user.updateNation(nation);
+	}
+
+	@Transactional
+	public GetNationResponse getUserNation(Long userId) {
+		User user = userRepository.findWithNationById(userId)
+			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
+
+		Nation nation = user.getNation();
+
+		return new GetNationResponse(nation.getName(), nation.getCode());
+	}
 }
