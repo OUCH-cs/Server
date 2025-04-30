@@ -25,8 +25,8 @@ public class SignUpRequest {
 	private String email;
 	private String address;
 	private UserStatus status;
-	private Long languageId;
-	private Long nationId;
+	private String languageCode;
+	private String nationCode;
 
 	public User toEntity(String encodedPassword, Language language, Nation nation) {
 		return User.builder()
