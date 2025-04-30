@@ -103,4 +103,8 @@ public class User extends BaseEntity {
 	public OuchAuthority getAuthority() {
 		return OuchAuthority.INDIVIDUAL;
 	}
+
+	public void updateLanguage(Language language) {
+		this.language = language;
+	}
 }

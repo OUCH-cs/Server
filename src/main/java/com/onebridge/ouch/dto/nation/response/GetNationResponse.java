@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class GetAllNationsResponse {
+public class GetNationResponse {
 
 	private String name;
 
