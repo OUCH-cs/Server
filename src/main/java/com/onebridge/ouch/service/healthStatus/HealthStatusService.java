@@ -3,13 +3,10 @@ package com.onebridge.ouch.service.healthStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.onebridge.ouch.apiPayload.code.error.CommonErrorCode;
 import com.onebridge.ouch.apiPayload.code.error.HealthStatusErrorCode;
 import com.onebridge.ouch.apiPayload.exception.OuchException;
 import com.onebridge.ouch.converter.HealthStatusConverter;
 import com.onebridge.ouch.domain.HealthStatus;
-import com.onebridge.ouch.domain.User;
-import com.onebridge.ouch.dto.healthStatus.request.HealthStatusCreateRequest;
 import com.onebridge.ouch.dto.healthStatus.request.HealthStatusUpdateRequest;
 import com.onebridge.ouch.dto.healthStatus.response.GetHealthStatusResponse;
 import com.onebridge.ouch.repository.healthStatus.HealthStatusRepository;
@@ -25,17 +22,17 @@ public class HealthStatusService {
 	private final HealthStatusConverter healthStatusConverter;
 	private final HealthStatusRepository healthStatusRepository;
 
-	//건강상태 생성
-	@Transactional
-	public void createHealthStatus(HealthStatusCreateRequest request, Long userId) {
-		User user = userRepository.findById(userId)
-			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
-
-		HealthStatus healthStatus = healthStatusConverter.healthStatusCreateRequestToHealthStatus(request,
-			user);
-
-		healthStatusRepository.save(healthStatus);
-	}
+	// //건강상태 생성
+	// @Transactional
+	// public void createHealthStatus(HealthStatusCreateRequest request, Long userId) {
+	// 	User user = userRepository.findById(userId)
+	// 		.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
+	//
+	// 	HealthStatus healthStatus = healthStatusConverter.healthStatusCreateRequestToHealthStatus(request,
+	// 		user);
+	//
+	// 	healthStatusRepository.save(healthStatus);
+	// }
 
 	//특정 건강상태 조회
 	@Transactional
