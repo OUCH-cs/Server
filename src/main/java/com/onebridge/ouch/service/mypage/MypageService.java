@@ -20,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class MypageService {
+
 	private final UserRepository userRepository;
 	private final NationRepository nationRepository;
 	private final MypageConverter mypageConverter;
