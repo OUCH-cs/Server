@@ -1,15 +1,10 @@
 package com.onebridge.ouch.converter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Component;
 
 import com.onebridge.ouch.domain.HealthStatus;
 import com.onebridge.ouch.domain.User;
-import com.onebridge.ouch.dto.healthStatus.request.HealthStatusCreateRequest;
 import com.onebridge.ouch.dto.healthStatus.request.HealthStatusUpdateRequest;
-import com.onebridge.ouch.dto.healthStatus.response.DateAndDisease;
 import com.onebridge.ouch.dto.healthStatus.response.GetHealthStatusResponse;
 
 @Component
@@ -35,14 +30,25 @@ public class HealthStatusConverter {
 			healthStatus.getMedicineHistory());
 	}
 
-	public HealthStatus healthStatusCreateRequestToHealthStatus(HealthStatusCreateRequest request, User user) {
+	// public HealthStatus healthStatusCreateRequestToHealthStatus(HealthStatusCreateRequest request, User user) {
+	// 	return HealthStatus.builder()
+	// 		.user(user)
+	// 		.disease(request.getDisease())
+	// 		.allergy(request.getAllergy())
+	// 		.bloodPressure(request.getBloodPressure())
+	// 		.bloodSugar(request.getBloodSugar())
+	// 		.medicineHistory(request.getMedicineHistory())
+	// 		.build();
+	// }
+
+	public HealthStatus createHealthStatus(User user) {
 		return HealthStatus.builder()
 			.user(user)
-			.disease(request.getDisease())
-			.allergy(request.getAllergy())
-			.bloodPressure(request.getBloodPressure())
-			.bloodSugar(request.getBloodSugar())
-			.medicineHistory(request.getMedicineHistory())
+			.disease(null)
+			.allergy(null)
+			.bloodPressure(null)
+			.bloodSugar(null)
+			.medicineHistory(null)
 			.build();
 	}
 
