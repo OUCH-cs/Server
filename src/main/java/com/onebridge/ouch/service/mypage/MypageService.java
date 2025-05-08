@@ -29,7 +29,7 @@ public class MypageService {
 	@Transactional(readOnly = true)
 	public MypageGetProfileResponse mypageGetProfile(Long userId) {
 		User user = userRepository.findById(userId)
-			.orElseThrow(() -> new RuntimeException("User not found"));
+			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 		return mypageConverter.userToMypageGetProfileResponse(user);
 	}
 
