@@ -6,13 +6,16 @@ import org.springframework.stereotype.Service;
 import com.onebridge.ouch.apiPayload.code.error.CommonErrorCode;
 import com.onebridge.ouch.apiPayload.code.error.SecurityErrorCode;
 import com.onebridge.ouch.apiPayload.exception.OuchException;
+import com.onebridge.ouch.converter.HealthStatusConverter;
+import com.onebridge.ouch.domain.HealthStatus;
 import com.onebridge.ouch.domain.Language;
 import com.onebridge.ouch.domain.Nation;
 import com.onebridge.ouch.domain.User;
-import com.onebridge.ouch.security.dto.request.SignUpRequest;
+import com.onebridge.ouch.repository.healthStatus.HealthStatusRepository;
 import com.onebridge.ouch.repository.language.LanguageRepository;
 import com.onebridge.ouch.repository.nation.NationRepository;
 import com.onebridge.ouch.repository.user.UserRepository;
+import com.onebridge.ouch.security.dto.request.SignUpRequest;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +29,8 @@ public class SignUpService {
 	public final PasswordEncoder passwordEncoder;
 	private final LanguageRepository languageRepository;
 	private final NationRepository nationRepository;
+	private final HealthStatusConverter healthStatusConverter;
+	private final HealthStatusRepository healthStatusRepository;
 
 	public void signUpUser(SignUpRequest signUpRequest) {
 		checkDuplicatedLoginId(signUpRequest.getLoginId());
@@ -40,6 +45,9 @@ public class SignUpService {
 
 		User user = signUpRequest.toEntity(passwordEncoder.encode(signUpRequest.getPassword()), language, nation);
 		userRepository.save(user);
+
+		HealthStatus healthStatus = healthStatusConverter.createHealthStatus(user);
+		healthStatusRepository.save(healthStatus);
 	}
 
 	public void checkDuplicatedLoginId(String loginId) {
