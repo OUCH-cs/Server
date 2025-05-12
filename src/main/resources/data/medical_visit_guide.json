@@ -1,0 +1,291 @@
+[
+  {
+    "step": 1,
+    "title": {
+      "ko": "접수",
+      "en": "Reception"
+    },
+    "icon": "🏥",
+    "purpose": {
+      "ko": "병원 접수 창구에서 진료 접수를 합니다.",
+      "en": "Check in at the hospital front desk."
+    },
+    "whatToExpect": [
+      {
+        "ko": "여권이나 외국인등록증 제시를 요청받습니다.",
+        "en": "You will be asked to show your passport or ARC."
+      },
+      {
+        "ko": "방문 목적 또는 증상에 대해 간단히 물어봅니다.",
+        "en": "Staff may ask about your reason for visit or symptoms."
+      },
+      {
+        "ko": "보통 진료 과목 선택은 하지 않아도 되며, 증상에 따라 병원이 지정합니다.",
+        "en": "You usually don’t need to select a department. The hospital will guide you."
+      }
+    ],
+    "keyPhrases": [
+      {
+        "ko": "진료받고 싶어요",
+        "en": "I’d like to see a doctor."
+      },
+      {
+        "ko": "여기 처음 방문했어요",
+        "en": "This is my first time here."
+      },
+      {
+        "ko": "예약이 필요한가요?",
+        "en": "Do I need to make an appointment?"
+      }
+    ],
+    "actionGuide": [
+      {
+        "ko": "여권 또는 외국인등록증 제시",
+        "en": "Show your passport or ARC."
+      },
+      {
+        "ko": "증상을 간단히 설명 (통역 기능 활용 가능)",
+        "en": "Briefly explain your symptoms."
+      },
+      {
+        "ko": "접수 번호표 또는 대기표 수령",
+        "en": "Receive a queue number or waiting slip."
+      }
+    ],
+    "tips": [
+      {
+        "ko": "동네 병원은 예약 없이도 방문 가능. 대형병원은 사전 예약 필수인 경우 많음.",
+        "en": "Small clinics usually accept walk-ins. Big hospitals often require a prior appointment."
+      }
+    ]
+  },
+  {
+    "step": 2,
+    "title": {
+      "ko": "대기실",
+      "en": "Waiting Room"
+    },
+    "icon": "🪑",
+    "purpose": {
+      "ko": "진료 호출 전까지 대기합니다.",
+      "en": "Wait to be called to the consultation room."
+    },
+    "whatToExpect": [
+      {
+        "ko": "대기 구역에서 순서를 기다립니다.",
+        "en": "You’ll wait in a seating area."
+      },
+      {
+        "ko": "번호 또는 이름이 화면에 표시되거나 방송으로 호출됩니다.",
+        "en": "Your name or number will be displayed on a screen or announced over a speaker."
+      }
+    ],
+    "keyPhrases": [
+      {
+        "ko": "기다리는 시간은 얼마나 되나요?",
+        "en": "How long is the wait?"
+      },
+      {
+        "ko": "화장실 가도 괜찮나요? 제 차례 놓치지 않나요?",
+        "en": "Can I go to the restroom? Will I miss my turn?"
+      }
+    ],
+    "actionGuide": [
+      {
+        "ko": "본인 번호 기억 또는 확인",
+        "en": "Remember your queue number."
+      },
+      {
+        "ko": "이름/번호 호출 확인",
+        "en": "Watch or listen for your turn."
+      },
+      {
+        "ko": "진료실로 이동",
+        "en": "Proceed to the consultation room when called."
+      }
+    ],
+    "tips": []
+  },
+  {
+    "step": 3,
+    "title": {
+      "ko": "진료",
+      "en": "Consultation"
+    },
+    "icon": "👩‍⚕️",
+    "purpose": {
+      "ko": "의사에게 증상을 설명하고 진단을 받습니다.",
+      "en": "Describe your symptoms to the doctor and receive a diagnosis."
+    },
+    "whatToExpect": [
+      {
+        "ko": "일부 의사는 영어가 유창하지 않을 수 있습니다.",
+        "en": "Some doctors may not speak fluent English."
+      },
+      {
+        "ko": "간단한 표현이나 통역 기능을 사용하세요.",
+        "en": "Use simple English or the app’s interpreter tool."
+      }
+    ],
+    "keyPhrases": [
+      {
+        "ko": "목이 아프고 열이 있어요",
+        "en": "I have a sore throat and a fever."
+      },
+      {
+        "ko": "3일째 이 증상이 있어요",
+        "en": "I've had this pain for 3 days."
+      },
+      {
+        "ko": "페니실린에 알레르기가 있어요",
+        "en": "I'm allergic to penicillin."
+      }
+    ],
+    "possibleQuestions": [
+      {
+        "ko": "어디가 아픈가요?",
+        "en": "Where does it hurt?"
+      },
+      {
+        "ko": "기저질환이 있나요?",
+        "en": "Do you have any medical history?"
+      },
+      {
+        "ko": "현재 복용 중인 약이 있나요?",
+        "en": "Are you taking any medications?"
+      }
+    ],
+    "actionGuide": [
+      {
+        "ko": "필요시 통역 기능(음성/텍스트) 사용",
+        "en": "Use translation features if needed."
+      },
+      {
+        "ko": "증상 기록이나 사진 보여주기 (약 복용 기록 등)",
+        "en": "Show notes, photos, or lists if helpful."
+      },
+      {
+        "ko": "처방전 발급 및 안내 받기",
+        "en": "Receive diagnosis and prescription from the doctor."
+      }
+    ],
+    "tips": [
+      {
+        "ko": "짧고 명확하게 설명하고, 통역 기능을 적극 활용하세요.",
+        "en": "Speak clearly and use simple terms. Let the app assist when needed."
+      }
+    ]
+  },
+  {
+    "step": 4,
+    "title": {
+      "ko": "수납",
+      "en": "Payment"
+    },
+    "icon": "💳",
+    "purpose": {
+      "ko": "진료비를 결제하고 영수증 및 처방전을 받습니다.",
+      "en": "Pay the consultation fee and receive any documents."
+    },
+    "whatToExpect": [
+      {
+        "ko": "별도의 수납창구로 이동하여 결제합니다.",
+        "en": "Move to the payment counter."
+      },
+      {
+        "ko": "영수증 및 처방전은 이곳에서 받습니다.",
+        "en": "You will receive a receipt and prescription here."
+      }
+    ],
+    "keyPhrases": [
+      {
+        "ko": "카드로 결제할 수 있나요?",
+        "en": "Can I pay with card?"
+      },
+      {
+        "ko": "보험 청구용 영수증 받을 수 있나요?",
+        "en": "Can I get a receipt for insurance?"
+      },
+      {
+        "ko": "국민건강보험이 적용되었나요?",
+        "en": "Is national insurance applied?"
+      }
+    ],
+    "actionGuide": [
+      {
+        "ko": "결제 금액 확인",
+        "en": "Confirm payment amount."
+      },
+      {
+        "ko": "카드 또는 현금으로 결제",
+        "en": "Pay by card or cash."
+      },
+      {
+        "ko": "영수증과 처방전 수령",
+        "en": "Receive your receipt and prescription slip."
+      }
+    ],
+    "tips": [
+      {
+        "ko": "해외 보험 청구를 위해 '영수증'과 '진단서'를 요청하세요.",
+        "en": "Ask for a medical certificate if you plan to file an insurance claim."
+      }
+    ]
+  },
+  {
+    "step": 5,
+    "title": {
+      "ko": "약국",
+      "en": "Pharmacy"
+    },
+    "icon": "💊",
+    "purpose": {
+      "ko": "병원에서 받은 처방전을 가지고 약을 받습니다.",
+      "en": "Use the prescription to get your medication."
+    },
+    "whatToExpect": [
+      {
+        "ko": "대부분 병원 근처에 약국이 있습니다.",
+        "en": "Pharmacies are usually located near the hospital or clinic."
+      },
+      {
+        "ko": "처방전 제출이 필요합니다.",
+        "en": "You must show your prescription slip."
+      }
+    ],
+    "keyPhrases": [
+      {
+        "ko": "이 처방전을 조제받고 싶어요",
+        "en": "I’d like to get this prescription filled."
+      },
+      {
+        "ko": "약 복용 방법은 어떻게 되나요?",
+        "en": "How do I take this medicine?"
+      },
+      {
+        "ko": "부작용이 있나요?",
+        "en": "Are there any side effects?"
+      }
+    ],
+    "actionGuide": [
+      {
+        "ko": "약국에 처방전 제출",
+        "en": "Go to a nearby pharmacy and present the prescription."
+      },
+      {
+        "ko": "복용 방법 설명 듣기",
+        "en": "Ask for dosage instructions."
+      },
+      {
+        "ko": "약 수령 및 결제",
+        "en": "Pay and receive your medicine."
+      }
+    ],
+    "tips": [
+      {
+        "ko": "필요시 영어 설명 요청 가능. 일부 약국은 외국인 대응이 가능합니다.",
+        "en": "Some pharmacies may offer basic English service. Don’t hesitate to ask for help."
+      }
+    ]
+  }
+]

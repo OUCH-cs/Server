@@ -1,0 +1,436 @@
+[
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System"
+    },
+    "question": {
+      "ko": "의사보다 간호사가 먼저 보는 경우가 있나요?",
+      "en": "Do nurses examine patients before doctors?"
+    },
+    "answer": {
+      "ko": "초진 시 간호사가 먼저 기초 문진을 하고, 이후 의사 진료가 진행될 수 있습니다.",
+      "en": "Yes, in many cases, a nurse will first conduct a basic interview before the doctor sees the patient."
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System"
+    },
+    "question": {
+      "ko": "진료 시간은 보통 얼마나 걸리나요?",
+      "en": "How long is a typical consultation?"
+    },
+    "answer": {
+      "ko": "일반적으로 5~10분 내외이며, 대형병원은 짧을 수 있습니다.",
+      "en": "Usually about 5–10 minutes. In large hospitals, it may be even shorter."
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System"
+    },
+    "question": {
+      "ko": "당일에 검사(MRI, CT 등)도 가능한가요?",
+      "en": "Can I get an MRI or CT scan on the same day?"
+    },
+    "answer": {
+      "ko": "가능하지만 대부분 사전 예약이 필요하며 당일 시행은 드뭅니다.",
+      "en": "It's possible, but most hospitals require an appointment. Same-day procedures are rare."
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System"
+    },
+    "question": {
+      "ko": "진료 후 약은 병원에서 받나요?",
+      "en": "Do I receive medicine directly from the hospital?"
+    },
+    "answer": {
+      "ko": "아니요. 병원에서 처방전을 받고 외부 약국에서 약을 수령합니다.",
+      "en": "No. You will receive a prescription and must go to a pharmacy to get your medicine."
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System"
+    },
+    "question": {
+      "ko": "진료과를 직접 선택할 수 있나요?",
+      "en": "Can I choose my own department?"
+    },
+    "answer": {
+      "ko": "경증인 경우 가능하지만, 종합병원은 접수 시 안내에 따라 지정됩니다.",
+      "en": "At small clinics, yes. At general hospitals, staff usually decide based on your symptoms."
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs"
+    },
+    "question": {
+      "ko": "건강보험이 없으면 병원비가 비싸나요?",
+      "en": "Is it expensive without Korean health insurance?"
+    },
+    "answer": {
+      "ko": "보험 미가입 시 전액 본인 부담으로 상대적으로 비쌉니다.",
+      "en": "Yes. Without insurance, you must pay the full amount, which can be costly."
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs"
+    },
+    "question": {
+      "ko": "진료비는 어떤 기준으로 계산되나요?",
+      "en": "How are medical fees calculated?"
+    },
+    "answer": {
+      "ko": "진찰료, 검사비, 투약료 등으로 구분되어 청구됩니다.",
+      "en": "Fees are based on consultation, tests, medications, and other services."
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs"
+    },
+    "question": {
+      "ko": "해외 보험은 병원에서 직접 처리해주나요?",
+      "en": "Do hospitals handle overseas insurance directly?"
+    },
+    "answer": {
+      "ko": "보통 직접 청구해야 하며, 병원에서 영수증과 진단서를 요청해야 합니다.",
+      "en": "Usually not. You must file the claim yourself with receipts and certificates."
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs"
+    },
+    "question": {
+      "ko": "영수증 재발급은 어떻게 하나요?",
+      "en": "Can I get another copy of my receipt?"
+    },
+    "answer": {
+      "ko": "수납 창구에서 요청하면 재발급 가능합니다.",
+      "en": "Yes. Ask at the payment counter for a reprint."
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs"
+    },
+    "question": {
+      "ko": "진단서는 무료인가요?",
+      "en": "Is a medical certificate free?"
+    },
+    "answer": {
+      "ko": "아니요. 발급 시 별도 수수료가 부과됩니다.",
+      "en": "No. There is a separate fee for issuing medical certificates."
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies"
+    },
+    "question": {
+      "ko": "응급 상황 시 119에서 영어 통역 가능한가요?",
+      "en": "Can I speak English when calling 119?"
+    },
+    "answer": {
+      "ko": "네. 요청 시 영어 통역사 연결이 가능합니다.",
+      "en": "Yes. English interpreters are available through 119."
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies"
+    },
+    "question": {
+      "ko": "야간 진료 가능한 병원은 어디서 찾나요?",
+      "en": "Where can I find hospitals open at night?"
+    },
+    "answer": {
+      "ko": "응급실이 있는 병원 또는 지역 보건소 홈페이지에서 확인 가능합니다.",
+      "en": "Emergency rooms or local health center websites provide this info."
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies"
+    },
+    "question": {
+      "ko": "응급실에서 바로 입원할 수 있나요?",
+      "en": "Can I be admitted directly from the ER?"
+    },
+    "answer": {
+      "ko": "가능하나 병상 상황에 따라 제한될 수 있습니다.",
+      "en": "It’s possible, but depends on bed availability."
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies"
+    },
+    "question": {
+      "ko": "119 이용은 유료인가요?",
+      "en": "Is calling 119 free?"
+    },
+    "answer": {
+      "ko": "아니요. 구조 및 이송은 무료입니다.",
+      "en": "Yes. Emergency response and transport are free of charge."
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies"
+    },
+    "question": {
+      "ko": "응급실에 가면 바로 진료받을 수 있나요?",
+      "en": "Do I get treated immediately at the ER?"
+    },
+    "answer": {
+      "ko": "위급 정도에 따라 대기 시간이 달라질 수 있습니다.",
+      "en": "It depends on how urgent your condition is. You may have to wait."
+    }
+  },
+  {
+    "category": {
+      "ko": "약국 및 약물",
+      "en": "Pharmacy & Medication"
+    },
+    "question": {
+      "ko": "처방전 없이 약을 살 수 있나요?",
+      "en": "Can I buy medicine without a prescription?"
+    },
+    "answer": {
+      "ko": "일부 일반의약품은 가능하나, 대부분은 처방전이 필요합니다.",
+      "en": "Some basic medicine is available over the counter, but most require a prescription."
+    }
+  },
+  {
+    "category": {
+      "ko": "약국 및 약물",
+      "en": "Pharmacy & Medication"
+    },
+    "question": {
+      "ko": "약 복용 방법이 이해되지 않으면 어떻게 하나요?",
+      "en": "What if I don’t understand how to take the medicine?"
+    },
+    "answer": {
+      "ko": "약사에게 영어 설명을 요청하거나 통역 기능을 활용하세요.",
+      "en": "Ask the pharmacist for an English explanation or use a translation app."
+    }
+  },
+  {
+    "category": {
+      "ko": "약국 및 약물",
+      "en": "Pharmacy & Medication"
+    },
+    "question": {
+      "ko": "부작용이 생기면 어떻게 하나요?",
+      "en": "What should I do if I experience side effects?"
+    },
+    "answer": {
+      "ko": "즉시 약 복용을 중단하고 병원이나 약사에게 문의하세요.",
+      "en": "Stop taking the medicine and consult a doctor or pharmacist."
+    }
+  },
+  {
+    "category": {
+      "ko": "약국 및 약물",
+      "en": "Pharmacy & Medication"
+    },
+    "question": {
+      "ko": "같은 성분의 외국 약을 복용 중인데 대체 가능한가요?",
+      "en": "Can I replace my foreign medication with a Korean one?"
+    },
+    "answer": {
+      "ko": "약사와 상담 후 국내 대체 약을 권장받을 수 있습니다.",
+      "en": "Yes. Bring your original medication and ask a pharmacist for alternatives."
+    }
+  },
+  {
+    "category": {
+      "ko": "약국 및 약물",
+      "en": "Pharmacy & Medication"
+    },
+    "question": {
+      "ko": "약은 병원비에 포함되나요?",
+      "en": "Is medicine included in the hospital bill?"
+    },
+    "answer": {
+      "ko": "별도 약국 결제 항목이며 병원비와는 분리됩니다.",
+      "en": "No. You must pay for it separately at the pharmacy."
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication"
+    },
+    "question": {
+      "ko": "진료 중 통역 앱을 써도 되나요?",
+      "en": "Can I use a translation app during the consultation?"
+    },
+    "answer": {
+      "ko": "네. 통역 앱이나 종이 문서 등을 활용해 의사소통 가능합니다.",
+      "en": "Yes. Using an app or written notes is helpful and acceptable."
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication"
+    },
+    "question": {
+      "ko": "의사에게 질문을 많이 해도 되나요?",
+      "en": "Is it okay to ask the doctor many questions?"
+    },
+    "answer": {
+      "ko": "네. 한국에서도 환자의 질문은 당연한 권리입니다.",
+      "en": "Yes. It’s your right as a patient to ask questions."
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication"
+    },
+    "question": {
+      "ko": "간호사가 설명을 대신하는 경우가 많은가요?",
+      "en": "Do nurses often explain things instead of doctors?"
+    },
+    "answer": {
+      "ko": "대형병원에서는 간호사의 안내가 주요 정보를 대신하는 경우가 많습니다.",
+      "en": "At large hospitals, nurses often provide detailed instructions."
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication"
+    },
+    "question": {
+      "ko": "의사 성별을 요청할 수 있나요?",
+      "en": "Can I request a doctor of a specific gender?"
+    },
+    "answer": {
+      "ko": "사전에 요청 가능하지만, 상황에 따라 조정이 어려울 수도 있습니다.",
+      "en": "Yes, you can ask in advance, but it may not always be possible."
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication"
+    },
+    "question": {
+      "ko": "진료 중 가족과 통화하면서 통역해도 되나요?",
+      "en": "Can I talk to my family on the phone for interpretation?"
+    },
+    "answer": {
+      "ko": "가능하나 병원 방침에 따라 제한될 수 있으므로 미리 양해를 구하세요.",
+      "en": "Usually yes, but ask the hospital staff beforehand to be sure."
+    }
+  },
+  {
+    "category": {
+      "ko": "여성 전용",
+      "en": "Women"
+    },
+    "question": {
+      "ko": "산부인과 의사가 남성일 경우 변경 요청 가능한가요?",
+      "en": "Can I ask for a female doctor at the gynecology department?"
+    },
+    "answer": {
+      "ko": "가능하며, 미리 접수 시 요청하면 조율될 수 있습니다.",
+      "en": "Yes. Make the request at registration, and they will try to accommodate you."
+    }
+  },
+  {
+    "category": {
+      "ko": "여성 전용",
+      "en": "Women"
+    },
+    "question": {
+      "ko": "생리통, 피임약 관련 상담도 받을 수 있나요?",
+      "en": "Can I talk about menstrual pain or contraception?"
+    },
+    "answer": {
+      "ko": "네. 일반 내과 또는 산부인과에서 가능합니다.",
+      "en": "Yes. These are common issues and can be discussed openly."
+    }
+  },
+  {
+    "category": {
+      "ko": "여성 전용",
+      "en": "Women"
+    },
+    "question": {
+      "ko": "여성 전용 진료 공간이 따로 있나요?",
+      "en": "Are there female-only clinics or departments?"
+    },
+    "answer": {
+      "ko": "일부 병원에는 별도 공간이 마련되어 있습니다.",
+      "en": "Some hospitals offer separate women’s clinics or dedicated spaces."
+    }
+  },
+  {
+    "category": {
+      "ko": "장애인/취약 계층",
+      "en": "Accessibility"
+    },
+    "question": {
+      "ko": "휠체어로 진입 가능한 병원이 많은가요?",
+      "en": "Are most hospitals accessible for wheelchairs?"
+    },
+    "answer": {
+      "ko": "대부분의 병원은 휠체어 접근이 가능하도록 설계되어 있습니다.",
+      "en": "Yes. Most hospitals have ramps and elevators for wheelchair access."
+    }
+  },
+  {
+    "category": {
+      "ko": "장애인/취약 계층",
+      "en": "Accessibility"
+    },
+    "question": {
+      "ko": "청각장애인을 위한 안내 수단이 있나요?",
+      "en": "Are there services for hearing-impaired patients?"
+    },
+    "answer": {
+      "ko": "일부 병원은 자막 안내 모니터나 수화 통역을 제공합니다.",
+      "en": "Some hospitals provide caption screens or sign language interpretation."
+    }
+  },
+  {
+    "category": {
+      "ko": "언어 지원",
+      "en": "Language Support"
+    },
+    "question": {
+      "ko": "영어 외 다른 언어 지원도 있나요?",
+      "en": "Do hospitals support languages other than English?"
+    },
+    "answer": {
+      "ko": "일부 병원은 중국어, 베트남어 등 다국어 통역 서비스를 제공합니다.",
+      "en": "Yes. Some offer services in Chinese, Vietnamese, and other languages."
+    }
+  }
+]
