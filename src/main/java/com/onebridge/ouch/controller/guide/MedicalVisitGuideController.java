@@ -14,7 +14,7 @@ import com.onebridge.ouch.service.guide.MedicalVisitGuideService;
 @Tag(name = "통역 상황 속 진료 가이드 API", description = "통역 도중 사용하는 Json 형식의 진료 가이드 API 입니다. 전체 조희 기반으로 필요한 항목만 매핑해서 사용하는 식으로 사용하시면 됩니다."
     + " 현재 한국어와 영어를 제공하며, 추후 다국어 지원 예정입니다.")
 @RestController
-@RequestMapping("/guide")
+@RequestMapping("/guide/visit")
 @RequiredArgsConstructor
 public class MedicalVisitGuideController {
 
