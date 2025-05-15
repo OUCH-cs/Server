@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DiagnosisRequest {
+public class DiagnosisAlgorithmRequest {
     @Schema(description = "언어 설정", example = "en")
     private String language;  // "ko" or "en"
 

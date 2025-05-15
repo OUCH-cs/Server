@@ -27,11 +27,13 @@ public class SelfDiagnosis extends BaseEntity {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@Column(columnDefinition = "TEXT")
-	private String contents;
+	// @Column(columnDefinition = "TEXT")
+	// private String contents;
 
-	@OneToMany(mappedBy = "selfDiagnosis", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<DiagnosisSymptom> diagnosisSymptomList = new ArrayList<>();
+	// @OneToMany(mappedBy = "selfDiagnosis", cascade = CascadeType.ALL, orphanRemoval = true)
+	// private List<DiagnosisSymptom> diagnosisSymptomList = new ArrayList<>();
+
+	private String symptom;
 
 	private VisitType visitType;
 

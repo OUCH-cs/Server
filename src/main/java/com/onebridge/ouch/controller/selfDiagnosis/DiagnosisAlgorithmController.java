@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisRequest;
+import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisAlgorithmRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.response.DiagnosisAlgorithmMapping;
 import com.onebridge.ouch.service.selfDiagnosis.DiagnosisAlgorithmService;
 
@@ -29,7 +29,7 @@ public class DiagnosisAlgorithmController {
 
     @Operation(summary = "증상 기반 관련 진료과 찾기 API", description = "1차 System, 2차 Symptom, 3차 Condition(증상따라 없을 수도 있음)을 기반으로 관련 진료과를 찾습니다. ")
     @PostMapping
-    public ResponseEntity<DiagnosisAlgorithmMapping> getDiagnosis(@RequestBody DiagnosisRequest request) {
+    public ResponseEntity<DiagnosisAlgorithmMapping> getDiagnosis(@RequestBody DiagnosisAlgorithmRequest request) {
         return diagnosisService.findMatch(
                 request.getLanguage(),
                 request.getSystem(),
