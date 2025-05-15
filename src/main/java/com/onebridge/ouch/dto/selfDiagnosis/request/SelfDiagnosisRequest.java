@@ -1,7 +1,5 @@
 package com.onebridge.ouch.dto.selfDiagnosis.request;
 
-import java.util.List;
-
 import com.onebridge.ouch.domain.enums.SymptomDuration;
 import com.onebridge.ouch.domain.enums.VisitType;
 
@@ -12,13 +10,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 @Getter
-public class DiagnosisCreateRequest {
+public class SelfDiagnosisRequest {
 
 	@NotNull(message = "Visit type is required.")
 	private VisitType visitType;
 
-	@NotEmpty(message = "At least one symptom is required.")
-	private List<String> symptoms;
+	@NotEmpty(message = "증상을 입력해주세요")
+	private String symptom;
 
 	@NotNull(message = "Symptom duration is required.")
 	private SymptomDuration duration;

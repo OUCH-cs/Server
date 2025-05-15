@@ -43,11 +43,7 @@ public class UserService {
 		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
-		User deactivatedUser = user.toBuilder()
-			.status(UserStatus.INACTIVE)
-			.build();
-
-		userRepository.save(deactivatedUser);
+		user.deactivate();
 	}
 
 	@Transactional
@@ -77,7 +73,7 @@ public class UserService {
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
 		Nation nation = nationRepository.findByCode(nationCode)
-			.orElseThrow(() -> new OuchException(CommonErrorCode.LANGUAGE_NOT_FOUND));
+			.orElseThrow(() -> new OuchException(CommonErrorCode.NATION_NOT_FOUND));
 
 		user.updateNation(nation);
 	}

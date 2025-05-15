@@ -29,6 +29,10 @@ public enum CommonErrorCode implements ErrorCode {
 	// For test
 	TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트"),
 
+	//자가진단 알고리즘
+	SYSTEM_SYMPTOM_NOT_FOUND(HttpStatus.NOT_FOUND, "DIAG404", "해당 system/symptom 조합이 존재하지 않습니다."),
+	CONDITION_NOT_AVAILABLE(HttpStatus.NOT_FOUND, "DIAG404", "해당 조합은 condition 단계가 없는 two-step 항목입니다."),
+
 	//회원가입
 	LANGUAGE_NOT_FOUND(HttpStatus.NOT_FOUND, "COMMON404", "관련된 언어 데이터가 없습니다."),
 	NATION_NOT_FOUND(HttpStatus.NOT_FOUND, "COMMON404", "관련된 국가 데이터가 없습니다.");

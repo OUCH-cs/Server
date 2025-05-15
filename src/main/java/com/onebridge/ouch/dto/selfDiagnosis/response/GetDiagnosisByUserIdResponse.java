@@ -14,7 +14,7 @@ public class GetDiagnosisByUserIdResponse {
 
 	private Long diagnosisId;
 	private VisitType visitType;
-	private List<String> symptoms;
+	private String symptoms;
 	private SymptomDuration duration;
 	private Integer painSeverity;
 	private String additionalNote;

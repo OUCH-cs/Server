@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onebridge.ouch.apiPayload.ApiResponse;
-import com.onebridge.ouch.dto.selfDiagnosis.request.AddSymptomsToDiagnosisRequest;
-import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisCreateRequest;
-import com.onebridge.ouch.dto.selfDiagnosis.request.DiagnosisUpdateRequest;
+import com.onebridge.ouch.dto.selfDiagnosis.request.SelfDiagnosisRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisByUserIdResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisResponse;
-import com.onebridge.ouch.dto.selfDiagnosis.response.GetSymptomsOfDiagnosisResponse;
 import com.onebridge.ouch.security.authorization.UserId;
 import com.onebridge.ouch.service.selfDiagnosis.SelfDiagnosisService;
 
@@ -39,7 +36,7 @@ public class SelfDiagnosisController {
 	@Operation(summary = "자가진단표 생성 API", description = "자가진단표 생성 API 입니다.")
 	@PostMapping
 	public ResponseEntity<ApiResponse<Void>> createDiagnosis( //request dto 에 userid 지우기
-		@RequestBody @Valid DiagnosisCreateRequest request,
+		@RequestBody @Valid SelfDiagnosisRequest request,
 		@UserId Long userId
 	) {
 		selfDiagnosisService.createDiagnosis(request, userId);
@@ -78,21 +75,21 @@ public class SelfDiagnosisController {
 	}
 
 	//특정 자가진단표의 증상 목록 조회
-	@Operation(summary = "특정 자가진단표의 증상 목록 조회 API", description = "특정 자가진단표의 증상 목록 조회 API 입니다.")
-	@GetMapping("/{diagnosisId}/symptoms")
-	public ResponseEntity<ApiResponse<GetSymptomsOfDiagnosisResponse>> getSymptomsOfDiagnosis(
-		@PathVariable Long diagnosisId,
-		@UserId Long userId
-	) {
-		GetSymptomsOfDiagnosisResponse response = selfDiagnosisService.getSymptomsOfDiagnosis(diagnosisId, userId);
-		return ResponseEntity.ok(ApiResponse.success(response));
-	}
+	// @Operation(summary = "특정 자가진단표의 증상 목록 조회 API", description = "특정 자가진단표의 증상 목록 조회 API 입니다.")
+	// @GetMapping("/{diagnosisId}/symptoms")
+	// public ResponseEntity<ApiResponse<GetSymptomsOfDiagnosisResponse>> getSymptomsOfDiagnosis(
+	// 	@PathVariable Long diagnosisId,
+	// 	@UserId Long userId
+	// ) {
+	// 	GetSymptomsOfDiagnosisResponse response = selfDiagnosisService.getSymptomsOfDiagnosis(diagnosisId, userId);
+	// 	return ResponseEntity.ok(ApiResponse.success(response));
+	// }
 
 	//자가진단표 수정
 	@Operation(summary = "자가진단표 수정 API", description = "자가진단표 수정 API 입니다.")
 	@PutMapping("/{diagnosisId}")
 	public ResponseEntity<ApiResponse<Void>> updateDiagnosis(@PathVariable Long diagnosisId,
-		@RequestBody @Valid DiagnosisUpdateRequest request,
+		@RequestBody @Valid SelfDiagnosisRequest request,
 		@UserId Long userId
 	) {
 		selfDiagnosisService.updateDiagnosis(diagnosisId, userId, request);
@@ -100,13 +97,13 @@ public class SelfDiagnosisController {
 	}
 
 	//자가진단표에 증상 추가
-	@Operation(summary = "특정 자가진단표에 증상 추가 API", description = "특정 자가진단표에 증상 추가 API 입니다.")
-	@PostMapping("/{diagnosisId}/symptoms")
-	public ResponseEntity<ApiResponse<Void>> addSymptomsToSelfDiagnosis(@PathVariable Long diagnosisId,
-		@RequestBody @Valid AddSymptomsToDiagnosisRequest request,
-		@UserId Long userId
-	) {
-		selfDiagnosisService.addSymptomsToSelfDiagnosis(diagnosisId, request, userId);
-		return ResponseEntity.ok(ApiResponse.successWithNoData());
-	}
+	// @Operation(summary = "특정 자가진단표에 증상 추가 API", description = "특정 자가진단표에 증상 추가 API 입니다.")
+	// @PostMapping("/{diagnosisId}/symptoms")
+	// public ResponseEntity<ApiResponse<Void>> addSymptomsToSelfDiagnosis(@PathVariable Long diagnosisId,
+	// 	@RequestBody @Valid AddSymptomsToDiagnosisRequest request,
+	// 	@UserId Long userId
+	// ) {
+	// 	selfDiagnosisService.addSymptomsToSelfDiagnosis(diagnosisId, request, userId);
+	// 	return ResponseEntity.ok(ApiResponse.successWithNoData());
+	// }
 }

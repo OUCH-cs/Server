@@ -111,4 +111,8 @@ public class User extends BaseEntity {
 	public void updateNation(Nation nation) {
 		this.nation = nation;
 	}
+
+	public void deactivate() {
+		this.status = UserStatus.INACTIVE;
+	}
 }
