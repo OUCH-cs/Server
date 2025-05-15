@@ -43,11 +43,7 @@ public class UserService {
 		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
-		User deactivatedUser = user.toBuilder()
-			.status(UserStatus.INACTIVE)
-			.build();
-
-		userRepository.save(deactivatedUser);
+		user.deactivate();
 	}
 
 	@Transactional

@@ -86,12 +86,6 @@ public class MedicalRecordService {
 			.contents_summary(request.getTreatmentSummary())
 			.build();
 
-		MedicalRecord updatedMedicalRecord = medicalRecordConverter.medicalRecordUpdateRequestToMedicalRecord(
-			medicalRecord,
-			request,
-			summary);
-
-		medicalRecordRepository.save(updatedMedicalRecord);
+		medicalRecordConverter.medicalRecordUpdateRequestToMedicalRecord(medicalRecord, request, summary);
 	}
-
 }
