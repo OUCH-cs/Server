@@ -52,14 +52,9 @@ public class HealthStatusConverter {
 			.build();
 	}
 
-	public HealthStatus healthStatusUpdateRequestToHealthStatus(HealthStatus healthStatus,
+	public void healthStatusUpdateRequestToHealthStatus(HealthStatus healthStatus,
 		HealthStatusUpdateRequest request) {
-		return healthStatus.toBuilder()
-			.disease(request.getDisease())
-			.allergy(request.getAllergy())
-			.bloodPressure(request.getBloodPressure())
-			.bloodSugar(request.getBloodSugar())
-			.medicineHistory(request.getMedicineHistory())
-			.build();
+		healthStatus.update(request.getDisease(), request.getAllergy(),
+			request.getBloodPressure(), request.getBloodSugar(), request.getMedicineHistory());
 	}
 }

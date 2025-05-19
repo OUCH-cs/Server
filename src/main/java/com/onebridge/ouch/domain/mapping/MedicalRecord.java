@@ -47,4 +47,18 @@ public class MedicalRecord extends BaseEntity {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JoinColumn(name = "summary_id")
 	private Summary summary;
+
+	public void update(
+		LocalDate visitDate,
+		String hospital,
+		String department,
+		String symptoms,
+		Summary summary
+	) {
+		this.visitDate = visitDate;
+		this.hospital = hospital;
+		this.department = department;
+		this.symptoms = symptoms;
+		this.summary = summary;
+	}
 }

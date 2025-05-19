@@ -1,18 +1,12 @@
 package com.onebridge.ouch.converter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Component;
 
 import com.onebridge.ouch.domain.SelfDiagnosis;
-import com.onebridge.ouch.domain.Symptom;
 import com.onebridge.ouch.domain.User;
-import com.onebridge.ouch.domain.mapping.DiagnosisSymptom;
 import com.onebridge.ouch.dto.selfDiagnosis.request.SelfDiagnosisRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisByUserIdResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisResponse;
-import com.onebridge.ouch.dto.selfDiagnosis.response.GetSymptomsOfDiagnosisResponse;
 
 @Component
 public class SelfDiagnosisConverter {
@@ -54,15 +48,15 @@ public class SelfDiagnosisConverter {
 	// 		.build();
 	// }
 
-	public SelfDiagnosis diagnosisUpdateRequestToSelfDiagnosis(SelfDiagnosis diagnosis, User user,
+	public void diagnosisUpdateRequestToSelfDiagnosis(SelfDiagnosis diagnosis, User user,
 		SelfDiagnosisRequest request) {
-		return diagnosis.toBuilder()
-			.visitType(request.getVisitType())
-			.symptom(request.getSymptom())
-			.duration(request.getDuration())
-			.painSeverity(request.getPainSeverity())
-			.additionalNote(request.getAdditionalNote())
-			.build();
+		diagnosis.update(
+			request.getSymptom(),
+			request.getVisitType(),
+			request.getDuration(),
+			request.getPainSeverity(),
+			request.getAdditionalNote()
+		);
 	}
 	//
 	// public List<String> symptomListForResponseDto(SelfDiagnosis selfDiagnosis) {

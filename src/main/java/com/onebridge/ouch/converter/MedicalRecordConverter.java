@@ -47,14 +47,14 @@ public class MedicalRecordConverter {
 			.build();
 	}
 
-	public MedicalRecord medicalRecordUpdateRequestToMedicalRecord(MedicalRecord medicalRecord,
+	public void medicalRecordUpdateRequestToMedicalRecord(MedicalRecord medicalRecord,
 		MedicalRecordUpdateRequest request, Summary summary) {
-		return medicalRecord.toBuilder()
-			.visitDate(request.getVisitDate())
-			.hospital(request.getVisitingHospital())
-			.department(request.getMedicalSubject())
-			.symptoms(request.getSymptoms())
-			.summary(summary)
-			.build();
+		medicalRecord.update(
+			request.getVisitDate(),
+			request.getVisitingHospital(),
+			request.getMedicalSubject(),
+			request.getSymptoms(),
+			summary
+		);
 	}
 }
