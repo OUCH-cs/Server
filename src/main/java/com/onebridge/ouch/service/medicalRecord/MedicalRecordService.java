@@ -82,10 +82,13 @@ public class MedicalRecordService {
 		MedicalRecord medicalRecord = medicalRecordRepository.findByIdAndUserId(medicalRecordId, userId)
 			.orElseThrow(() -> new OuchException(MedicalRecordErrorCode.MEDICAL_RECORD_NOT_FOUND));
 
-		Summary summary = medicalRecord.getSummary().update(
-			request.getTreatmentSummary()
-		);
+		medicalRecord.getSummary().updateSummary(request.getTreatmentSummary());
 
-		medicalRecordConverter.medicalRecordUpdateRequestToMedicalRecord(medicalRecord, request, summary);
+		medicalRecord.updateMedicalRecord(
+			request.getVisitDate(),
+			request.getVisitingHospital(),
+			request.getMedicalSubject(),
+			request.getSymptoms()
+		);
 	}
 }

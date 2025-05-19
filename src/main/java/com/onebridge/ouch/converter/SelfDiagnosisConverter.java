@@ -48,17 +48,6 @@ public class SelfDiagnosisConverter {
 	// 		.build();
 	// }
 
-	public void diagnosisUpdateRequestToSelfDiagnosis(SelfDiagnosis diagnosis, User user,
-		SelfDiagnosisRequest request) {
-		diagnosis.update(
-			request.getSymptom(),
-			request.getVisitType(),
-			request.getDuration(),
-			request.getPainSeverity(),
-			request.getAdditionalNote()
-		);
-	}
-	//
 	// public List<String> symptomListForResponseDto(SelfDiagnosis selfDiagnosis) {
 	// 	List<String> symptoms = new ArrayList<>();
 	// 	for (DiagnosisSymptom symptom : selfDiagnosis.getDiagnosisSymptomList()) {

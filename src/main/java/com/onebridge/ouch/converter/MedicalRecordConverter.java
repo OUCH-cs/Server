@@ -9,7 +9,6 @@ import com.onebridge.ouch.domain.Summary;
 import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.mapping.MedicalRecord;
 import com.onebridge.ouch.dto.medicalRecord.request.MedicalRecordCreateRequest;
-import com.onebridge.ouch.dto.medicalRecord.request.MedicalRecordUpdateRequest;
 import com.onebridge.ouch.dto.medicalRecord.response.DateAndHospital;
 import com.onebridge.ouch.dto.medicalRecord.response.GetMedicalRecordResponse;
 
@@ -45,16 +44,5 @@ public class MedicalRecordConverter {
 			.symptoms(request.getSymptoms())
 			.summary(summary)
 			.build();
-	}
-
-	public void medicalRecordUpdateRequestToMedicalRecord(MedicalRecord medicalRecord,
-		MedicalRecordUpdateRequest request, Summary summary) {
-		medicalRecord.update(
-			request.getVisitDate(),
-			request.getVisitingHospital(),
-			request.getMedicalSubject(),
-			request.getSymptoms(),
-			summary
-		);
 	}
 }

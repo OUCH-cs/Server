@@ -50,7 +50,7 @@ public class SelfDiagnosis extends BaseEntity {
 	@Column(columnDefinition = "TEXT")
 	private String additionalNote;
 
-	public void update(
+	public void updateSelfDiagnosis(
 		String symptom,
 		VisitType visitType,
 		SymptomDuration duration,

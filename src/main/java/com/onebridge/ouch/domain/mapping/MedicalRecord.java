@@ -48,17 +48,15 @@ public class MedicalRecord extends BaseEntity {
 	@JoinColumn(name = "summary_id")
 	private Summary summary;
 
-	public void update(
+	public void updateMedicalRecord(
 		LocalDate visitDate,
 		String hospital,
 		String department,
-		String symptoms,
-		Summary summary
+		String symptoms
 	) {
 		this.visitDate = visitDate;
 		this.hospital = hospital;
 		this.department = department;
 		this.symptoms = symptoms;
-		this.summary = summary;
 	}
 }

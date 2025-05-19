@@ -46,7 +46,7 @@ public class HealthStatus extends BaseEntity {
 	@Column(nullable = true, columnDefinition = "TEXT")
 	private String medicineHistory;
 
-	public void update(String disease, String allergy, Long bloodPressure, Long bloodSugar,
+	public void updateHealthStatus(String disease, String allergy, Long bloodPressure, Long bloodSugar,
 		String medicineHistory) {
 		this.disease = disease;
 		this.allergy = allergy;
