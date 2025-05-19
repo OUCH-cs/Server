@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 
 import com.onebridge.ouch.domain.HealthStatus;
 import com.onebridge.ouch.domain.User;
-import com.onebridge.ouch.dto.healthStatus.request.HealthStatusUpdateRequest;
 import com.onebridge.ouch.dto.healthStatus.response.GetHealthStatusResponse;
 
 @Component
@@ -49,17 +48,6 @@ public class HealthStatusConverter {
 			.bloodPressure(null)
 			.bloodSugar(null)
 			.medicineHistory(null)
-			.build();
-	}
-
-	public HealthStatus healthStatusUpdateRequestToHealthStatus(HealthStatus healthStatus,
-		HealthStatusUpdateRequest request) {
-		return healthStatus.toBuilder()
-			.disease(request.getDisease())
-			.allergy(request.getAllergy())
-			.bloodPressure(request.getBloodPressure())
-			.bloodSugar(request.getBloodSugar())
-			.medicineHistory(request.getMedicineHistory())
 			.build();
 	}
 }

@@ -34,4 +34,8 @@ public class Summary extends BaseEntity {
 
 	@Column(columnDefinition = "TEXT")
 	private String contents_summary;
+
+	public void updateSummary(String contents_summary) {
+		this.contents_summary = contents_summary;
+	}
 }

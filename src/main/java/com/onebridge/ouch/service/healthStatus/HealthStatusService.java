@@ -57,7 +57,8 @@ public class HealthStatusService {
 		HealthStatus healthStatus = healthStatusRepository.findByUserId(userId)
 			.orElseThrow(() -> new OuchException(HealthStatusErrorCode.HEALTH_STATUS_NOT_FOUND));
 
-		healthStatusConverter.healthStatusUpdateRequestToHealthStatus(healthStatus, request);
+		healthStatus.updateHealthStatus(request.getDisease(), request.getAllergy(), request.getBloodPressure(),
+			request.getBloodSugar(), request.getMedicineHistory());
 	}
 
 	// //특정 건강상태 삭제

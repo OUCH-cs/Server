@@ -2,8 +2,6 @@ package com.onebridge.ouch.service.selfDiagnosis;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,9 +11,7 @@ import com.onebridge.ouch.apiPayload.code.error.DiagnosisErrorCode;
 import com.onebridge.ouch.apiPayload.exception.OuchException;
 import com.onebridge.ouch.converter.SelfDiagnosisConverter;
 import com.onebridge.ouch.domain.SelfDiagnosis;
-import com.onebridge.ouch.domain.Symptom;
 import com.onebridge.ouch.domain.User;
-import com.onebridge.ouch.domain.mapping.DiagnosisSymptom;
 import com.onebridge.ouch.dto.selfDiagnosis.request.SelfDiagnosisRequest;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisByUserIdResponse;
 import com.onebridge.ouch.dto.selfDiagnosis.response.GetDiagnosisResponse;
@@ -104,8 +100,16 @@ public class SelfDiagnosisService {
 		User user = userRepository.findById(userId)
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
-		selfDiagnosisConverter.diagnosisUpdateRequestToSelfDiagnosis(diagnosis, user, request);
-		// SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.diagnosisUpdateRequestToSelfDiagnosis(diagnosis, user,
+		diagnosis.updateSelfDiagnosis(
+			request.getSymptom(),
+			request.getVisitType(),
+			request.getDuration(),
+			request.getPainSeverity(),
+			request.getAdditionalNote()
+		);
+
+		// SelfDiagnosis updatedDiagnosis = selfDiagnosisConverter.diagnosisUpdateRequestToSelfDia
+		// gnosis(diagnosis, user,
 		// 	request);
 
 		// List<String> symptomNames = request.getSymptoms();
