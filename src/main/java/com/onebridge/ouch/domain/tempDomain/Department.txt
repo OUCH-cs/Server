@@ -1,0 +1,17 @@
+package com.onebridge.ouch.domain;
+
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Department {
+
+	@Id
+	private Long code;            // 진료과목코드(PK, 필요 없으면 생략)
+	private String nameKr;        // 진료과목 한글명
+	private String nameEn;        // 진료과목 영문명
+}
+
