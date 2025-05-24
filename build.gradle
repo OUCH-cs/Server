@@ -56,6 +56,24 @@ dependencies {
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+	//websocket
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	//Java용 gRPC 클라이언트, Google STT Streaming
+	//implementation 'com.google.cloud:google-cloud-speech:4.38.0'
+
+	//implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+	//BOM으로 Google Cloud 라이브러리 버전 일괄 관리
+	implementation platform('com.google.cloud:libraries-bom:26.60.0')
+	// gRPC 스트리밍 번역
+	implementation 'com.google.api.grpc:grpc-google-cloud-translate-v3:2.63.0'
+	// --- STT, Translation, TTS 클라이언트 ---
+	implementation 'com.google.cloud:google-cloud-speech'           // Speech-to-Text
+	implementation 'com.google.cloud:google-cloud-translate'        // Translation API (REST)
+	implementation 'com.google.cloud:google-cloud-texttospeech'     // Cloud Text-to-Speech
 }
 
 tasks.named('test') {

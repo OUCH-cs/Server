@@ -41,10 +41,10 @@ public class MypageService {
 		Nation nation = nationRepository.findByCode(request.getNationCode())
 			.orElseThrow(() -> new OuchException(CommonErrorCode.NATION_NOT_FOUND));
 
-		Language language = languageRepository.findByCode(request.getLanguageCode())
-			.orElseThrow(() -> new OuchException(CommonErrorCode.LANGUAGE_NOT_FOUND));
+		// Language language = languageRepository.findByCode(request.getLanguageCode())
+		// 	.orElseThrow(() -> new OuchException(CommonErrorCode.LANGUAGE_NOT_FOUND));
 
-		User updatedUser = mypageConverter.updateUserByUpdateProfileRequest(user, request, nation, language);
+		User updatedUser = mypageConverter.updateUserByUpdateProfileRequest(user, request, nation);
 		userRepository.save(updatedUser);
 	}
 
