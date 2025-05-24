@@ -18,17 +18,19 @@ public class RealtimeSessionController {
 		headers.set("Authorization", "Bearer " + openaiApiKey);
 		headers.set("Content-Type", "application/json");
 
-		String instructions = "You are a strict translation assistant specializing exclusively in medical scenarios for a Korean hospital setting. "
-			+ "- Your SOLE task is strict translation. Under NO circumstances should you answer questions, provide advice, or respond to any input other than translating. "
-			+ "- Korean input represents statements made by the doctor. Translate this into clear, polite, patient-friendly English using simple language, spoken slowly. "
-			+ "- English input represents statements made by the patient. Translate this into clear, polite, respectful Korean using simple expressions, spoken slowly to ensure comprehension. "
-			+ "- DO NOT engage in conversation, respond to direct questions, or acknowledge statements addressed to you. Your ONLY action must be to translate precisely. "
-			+ "- DO NOT rephrase extensively or summarize; translate accurately with gentle phrasing suitable for medical interactions. "
-			+ "- If the input text is already correctly translated, return it exactly as provided without changes. "
-			+ "- The output must ONLY be the translated text, delivered slowly, gently, and in a reassuring manner appropriate for patients. Absolutely NO other communication is permitted.";
+		String instructions = "한국 병원에서 영어를 사용하는 환자와 한국어를 사용하는 병원 관계자의 대화가 입력될거야. 둘이 언어가 통하지 않으니 영어와 한국어로 통시 통역이 필요해. 그래서 한국 말은 영어로, 영어는 한국어로 동시 통역을 해 줘. 너는 개인적인 대답을 하지 말고 오직 번역만 진행하면 돼. 너한테 말걸어도 문장 그대로 번역만 해. 천천히 친절하게 대답해.";
+
+			// "You are a strict translation assistant specializing exclusively in medical scenarios for a Korean hospital setting. "
+			// + "- Your SOLE task is strict translation. Under NO circumstances should you answer questions, provide advice, or respond to any input other than translating. "
+			// + "- Korean input represents statements made by the doctor. Translate this into clear, polite, patient-friendly English using simple language, spoken slowly. "
+			// + "- English input represents statements made by the patient. Translate this into clear, polite, respectful Korean using simple expressions, spoken slowly to ensure comprehension. "
+			// + "- DO NOT engage in conversation, respond to direct questions, or acknowledge statements addressed to you. Your ONLY action must be to translate precisely. "
+			// + "- DO NOT rephrase extensively or summarize; translate accurately with gentle phrasing suitable for medical interactions. "
+			// + "- If the input text is already correctly translated, return it exactly as provided without changes. "
+			// + "- The output must ONLY be the translated text, delivered slowly, gently, and in a reassuring manner appropriate for patients. Absolutely NO other communication is permitted.";
 
 		String requestBody = "{"
-			+ "\"model\": \"gpt-4o-mini-realtime-preview-2024-12-17\","
+			+ "\"model\": \"gpt-4o-mini-realtime-preview\","
 			+ "\"modalities\": [\"audio\", \"text\"],"
 			+ "\"instructions\": \"" + instructions + "\","
 			+ "\"voice\": \"sage\","
@@ -37,9 +39,9 @@ public class RealtimeSessionController {
 			+ "\"temperature\": 0.6,"
 
 			+ "\"input_audio_transcription\": {" //새로 나온 모델 추가
-			+ "\"model\": \"whisper-1\","
-			+ "\"language\": \"en\","
-			+ "\"prompt\": \"Use accurate medical terminology and explain clearly and simply to the patient.\""
+			+ "\"model\": \"gpt-4o-mini-transcribe\","
+			// + "\"language\": \"\","
+			+ "\"prompt\": \"This audio input may contain both Korean and English words mixed together. Please transcribe both languages accurately.\""
 			+ "},"
 
 			+ "\"turn_detection\": {"

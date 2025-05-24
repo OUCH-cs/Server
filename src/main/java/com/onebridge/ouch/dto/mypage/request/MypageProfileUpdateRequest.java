@@ -28,7 +28,7 @@ public class MypageProfileUpdateRequest {
 	@NotBlank(message = "Email is mandatory.")
 	private String email;
 
-	@NotNull(message = "Language is mandatory.")
-	@Schema(example = "kr")
-	private String languageCode;
+	// @NotNull(message = "Language is mandatory.")
+	// @Schema(example = "kr")
+	// private String languageCode;
 }

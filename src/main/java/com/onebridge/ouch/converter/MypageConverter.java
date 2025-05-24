@@ -16,15 +16,13 @@ public class MypageConverter {
 			user.getPhoneNumber(), user.getEmail(), user.getLanguage().getName());
 	}
 
-	public User updateUserByUpdateProfileRequest(User user, MypageProfileUpdateRequest request, Nation nation,
-		Language language) {
+	public User updateUserByUpdateProfileRequest(User user, MypageProfileUpdateRequest request, Nation nation) {
 		return user.toBuilder()
 			.nickname(request.getNickname())
 			.phoneNumber(request.getPhoneNumber())
 			.gender(request.getGender())
 			.email(request.getEmail())
 			.nation(nation)
-			.language(language)
 			.build();
 	}
 }
