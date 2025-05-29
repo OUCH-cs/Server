@@ -19,5 +19,6 @@ public class MedicalVisitGuideStep {
     public static class LocalizedText {
         private String ko;
         private String en;
+        private String zh;
     }
 }

@@ -3,1946 +3,2320 @@
     "type": "two-step",
     "system": {
       "ko": "소화기",
-      "en": "Digestive"
+      "en": "Digestive",
+      "zh": "消化系统"
     },
     "symptom": {
       "ko": "속쓰림",
-      "en": "Heartburn"
+      "en": "Heartburn",
+      "zh": "烧心"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "속쓰림 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Heartburn' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Heartburn' is typically treated in the Internal Medicine department.",
+      "zh": "“烧心”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소화기",
-      "en": "Digestive"
+      "en": "Digestive",
+      "zh": "消化系统"
     },
     "symptom": {
       "ko": "설사",
-      "en": "Diarrhea"
+      "en": "Diarrhea",
+      "zh": "腹泻"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "설사 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Diarrhea' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Diarrhea' is typically treated in the Internal Medicine department.",
+      "zh": "“腹泻”症状通常在内科就诊。"
     }
   },
   {
     "type": "three-step",
     "system": {
       "ko": "호흡기",
-      "en": "Respiratory"
+      "en": "Respiratory",
+      "zh": "呼吸系统"
     },
     "symptom": {
       "ko": "기침",
-      "en": "Cough"
+      "en": "Cough",
+      "zh": "咳嗽"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "기침 증상은 가래 있음, 열 동반일 경우 내과에서 진료받는 것이 적절합니다.",
-      "en": "The symptom 'Cough' with condition 'With phlegm and fever' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Cough' with condition 'With phlegm and fever' is typically treated in the Internal Medicine department.",
+      "zh": "如果咳嗽伴有痰和发烧，建议在内科就诊."
     },
     "condition": {
       "ko": "가래 있음, 열 동반",
-      "en": "With phlegm and fever"
+      "en": "With phlegm and fever",
+      "zh": "有痰并伴有发烧"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "심혈관",
-      "en": "Cardiovascular"
+      "en": "Cardiovascular",
+      "zh": "心血管系统"
     },
     "symptom": {
       "ko": "가슴 답답함",
-      "en": "Chest tightness"
+      "en": "Chest tightness",
+      "zh": "胸闷"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "가슴 답답함 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Chest tightness' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Chest tightness' is typically treated in the Internal Medicine department.",
+      "zh": "“胸闷”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "복부",
-      "en": "Digestive"
+      "en": "Digestive",
+      "zh": "腹部"
     },
     "symptom": {
       "ko": "오른쪽 아랫배 통증",
-      "en": "Lower right abdominal pain"
+      "en": "Lower right abdominal pain",
+      "zh": "右下腹痛"
     },
     "departments": [
       {
         "ko": "외과",
-        "en": "General Surgery"
+        "en": "General Surgery",
+        "zh": "外科"
       }
     ],
     "note": {
       "ko": "오른쪽 아랫배 통증 증상은 일반적으로 외과에서 진료받습니다.",
-      "en": "The symptom 'Lower right abdominal pain' is typically treated in the General Surgery department."
+      "en": "The symptom 'Lower right abdominal pain' is typically treated in the General Surgery department.",
+      "zh": "“右下腹痛”症状通常在外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "외상",
-      "en": "Injury"
+      "en": "Injury",
+      "zh": "外伤"
     },
     "symptom": {
       "ko": "상처",
-      "en": "Wound"
+      "en": "Wound",
+      "zh": "伤口"
     },
     "departments": [
       {
         "ko": "외과",
-        "en": "General Surgery"
+        "en": "General Surgery",
+        "zh": "外科"
       }
     ],
     "note": {
       "ko": "상처 증상은 일반적으로 외과에서 진료받습니다.",
-      "en": "The symptom 'Wound' is typically treated in the General Surgery department."
+      "en": "The symptom 'Wound' is typically treated in the General Surgery department.",
+      "zh": "“伤口”症状通常在外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "피부 종기",
-      "en": "Skin boil"
+      "en": "Skin boil",
+      "zh": "皮肤疖肿"
     },
     "departments": [
       {
         "ko": "외과",
-        "en": "General Surgery"
+        "en": "General Surgery",
+        "zh": "外科"
       }
     ],
     "note": {
       "ko": "피부 종기 증상은 일반적으로 외과에서 진료받습니다.",
-      "en": "The symptom 'Skin boil' is typically treated in the General Surgery department."
+      "en": "The symptom 'Skin boil' is typically treated in the General Surgery department.",
+      "zh": "“皮肤疖肿”症状通常在外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "관절",
-      "en": "Joints"
+      "en": "Joints",
+      "zh": "关节"
     },
     "symptom": {
       "ko": "무릎 통증",
-      "en": "Knee pain"
+      "en": "Knee pain",
+      "zh": "膝盖痛"
     },
     "departments": [
       {
         "ko": "정형외과",
-        "en": "Orthopedic Surgery"
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
       }
     ],
     "note": {
       "ko": "무릎 통증 증상은 일반적으로 정형외과에서 진료받습니다.",
-      "en": "The symptom 'Knee pain' is typically treated in the Orthopedic Surgery department."
+      "en": "The symptom 'Knee pain' is typically treated in the Orthopedic Surgery department.",
+      "zh": "“膝盖痛”症状通常在骨科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "관절",
-      "en": "Joints"
+      "en": "Joints",
+      "zh": "关节"
     },
     "symptom": {
       "ko": "어깨 통증",
-      "en": "Shoulder pain"
+      "en": "Shoulder pain",
+      "zh": "肩膀痛"
     },
     "departments": [
       {
         "ko": "정형외과",
-        "en": "Orthopedic Surgery"
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
       }
     ],
     "note": {
       "ko": "어깨 통증 증상은 일반적으로 정형외과에서 진료받습니다.",
-      "en": "The symptom 'Shoulder pain' is typically treated in the Orthopedic Surgery department."
+      "en": "The symptom 'Shoulder pain' is typically treated in the Orthopedic Surgery department.",
+      "zh": "“肩膀痛”症状通常在骨科就诊。"
     }
   },
   {
     "type": "three-step",
     "system": {
       "ko": "척추",
-      "en": "Spine"
+      "en": "Spine",
+      "zh": "脊柱"
     },
     "symptom": {
       "ko": "허리 통증",
-      "en": "Lower back pain"
+      "en": "Lower back pain",
+      "zh": "腰痛"
     },
     "departments": [
       {
         "ko": "정형외과",
-        "en": "Orthopedic Surgery"
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
       }
     ],
     "note": {
       "ko": "허리 통증 증상은 자고 일어난 뒤 악화일 경우 정형외과에서 진료받는 것이 적절합니다.",
-      "en": "The symptom 'Lower back pain' with condition 'Worse after sleep' is typically treated in the Orthopedic Surgery department."
+      "en": "The symptom 'Lower back pain' with condition 'Worse after sleep' is typically treated in the Orthopedic Surgery department.",
+      "zh": "如果腰痛在早上起床后加重，建议在骨科就诊."
     },
     "condition": {
       "ko": "자고 일어난 뒤 악화",
-      "en": "Worse after sleep"
+      "en": "Worse after sleep",
+      "zh": "起床后加重"
     }
   },
   {
     "type": "three-step",
     "system": {
       "ko": "신경계",
-      "en": "Neurological"
+      "en": "Neurological",
+      "zh": "神经系统"
     },
     "symptom": {
       "ko": "두통",
-      "en": "Headache"
+      "en": "Headache",
+      "zh": "头痛"
     },
     "departments": [
       {
         "ko": "신경외과",
-        "en": "Neurosurgery"
+        "en": "Neurosurgery",
+        "zh": "神经外科"
       }
     ],
     "note": {
       "ko": "두통 증상은 갑작스러움, 구토 동반일 경우 신경외과에서 진료받는 것이 적절합니다.",
-      "en": "The symptom 'Headache' with condition 'Sudden with vomiting' is typically treated in the Neurosurgery department."
+      "en": "The symptom 'Headache' with condition 'Sudden with vomiting' is typically treated in the Neurosurgery department.",
+      "zh": "如果头痛突然发生并伴有呕吐，建议在神经外科就诊."
     },
     "condition": {
       "ko": "갑작스러움, 구토 동반",
-      "en": "Sudden with vomiting"
+      "en": "Sudden with vomiting",
+      "zh": "突然发生并伴有呕吐"
     }
   },
   {
     "type": "three-step",
     "system": {
       "ko": "척추",
-      "en": "Spine"
+      "en": "Spine",
+      "zh": "脊柱"
     },
     "symptom": {
       "ko": "허리 통증",
-      "en": "Lower back pain"
+      "en": "Lower back pain",
+      "zh": "腰痛"
     },
     "departments": [
       {
         "ko": "신경외과",
-        "en": "Neurosurgery"
+        "en": "Neurosurgery",
+        "zh": "神经外科"
       }
     ],
     "note": {
       "ko": "허리 통증 증상은 다리 저림 동반일 경우 신경외과에서 진료받는 것이 적절합니다.",
-      "en": "The symptom 'Lower back pain' with condition 'Accompanied by leg numbness' is typically treated in the Neurosurgery department."
+      "en": "The symptom 'Lower back pain' with condition 'Accompanied by leg numbness' is typically treated in the Neurosurgery department.",
+      "zh": "如果腰痛伴有腿部麻木，建议在神经外科就诊."
     },
     "condition": {
       "ko": "다리 저림 동반",
-      "en": "Accompanied by leg numbness"
+      "en": "Accompanied by leg numbness",
+      "zh": "伴有腿部麻木"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "신경계",
-      "en": "Neurological"
+      "en": "Neurological",
+      "zh": "神经系统"
     },
     "symptom": {
       "ko": "팔 저림",
-      "en": "Arm numbness"
+      "en": "Arm numbness",
+      "zh": "手臂麻木"
     },
     "departments": [
       {
         "ko": "신경외과",
-        "en": "Neurosurgery"
+        "en": "Neurosurgery",
+        "zh": "神经外科"
       }
     ],
     "note": {
       "ko": "팔 저림 증상은 일반적으로 신경외과에서 진료받습니다.",
-      "en": "The symptom 'Arm numbness' is typically treated in the Neurosurgery department."
+      "en": "The symptom 'Arm numbness' is typically treated in the Neurosurgery department.",
+      "zh": "“手臂麻木”症状通常在神经外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "비뇨생식기",
-      "en": "Urogenital"
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
     },
     "symptom": {
       "ko": "질 분비물",
-      "en": "Vaginal discharge"
+      "en": "Vaginal discharge",
+      "zh": "阴道分泌物"
     },
     "departments": [
       {
         "ko": "산부인과",
-        "en": "Obstetrics & Gynecology"
+        "en": "Obstetrics & Gynecology",
+        "zh": "妇产科"
       }
     ],
     "note": {
       "ko": "질 분비물 증상은 일반적으로 산부인과에서 진료받습니다.",
-      "en": "The symptom '' is typically treated in the Obstetrics & Gynecology department."
+      "en": "The symptom '' is typically treated in the Obstetrics & Gynecology department.",
+      "zh": "“阴道分泌物”症状通常在妇产科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "비뇨생식기",
-      "en": "Urogenital"
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
     },
     "symptom": {
       "ko": "생리통",
-      "en": "Menstrual pain"
+      "en": "Menstrual pain",
+      "zh": "痛经"
     },
     "departments": [
       {
         "ko": "산부인과",
-        "en": "Obstetrics & Gynecology"
+        "en": "Obstetrics & Gynecology",
+        "zh": "妇产科"
       }
     ],
     "note": {
       "ko": "생리통 증상은 일반적으로 산부인과에서 진료받습니다.",
-      "en": "The symptom '' is typically treated in the Obstetrics & Gynecology department."
+      "en": "The symptom '' is typically treated in the Obstetrics & Gynecology department.",
+      "zh": "“痛经”症状通常在妇产科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "임신 관련",
-      "en": "Pregnancy"
+      "en": "Pregnancy",
+      "zh": "怀孕相关"
     },
     "symptom": {
       "ko": "생리 지연",
-      "en": "Delayed menstruation"
+      "en": "Delayed menstruation",
+      "zh": "月经推迟"
     },
     "departments": [
       {
         "ko": "산부인과",
-        "en": "Obstetrics & Gynecology"
+        "en": "Obstetrics & Gynecology",
+        "zh": "妇产科"
       }
     ],
     "note": {
       "ko": "생리 지연 증상은 일반적으로 산부인과에서 진료받습니다.",
-      "en": "The symptom '' is typically treated in the Obstetrics & Gynecology department."
+      "en": "The symptom '' is typically treated in the Obstetrics & Gynecology department.",
+      "zh": "“月经推迟”症状通常在妇产科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소아",
-      "en": "Pediatrics"
+      "en": "Pediatrics",
+      "zh": "小儿"
     },
     "symptom": {
       "ko": "고열",
-      "en": "High fever"
+      "en": "High fever",
+      "zh": "高烧"
     },
     "departments": [
       {
         "ko": "소아청소년과",
-        "en": "Pediatrics"
+        "en": "Pediatrics",
+        "zh": "儿科"
       }
     ],
     "note": {
       "ko": "고열 증상은 일반적으로 소아청소년과에서 진료받습니다.",
-      "en": "The symptom 'High fever' is typically treated in the Pediatrics department."
+      "en": "The symptom 'High fever' is typically treated in the Pediatrics department.",
+      "zh": "“高烧”症状通常在儿科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소아",
-      "en": "Pediatrics"
+      "en": "Pediatrics",
+      "zh": "小儿"
     },
     "symptom": {
       "ko": "복통",
-      "en": "Abdominal pain"
+      "en": "Abdominal pain",
+      "zh": "腹痛"
     },
     "departments": [
       {
         "ko": "소아청소년과",
-        "en": "Pediatrics"
+        "en": "Pediatrics",
+        "zh": "儿科"
       }
     ],
     "note": {
       "ko": "복통 증상은 일반적으로 소아청소년과에서 진료받습니다.",
-      "en": "The symptom '' is typically treated in the Pediatrics department."
+      "en": "The symptom '' is typically treated in the Pediatrics department.",
+      "zh": "“腹痛”症状通常在儿科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소아",
-      "en": "Pediatrics"
+      "en": "Pediatrics",
+      "zh": "小儿"
     },
     "symptom": {
       "ko": "성장 지연",
-      "en": "Growth delay"
+      "en": "Growth delay",
+      "zh": "生长迟缓"
     },
     "departments": [
       {
         "ko": "소아청소년과",
-        "en": "Pediatrics"
+        "en": "Pediatrics",
+        "zh": "儿科"
       }
     ],
     "note": {
       "ko": "성장 지연 증상은 일반적으로 소아청소년과에서 진료받습니다.",
-      "en": "The symptom '' is typically treated in the Pediatrics department."
+      "en": "The symptom '' is typically treated in the Pediatrics department.",
+      "zh": "“生长迟缓”症状通常在儿科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "정신",
-      "en": "Mental Health"
+      "en": "Mental Health",
+      "zh": "精神"
     },
     "symptom": {
       "ko": "불면증",
-      "en": "Insomnia"
+      "en": "Insomnia",
+      "zh": "失眠"
     },
     "departments": [
       {
         "ko": "정신건강의학과",
-        "en": "Psychiatry"
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
       }
     ],
     "note": {
       "ko": "불면증 증상은 일반적으로 정신건강의학과에서 진료받습니다.",
-      "en": "The symptom 'Insomnia' is typically treated in the Psychiatry department."
+      "en": "The symptom 'Insomnia' is typically treated in the Psychiatry department.",
+      "zh": "“失眠”症状通常在精神健康医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "정신",
-      "en": "Mental Health"
+      "en": "Mental Health",
+      "zh": "精神"
     },
     "symptom": {
       "ko": "무기력",
-      "en": "Fatigue"
+      "en": "Fatigue",
+      "zh": "乏力"
     },
     "departments": [
       {
         "ko": "정신건강의학과",
-        "en": "Psychiatry"
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
       }
     ],
     "note": {
       "ko": "무기력 증상은 일반적으로 정신건강의학과에서 진료받습니다.",
-      "en": "The symptom 'Fatigue' is typically treated in the Psychiatry department."
+      "en": "The symptom 'Fatigue' is typically treated in the Psychiatry department.",
+      "zh": "“乏力”症状通常在精神健康医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "정신",
-      "en": "Mental Health"
+      "en": "Mental Health",
+      "zh": "精神"
     },
     "symptom": {
       "ko": "불안감",
-      "en": "Anxiety"
+      "en": "Anxiety",
+      "zh": "焦虑感"
     },
     "departments": [
       {
         "ko": "정신건강의학과",
-        "en": "Psychiatry"
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
       }
     ],
     "note": {
       "ko": "불안감 증상은 일반적으로 정신건강의학과에서 진료받습니다.",
-      "en": "The symptom 'Anxiety' is typically treated in the Psychiatry department."
+      "en": "The symptom 'Anxiety' is typically treated in the Psychiatry department.",
+      "zh": "“焦虑感”症状通常在精神健康医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "가려움",
-      "en": "Itching"
+      "en": "Itching",
+      "zh": "瘙痒"
     },
     "departments": [
       {
         "ko": "피부과",
-        "en": "Dermatology"
+        "en": "Dermatology",
+        "zh": "皮肤科"
       }
     ],
     "note": {
       "ko": "가려움 증상은 일반적으로 피부과에서 진료받습니다.",
-      "en": "The symptom 'Itching' is typically treated in the Dermatology department."
+      "en": "The symptom 'Itching' is typically treated in the Dermatology department.",
+      "zh": "“瘙痒”症状通常在皮肤科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "여드름",
-      "en": "Acne"
+      "en": "Acne",
+      "zh": "痤疮"
     },
     "departments": [
       {
         "ko": "피부과",
-        "en": "Dermatology"
+        "en": "Dermatology",
+        "zh": "皮肤科"
       }
     ],
     "note": {
       "ko": "여드름 증상은 일반적으로 피부과에서 진료받습니다.",
-      "en": "The symptom 'Acne' is typically treated in the Dermatology department."
+      "en": "The symptom 'Acne' is typically treated in the Dermatology department.",
+      "zh": "“痤疮”症状通常在皮肤科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "건선",
-      "en": "Psoriasis"
+      "en": "Psoriasis",
+      "zh": "银屑病"
     },
     "departments": [
       {
         "ko": "피부과",
-        "en": "Dermatology"
+        "en": "Dermatology",
+        "zh": "皮肤科"
       }
     ],
     "note": {
       "ko": "건선 증상은 일반적으로 피부과에서 진료받습니다.",
-      "en": "The symptom 'Psoriasis' is typically treated in the Dermatology department."
+      "en": "The symptom 'Psoriasis' is typically treated in the Dermatology department.",
+      "zh": "“银屑病”症状通常在皮肤科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "코/목",
-      "en": "Nose/Throat"
+      "en": "Nose/Throat",
+      "zh": "鼻/喉"
     },
     "symptom": {
       "ko": "코막힘",
-      "en": "Nasal congestion"
+      "en": "Nasal congestion",
+      "zh": "鼻塞"
     },
     "departments": [
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "코막힘 증상은 일반적으로 이비인후과에서 진료받습니다.",
-      "en": "The symptom 'Nasal congestion' is typically treated in the Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Nasal congestion' is typically treated in the Otorhinolaryngology (ENT) department.",
+      "zh": "“鼻塞”症状通常在耳鼻咽喉科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "코/목",
-      "en": "Nose/Throat"
+      "en": "Nose/Throat",
+      "zh": "鼻/喉"
     },
     "symptom": {
       "ko": "목 아픔",
-      "en": "Sore throat"
+      "en": "Sore throat",
+      "zh": "喉咙痛"
     },
     "departments": [
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "목 아픔 증상은 일반적으로 이비인후과에서 진료받습니다.",
-      "en": "The symptom 'Sore throat' is typically treated in the Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Sore throat' is typically treated in the Otorhinolaryngology (ENT) department.",
+      "zh": "“喉咙痛”症状通常在耳鼻咽喉科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "귀",
-      "en": "Ear"
+      "en": "Ear",
+      "zh": "耳朵"
     },
     "symptom": {
       "ko": "귀통증",
-      "en": "Ear pain"
+      "en": "Ear pain",
+      "zh": "耳痛"
     },
     "departments": [
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "귀통증 증상은 일반적으로 이비인후과에서 진료받습니다.",
-      "en": "The symptom 'Ear pain' is typically treated in the Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Ear pain' is typically treated in the Otorhinolaryngology (ENT) department.",
+      "zh": "“耳痛”症状通常在耳鼻咽喉科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "눈",
-      "en": "Eye"
+      "en": "Eye",
+      "zh": "眼睛"
     },
     "symptom": {
       "ko": "눈 가려움",
-      "en": "Itchy eyes"
+      "en": "Itchy eyes",
+      "zh": "眼睛痒"
     },
     "departments": [
       {
         "ko": "안과",
-        "en": "Ophthalmology"
+        "en": "Ophthalmology",
+        "zh": "眼科"
       }
     ],
     "note": {
       "ko": "눈 가려움 증상은 일반적으로 안과에서 진료받습니다.",
-      "en": "The symptom 'Itchy eyes' is typically treated in the Ophthalmology department."
+      "en": "The symptom 'Itchy eyes' is typically treated in the Ophthalmology department.",
+      "zh": "“眼睛痒”症状通常在眼科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "눈",
-      "en": "Eye"
+      "en": "Eye",
+      "zh": "眼睛"
     },
     "symptom": {
       "ko": "시야 흐림",
-      "en": "Blurred vision"
+      "en": "Blurred vision",
+      "zh": "视力模糊"
     },
     "departments": [
       {
         "ko": "안과",
-        "en": "Ophthalmology"
+        "en": "Ophthalmology",
+        "zh": "眼科"
       }
     ],
     "note": {
       "ko": "시야 흐림 증상은 일반적으로 안과에서 진료받습니다.",
-      "en": "The symptom 'Blurred vision' is typically treated in the Ophthalmology department."
+      "en": "The symptom 'Blurred vision' is typically treated in the Ophthalmology department.",
+      "zh": "“视力模糊”症状通常在眼科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "눈",
-      "en": "Eye"
+      "en": "Eye",
+      "zh": "眼睛"
     },
     "symptom": {
       "ko": "눈물 과다",
-      "en": "Excessive tearing"
+      "en": "Excessive tearing",
+      "zh": "流泪过多"
     },
     "departments": [
       {
         "ko": "안과",
-        "en": "Ophthalmology"
+        "en": "Ophthalmology",
+        "zh": "眼科"
       }
     ],
     "note": {
       "ko": "눈물 과다 증상은 일반적으로 안과에서 진료받습니다.",
-      "en": "The symptom 'Excessive tearing' is typically treated in the Ophthalmology department."
+      "en": "The symptom 'Excessive tearing' is typically treated in the Ophthalmology department.",
+      "zh": "“流泪过多”症状通常在眼科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "비뇨생식기",
-      "en": "Urogenital"
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
     },
     "symptom": {
       "ko": "소변 시 통증",
-      "en": "Painful urination"
+      "en": "Painful urination",
+      "zh": "小便时疼痛"
     },
     "departments": [
       {
         "ko": "비뇨의학과",
-        "en": "Urology"
+        "en": "Urology",
+        "zh": "泌尿外科"
       }
     ],
     "note": {
       "ko": "소변 시 통증 증상은 일반적으로 비뇨의학과에서 진료받습니다.",
-      "en": "The symptom 'Painful urination' is typically treated in the Urology department."
+      "en": "The symptom 'Painful urination' is typically treated in the Urology department.",
+      "zh": "“小便时疼痛”症状通常在泌尿外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "비뇨생식기",
-      "en": "Urogenital"
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
     },
     "symptom": {
       "ko": "소변색 진함",
-      "en": "Dark urine"
+      "en": "Dark urine",
+      "zh": "尿色深"
     },
     "departments": [
       {
         "ko": "비뇨의학과",
-        "en": "Urology"
+        "en": "Urology",
+        "zh": "泌尿外科"
       }
     ],
     "note": {
       "ko": "소변색 진함 증상은 일반적으로 비뇨의학과에서 진료받습니다.",
-      "en": "The symptom 'Dark urine' is typically treated in the Urology department."
+      "en": "The symptom 'Dark urine' is typically treated in the Urology department.",
+      "zh": "“尿色深”症状通常在泌尿外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "비뇨생식기",
-      "en": "Urogenital"
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
     },
     "symptom": {
       "ko": "야간 빈뇨",
-      "en": "Frequent urination at night"
+      "en": "Frequent urination at night",
+      "zh": "夜间尿频"
     },
     "departments": [
       {
         "ko": "비뇨의학과",
-        "en": "Urology"
+        "en": "Urology",
+        "zh": "泌尿外科"
       }
     ],
     "note": {
       "ko": "야간 빈뇨 증상은 일반적으로 비뇨의학과에서 진료받습니다.",
-      "en": "The symptom 'Frequent urination at night' is typically treated in the Urology department."
+      "en": "The symptom 'Frequent urination at night' is typically treated in the Urology department.",
+      "zh": "“夜间尿频”症状通常在泌尿外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "재활",
-      "en": "Rehabilitation"
+      "en": "Rehabilitation",
+      "zh": "康复"
     },
     "symptom": {
       "ko": "사지 약화",
-      "en": "Weakness in limbs"
+      "en": "Weakness in limbs",
+      "zh": "四肢无力"
     },
     "departments": [
       {
         "ko": "재활의학과",
-        "en": "Rehabilitation Medicine"
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
       }
     ],
     "note": {
       "ko": "사지 약화 증상은 일반적으로 재활의학과에서 진료받습니다.",
-      "en": "The symptom 'Weakness in limbs' is typically treated in the Rehabilitation Medicine department."
+      "en": "The symptom 'Weakness in limbs' is typically treated in the Rehabilitation Medicine department.",
+      "zh": "“四肢无力”症状通常在康复医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "재활",
-      "en": "Rehabilitation"
+      "en": "Rehabilitation",
+      "zh": "康复"
     },
     "symptom": {
       "ko": "보행 불편",
-      "en": "Difficulty walking"
+      "en": "Difficulty walking",
+      "zh": "行走困难"
     },
     "departments": [
       {
         "ko": "재활의학과",
-        "en": "Rehabilitation Medicine"
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
       }
     ],
     "note": {
       "ko": "보행 불편 증상은 일반적으로 재활의학과에서 진료받습니다.",
-      "en": "The symptom 'Difficulty walking' is typically treated in the Rehabilitation Medicine department."
+      "en": "The symptom 'Difficulty walking' is typically treated in the Rehabilitation Medicine department.",
+      "zh": "“行走困难”症状通常在康复医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "치아",
-      "en": "Teeth"
+      "en": "Teeth",
+      "zh": "牙齿"
     },
     "symptom": {
       "ko": "치통",
-      "en": "Toothache"
+      "en": "Toothache",
+      "zh": "牙痛"
     },
     "departments": [
       {
         "ko": "치과",
-        "en": "Dentistry"
+        "en": "Dentistry",
+        "zh": "口腔科"
       }
     ],
     "note": {
       "ko": "치통 증상은 일반적으로 치과에서 진료받습니다.",
-      "en": "The symptom 'Toothache' is typically treated in the Dentistry department."
+      "en": "The symptom 'Toothache' is typically treated in the Dentistry department.",
+      "zh": "“牙痛”症状通常在口腔科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "치아",
-      "en": "Teeth"
+      "en": "Teeth",
+      "zh": "牙齿"
     },
     "symptom": {
       "ko": "잇몸 출혈",
-      "en": "Gum bleeding"
+      "en": "Gum bleeding",
+      "zh": "牙龈出血"
     },
     "departments": [
       {
         "ko": "치과",
-        "en": "Dentistry"
+        "en": "Dentistry",
+        "zh": "口腔科"
       }
     ],
     "note": {
       "ko": "잇몸 출혈 증상은 일반적으로 치과에서 진료받습니다.",
-      "en": "The symptom 'Gum bleeding' is typically treated in the Dentistry department."
+      "en": "The symptom 'Gum bleeding' is typically treated in the Dentistry department.",
+      "zh": "“牙龈出血”症状通常在口腔科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "호흡기",
-      "en": "Respiratory"
+      "en": "Respiratory",
+      "zh": "呼吸系统"
     },
     "symptom": {
       "ko": "숨참",
-      "en": "Shortness of breath"
+      "en": "Shortness of breath",
+      "zh": "呼吸困难"
     },
     "departments": [
       {
         "ko": "흉부외과",
-        "en": "Thoracic Surgery"
+        "en": "Thoracic Surgery",
+        "zh": "胸外科"
       }
     ],
     "note": {
       "ko": "숨참 증상은 일반적으로 흉부외과에서 진료받습니다.",
-      "en": "The symptom 'Shortness of breath' is typically treated in the Thoracic Surgery department."
+      "en": "The symptom 'Shortness of breath' is typically treated in the Thoracic Surgery department.",
+      "zh": "“呼吸困难”症状通常在胸外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "외상",
-      "en": "Injury"
+      "en": "Injury",
+      "zh": "外伤"
     },
     "symptom": {
       "ko": "심한 출혈",
-      "en": "Severe bleeding"
+      "en": "Severe bleeding",
+      "zh": "严重出血"
     },
     "departments": [
       {
         "ko": "응급의학과",
-        "en": "Emergency Medicine"
+        "en": "Emergency Medicine",
+        "zh": "急诊医学科"
       }
     ],
     "note": {
       "ko": "심한 출혈 증상은 일반적으로 응급의학과에서 진료받습니다.",
-      "en": "The symptom 'Severe bleeding' is typically treated in the Emergency Medicine department."
+      "en": "The symptom 'Severe bleeding' is typically treated in the Emergency Medicine department.",
+      "zh": "“严重出血”症状通常在急诊医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "외상",
-      "en": "Injury"
+      "en": "Injury",
+      "zh": "外伤"
     },
     "symptom": {
       "ko": "얼굴 상처",
-      "en": "Facial wound"
+      "en": "Facial wound",
+      "zh": "面部伤口"
     },
     "departments": [
       {
         "ko": "성형외과",
-        "en": "Plastic Surgery"
+        "en": "Plastic Surgery",
+        "zh": "整形外科"
       }
     ],
     "note": {
       "ko": "얼굴 상처 증상은 일반적으로 성형외과에서 진료받습니다.",
-      "en": "The symptom 'Facial wound' is typically treated in the Plastic Surgery department."
+      "en": "The symptom 'Facial wound' is typically treated in the Plastic Surgery department.",
+      "zh": "“面部伤口”症状通常在整形外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "점 제거",
-      "en": "Mole removal"
+      "en": "Mole removal",
+      "zh": "去痣"
     },
     "departments": [
       {
         "ko": "피부과",
-        "en": "Dermatology"
+        "en": "Dermatology",
+        "zh": "皮肤科"
       },
       {
         "ko": "성형외과",
-        "en": "Plastic Surgery"
+        "en": "Plastic Surgery",
+        "zh": "整形外科"
       }
     ],
     "note": {
       "ko": "점 제거는 일반적으로 피부과에서 진료받지만, 미용 목적일 경우 성형외과도 가능합니다.",
-      "en": "Mole removal is usually treated in dermatology, but plastic surgery is also possible for cosmetic reasons."
+      "en": "Mole removal is usually treated in dermatology, but plastic surgery is also possible for cosmetic reasons.",
+      "zh": "去痣通常在皮肤科就诊，但美容目的可到整形外科。"
     }
   },
   {
     "type": "three-step",
     "system": {
       "ko": "호흡기",
-      "en": "Respiratory"
+      "en": "Respiratory",
+      "zh": "呼吸系统"
     },
     "symptom": {
       "ko": "기침",
-      "en": "Cough"
+      "en": "Cough",
+      "zh": "咳嗽"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       },
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "기침 증상은 가래 없음, 열 없음일 경우 내과, 이비인후과에서 진료받는 것이 적절합니다.",
-      "en": "The symptom 'Cough' with condition '' is typically treated in the Internal Medicine, Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Cough' with condition '' is typically treated in the Internal Medicine, Otorhinolaryngology (ENT) department.",
+      "zh": "如果咳嗽无痰且无发烧，建议在内科或耳鼻咽喉科就诊."
     },
     "condition": {
       "ko": "가래 없음, 열 없음",
-      "en": "No phlegm or fever"
+      "en": "No phlegm or fever",
+      "zh": "无痰且无发烧"
     }
   },
   {
     "type": "three-step",
     "system": {
       "ko": "신경계",
-      "en": "Neurological"
+      "en": "Neurological",
+      "zh": "神经系统"
     },
     "symptom": {
       "ko": "두통",
-      "en": "Headache"
+      "en": "Headache",
+      "zh": "头痛"
     },
     "departments": [
       {
         "ko": "신경외과",
-        "en": "Neurosurgery"
+        "en": "Neurosurgery",
+        "zh": "神经外科"
       },
       {
         "ko": "정신건강의학과",
-        "en": "Psychiatry"
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
       }
     ],
     "note": {
       "ko": "두통 증상은 장기간 지속, 스트레스 동반일 경우 신경외과, 정신건강의학과에서 진료받는 것이 적절합니다.",
-      "en": "The symptom 'Headache' with condition '' is typically treated in the Neurosurgery, Psychiatry department."
+      "en": "The symptom 'Headache' with condition '' is typically treated in the Neurosurgery, Psychiatry department.",
+      "zh": "如果头痛症状持续时间较长且伴有压力，建议在神经外科或精神健康医学科就诊."
     },
     "condition": {
       "ko": "장기간 지속, 스트레스 동반",
-      "en": "Persistent with stress"
+      "en": "Persistent with stress",
+      "zh": "持续时间较长且伴有压力"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소화기",
-      "en": "Digestive"
+      "en": "Digestive",
+      "zh": "消化系统"
     },
     "symptom": {
       "ko": "상복부 통증",
-      "en": "Upper abdominal pain"
+      "en": "Upper abdominal pain",
+      "zh": "上腹痛"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       },
       {
         "ko": "외과",
-        "en": "General Surgery"
+        "en": "General Surgery",
+        "zh": "外科"
       }
     ],
     "note": {
       "ko": "상복부 통증 증상은 일반적으로 내과, 외과에서 진료받습니다.",
-      "en": "The symptom 'Upper abdominal pain' is typically treated in the Internal Medicine, General Surgery department."
+      "en": "The symptom 'Upper abdominal pain' is typically treated in the Internal Medicine, General Surgery department.",
+      "zh": "“上腹痛”症状通常在内科、外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소화기",
-      "en": "Digestive"
+      "en": "Digestive",
+      "zh": "消化系统"
     },
     "symptom": {
       "ko": "복부 팽만감",
-      "en": "Abdominal bloating"
+      "en": "Abdominal bloating",
+      "zh": "腹胀"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "복부 팽만감 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Abdominal bloating' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Abdominal bloating' is typically treated in the Internal Medicine department.",
+      "zh": "“腹胀”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소화기",
-      "en": "Digestive"
+      "en": "Digestive",
+      "zh": "消化系统"
     },
     "symptom": {
       "ko": "잦은 트림",
-      "en": "Frequent belching"
+      "en": "Frequent belching",
+      "zh": "频繁打嗝"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "잦은 트림 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Frequent belching' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Frequent belching' is typically treated in the Internal Medicine department.",
+      "zh": "“频繁打嗝”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소화기",
-      "en": "Digestive"
+      "en": "Digestive",
+      "zh": "消化系统"
     },
     "symptom": {
       "ko": "변비",
-      "en": "Constipation"
+      "en": "Constipation",
+      "zh": "便秘"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "변비 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Constipation' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Constipation' is typically treated in the Internal Medicine department.",
+      "zh": "“便秘”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "호흡기",
-      "en": "Respiratory"
+      "en": "Respiratory",
+      "zh": "呼吸系统"
     },
     "symptom": {
       "ko": "천명음",
-      "en": "Wheezing"
+      "en": "Wheezing",
+      "zh": "喘鸣音"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "천명음 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Wheezing' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Wheezing' is typically treated in the Internal Medicine department.",
+      "zh": "“喘鸣音”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "호흡기",
-      "en": "Respiratory"
+      "en": "Respiratory",
+      "zh": "呼吸系统"
     },
     "symptom": {
       "ko": "마른기침",
-      "en": "Dry cough"
+      "en": "Dry cough",
+      "zh": "干咳"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       },
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "마른기침 증상은 일반적으로 내과, 이비인후과에서 진료받습니다.",
-      "en": "The symptom 'Dry cough' is typically treated in the Internal Medicine, Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Dry cough' is typically treated in the Internal Medicine, Otorhinolaryngology (ENT) department.",
+      "zh": "“干咳”症状通常在内科、耳鼻咽喉科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "심혈관",
-      "en": "Cardiovascular"
+      "en": "Cardiovascular",
+      "zh": "心血管系统"
     },
     "symptom": {
       "ko": "심계항진",
-      "en": "Palpitations"
+      "en": "Palpitations",
+      "zh": "心悸"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       },
       {
         "ko": "정신건강의학과",
-        "en": "Psychiatry"
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
       }
     ],
     "note": {
       "ko": "심계항진 증상은 일반적으로 내과, 정신건강의학과에서 진료받습니다.",
-      "en": "The symptom 'Palpitations' is typically treated in the Internal Medicine, Psychiatry department."
+      "en": "The symptom 'Palpitations' is typically treated in the Internal Medicine, Psychiatry department.",
+      "zh": "“心悸”症状通常在内科、精神健康医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "심혈관",
-      "en": "Cardiovascular"
+      "en": "Cardiovascular",
+      "zh": "心血管系统"
     },
     "symptom": {
       "ko": "혈압 상승",
-      "en": "High blood pressure"
+      "en": "High blood pressure",
+      "zh": "高血压"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "혈압 상승 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'High blood pressure' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'High blood pressure' is typically treated in the Internal Medicine department.",
+      "zh": "“高血压”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "두드러기",
-      "en": "Hives"
+      "en": "Hives",
+      "zh": "荨麻疹"
     },
     "departments": [
       {
         "ko": "피부과",
-        "en": "Dermatology"
+        "en": "Dermatology",
+        "zh": "皮肤科"
       }
     ],
     "note": {
       "ko": "두드러기 증상은 일반적으로 피부과에서 진료받습니다.",
-      "en": "The symptom 'Hives' is typically treated in the Dermatology department."
+      "en": "The symptom 'Hives' is typically treated in the Dermatology department.",
+      "zh": "“荨麻疹”症状通常在皮肤科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "손발 트러블",
-      "en": "Hand/foot rash"
+      "en": "Hand/foot rash",
+      "zh": "手足皮肤问题"
     },
     "departments": [
       {
         "ko": "피부과",
-        "en": "Dermatology"
+        "en": "Dermatology",
+        "zh": "皮肤科"
       }
     ],
     "note": {
       "ko": "손발 트러블 증상은 일반적으로 피부과에서 진료받습니다.",
-      "en": "The symptom 'Hand/foot rash' is typically treated in the Dermatology department."
+      "en": "The symptom 'Hand/foot rash' is typically treated in the Dermatology department.",
+      "zh": "“手足皮肤问题”症状通常在皮肤科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "손톱 이상",
-      "en": "Nail abnormalities"
+      "en": "Nail abnormalities",
+      "zh": "指甲异常"
     },
     "departments": [
       {
         "ko": "피부과",
-        "en": "Dermatology"
+        "en": "Dermatology",
+        "zh": "皮肤科"
       }
     ],
     "note": {
       "ko": "손톱 이상 증상은 일반적으로 피부과에서 진료받습니다.",
-      "en": "The symptom 'Nail abnormalities' is typically treated in the Dermatology department."
+      "en": "The symptom 'Nail abnormalities' is typically treated in the Dermatology department.",
+      "zh": "“指甲异常”症状通常在皮肤科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "정신",
-      "en": "Mental Health"
+      "en": "Mental Health",
+      "zh": "精神"
     },
     "symptom": {
       "ko": "공황발작",
-      "en": "Panic attack"
+      "en": "Panic attack",
+      "zh": "惊恐发作"
     },
     "departments": [
       {
         "ko": "정신건강의학과",
-        "en": "Psychiatry"
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
       }
     ],
     "note": {
       "ko": "공황발작 증상은 일반적으로 정신건강의학과에서 진료받습니다.",
-      "en": "The symptom 'Panic attack' is typically treated in the Psychiatry department."
+      "en": "The symptom 'Panic attack' is typically treated in the Psychiatry department.",
+      "zh": "“惊恐发作”症状通常在精神健康医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "정신",
-      "en": "Mental Health"
+      "en": "Mental Health",
+      "zh": "精神"
     },
     "symptom": {
       "ko": "강박 행동",
-      "en": "Obsessive behavior"
+      "en": "Obsessive behavior",
+      "zh": "强迫行为"
     },
     "departments": [
       {
         "ko": "정신건강의학과",
-        "en": "Psychiatry"
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
       }
     ],
     "note": {
       "ko": "강박 행동 증상은 일반적으로 정신건강의학과에서 진료받습니다.",
-      "en": "The symptom 'Obsessive behavior' is typically treated in the Psychiatry department."
+      "en": "The symptom 'Obsessive behavior' is typically treated in the Psychiatry department.",
+      "zh": "“强迫行为”症状通常在精神健康医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "관절",
-      "en": "Joints"
+      "en": "Joints",
+      "zh": "关节"
     },
     "symptom": {
       "ko": "손가락 통증",
-      "en": "Finger joint pain"
+      "en": "Finger joint pain",
+      "zh": "手指关节痛"
     },
     "departments": [
       {
         "ko": "정형외과",
-        "en": "Orthopedic Surgery"
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
       }
     ],
     "note": {
       "ko": "손가락 통증 증상은 일반적으로 정형외과에서 진료받습니다.",
-      "en": "The symptom 'Finger joint pain' is typically treated in the Orthopedic Surgery department."
+      "en": "The symptom 'Finger joint pain' is typically treated in the Orthopedic Surgery department.",
+      "zh": "“手指关节痛”症状通常在骨科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "관절",
-      "en": "Joints"
+      "en": "Joints",
+      "zh": "关节"
     },
     "symptom": {
       "ko": "발목 통증",
-      "en": "Ankle pain"
+      "en": "Ankle pain",
+      "zh": "脚踝痛"
     },
     "departments": [
       {
         "ko": "정형외과",
-        "en": "Orthopedic Surgery"
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
       }
     ],
     "note": {
       "ko": "발목 통증 증상은 일반적으로 정형외과에서 진료받습니다.",
-      "en": "The symptom 'Ankle pain' is typically treated in the Orthopedic Surgery department."
+      "en": "The symptom 'Ankle pain' is typically treated in the Orthopedic Surgery department.",
+      "zh": "“脚踝痛”症状通常在骨科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "신경계",
-      "en": "Neurological"
+      "en": "Neurological",
+      "zh": "神经系统"
     },
     "symptom": {
       "ko": "손 떨림",
-      "en": "Hand tremor"
+      "en": "Hand tremor",
+      "zh": "手抖"
     },
     "departments": [
       {
         "ko": "신경외과",
-        "en": "Neurosurgery"
+        "en": "Neurosurgery",
+        "zh": "神经外科"
       }
     ],
     "note": {
       "ko": "손 떨림 증상은 일반적으로 신경외과에서 진료받습니다.",
-      "en": "The symptom 'Hand tremor' is typically treated in the Neurosurgery department."
+      "en": "The symptom 'Hand tremor' is typically treated in the Neurosurgery department.",
+      "zh": "“手抖”症状通常在神经外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "신경계",
-      "en": "Neurological"
+      "en": "Neurological",
+      "zh": "神经系统"
     },
     "symptom": {
       "ko": "입술 마비",
-      "en": "Lip numbness"
+      "en": "Lip numbness",
+      "zh": "嘴唇麻木"
     },
     "departments": [
       {
         "ko": "신경외과",
-        "en": "Neurosurgery"
+        "en": "Neurosurgery",
+        "zh": "神经外科"
       }
     ],
     "note": {
       "ko": "입술 마비 증상은 일반적으로 신경외과에서 진료받습니다.",
-      "en": "The symptom 'Lip numbness' is typically treated in the Neurosurgery department."
+      "en": "The symptom 'Lip numbness' is typically treated in the Neurosurgery department.",
+      "zh": "“嘴唇麻木”症状通常在神经外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "비뇨생식기",
-      "en": "Urogenital"
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
     },
     "symptom": {
       "ko": "배뇨 곤란",
-      "en": "Difficult urination"
+      "en": "Difficult urination",
+      "zh": "排尿困难"
     },
     "departments": [
       {
         "ko": "비뇨의학과",
-        "en": "Urology"
+        "en": "Urology",
+        "zh": "泌尿外科"
       }
     ],
     "note": {
       "ko": "배뇨 곤란 증상은 일반적으로 비뇨의학과에서 진료받습니다.",
-      "en": "The symptom 'Difficult urination' is typically treated in the Urology department."
+      "en": "The symptom 'Difficult urination' is typically treated in the Urology department.",
+      "zh": "“排尿困难”症状通常在泌尿外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "비뇨생식기",
-      "en": "Urogenital"
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
     },
     "symptom": {
       "ko": "허리 통증",
-      "en": "Flank pain"
+      "en": "Flank pain",
+      "zh": "腰痛"
     },
     "departments": [
       {
         "ko": "비뇨의학과",
-        "en": "Urology"
+        "en": "Urology",
+        "zh": "泌尿外科"
       },
       {
         "ko": "신경외과",
-        "en": "Neurosurgery"
+        "en": "Neurosurgery",
+        "zh": "神经外科"
       }
     ],
     "note": {
       "ko": "허리 통증 증상은 일반적으로 비뇨의학과, 신경외과에서 진료받습니다.",
-      "en": "The symptom 'Flank pain' is typically treated in the Urology, Neurosurgery department."
+      "en": "The symptom 'Flank pain' is typically treated in the Urology, Neurosurgery department.",
+      "zh": "“腰痛”症状通常在泌尿外科、神经外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소아",
-      "en": "Pediatrics"
+      "en": "Pediatrics",
+      "zh": "小儿"
     },
     "symptom": {
       "ko": "야뇨증",
-      "en": "Bedwetting"
+      "en": "Bedwetting",
+      "zh": "夜尿症"
     },
     "departments": [
       {
         "ko": "소아청소년과",
-        "en": "Pediatrics"
+        "en": "Pediatrics",
+        "zh": "儿科"
       }
     ],
     "note": {
       "ko": "야뇨증 증상은 일반적으로 소아청소년과에서 진료받습니다.",
-      "en": "The symptom 'Bedwetting' is typically treated in the Pediatrics department."
+      "en": "The symptom 'Bedwetting' is typically treated in the Pediatrics department.",
+      "zh": "“夜尿症”症状通常在儿科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소아",
-      "en": "Pediatrics"
+      "en": "Pediatrics",
+      "zh": "小儿"
     },
     "symptom": {
       "ko": "기침 발작",
-      "en": "Coughing fit"
+      "en": "Coughing fit",
+      "zh": "咳嗽发作"
     },
     "departments": [
       {
         "ko": "소아청소년과",
-        "en": "Pediatrics"
+        "en": "Pediatrics",
+        "zh": "儿科"
       }
     ],
     "note": {
       "ko": "기침 발작 증상은 일반적으로 소아청소년과에서 진료받습니다.",
-      "en": "The symptom 'Coughing fit' is typically treated in the Pediatrics department."
+      "en": "The symptom 'Coughing fit' is typically treated in the Pediatrics department.",
+      "zh": "“咳嗽发作”症状通常在儿科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "코/목",
-      "en": "Nose/Throat"
+      "en": "Nose/Throat",
+      "zh": "鼻/喉"
     },
     "symptom": {
       "ko": "후각 저하",
-      "en": "Loss of smell"
+      "en": "Loss of smell",
+      "zh": "嗅觉减退"
     },
     "departments": [
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "후각 저하 증상은 일반적으로 이비인후과에서 진료받습니다.",
-      "en": "The symptom 'Loss of smell' is typically treated in the Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Loss of smell' is typically treated in the Otorhinolaryngology (ENT) department.",
+      "zh": "“嗅觉减退”症状通常在耳鼻咽喉科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "코/목",
-      "en": "Nose/Throat"
+      "en": "Nose/Throat",
+      "zh": "鼻/喉"
     },
     "symptom": {
       "ko": "인후 이물감",
-      "en": "Throat lump sensation"
+      "en": "Throat lump sensation",
+      "zh": "喉咙异物感"
     },
     "departments": [
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       },
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "인후 이물감 증상은 일반적으로 이비인후과, 내과에서 진료받습니다.",
-      "en": "The symptom 'Throat lump sensation' is typically treated in the Otorhinolaryngology (ENT), Internal Medicine department."
+      "en": "The symptom 'Throat lump sensation' is typically treated in the Otorhinolaryngology (ENT), Internal Medicine department.",
+      "zh": "“喉咙异物感”症状通常在耳鼻咽喉科、内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "눈",
-      "en": "Eye"
+      "en": "Eye",
+      "zh": "眼睛"
     },
     "symptom": {
       "ko": "빛 번짐",
-      "en": "Glare"
+      "en": "Glare",
+      "zh": "畏光"
     },
     "departments": [
       {
         "ko": "안과",
-        "en": "Ophthalmology"
+        "en": "Ophthalmology",
+        "zh": "眼科"
       }
     ],
     "note": {
       "ko": "빛 번짐 증상은 일반적으로 안과에서 진료받습니다.",
-      "en": "The symptom 'Glare' is typically treated in the Ophthalmology department."
+      "en": "The symptom 'Glare' is typically treated in the Ophthalmology department.",
+      "zh": "“畏光”症状通常在眼科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "눈",
-      "en": "Eye"
+      "en": "Eye",
+      "zh": "眼睛"
     },
     "symptom": {
       "ko": "이물감",
-      "en": "Foreign body sensation"
+      "en": "Foreign body sensation",
+      "zh": "异物感"
     },
     "departments": [
       {
         "ko": "안과",
-        "en": "Ophthalmology"
+        "en": "Ophthalmology",
+        "zh": "眼科"
       }
     ],
     "note": {
       "ko": "이물감 증상은 일반적으로 안과에서 진료받습니다.",
-      "en": "The symptom 'Foreign body sensation' is typically treated in the Ophthalmology department."
+      "en": "The symptom 'Foreign body sensation' is typically treated in the Ophthalmology department.",
+      "zh": "“异物感”症状通常在眼科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "귀",
-      "en": "Ear"
+      "en": "Ear",
+      "zh": "耳朵"
     },
     "symptom": {
       "ko": "이명",
-      "en": "Tinnitus"
+      "en": "Tinnitus",
+      "zh": "耳鸣"
     },
     "departments": [
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "이명 증상은 일반적으로 이비인후과에서 진료받습니다.",
-      "en": "The symptom 'Tinnitus' is typically treated in the Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Tinnitus' is typically treated in the Otorhinolaryngology (ENT) department.",
+      "zh": "“耳鸣”症状通常在耳鼻咽喉科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "재활",
-      "en": "Rehabilitation"
+      "en": "Rehabilitation",
+      "zh": "康复"
     },
     "symptom": {
       "ko": "균형 장애",
-      "en": "Balance disorder"
+      "en": "Balance disorder",
+      "zh": "平衡障碍"
     },
     "departments": [
       {
         "ko": "재활의학과",
-        "en": "Rehabilitation Medicine"
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
       }
     ],
     "note": {
       "ko": "균형 장애 증상은 일반적으로 재활의학과에서 진료받습니다.",
-      "en": "The symptom 'Balance disorder' is typically treated in the Rehabilitation Medicine department."
+      "en": "The symptom 'Balance disorder' is typically treated in the Rehabilitation Medicine department.",
+      "zh": "“平衡障碍”症状通常在康复医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "치아",
-      "en": "Teeth"
+      "en": "Teeth",
+      "zh": "牙齿"
     },
     "symptom": {
       "ko": "구취",
-      "en": "Halitosis"
+      "en": "Halitosis",
+      "zh": "口臭"
     },
     "departments": [
       {
         "ko": "치과",
-        "en": "Dentistry"
+        "en": "Dentistry",
+        "zh": "口腔科"
       }
     ],
     "note": {
       "ko": "구취 증상은 일반적으로 치과에서 진료받습니다.",
-      "en": "The symptom 'Halitosis' is typically treated in the Dentistry department."
+      "en": "The symptom 'Halitosis' is typically treated in the Dentistry department.",
+      "zh": "“口臭”症状通常在口腔科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소화기",
-      "en": "Digestive"
+      "en": "Digestive",
+      "zh": "消化系统"
     },
     "symptom": {
       "ko": "메스꺼움",
-      "en": "Nausea"
+      "en": "Nausea",
+      "zh": "恶心"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "메스꺼움 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Nausea' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Nausea' is typically treated in the Internal Medicine department.",
+      "zh": "“恶心”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소화기",
-      "en": "Digestive"
+      "en": "Digestive",
+      "zh": "消化系统"
     },
     "symptom": {
       "ko": "식욕 부진",
-      "en": "Loss of appetite"
+      "en": "Loss of appetite",
+      "zh": "食欲不振"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "식욕 부진 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Loss of appetite' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Loss of appetite' is typically treated in the Internal Medicine department.",
+      "zh": "“食欲不振”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "호흡기",
-      "en": "Respiratory"
+      "en": "Respiratory",
+      "zh": "呼吸系统"
     },
     "symptom": {
       "ko": "가래",
-      "en": "Phlegm"
+      "en": "Phlegm",
+      "zh": "痰"
     },
     "departments": [
       {
         "ko": "내과",
-        "en": "Internal Medicine"
+        "en": "Internal Medicine",
+        "zh": "内科"
       }
     ],
     "note": {
       "ko": "가래 증상은 일반적으로 내과에서 진료받습니다.",
-      "en": "The symptom 'Phlegm' is typically treated in the Internal Medicine department."
+      "en": "The symptom 'Phlegm' is typically treated in the Internal Medicine department.",
+      "zh": "“痰”症状通常在内科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "호흡기",
-      "en": "Respiratory"
+      "en": "Respiratory",
+      "zh": "呼吸系统"
     },
     "symptom": {
       "ko": "코피",
-      "en": "Nosebleed"
+      "en": "Nosebleed",
+      "zh": "鼻出血"
     },
     "departments": [
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "코피 증상은 일반적으로 이비인후과에서 진료받습니다.",
-      "en": "The symptom 'Nosebleed' is typically treated in the Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Nosebleed' is typically treated in the Otorhinolaryngology (ENT) department.",
+      "zh": "“鼻出血”症状通常在耳鼻咽喉科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "홍반",
-      "en": "Red patches"
+      "en": "Red patches",
+      "zh": "红斑"
     },
     "departments": [
       {
         "ko": "피부과",
-        "en": "Dermatology"
+        "en": "Dermatology",
+        "zh": "皮肤科"
       }
     ],
     "note": {
       "ko": "홍반 증상은 일반적으로 피부과에서 진료받습니다.",
-      "en": "The symptom 'Red patches' is typically treated in the Dermatology department."
+      "en": "The symptom 'Red patches' is typically treated in the Dermatology department.",
+      "zh": "“红斑”症状通常在皮肤科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "피부",
-      "en": "Skin"
+      "en": "Skin",
+      "zh": "皮肤"
     },
     "symptom": {
       "ko": "물집",
-      "en": "Blisters"
+      "en": "Blisters",
+      "zh": "水疱"
     },
     "departments": [
       {
         "ko": "피부과",
-        "en": "Dermatology"
+        "en": "Dermatology",
+        "zh": "皮肤科"
       }
     ],
     "note": {
       "ko": "물집 증상은 일반적으로 피부과에서 진료받습니다.",
-      "en": "The symptom 'Blisters' is typically treated in the Dermatology department."
+      "en": "The symptom 'Blisters' is typically treated in the Dermatology department.",
+      "zh": "“水疱”症状通常在皮肤科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "정신",
-      "en": "Mental Health"
+      "en": "Mental Health",
+      "zh": "精神"
     },
     "symptom": {
       "ko": "망상",
-      "en": "Delusions"
+      "en": "Delusions",
+      "zh": "妄想"
     },
     "departments": [
       {
         "ko": "정신건강의학과",
-        "en": "Psychiatry"
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
       }
     ],
     "note": {
       "ko": "망상 증상은 일반적으로 정신건강의학과에서 진료받습니다.",
-      "en": "The symptom 'Delusions' is typically treated in the Psychiatry department."
+      "en": "The symptom 'Delusions' is typically treated in the Psychiatry department.",
+      "zh": "“妄想”症状通常在精神健康医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "정신",
-      "en": "Mental Health"
+      "en": "Mental Health",
+      "zh": "精神"
     },
     "symptom": {
       "ko": "환청",
-      "en": "Auditory hallucination"
+      "en": "Auditory hallucination",
+      "zh": "幻听"
     },
     "departments": [
       {
         "ko": "정신건강의학과",
-        "en": "Psychiatry"
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
       }
     ],
     "note": {
       "ko": "환청 증상은 일반적으로 정신건강의학과에서 진료받습니다.",
-      "en": "The symptom 'Auditory hallucination' is typically treated in the Psychiatry department."
+      "en": "The symptom 'Auditory hallucination' is typically treated in the Psychiatry department.",
+      "zh": "“幻听”症状通常在精神健康医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "비뇨생식기",
-      "en": "Urogenital"
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
     },
     "symptom": {
       "ko": "혈뇨",
-      "en": "Hematuria"
+      "en": "Hematuria",
+      "zh": "血尿"
     },
     "departments": [
       {
         "ko": "비뇨의학과",
-        "en": "Urology"
+        "en": "Urology",
+        "zh": "泌尿外科"
       }
     ],
     "note": {
       "ko": "혈뇨 증상은 일반적으로 비뇨의학과에서 진료받습니다.",
-      "en": "The symptom 'Hematuria' is typically treated in the Urology department."
+      "en": "The symptom 'Hematuria' is typically treated in the Urology department.",
+      "zh": "“血尿”症状通常在泌尿外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "비뇨생식기",
-      "en": "Urogenital"
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
     },
     "symptom": {
       "ko": "소변 냄새 심함",
-      "en": "Strong urine odor"
+      "en": "Strong urine odor",
+      "zh": "尿味重"
     },
     "departments": [
       {
         "ko": "비뇨의학과",
-        "en": "Urology"
+        "en": "Urology",
+        "zh": "泌尿外科"
       }
     ],
     "note": {
       "ko": "소변 냄새 심함 증상은 일반적으로 비뇨의학과에서 진료받습니다.",
-      "en": "The symptom 'Strong urine odor' is typically treated in the Urology department."
+      "en": "The symptom 'Strong urine odor' is typically treated in the Urology department.",
+      "zh": "“尿味重”症状通常在泌尿外科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소아",
-      "en": "Pediatrics"
+      "en": "Pediatrics",
+      "zh": "小儿"
     },
     "symptom": {
       "ko": "발진",
-      "en": "Rash"
+      "en": "Rash",
+      "zh": "皮疹"
     },
     "departments": [
       {
         "ko": "소아청소년과",
-        "en": "Pediatrics"
+        "en": "Pediatrics",
+        "zh": "儿科"
       }
     ],
     "note": {
       "ko": "발진 증상은 일반적으로 소아청소년과에서 진료받습니다.",
-      "en": "The symptom 'Rash' is typically treated in the Pediatrics department."
+      "en": "The symptom 'Rash' is typically treated in the Pediatrics department.",
+      "zh": "“皮疹”症状通常在儿科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "소아",
-      "en": "Pediatrics"
+      "en": "Pediatrics",
+      "zh": "小儿"
     },
     "symptom": {
       "ko": "토함",
-      "en": "Vomiting"
+      "en": "Vomiting",
+      "zh": "呕吐"
     },
     "departments": [
       {
         "ko": "소아청소년과",
-        "en": "Pediatrics"
+        "en": "Pediatrics",
+        "zh": "儿科"
       }
     ],
     "note": {
       "ko": "토함 증상은 일반적으로 소아청소년과에서 진료받습니다.",
-      "en": "The symptom 'Vomiting' is typically treated in the Pediatrics department."
+      "en": "The symptom 'Vomiting' is typically treated in the Pediatrics department.",
+      "zh": "“呕吐”症状通常在儿科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "코/목",
-      "en": "Nose/Throat"
+      "en": "Nose/Throat",
+      "zh": "鼻/喉"
     },
     "symptom": {
       "ko": "목소리 변화",
-      "en": "Voice change"
+      "en": "Voice change",
+      "zh": "声音变化"
     },
     "departments": [
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "목소리 변화 증상은 일반적으로 이비인후과에서 진료받습니다.",
-      "en": "The symptom 'Voice change' is typically treated in the Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Voice change' is typically treated in the Otorhinolaryngology (ENT) department.",
+      "zh": "“声音变化”症状通常在耳鼻咽喉科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "코/목",
-      "en": "Nose/Throat"
+      "en": "Nose/Throat",
+      "zh": "鼻/喉"
     },
     "symptom": {
       "ko": "입냄새",
-      "en": "Bad breath"
+      "en": "Bad breath",
+      "zh": "口臭"
     },
     "departments": [
       {
         "ko": "이비인후과",
-        "en": "Otorhinolaryngology (ENT)"
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
       }
     ],
     "note": {
       "ko": "입냄새 증상은 일반적으로 이비인후과에서 진료받습니다.",
-      "en": "The symptom 'Bad breath' is typically treated in the Otorhinolaryngology (ENT) department."
+      "en": "The symptom 'Bad breath' is typically treated in the Otorhinolaryngology (ENT) department.",
+      "zh": "“口臭”症状通常在耳鼻咽喉科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "재활",
-      "en": "Rehabilitation"
+      "en": "Rehabilitation",
+      "zh": "康复"
     },
     "symptom": {
       "ko": "근력 저하",
-      "en": "Muscle weakness"
+      "en": "Muscle weakness",
+      "zh": "肌力下降"
     },
     "departments": [
       {
         "ko": "재활의학과",
-        "en": "Rehabilitation Medicine"
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
       }
     ],
     "note": {
       "ko": "근력 저하 증상은 일반적으로 재활의학과에서 진료받습니다.",
-      "en": "The symptom 'Muscle weakness' is typically treated in the Rehabilitation Medicine department."
+      "en": "The symptom 'Muscle weakness' is typically treated in the Rehabilitation Medicine department.",
+      "zh": "“肌力下降”症状通常在康复医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "재활",
-      "en": "Rehabilitation"
+      "en": "Rehabilitation",
+      "zh": "康复"
     },
     "symptom": {
       "ko": "보행 비대칭",
-      "en": "Gait asymmetry"
+      "en": "Gait asymmetry",
+      "zh": "步态不对称"
     },
     "departments": [
       {
         "ko": "재활의학과",
-        "en": "Rehabilitation Medicine"
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
       }
     ],
     "note": {
       "ko": "보행 비대칭 증상은 일반적으로 재활의학과에서 진료받습니다.",
-      "en": "The symptom 'Gait asymmetry' is typically treated in the Rehabilitation Medicine department."
+      "en": "The symptom 'Gait asymmetry' is typically treated in the Rehabilitation Medicine department.",
+      "zh": "“步态不对称”症状通常在康复医学科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "치아",
-      "en": "Teeth"
+      "en": "Teeth",
+      "zh": "牙齿"
     },
     "symptom": {
       "ko": "잇몸 붓기",
-      "en": "Gum swelling"
+      "en": "Gum swelling",
+      "zh": "牙龈肿胀"
     },
     "departments": [
       {
         "ko": "치과",
-        "en": "Dentistry"
+        "en": "Dentistry",
+        "zh": "口腔科"
       }
     ],
     "note": {
       "ko": "잇몸 붓기 증상은 일반적으로 치과에서 진료받습니다.",
-      "en": "The symptom 'Gum swelling' is typically treated in the Dentistry department."
+      "en": "The symptom 'Gum swelling' is typically treated in the Dentistry department.",
+      "zh": "“牙龈肿胀”症状通常在口腔科就诊。"
     }
   },
   {
     "type": "two-step",
     "system": {
       "ko": "치아",
-      "en": "Teeth"
+      "en": "Teeth",
+      "zh": "牙齿"
     },
     "symptom": {
       "ko": "이 시림",
-      "en": "Tooth sensitivity"
+      "en": "Tooth sensitivity",
+      "zh": "牙齿敏感"
     },
     "departments": [
       {
         "ko": "치과",
-        "en": "Dentistry"
+        "en": "Dentistry",
+        "zh": "口腔科"
       }
     ],
     "note": {
       "ko": "이 시림 증상은 일반적으로 치과에서 진료받습니다.",
-      "en": "The symptom 'Tooth sensitivity' is typically treated in the Dentistry department."
+      "en": "The symptom 'Tooth sensitivity' is typically treated in the Dentistry department.",
+      "zh": "“牙齿敏感”症状通常在口腔科就诊。"
     }
   }
 ]
