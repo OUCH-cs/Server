@@ -105,7 +105,7 @@ public class RealtimeSessionController {
 			+ "\"input_audio_transcription\": {" //새로 나온 모델 추가
 			+ "\"model\": \"gpt-4o-mini-transcribe\","
 			// + "\"language\": \"\","
-			+ "\"prompt\": \"This audio input may contain both Korean and English words mixed together. Please transcribe both languages accurately.\""
+			+ "\"prompt\": \"This audio input may contain both Korean and Chinese words mixed together. Please transcribe both languages accurately.\""
 			+ "},"
 
 			+ "\"turn_detection\": {"
