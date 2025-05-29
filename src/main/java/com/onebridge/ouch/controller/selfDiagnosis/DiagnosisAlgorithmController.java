@@ -43,7 +43,7 @@ public class DiagnosisAlgorithmController {
     @Operation(summary = "1차 시스템 목록 조회", description = "자가진단 알고리즘에서 사용 가능한 'system' 리스트를 언어 코드 기준으로 조회합니다.")
     @GetMapping("/systems")
     public ResponseEntity<List<String>> getSystems(
-        @Parameter(description = "언어 코드 (ko 또는 en)", example = "en")
+        @Parameter(description = "언어 코드 (ko, en 등)", example = "en")
         @RequestParam(defaultValue = "en") String languageCode) {
         return ResponseEntity.ok(diagnosisService.getUniqueSystems(languageCode));
     }
@@ -51,7 +51,7 @@ public class DiagnosisAlgorithmController {
     @Operation(summary = "2차 증상 목록 조회", description = "선택한 'system'에 해당하는 'symptom' 리스트를 조회합니다.")
     @GetMapping("/symptoms")
     public ResponseEntity<List<String>> getSymptoms(
-        @Parameter(description = "언어 코드 (ko 또는 en)", example = "en")
+        @Parameter(description = "언어 코드 (ko, en 등)", example = "en")
         @RequestParam(defaultValue = "en") String languageCode,
 
         @Parameter(description = "1차 시스템 이름", example = "Digestive")
@@ -63,7 +63,7 @@ public class DiagnosisAlgorithmController {
     @Operation(summary = "3차 조건 목록 조회", description = "'system'과 'symptom' 조합에 해당하는 'condition' 리스트를 조회합니다. 'three-step' 항목일 경우에만 존재합니다.")
     @GetMapping("/conditions")
     public ResponseEntity<List<String>> getConditions(
-        @Parameter(description = "언어 코드 (ko 또는 en)", example = "en")
+        @Parameter(description = "언어 코드 (ko, en 등)", example = "en")
         @RequestParam(defaultValue = "en") String languageCode,
 
         @Parameter(description = "1차 시스템 이름", example = "Digestive")

@@ -32,11 +32,11 @@ public class DiagnosisAlgorithmService {
 
     public Optional<DiagnosisAlgorithmMapping> findMatch(String lang, String system, String symptom, String condition) {
         return mappings.stream()
-            .filter(e -> getByLang(e.getSystem().getKo(), e.getSystem().getEn(), lang).equals(system))
-            .filter(e -> getByLang(e.getSymptom().getKo(), e.getSymptom().getEn(), lang).equals(symptom))
+            .filter(e -> getByLang(e.getSystem().getKo(), e.getSystem().getEn(), e.getSystem().getZh(), lang).equals(system))
+            .filter(e -> getByLang(e.getSymptom().getKo(), e.getSymptom().getEn(), e.getSymptom().getZh(), lang).equals(symptom))
             .filter(e -> {
                 if ("three-step".equals(e.getType()) && e.getCondition() != null) {
-                    return getByLang(e.getCondition().getKo(), e.getCondition().getEn(), lang).equals(condition);
+                    return getByLang(e.getCondition().getKo(), e.getCondition().getEn(), e.getCondition().getZh(), lang).equals(condition);
                 }
                 return true;
             })
@@ -45,7 +45,7 @@ public class DiagnosisAlgorithmService {
 
     public List<String> getUniqueSystems(String lang) {
         return mappings.stream()
-            .map(e -> getByLang(e.getSystem().getKo(), e.getSystem().getEn(), lang))
+            .map(e -> getByLang(e.getSystem().getKo(), e.getSystem().getEn(), e.getSystem().getZh(), lang))
             .distinct()
             .sorted()
             .toList();
@@ -53,8 +53,8 @@ public class DiagnosisAlgorithmService {
 
     public List<String> getSymptomsBySystem(String system, String lang) {
         return mappings.stream()
-            .filter(e -> getByLang(e.getSystem().getKo(), e.getSystem().getEn(), lang).equals(system))
-            .map(e -> getByLang(e.getSymptom().getKo(), e.getSymptom().getEn(), lang))
+            .filter(e -> getByLang(e.getSystem().getKo(), e.getSystem().getEn(), e.getSystem().getZh(), lang).equals(system))
+            .map(e -> getByLang(e.getSymptom().getKo(), e.getSymptom().getEn(), e.getSymptom().getZh(), lang))
             .distinct()
             .sorted()
             .toList();
@@ -62,8 +62,8 @@ public class DiagnosisAlgorithmService {
 
     public List<String> getConditionsBySystemAndSymptom(String system, String symptom, String lang) {
         List<DiagnosisAlgorithmMapping> matched = mappings.stream()
-            .filter(e -> getByLang(e.getSystem().getKo(), e.getSystem().getEn(), lang).equals(system))
-            .filter(e -> getByLang(e.getSymptom().getKo(), e.getSymptom().getEn(), lang).equals(symptom))
+            .filter(e -> getByLang(e.getSystem().getKo(), e.getSystem().getEn(), e.getSystem().getZh(), lang).equals(system))
+            .filter(e -> getByLang(e.getSymptom().getKo(), e.getSymptom().getEn(), e.getSymptom().getZh(), lang).equals(symptom))
             .toList();
 
         if (matched.isEmpty()) {
@@ -72,7 +72,7 @@ public class DiagnosisAlgorithmService {
 
         List<String> conditions = matched.stream()
             .filter(e -> "three-step".equals(e.getType()))
-            .map(e -> getByLang(e.getCondition().getKo(), e.getCondition().getEn(), lang))
+            .map(e -> getByLang(e.getCondition().getKo(), e.getCondition().getEn(), e.getCondition().getZh(), lang))
             .distinct()
             .sorted()
             .toList();
@@ -84,10 +84,11 @@ public class DiagnosisAlgorithmService {
         return conditions;
     }
 
-    private String getByLang(String ko, String en, String languageCode) {
+    private String getByLang(String ko, String en, String zn, String languageCode) {
         return switch (languageCode.toLowerCase()) {
             case "ko" -> ko;
             case "en" -> en;
+            case "zh" -> zn;
             default -> throw new OuchException(CommonErrorCode.LANGUAGE_NOT_FOUND);
         };
     }

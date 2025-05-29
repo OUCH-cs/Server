@@ -7,4 +7,5 @@ public class AllDepartmentResponse {
 	private Long code;
 	private String nameKr;
 	private String nameEn;
+	private String nameZh;
 }
