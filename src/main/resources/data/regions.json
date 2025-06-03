@@ -1,0 +1,19 @@
+[
+  { "kr": "서울",   "en": "seoul",     "zh": "首尔"   },
+  { "kr": "부산",   "en": "busan",     "zh": "釜山"   },
+  { "kr": "대구",   "en": "daegu",     "zh": "大邱"   },
+  { "kr": "인천",   "en": "incheon",   "zh": "仁川"   },
+  { "kr": "광주",   "en": "gwangju",   "zh": "光州"   },
+  { "kr": "대전",   "en": "daejeon",   "zh": "大田"   },
+  { "kr": "울산",   "en": "ulsan",     "zh": "蔚山"   },
+  { "kr": "세종",   "en": "sejong",    "zh": "世宗"   },
+  { "kr": "경기",   "en": "gyeonggi",  "zh": "京畿"   },
+  { "kr": "강원",   "en": "gangwon",   "zh": "江原"   },
+  { "kr": "충북",   "en": "chungbuk",  "zh": "忠北"   },
+  { "kr": "충남",   "en": "chungnam",  "zh": "忠南"   },
+  { "kr": "전북",   "en": "jeonbuk",   "zh": "全北"   },
+  { "kr": "전남",   "en": "jeonnam",   "zh": "全南"   },
+  { "kr": "경북",   "en": "gyeongbuk", "zh": "庆北"   },
+  { "kr": "경남",   "en": "gyeongnam", "zh": "庆南"   },
+  { "kr": "제주",   "en": "jeju",      "zh": "济州"   }
+]

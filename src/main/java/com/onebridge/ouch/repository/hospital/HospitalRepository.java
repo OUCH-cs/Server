@@ -49,6 +49,7 @@ public interface HospitalRepository extends JpaRepository<Hospital, String> {
 			"AND h.type != '요양병원' " +
 			"AND (:department1 IS NULL OR hd.department_name IN (:department1, :department2)) " + // 내과+가정의학과 포함
 			"AND h.lat IS NOT NULL AND h.lng IS NOT NULL " +
+			"AND (:sidoKr IS NULL OR h.sido = :sidoKr) " +
 			"GROUP BY h.ykiho " +
 			"ORDER BY distance ASC " +
 			"LIMIT :limit OFFSET :offset",
@@ -59,6 +60,7 @@ public interface HospitalRepository extends JpaRepository<Hospital, String> {
 		@Param("type") String type,
 		@Param("department1") String department1,
 		@Param("department2") String department2,
+		@Param("sidoKr") String sidoKr,
 		@Param("limit") int limit,
 		@Param("offset") int offset
 	);

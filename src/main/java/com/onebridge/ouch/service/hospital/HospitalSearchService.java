@@ -14,16 +14,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class HospitalSearchService {
 	private final HospitalRepository hospitalRepository;
+	private final RegionService regionService;
 
 	public List<HospitalDistanceResponse> searchHospitals(
 		String department,
 		String type, // 종별코드명 ex. '약국', '병원'
+		String sido,
 		Double lat,
 		Double lng,
 		int page,
 		int size
 	) {
 		if (lat == null || lng == null) throw new IllegalArgumentException("좌표(lat, lng)는 필수입니다.");
+
+		// 1) 전달받은 sido를 한국어로 변환
+		String sidoKr = regionService.getKrSidoName(sido);
 
 		int offset = page * size;
 		List<Object[]> rawList;
@@ -42,10 +47,10 @@ public class HospitalSearchService {
 		}
 
 		// type(종별코드명)도 null/입력값에 따라 처리
-		if ((department1 != null && department2 != null) || (type != null && !type.isBlank())) {
+		if ((department1 != null && department2 != null) || (type != null && !type.isBlank()) || (sidoKr != null)) {
 			rawList = hospitalRepository.findWithConditionsOrderByDistance(
 				lat, lng,
-				type, department1, department2, size, offset
+				type, department1, department2, sidoKr, size, offset
 			);
 		} else {
 			rawList = hospitalRepository.findAllOrderByDistance(lat, lng, size, offset);
