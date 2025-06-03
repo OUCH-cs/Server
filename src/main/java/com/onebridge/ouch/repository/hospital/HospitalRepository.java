@@ -42,24 +42,33 @@ public interface HospitalRepository extends JpaRepository<Hospital, String> {
 			"GROUP_CONCAT(DISTINCT hd.department_name) as departments, " +
 			"(6371 * acos(cos(radians(:lat)) * cos(radians(h.lat)) " +
 			"* cos(radians(h.lng) - radians(:lng)) + sin(radians(:lat)) * sin(radians(h.lat)))) as distance " +
-			"FROM hospital h " +
-			"LEFT JOIN hospital_department hd ON h.ykiho = hd.ykiho " +
-			"WHERE (:type IS NULL OR h.type = :type " +
-			"   OR (:type = '병원' AND h.type != '약국')) " + // 병원이면 약국 제외
-			"AND h.type != '요양병원' " +
-			"AND (:department1 IS NULL OR hd.department_name IN (:department1, :department2)) " + // 내과+가정의학과 포함
-			"AND h.lat IS NOT NULL AND h.lng IS NOT NULL " +
-			"AND (:sidoKr IS NULL OR h.sido = :sidoKr) " +
-			"GROUP BY h.ykiho " +
-			"ORDER BY distance ASC " +
-			"LIMIT :limit OFFSET :offset",
+		"FROM hospital h " +
+		"LEFT JOIN hospital_department hd ON h.ykiho = hd.ykiho " +
+		"WHERE (:type IS NULL OR h.type = :type " +
+		"   OR (:type = '병원' AND h.type != '약국')) " + // 병원이면 약국 제외
+		"AND h.type != '요양병원' " +
+		"AND ( " +
+		"       :department IS NULL " +
+		"    OR ( :department IN ('내과', '가정의학과') " +
+		"         AND hd.department_name IN ('내과', '가정의학과') ) " +
+		"    OR ( :department = '치과' " +
+		"         AND hd.department_name LIKE '%치%' ) " +
+		"    OR ( :department = '흉부외과' " +
+		"         AND hd.department_name LIKE '%흉부%' ) " +
+		"    OR ( :department NOT IN ('내과', '가정의학과', '치과') " +
+		"         AND hd.department_name = :department ) " +
+		"  ) " +
+		"AND h.lat IS NOT NULL AND h.lng IS NOT NULL " +
+		"AND (:sidoKr IS NULL OR h.sido = :sidoKr) " +
+		"GROUP BY h.ykiho " +
+		"ORDER BY distance ASC " +
+		"LIMIT :limit OFFSET :offset",
 		nativeQuery = true)
 	List<Object[]> findWithConditionsOrderByDistance(
 		@Param("lat") double lat,
 		@Param("lng") double lng,
 		@Param("type") String type,
-		@Param("department1") String department1,
-		@Param("department2") String department2,
+		@Param("department") String department,
 		@Param("sidoKr") String sidoKr,
 		@Param("limit") int limit,
 		@Param("offset") int offset

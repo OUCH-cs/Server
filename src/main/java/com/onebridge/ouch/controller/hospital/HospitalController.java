@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.onebridge.ouch.dto.hospital.response.AllDepartmentResponse;
+import com.onebridge.ouch.dto.hospital.response.DepartmentMappingDto;
 import com.onebridge.ouch.dto.hospital.response.HospitalDetailResponse;
 import com.onebridge.ouch.dto.hospital.response.HospitalDistanceResponse;
 import com.onebridge.ouch.dto.hospital.response.RegionMappingDto;
@@ -27,10 +27,11 @@ public class HospitalController {
 	private final DepartmentService departmentService;
 	private final RegionService regionService;
 
-	@Operation(summary = "거리 순 병원 조회 API", description = "입력된 진료과(department), 종별코드명(type) 위도(lat), 경도(lng)를 기준으로 병원 목록을 거리 순으로 조회합니다. "
+	@Operation(summary = "거리 순 병원 조회 API", description = "입력된 진료과(department), 종별코드명(type), 위도(lat), 경도(lng)를 기준으로 병원 목록을 거리 순으로 조회합니다. "
 		+ "진료과나 종별코드명를 입력하지 않으면 입력된 위도, 경도를 기준으로 모든 병원 목록을 거리 순으로 조회합니다. 위도, 경도는 필수로 입력해야 합니다. "
 	    + "진료과나 종별코드명은 선택적으로 입력 가능합니다. 진료과는 한글로만 입력이 가능하며, 종별코드명은 병원(약국 제외 모든 병원), 약국 두 가지의 키워드로만 입력이 됩니다."
-		+ "진료과가 존재하지 않는 경우가 있는데 이는 해당 병원이 진료과를 제공하지 않기 때문이며, 응답 필드 중에 department 뿐만 아니라 type(치과의원, 종합병원 등)을 진료과처럼 사용하면 웬만하면 알아볼 수 있습니다.")
+		+ "진료과가 존재하지 않는 경우가 있는데 이는 해당 병원이 진료과를 제공하지 않기 때문이며, 응답 필드 중에 department 뿐만 아니라 type(치과의원, 종합병원 등)을 진료과처럼 사용하면 웬만하면 알아볼 수 있습니다."
+		+ "종별코드명(type)에 약국을 입력하면 약국이 나오고, 병원을 입력하면 약국을 제외한 모든 의료기관이 나옵니다.")
 	@GetMapping("/search")
 	public List<HospitalDistanceResponse> searchHospitals(
 		@RequestParam(required = false) String department,
@@ -52,7 +53,7 @@ public class HospitalController {
 
 	@Operation(summary = "진료과 목록 조회 API", description = "모든 진료과 목록을 조회합니다.")
 	@GetMapping("/departments")
-	public List<AllDepartmentResponse> getDepartments() {
+	public List<DepartmentMappingDto> getDepartments() {
 		return departmentService.getAllDepartments();
 	}
 
