@@ -2318,5 +2318,1688 @@
       "en": "The symptom 'Tooth sensitivity' is typically treated in the Dentistry department.",
       "zh": "“牙齿敏感”症状通常在口腔科就诊。"
     }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "호흡기",
+      "en": "Respiratory",
+      "zh": "呼吸系统"
+    },
+    "symptom": {
+      "ko": "밤에 심해지는 기침",
+      "en": "Cough worse at night",
+      "zh": "夜间加重的咳嗽"
+    },
+    "condition": {
+      "ko": "누우면 심해짐",
+      "en": "Worse when lying down",
+      "zh": "平躺时加重"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "밤에 누우면 심해지는 기침은 내과에서 진료를 받아야 합니다.",
+      "en": "A cough that worsens when lying down at night should be evaluated by Internal Medicine.",
+      "zh": "夜间平躺时加重的咳嗽建议到内科就诊。"
+    }
+  },
+  {
+    "type": "two-step",
+    "system": {
+      "ko": "심혈관",
+      "en": "Cardiovascular",
+      "zh": "心血管系统"
+    },
+    "symptom": {
+      "ko": "운동 후 흉통",
+      "en": "Chest pain after exercise",
+      "zh": "运动后胸痛"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "운동 후 발생하는 흉통은 내과 진료가 필요할 수 있습니다.",
+      "en": "Chest pain occurring after exercise may require a visit to Internal Medicine.",
+      "zh": "运动后出现的胸痛建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "관절",
+      "en": "Joints",
+      "zh": "关节"
+    },
+    "symptom": {
+      "ko": "관절 부종",
+      "en": "Joint swelling",
+      "zh": "关节肿胀"
+    },
+    "condition": {
+      "ko": "아침에 심함",
+      "en": "Worse in the morning",
+      "zh": "早晨更严重"
+    },
+    "departments": [
+      {
+        "ko": "정형외과",
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
+      }
+    ],
+    "note": {
+      "ko": "아침에 심해지는 관절 부종은 정형외과에서 진료받을 수 있습니다.",
+      "en": "Joint swelling worse in the morning can be evaluated by Orthopedic Surgery.",
+      "zh": "早晨更严重的关节肿胀建议到骨科就诊。"
+    }
+  },
+  {
+    "type": "two-step",
+    "system": {
+      "ko": "피부",
+      "en": "Skin",
+      "zh": "皮肤"
+    },
+    "symptom": {
+      "ko": "피부색 변화",
+      "en": "Skin color change",
+      "zh": "皮肤颜色变化"
+    },
+    "departments": [
+      {
+        "ko": "피부과",
+        "en": "Dermatology",
+        "zh": "皮肤科"
+      }
+    ],
+    "note": {
+      "ko": "피부색 변화 증상은 피부과에서 진료받을 수 있습니다.",
+      "en": "Skin color changes can be evaluated in Dermatology.",
+      "zh": "皮肤颜色变化建议到皮肤科就诊。"
+    }
+  },
+  {
+    "type": "two-step",
+    "system": {
+      "ko": "비뇨생식기",
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
+    },
+    "symptom": {
+      "ko": "소변 횟수 증가",
+      "en": "Increased frequency of urination",
+      "zh": "小便次数增多"
+    },
+    "departments": [
+      {
+        "ko": "비뇨의학과",
+        "en": "Urology",
+        "zh": "泌尿外科"
+      }
+    ],
+    "note": {
+      "ko": "소변 횟수가 평소보다 증가하면 비뇨의학과에서 진료받을 수 있습니다.",
+      "en": "If urination becomes more frequent than usual, consult Urology.",
+      "zh": "小便次数增多建议到泌尿外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "신경계",
+      "en": "Neurological",
+      "zh": "神经系统"
+    },
+    "symptom": {
+      "ko": "잠깐의 의식 소실",
+      "en": "Brief loss of consciousness",
+      "zh": "短暂意识丧失"
+    },
+    "condition": {
+      "ko": "쓰러짐 동반",
+      "en": "Accompanied by collapse",
+      "zh": "伴随晕倒"
+    },
+    "departments": [
+      {
+        "ko": "신경외과",
+        "en": "Neurosurgery",
+        "zh": "神经外科"
+      }
+    ],
+    "note": {
+      "ko": "잠깐의 의식 소실과 쓰러짐이 있으면 신경외과 진료가 필요합니다.",
+      "en": "Brief loss of consciousness with collapse requires Neurosurgery evaluation.",
+      "zh": "出现短暂意识丧失和晕倒建议到神经外科就诊。"
+    }
+  },
+  {
+    "type": "two-step",
+    "system": {
+      "ko": "정신",
+      "en": "Mental Health",
+      "zh": "精神"
+    },
+    "symptom": {
+      "ko": "집중력 저하",
+      "en": "Decreased concentration",
+      "zh": "注意力下降"
+    },
+    "departments": [
+      {
+        "ko": "정신건강의학과",
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
+      }
+    ],
+    "note": {
+      "ko": "집중력 저하 증상은 정신건강의학과에서 진료받을 수 있습니다.",
+      "en": "Decreased concentration can be treated in Psychiatry.",
+      "zh": "注意力下降建议到精神健康医学科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "소화기",
+      "en": "Digestive",
+      "zh": "消化系统"
+    },
+    "symptom": {
+      "ko": "체한 느낌",
+      "en": "Feeling of indigestion",
+      "zh": "消化不良感"
+    },
+    "condition": {
+      "ko": "식사 후 복부 팽만",
+      "en": "Abdominal bloating after meal",
+      "zh": "餐后腹胀"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "식사 후 복부 팽만을 동반한 체한 느낌은 내과에서 진료받을 수 있습니다.",
+      "en": "Feeling of indigestion with abdominal bloating after meals can be seen in Internal Medicine.",
+      "zh": "伴有餐后腹胀的消化不良感可到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "호흡기",
+      "en": "Respiratory",
+      "zh": "呼吸系统"
+    },
+    "symptom": {
+      "ko": "호흡 시 통증",
+      "en": "Pain with breathing",
+      "zh": "呼吸时疼痛"
+    },
+    "condition": {
+      "ko": "깊게 숨 쉴 때만",
+      "en": "Only with deep breaths",
+      "zh": "仅深呼吸时"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "깊게 숨 쉴 때만 통증이 느껴지면 내과에서 진료받을 수 있습니다.",
+      "en": "If pain occurs only with deep breaths, consult Internal Medicine.",
+      "zh": "仅深呼吸时疼痛建议到内科就诊。"
+    }
+  },
+  {
+    "type": "two-step",
+    "system": {
+      "ko": "심혈관",
+      "en": "Cardiovascular",
+      "zh": "心血管系统"
+    },
+    "symptom": {
+      "ko": "현기증",
+      "en": "Dizziness",
+      "zh": "头晕"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "현기증이 자주 반복되면 내과에서 진료받을 수 있습니다.",
+      "en": "Frequent dizziness can be evaluated by Internal Medicine.",
+      "zh": "经常头晕可到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "관절",
+      "en": "Joints",
+      "zh": "关节"
+    },
+    "symptom": {
+      "ko": "움직일 때 소리남",
+      "en": "Clicking sound on movement",
+      "zh": "活动时发出响声"
+    },
+    "condition": {
+      "ko": "통증 없이 소리만 남",
+      "en": "Only sound, no pain",
+      "zh": "仅有响声无疼痛"
+    },
+    "departments": [
+      {
+        "ko": "정형외과",
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
+      }
+    ],
+    "note": {
+      "ko": "통증 없이 관절에서 소리만 날 때도 정형외과 진료 가능.",
+      "en": "Joint sounds without pain can be checked in Orthopedic Surgery.",
+      "zh": "关节无痛仅有响声时可到骨科就诊。"
+    }
+  },
+  {
+    "type": "two-step",
+    "system": {
+      "ko": "피부",
+      "en": "Skin",
+      "zh": "皮肤"
+    },
+    "symptom": {
+      "ko": "피부 벗겨짐",
+      "en": "Skin peeling",
+      "zh": "皮肤脱皮"
+    },
+    "departments": [
+      {
+        "ko": "피부과",
+        "en": "Dermatology",
+        "zh": "皮肤科"
+      }
+    ],
+    "note": {
+      "ko": "피부가 벗겨질 때는 피부과에서 진료받을 수 있습니다.",
+      "en": "Skin peeling can be checked in Dermatology.",
+      "zh": "皮肤脱皮可到皮肤科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "비뇨생식기",
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
+    },
+    "symptom": {
+      "ko": "소변 후 잔뇨감",
+      "en": "Feeling of incomplete bladder emptying",
+      "zh": "排尿后残尿感"
+    },
+    "condition": {
+      "ko": "밤에 심해짐",
+      "en": "Worse at night",
+      "zh": "夜间更明显"
+    },
+    "departments": [
+      {
+        "ko": "비뇨의학과",
+        "en": "Urology",
+        "zh": "泌尿外科"
+      }
+    ],
+    "note": {
+      "ko": "야간에 소변 후 잔뇨감이 있으면 비뇨의학과에서 진료 가능.",
+      "en": "If incomplete bladder emptying is worse at night, visit Urology.",
+      "zh": "夜间排尿后有残尿感建议到泌尿外科就诊。"
+    }
+  },
+  {
+    "type": "two-step",
+    "system": {
+      "ko": "신경계",
+      "en": "Neurological",
+      "zh": "神经系统"
+    },
+    "symptom": {
+      "ko": "어지럼증",
+      "en": "Vertigo",
+      "zh": "眩晕"
+    },
+    "departments": [
+      {
+        "ko": "신경외과",
+        "en": "Neurosurgery",
+        "zh": "神经外科"
+      }
+    ],
+    "note": {
+      "ko": "회전성 어지럼증이 있으면 신경외과에서 진료받을 수 있습니다.",
+      "en": "Rotational vertigo can be evaluated in Neurosurgery.",
+      "zh": "出现旋转性眩晕可到神经外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "정신",
+      "en": "Mental Health",
+      "zh": "精神"
+    },
+    "symptom": {
+      "ko": "식욕 증가",
+      "en": "Increased appetite",
+      "zh": "食欲增加"
+    },
+    "condition": {
+      "ko": "스트레스 후 발생",
+      "en": "After stress",
+      "zh": "压力过后"
+    },
+    "departments": [
+      {
+        "ko": "정신건강의학과",
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
+      }
+    ],
+    "note": {
+      "ko": "스트레스 후 식욕이 비정상적으로 증가하면 정신건강의학과에서 상담 가능.",
+      "en": "If appetite increases abnormally after stress, Psychiatry can help.",
+      "zh": "压力过后食欲异常增加可到精神健康医学科咨询。"
+    }
+  },
+  {
+    "type": "two-step",
+    "system": {
+      "ko": "치아",
+      "en": "Teeth",
+      "zh": "牙齿"
+    },
+    "symptom": {
+      "ko": "치아 시림",
+      "en": "Tooth sensitivity",
+      "zh": "牙齿敏感"
+    },
+    "departments": [
+      {
+        "ko": "치과",
+        "en": "Dentistry",
+        "zh": "口腔科"
+      }
+    ],
+    "note": {
+      "ko": "차거나 뜨거운 음식에 치아가 시리면 치과 진료를 받아야 합니다.",
+      "en": "If your teeth are sensitive to cold or hot foods, consult Dentistry.",
+      "zh": "对冷热食物牙齿敏感建议到口腔科就诊。"
+    }
+  },
+  {
+    "type": "two-step",
+    "system": {
+      "ko": "재활",
+      "en": "Rehabilitation",
+      "zh": "康复"
+    },
+    "symptom": {
+      "ko": "손떨림",
+      "en": "Hand tremor",
+      "zh": "手抖"
+    },
+    "departments": [
+      {
+        "ko": "재활의학과",
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
+      }
+    ],
+    "note": {
+      "ko": "평소와 달리 손떨림이 생기면 재활의학과에서 진료받을 수 있습니다.",
+      "en": "If you have unusual hand tremor, visit Rehabilitation Medicine.",
+      "zh": "出现异常手抖可到康复医学科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "소화기",
+      "en": "Digestive",
+      "zh": "消化系统"
+    },
+    "symptom": {
+      "ko": "입에서 쓴맛",
+      "en": "Bitter taste in mouth",
+      "zh": "口中发苦"
+    },
+    "condition": {
+      "ko": "아침에 더 심함",
+      "en": "Worse in the morning",
+      "zh": "早晨更严重"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "아침에 입에서 쓴맛이 강할 때 내과 진료가 필요합니다.",
+      "en": "Bitter taste in the mouth that is worse in the morning may need Internal Medicine evaluation.",
+      "zh": "早晨口中苦味严重建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "호흡기",
+      "en": "Respiratory",
+      "zh": "呼吸系统"
+    },
+    "symptom": {
+      "ko": "숨쉴 때 휘파람소리",
+      "en": "Whistling sound when breathing",
+      "zh": "呼吸时哨音"
+    },
+    "condition": {
+      "ko": "운동 후 심해짐",
+      "en": "Worse after exercise",
+      "zh": "运动后加重"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "숨쉴 때 휘파람소리가 나고 운동 후 심해지면 내과에서 진료받으세요.",
+      "en": "A whistling sound when breathing that gets worse after exercise should be evaluated by Internal Medicine.",
+      "zh": "运动后呼吸时有哨音建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "심혈관",
+      "en": "Cardiovascular",
+      "zh": "心血管系统"
+    },
+    "symptom": {
+      "ko": "앉았다 일어날 때 어지러움",
+      "en": "Dizziness when standing up",
+      "zh": "起立时头晕"
+    },
+    "condition": {
+      "ko": "짧게 지속됨",
+      "en": "Short duration",
+      "zh": "持续时间短"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "앉았다 일어날 때 잠깐 어지러우면 내과 진료를 권장합니다.",
+      "en": "Short episodes of dizziness when standing up can be evaluated by Internal Medicine.",
+      "zh": "起立时短暂头晕建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "관절",
+      "en": "Joints",
+      "zh": "关节"
+    },
+    "symptom": {
+      "ko": "계단 오를 때 무릎통증",
+      "en": "Knee pain when climbing stairs",
+      "zh": "上楼梯时膝盖痛"
+    },
+    "condition": {
+      "ko": "내려갈 때는 괜찮음",
+      "en": "Not present when going down",
+      "zh": "下楼时无症状"
+    },
+    "departments": [
+      {
+        "ko": "정형외과",
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
+      }
+    ],
+    "note": {
+      "ko": "계단 오를 때만 무릎통증이 있으면 정형외과 진료가 필요합니다.",
+      "en": "Knee pain only when climbing stairs may need Orthopedic Surgery evaluation.",
+      "zh": "仅上楼梯时膝盖疼建议到骨科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "피부",
+      "en": "Skin",
+      "zh": "皮肤"
+    },
+    "symptom": {
+      "ko": "손바닥/발바닥 가려움",
+      "en": "Itching of palms or soles",
+      "zh": "手掌/脚掌瘙痒"
+    },
+    "condition": {
+      "ko": "밤에 더 심함",
+      "en": "Worse at night",
+      "zh": "夜间更严重"
+    },
+    "departments": [
+      {
+        "ko": "피부과",
+        "en": "Dermatology",
+        "zh": "皮肤科"
+      }
+    ],
+    "note": {
+      "ko": "손바닥이나 발바닥이 밤에 심하게 가려우면 피부과 진료를 권장합니다.",
+      "en": "Itching of palms or soles that worsens at night should be seen in Dermatology.",
+      "zh": "夜间手掌/脚掌严重瘙痒建议到皮肤科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "비뇨생식기",
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
+    },
+    "symptom": {
+      "ko": "소변 시작이 어렵다",
+      "en": "Difficulty starting urination",
+      "zh": "开始小便困难"
+    },
+    "condition": {
+      "ko": "아침에 더 심함",
+      "en": "Worse in the morning",
+      "zh": "早晨更严重"
+    },
+    "departments": [
+      {
+        "ko": "비뇨의학과",
+        "en": "Urology",
+        "zh": "泌尿外科"
+      }
+    ],
+    "note": {
+      "ko": "아침에 소변 시작이 어렵다면 비뇨의학과에서 진료 가능.",
+      "en": "If starting urination is difficult, especially in the morning, visit Urology.",
+      "zh": "早晨开始小便困难建议到泌尿外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "신경계",
+      "en": "Neurological",
+      "zh": "神经系统"
+    },
+    "symptom": {
+      "ko": "수면 중 다리 경련",
+      "en": "Leg cramps during sleep",
+      "zh": "睡觉时腿部抽筋"
+    },
+    "condition": {
+      "ko": "깨어날 정도로 심함",
+      "en": "Severe enough to wake up",
+      "zh": "严重到惊醒"
+    },
+    "departments": [
+      {
+        "ko": "신경외과",
+        "en": "Neurosurgery",
+        "zh": "神经外科"
+      }
+    ],
+    "note": {
+      "ko": "잠을 깨울 정도로 다리 경련이 자주 생기면 신경외과 진료가 필요합니다.",
+      "en": "Frequent severe leg cramps at night should be evaluated by Neurosurgery.",
+      "zh": "夜间经常因腿部抽筋惊醒建议到神经外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "정신",
+      "en": "Mental Health",
+      "zh": "精神"
+    },
+    "symptom": {
+      "ko": "아침에 우울함",
+      "en": "Feeling depressed in the morning",
+      "zh": "早晨感到沮丧"
+    },
+    "condition": {
+      "ko": "저녁에는 호전",
+      "en": "Improves in the evening",
+      "zh": "傍晚好转"
+    },
+    "departments": [
+      {
+        "ko": "정신건강의학과",
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
+      }
+    ],
+    "note": {
+      "ko": "아침에만 심한 우울감을 느끼면 정신건강의학과 진료 권장.",
+      "en": "Morning-only severe depression should be seen in Psychiatry.",
+      "zh": "仅早晨严重抑郁建议到精神健康医学科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "치아",
+      "en": "Teeth",
+      "zh": "牙齿"
+    },
+    "symptom": {
+      "ko": "치아 깨짐",
+      "en": "Chipped tooth",
+      "zh": "牙齿碎裂"
+    },
+    "condition": {
+      "ko": "딱딱한 음식 먹고 난 후",
+      "en": "After eating hard foods",
+      "zh": "吃硬食物后"
+    },
+    "departments": [
+      {
+        "ko": "치과",
+        "en": "Dentistry",
+        "zh": "口腔科"
+      }
+    ],
+    "note": {
+      "ko": "딱딱한 음식 먹고 치아가 깨졌다면 치과 진료 필요.",
+      "en": "If your tooth chipped after eating hard foods, see Dentistry.",
+      "zh": "吃硬食物后牙齿碎裂建议到口腔科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "재활",
+      "en": "Rehabilitation",
+      "zh": "康复"
+    },
+    "symptom": {
+      "ko": "운동 후 근육통",
+      "en": "Muscle pain after exercise",
+      "zh": "运动后肌肉疼痛"
+    },
+    "condition": {
+      "ko": "3일 이상 지속",
+      "en": "Lasts more than 3 days",
+      "zh": "持续超过3天"
+    },
+    "departments": [
+      {
+        "ko": "재활의학과",
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
+      }
+    ],
+    "note": {
+      "ko": "운동 후 근육통이 3일 이상 지속되면 재활의학과 진료 필요.",
+      "en": "Muscle pain after exercise lasting more than 3 days should be seen in Rehabilitation Medicine.",
+      "zh": "运动后肌肉疼痛持续超3天建议到康复医学科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "소화기",
+      "en": "Digestive",
+      "zh": "消化系统"
+    },
+    "symptom": {
+      "ko": "식사 후 트림 잦음",
+      "en": "Frequent belching after meals",
+      "zh": "餐后频繁打嗝"
+    },
+    "condition": {
+      "ko": "매끼마다 반복",
+      "en": "Occurs after every meal",
+      "zh": "每餐后都出现"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "식사 후 매번 트림이 잦으면 내과 진료 필요.",
+      "en": "Frequent belching after every meal should be evaluated in Internal Medicine.",
+      "zh": "每餐后频繁打嗝建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "호흡기",
+      "en": "Respiratory",
+      "zh": "呼吸系统"
+    },
+    "symptom": {
+      "ko": "목소리 변함",
+      "en": "Voice changes",
+      "zh": "声音变化"
+    },
+    "condition": {
+      "ko": "감기 증상 없이 지속",
+      "en": "Persistent without cold symptoms",
+      "zh": "无感冒症状却持续"
+    },
+    "departments": [
+      {
+        "ko": "이비인후과",
+        "en": "Otorhinolaryngology (ENT)",
+        "zh": "耳鼻咽喉科"
+      }
+    ],
+    "note": {
+      "ko": "감기 없이 목소리가 변하면 이비인후과 진료 필요.",
+      "en": "Voice changes without cold symptoms require ENT evaluation.",
+      "zh": "无感冒却声音变化建议到耳鼻咽喉科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "심혈관",
+      "en": "Cardiovascular",
+      "zh": "心血管系统"
+    },
+    "symptom": {
+      "ko": "손발이 저림",
+      "en": "Numbness in hands and feet",
+      "zh": "手脚麻木"
+    },
+    "condition": {
+      "ko": "운동 시 악화",
+      "en": "Worsens with exercise",
+      "zh": "运动时加重"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "손발 저림이 운동 시 악화되면 내과 진료 필요.",
+      "en": "If numbness in hands and feet worsens with exercise, visit Internal Medicine.",
+      "zh": "手脚麻木运动时加重建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "관절",
+      "en": "Joints",
+      "zh": "关节"
+    },
+    "symptom": {
+      "ko": "손목 부종",
+      "en": "Swollen wrist",
+      "zh": "手腕肿胀"
+    },
+    "condition": {
+      "ko": "오전/오후 차이 있음",
+      "en": "Varies between morning and afternoon",
+      "zh": "早晚症状不同"
+    },
+    "departments": [
+      {
+        "ko": "정형외과",
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
+      }
+    ],
+    "note": {
+      "ko": "손목 부종이 시간대마다 다르면 정형외과 진료 필요.",
+      "en": "If wrist swelling varies by time of day, see Orthopedic Surgery.",
+      "zh": "手腕肿胀随时间变化建议到骨科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "피부",
+      "en": "Skin",
+      "zh": "皮肤"
+    },
+    "symptom": {
+      "ko": "피부 열감",
+      "en": "Skin warmth",
+      "zh": "皮肤发热"
+    },
+    "condition": {
+      "ko": "붉은 반점 동반",
+      "en": "With red patches",
+      "zh": "伴有红斑"
+    },
+    "departments": [
+      {
+        "ko": "피부과",
+        "en": "Dermatology",
+        "zh": "皮肤科"
+      }
+    ],
+    "note": {
+      "ko": "피부에 열감과 붉은 반점이 생기면 피부과 진료 필요.",
+      "en": "If the skin is warm and has red patches, visit Dermatology.",
+      "zh": "皮肤发热伴红斑建议到皮肤科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "비뇨생식기",
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
+    },
+    "symptom": {
+      "ko": "밤에 소변 자주 느낌",
+      "en": "Frequent urge to urinate at night",
+      "zh": "夜间常有尿意"
+    },
+    "condition": {
+      "ko": "2회 이상 반복",
+      "en": "More than twice per night",
+      "zh": "每晚超过两次"
+    },
+    "departments": [
+      {
+        "ko": "비뇨의학과",
+        "en": "Urology",
+        "zh": "泌尿外科"
+      }
+    ],
+    "note": {
+      "ko": "밤에 소변이 자주 마렵다면 비뇨의학과 진료 권장.",
+      "en": "Frequent urge to urinate more than twice nightly should be seen by Urology.",
+      "zh": "夜间频繁有尿意建议到泌尿外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "신경계",
+      "en": "Neurological",
+      "zh": "神经系统"
+    },
+    "symptom": {
+      "ko": "팔 근력 약화",
+      "en": "Weakness in one arm",
+      "zh": "单侧手臂无力"
+    },
+    "condition": {
+      "ko": "갑자기 발생",
+      "en": "Sudden onset",
+      "zh": "突然发生"
+    },
+    "departments": [
+      {
+        "ko": "신경외과",
+        "en": "Neurosurgery",
+        "zh": "神经外科"
+      }
+    ],
+    "note": {
+      "ko": "한쪽 팔 근력이 갑자기 약해지면 신경외과 진료 필요.",
+      "en": "Sudden weakness in one arm should be evaluated by Neurosurgery.",
+      "zh": "单侧手臂无力突然发生建议到神经外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "치아",
+      "en": "Teeth",
+      "zh": "牙齿"
+    },
+    "symptom": {
+      "ko": "잇몸 붓기",
+      "en": "Swollen gums",
+      "zh": "牙龈肿胀"
+    },
+    "condition": {
+      "ko": "양치할 때 피 남",
+      "en": "Bleeding when brushing",
+      "zh": "刷牙时出血"
+    },
+    "departments": [
+      {
+        "ko": "치과",
+        "en": "Dentistry",
+        "zh": "口腔科"
+      }
+    ],
+    "note": {
+      "ko": "잇몸이 붓고 양치할 때 피가 나면 치과 진료 필요.",
+      "en": "Swollen gums and bleeding when brushing teeth need Dentistry.",
+      "zh": "牙龈肿胀刷牙出血建议到口腔科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "재활",
+      "en": "Rehabilitation",
+      "zh": "康复"
+    },
+    "symptom": {
+      "ko": "걷다가 자주 넘어진다",
+      "en": "Frequent falling while walking",
+      "zh": "走路时经常跌倒"
+    },
+    "condition": {
+      "ko": "최근 들어 심해짐",
+      "en": "Worsened recently",
+      "zh": "最近加重"
+    },
+    "departments": [
+      {
+        "ko": "재활의학과",
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
+      }
+    ],
+    "note": {
+      "ko": "최근 걷다가 자주 넘어진다면 재활의학과 진료 권장.",
+      "en": "If you fall more often while walking recently, see Rehabilitation Medicine.",
+      "zh": "最近走路经常跌倒建议到康复医学科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "소화기",
+      "en": "Digestive",
+      "zh": "消化系统"
+    },
+    "symptom": {
+      "ko": "삼킴 곤란",
+      "en": "Difficulty swallowing",
+      "zh": "吞咽困难"
+    },
+    "condition": {
+      "ko": "물도 삼키기 어려움",
+      "en": "Difficulty even with water",
+      "zh": "连喝水都困难"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "물도 삼키기 어려울 정도로 삼킴 곤란이 있으면 내과 진료 필요.",
+      "en": "Difficulty swallowing even water requires Internal Medicine evaluation.",
+      "zh": "吞咽连喝水都困难建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "호흡기",
+      "en": "Respiratory",
+      "zh": "呼吸系统"
+    },
+    "symptom": {
+      "ko": "가슴에서 쌕쌕거림",
+      "en": "Wheezing in chest",
+      "zh": "胸部哮鸣"
+    },
+    "condition": {
+      "ko": "밤에만 들림",
+      "en": "Only at night",
+      "zh": "仅夜间出现"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "가슴에서 밤에만 쌕쌕거림이 들리면 내과 진료 필요.",
+      "en": "Wheezing in the chest that appears only at night needs Internal Medicine.",
+      "zh": "仅夜间胸部哮鸣建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "심혈관",
+      "en": "Cardiovascular",
+      "zh": "心血管系统"
+    },
+    "symptom": {
+      "ko": "운동 시 숨참",
+      "en": "Shortness of breath with exertion",
+      "zh": "活动时呼吸困难"
+    },
+    "condition": {
+      "ko": "계단 오를 때 심함",
+      "en": "Worse when climbing stairs",
+      "zh": "上楼梯时更重"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "계단을 오를 때 숨이 많이 차면 내과 진료 필요.",
+      "en": "If you feel shortness of breath when climbing stairs, see Internal Medicine.",
+      "zh": "上楼梯时严重呼吸困难建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "관절",
+      "en": "Joints",
+      "zh": "关节"
+    },
+    "symptom": {
+      "ko": "관절 굳음",
+      "en": "Joint stiffness",
+      "zh": "关节僵硬"
+    },
+    "condition": {
+      "ko": "아침에 심하고 점차 완화",
+      "en": "Worse in morning, improves later",
+      "zh": "早晨严重后逐渐缓解"
+    },
+    "departments": [
+      {
+        "ko": "정형외과",
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
+      }
+    ],
+    "note": {
+      "ko": "아침에 관절이 굳었다가 풀리면 정형외과 진료 필요.",
+      "en": "Morning joint stiffness that improves later should be evaluated by Orthopedic Surgery.",
+      "zh": "早晨关节僵硬后好转建议到骨科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "피부",
+      "en": "Skin",
+      "zh": "皮肤"
+    },
+    "symptom": {
+      "ko": "갑자기 발생한 발진",
+      "en": "Sudden rash",
+      "zh": "突然出现皮疹"
+    },
+    "condition": {
+      "ko": "가려움 동반 없음",
+      "en": "Without itching",
+      "zh": "无瘙痒"
+    },
+    "departments": [
+      {
+        "ko": "피부과",
+        "en": "Dermatology",
+        "zh": "皮肤科"
+      }
+    ],
+    "note": {
+      "ko": "가려움 없이 갑자기 생긴 발진은 피부과 진료 권장.",
+      "en": "A sudden rash without itching should be seen by Dermatology.",
+      "zh": "无瘙痒突然皮疹建议到皮肤科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "비뇨생식기",
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
+    },
+    "symptom": {
+      "ko": "소변 볼 때 타는 느낌",
+      "en": "Burning sensation during urination",
+      "zh": "小便时灼热感"
+    },
+    "condition": {
+      "ko": "소변 횟수 증가 동반",
+      "en": "With increased frequency",
+      "zh": "伴小便次数增多"
+    },
+    "departments": [
+      {
+        "ko": "비뇨의학과",
+        "en": "Urology",
+        "zh": "泌尿外科"
+      }
+    ],
+    "note": {
+      "ko": "소변 볼 때 타는 느낌과 횟수 증가가 있으면 비뇨의학과 진료 필요.",
+      "en": "Burning urination with increased frequency requires Urology.",
+      "zh": "小便灼热伴次数增多建议到泌尿外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "신경계",
+      "en": "Neurological",
+      "zh": "神经系统"
+    },
+    "symptom": {
+      "ko": "눈꺼풀 떨림",
+      "en": "Eyelid twitching",
+      "zh": "眼睑跳动"
+    },
+    "condition": {
+      "ko": "피로 시 악화",
+      "en": "Worse with fatigue",
+      "zh": "疲劳时加重"
+    },
+    "departments": [
+      {
+        "ko": "신경외과",
+        "en": "Neurosurgery",
+        "zh": "神经外科"
+      }
+    ],
+    "note": {
+      "ko": "피로할 때 눈꺼풀 떨림이 심하면 신경외과 진료 필요.",
+      "en": "If eyelid twitching worsens with fatigue, see Neurosurgery.",
+      "zh": "疲劳时眼睑跳动建议到神经外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "정신",
+      "en": "Mental Health",
+      "zh": "精神"
+    },
+    "symptom": {
+      "ko": "무감각해짐",
+      "en": "Emotional numbness",
+      "zh": "情感麻木"
+    },
+    "condition": {
+      "ko": "특별한 이유 없이 지속",
+      "en": "Persistent without clear cause",
+      "zh": "无明显原因持续"
+    },
+    "departments": [
+      {
+        "ko": "정신건강의학과",
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
+      }
+    ],
+    "note": {
+      "ko": "이유 없이 감정이 무뎌지면 정신건강의학과 진료 권장.",
+      "en": "If you feel emotionally numb without clear reason, see Psychiatry.",
+      "zh": "无明显原因情感麻木建议到精神健康医学科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "치아",
+      "en": "Teeth",
+      "zh": "牙齿"
+    },
+    "symptom": {
+      "ko": "이 시림과 통증 동시 발생",
+      "en": "Simultaneous tooth sensitivity and pain",
+      "zh": "牙齿敏感伴疼痛"
+    },
+    "condition": {
+      "ko": "찬 음식에 더 심함",
+      "en": "Worse with cold foods",
+      "zh": "遇冷加重"
+    },
+    "departments": [
+      {
+        "ko": "치과",
+        "en": "Dentistry",
+        "zh": "口腔科"
+      }
+    ],
+    "note": {
+      "ko": "찬 음식에 이가 시리고 아플 때는 치과 진료 필요.",
+      "en": "Tooth sensitivity and pain worse with cold foods should be evaluated by Dentistry.",
+      "zh": "牙齿遇冷敏感伴疼痛建议到口腔科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "재활",
+      "en": "Rehabilitation",
+      "zh": "康复"
+    },
+    "symptom": {
+      "ko": "계단 오르기 어려움",
+      "en": "Difficulty climbing stairs",
+      "zh": "上楼梯困难"
+    },
+    "condition": {
+      "ko": "최근에 시작됨",
+      "en": "Recently developed",
+      "zh": "最近出现"
+    },
+    "departments": [
+      {
+        "ko": "재활의학과",
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
+      }
+    ],
+    "note": {
+      "ko": "최근 계단 오르기 힘들어졌다면 재활의학과 진료 필요.",
+      "en": "If you recently developed difficulty climbing stairs, see Rehabilitation Medicine.",
+      "zh": "最近上楼梯困难建议到康复医学科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "소화기",
+      "en": "Digestive",
+      "zh": "消化系统"
+    },
+    "symptom": {
+      "ko": "입냄새",
+      "en": "Bad breath",
+      "zh": "口臭"
+    },
+    "condition": {
+      "ko": "양치 후에도 지속",
+      "en": "Persists after brushing teeth",
+      "zh": "刷牙后仍持续"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "양치 후에도 입냄새가 계속 나면 내과 진료를 권장합니다.",
+      "en": "If bad breath persists even after brushing, Internal Medicine evaluation is recommended.",
+      "zh": "刷牙后仍有口臭建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "호흡기",
+      "en": "Respiratory",
+      "zh": "呼吸系统"
+    },
+    "symptom": {
+      "ko": "호흡 곤란",
+      "en": "Breathing difficulty",
+      "zh": "呼吸困难"
+    },
+    "condition": {
+      "ko": "가만히 있어도 힘듦",
+      "en": "Occurs even at rest",
+      "zh": "静息时也困难"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "아무 활동 없이도 숨쉬기 힘들다면 내과 진료 필요.",
+      "en": "Breathing difficulty even at rest should be seen by Internal Medicine.",
+      "zh": "静息时也呼吸困难建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "심혈관",
+      "en": "Cardiovascular",
+      "zh": "心血管系统"
+    },
+    "symptom": {
+      "ko": "가슴 두근거림",
+      "en": "Rapid heartbeat",
+      "zh": "心跳加速"
+    },
+    "condition": {
+      "ko": "누워있을 때만 느껴짐",
+      "en": "Only when lying down",
+      "zh": "仅平躺时"
+    },
+    "departments": [
+      {
+        "ko": "내과",
+        "en": "Internal Medicine",
+        "zh": "内科"
+      }
+    ],
+    "note": {
+      "ko": "누워있을 때만 두근거림이 느껴지면 내과 진료 권장.",
+      "en": "If rapid heartbeat is felt only when lying down, see Internal Medicine.",
+      "zh": "仅平躺时心跳加速建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "관절",
+      "en": "Joints",
+      "zh": "关节"
+    },
+    "symptom": {
+      "ko": "관절 움직일 때 소리",
+      "en": "Sound when moving joints",
+      "zh": "关节活动时有声"
+    },
+    "condition": {
+      "ko": "통증 없이 반복됨",
+      "en": "Repeatedly without pain",
+      "zh": "反复无痛"
+    },
+    "departments": [
+      {
+        "ko": "정형외과",
+        "en": "Orthopedic Surgery",
+        "zh": "骨科"
+      }
+    ],
+    "note": {
+      "ko": "통증 없이 반복적으로 소리가 난다면 정형외과 진료 가능.",
+      "en": "Repeated joint sounds without pain can be evaluated in Orthopedic Surgery.",
+      "zh": "关节活动反复无痛有声建议到骨科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "피부",
+      "en": "Skin",
+      "zh": "皮肤"
+    },
+    "symptom": {
+      "ko": "손톱 변색",
+      "en": "Discoloration of nails",
+      "zh": "指甲变色"
+    },
+    "condition": {
+      "ko": "노랗게 변함",
+      "en": "Yellowish color",
+      "zh": "发黄"
+    },
+    "departments": [
+      {
+        "ko": "피부과",
+        "en": "Dermatology",
+        "zh": "皮肤科"
+      }
+    ],
+    "note": {
+      "ko": "손톱이 노랗게 변하면 피부과 진료 필요.",
+      "en": "Yellow discoloration of nails should be evaluated in Dermatology.",
+      "zh": "指甲发黄建议到皮肤科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "비뇨생식기",
+      "en": "Urogenital",
+      "zh": "泌尿生殖系统"
+    },
+    "symptom": {
+      "ko": "소변 줄기 약함",
+      "en": "Weak urine stream",
+      "zh": "尿流变细"
+    },
+    "condition": {
+      "ko": "갑자기 시작됨",
+      "en": "Sudden onset",
+      "zh": "突然发生"
+    },
+    "departments": [
+      {
+        "ko": "비뇨의학과",
+        "en": "Urology",
+        "zh": "泌尿外科"
+      }
+    ],
+    "note": {
+      "ko": "갑자기 소변 줄기가 약해졌다면 비뇨의학과 진료 필요.",
+      "en": "If your urine stream suddenly becomes weak, see Urology.",
+      "zh": "突然尿流变细建议到泌尿外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "신경계",
+      "en": "Neurological",
+      "zh": "神经系统"
+    },
+    "symptom": {
+      "ko": "감각 이상",
+      "en": "Abnormal sensation",
+      "zh": "感觉异常"
+    },
+    "condition": {
+      "ko": "저릿저릿함",
+      "en": "Tingling",
+      "zh": "刺痛感"
+    },
+    "departments": [
+      {
+        "ko": "신경외과",
+        "en": "Neurosurgery",
+        "zh": "神经外科"
+      }
+    ],
+    "note": {
+      "ko": "저릿저릿한 감각 이상이 반복되면 신경외과 진료 필요.",
+      "en": "Tingling abnormal sensation should be checked in Neurosurgery.",
+      "zh": "反复刺痛感建议到神经外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "정신",
+      "en": "Mental Health",
+      "zh": "精神"
+    },
+    "symptom": {
+      "ko": "생각이 자주 끊김",
+      "en": "Frequent interruptions in thoughts",
+      "zh": "思维经常中断"
+    },
+    "condition": {
+      "ko": "평소와 다르게 반복",
+      "en": "Repeatedly, unlike usual",
+      "zh": "与平时不同反复发生"
+    },
+    "departments": [
+      {
+        "ko": "정신건강의학과",
+        "en": "Psychiatry",
+        "zh": "精神健康医学科"
+      }
+    ],
+    "note": {
+      "ko": "생각이 자주 끊기는 현상이 반복된다면 정신건강의학과 진료 필요.",
+      "en": "If you experience frequent interruptions in thoughts, see Psychiatry.",
+      "zh": "思维经常中断建议到精神健康医学科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "치아",
+      "en": "Teeth",
+      "zh": "牙齿"
+    },
+    "symptom": {
+      "ko": "음식 끼임",
+      "en": "Food trapped between teeth",
+      "zh": "牙缝塞食物"
+    },
+    "condition": {
+      "ko": "양치해도 제거 안됨",
+      "en": "Does not go away after brushing",
+      "zh": "刷牙后仍有"
+    },
+    "departments": [
+      {
+        "ko": "치과",
+        "en": "Dentistry",
+        "zh": "口腔科"
+      }
+    ],
+    "note": {
+      "ko": "양치 후에도 음식물이 계속 껴 있다면 치과 진료 필요.",
+      "en": "If food remains trapped between teeth even after brushing, see Dentistry.",
+      "zh": "刷牙后仍有食物建议到口腔科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": {
+      "ko": "재활",
+      "en": "Rehabilitation",
+      "zh": "康复"
+    },
+    "symptom": {
+      "ko": "몸 한쪽 약화",
+      "en": "Weakness on one side of body",
+      "zh": "身体一侧无力"
+    },
+    "condition": {
+      "ko": "팔·다리 모두 힘 빠짐",
+      "en": "Both arm and leg affected",
+      "zh": "手脚均无力"
+    },
+    "departments": [
+      {
+        "ko": "재활의학과",
+        "en": "Rehabilitation Medicine",
+        "zh": "康复医学科"
+      }
+    ],
+    "note": {
+      "ko": "몸 한쪽 팔과 다리 모두 힘이 빠지면 재활의학과 진료 필요.",
+      "en": "If both the arm and leg on one side of your body are weak, see Rehabilitation Medicine.",
+      "zh": "身体一侧手脚均无力建议到康复医学科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": { "ko": "호흡기", "en": "Respiratory", "zh": "呼吸系统" },
+    "symptom": { "ko": "기침", "en": "Cough", "zh": "咳嗽" },
+    "condition": { "ko": "차가운 공기에서 악화", "en": "Worse in cold air", "zh": "冷空气中加重" },
+    "departments": [{ "ko": "내과", "en": "Internal Medicine", "zh": "内科" }],
+    "note": {
+      "ko": "기침이 차가운 공기에서 심해지면 내과 진료를 권장합니다.",
+      "en": "If cough worsens in cold air, consult Internal Medicine.",
+      "zh": "咳嗽在冷空气中加重建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": { "ko": "호흡기", "en": "Respiratory", "zh": "呼吸系统" },
+    "symptom": { "ko": "기침", "en": "Cough", "zh": "咳嗽" },
+    "condition": { "ko": "누우면 심해짐", "en": "Worse when lying down", "zh": "平躺时加重" },
+    "departments": [{ "ko": "내과", "en": "Internal Medicine", "zh": "内科" }],
+    "note": {
+      "ko": "기침이 누울 때 심해지면 내과 진료를 권장합니다.",
+      "en": "If cough worsens when lying down, consult Internal Medicine.",
+      "zh": "咳嗽平躺时加重建议到内科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": { "ko": "신경계", "en": "Neurological", "zh": "神经系统" },
+    "symptom": { "ko": "두통", "en": "Headache", "zh": "头痛" },
+    "condition": { "ko": "화장실 다녀온 후 심해짐", "en": "Worse after using restroom", "zh": "上厕所后加重" },
+    "departments": [{ "ko": "신경외과", "en": "Neurosurgery", "zh": "神经外科" }],
+    "note": {
+      "ko": "두통이 화장실 다녀온 후 심해지면 신경외과 진료를 권장합니다.",
+      "en": "If headache worsens after using the restroom, consult Neurosurgery.",
+      "zh": "头痛在上厕所后加重建议到神经外科就诊。"
+    }
+  },
+  {
+    "type": "three-step",
+    "system": { "ko": "신경계", "en": "Neurological", "zh": "神经系统" },
+    "symptom": { "ko": "두통", "en": "Headache", "zh": "头痛" },
+    "condition": { "ko": "카페인 섭취 후 심해짐", "en": "Worse after caffeine", "zh": "喝咖啡后加重" },
+    "departments": [{ "ko": "신경외과", "en": "Neurosurgery", "zh": "神经外科" }],
+    "note": {
+      "ko": "두통이 카페인 섭취 후 심해지면 신경외과 진료를 권장합니다.",
+      "en": "If headache worsens after caffeine, consult Neurosurgery.",
+      "zh": "头痛在喝咖啡后加重建议到神经外科就诊。"
+    }
   }
 ]
