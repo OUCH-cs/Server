@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.*;
 import com.onebridge.ouch.dto.hospital.response.AllDepartmentResponse;
 import com.onebridge.ouch.dto.hospital.response.HospitalDetailResponse;
 import com.onebridge.ouch.dto.hospital.response.HospitalDistanceResponse;
+import com.onebridge.ouch.dto.hospital.response.RegionMappingDto;
 import com.onebridge.ouch.service.department.DepartmentService;
 import com.onebridge.ouch.service.hospital.HospitalDetailService;
 import com.onebridge.ouch.service.hospital.HospitalSearchService;
+import com.onebridge.ouch.service.hospital.RegionService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,6 +25,7 @@ public class HospitalController {
 	private final HospitalSearchService hospitalSearchService;
 	private final HospitalDetailService hospitalDetailService;
 	private final DepartmentService departmentService;
+	private final RegionService regionService;
 
 	@Operation(summary = "거리 순 병원 조회 API", description = "입력된 진료과(department), 종별코드명(type) 위도(lat), 경도(lng)를 기준으로 병원 목록을 거리 순으로 조회합니다. "
 		+ "진료과나 종별코드명를 입력하지 않으면 입력된 위도, 경도를 기준으로 모든 병원 목록을 거리 순으로 조회합니다. 위도, 경도는 필수로 입력해야 합니다. "
@@ -32,12 +35,13 @@ public class HospitalController {
 	public List<HospitalDistanceResponse> searchHospitals(
 		@RequestParam(required = false) String department,
 		@RequestParam(required = false) String type, // 종별코드명
+		@RequestParam(required = false) String sido,
 		@RequestParam Double lat,
 		@RequestParam Double lng,
 		@RequestParam(defaultValue = "0") int page,
 		@RequestParam(defaultValue = "20") int size
 	) {
-		return hospitalSearchService.searchHospitals(department, type, lat, lng, page, size);
+		return hospitalSearchService.searchHospitals(department, type, sido, lat, lng, page, size);
 	}
 
 	@Operation(summary = "병원 상세 조회 API", description = "입력된 병원 고유ID를 통해 병원 상세 정보를 조회합니다.")
@@ -50,5 +54,11 @@ public class HospitalController {
 	@GetMapping("/departments")
 	public List<AllDepartmentResponse> getDepartments() {
 		return departmentService.getAllDepartments();
+	}
+
+	@Operation(summary = "시도(Region) 목록 조회", description = "한국어 시도명과 외국어 표준명을 모두 조회합니다.")
+	@GetMapping
+	public List<RegionMappingDto> getRegions() throws Exception {
+		return regionService.getAllRegions();
 	}
 }
