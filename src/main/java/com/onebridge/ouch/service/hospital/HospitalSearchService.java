@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.onebridge.ouch.dto.hospital.response.HospitalDistanceResponse;
 import com.onebridge.ouch.repository.hospital.HospitalRepository;
+import com.onebridge.ouch.service.department.DepartmentService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class HospitalSearchService {
 	private final HospitalRepository hospitalRepository;
 	private final RegionService regionService;
+	private final DepartmentService departmentService;
 
 	public List<HospitalDistanceResponse> searchHospitals(
 		String department,
@@ -30,31 +32,17 @@ public class HospitalSearchService {
 		// 1) 전달받은 sido를 한국어로 변환
 		String sidoKr = regionService.getKrSidoName(sido);
 
+		// 2) 진료과(any) → 한글 진료과명 (신규 로직)
+		String deptKr = departmentService.getKrDepartmentName(department);
+
 		int offset = page * size;
-		List<Object[]> rawList;
-
-		// 진료과: 내과→내과,가정의학과 모두 포함
-		String department1 = null;
-		String department2 = null;
-		if (department != null && !department.isBlank()) {
-			if (department.equals("내과") || department.equals("가정의학과")) {
-				department1 = "내과";
-				department2 = "가정의학과";
-			} else {
-				department1 = department;
-				department2 = department;
-			}
-		}
-
-		// type(종별코드명)도 null/입력값에 따라 처리
-		if ((department1 != null && department2 != null) || (type != null && !type.isBlank()) || (sidoKr != null)) {
-			rawList = hospitalRepository.findWithConditionsOrderByDistance(
-				lat, lng,
-				type, department1, department2, sidoKr, size, offset
-			);
-		} else {
-			rawList = hospitalRepository.findAllOrderByDistance(lat, lng, size, offset);
-		}
+		List<Object[]> rawList = hospitalRepository.findWithConditionsOrderByDistance(
+			lat, lng,
+			type,
+			deptKr,
+			sidoKr,
+			size, offset
+		);
 
 		List<HospitalDistanceResponse> result = new ArrayList<>();
 		for (Object[] row : rawList) {
