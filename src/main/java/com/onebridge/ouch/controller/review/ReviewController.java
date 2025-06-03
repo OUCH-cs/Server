@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onebridge.ouch.apiPayload.ApiResponse;
+import com.onebridge.ouch.dto.review.ReviewAverageResponse;
 import com.onebridge.ouch.dto.review.ReviewRequest;
 import com.onebridge.ouch.dto.review.ReviewResponse;
+import com.onebridge.ouch.dto.review.ReviewStatsResponse;
 import com.onebridge.ouch.security.authorization.UserId;
 import com.onebridge.ouch.service.review.ReviewService;
 
@@ -93,5 +95,23 @@ public class ReviewController {
 	) {
 		List<ReviewResponse> list = reviewService.getMyReviews(userId);
 		return ResponseEntity.ok(list);
+	}
+
+	@Operation(summary = "병원 리뷰 평균 점수 조회 API", description = "특정 병원의 리뷰 평균 점수를 조회하는 API입니다.")
+	@GetMapping("/hospitals/{ykiho}/reviews/average")
+	public ResponseEntity<ReviewAverageResponse> getAverageScore(
+		@PathVariable("ykiho") String ykiho
+	) {
+		ReviewAverageResponse response = reviewService.getAverageScoreByHospital(ykiho);
+		return ResponseEntity.ok(response);
+	}
+
+	@Operation(summary = "병원 리뷰 평균 점수, 리뷰 개수 조회 API", description = "특정 병원의 리뷰 평균 점수 및 리뷰 개수를 조회하는 API입니다.")
+	@GetMapping("/hospitals/{ykiho}/reviews/stats")
+	public ResponseEntity<ReviewStatsResponse> getReviewStats(
+		@PathVariable("ykiho") String ykiho
+	) {
+		ReviewStatsResponse response = reviewService.getStatsByHospital(ykiho);
+		return ResponseEntity.ok(response);
 	}
 }

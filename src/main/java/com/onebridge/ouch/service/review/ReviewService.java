@@ -3,8 +3,10 @@ package com.onebridge.ouch.service.review;
 import com.onebridge.ouch.domain.Hospital;
 import com.onebridge.ouch.domain.Review;
 import com.onebridge.ouch.domain.User;
+import com.onebridge.ouch.dto.review.ReviewAverageResponse;
 import com.onebridge.ouch.dto.review.ReviewRequest;
 import com.onebridge.ouch.dto.review.ReviewResponse;
+import com.onebridge.ouch.dto.review.ReviewStatsResponse;
 import com.onebridge.ouch.repository.hospital.HospitalRepository;
 import com.onebridge.ouch.repository.review.ReviewRepository;
 import com.onebridge.ouch.repository.user.UserRepository;
@@ -118,6 +120,31 @@ public class ReviewService {
 			.imageUrl(review.getImageUrl())
 			.createdAt(review.getCreatedAt().format(dateFormatter))
 			.updatedAt(review.getUpdatedAt().format(dateFormatter))
+			.build();
+	}
+
+	@Transactional(readOnly = true)
+	public ReviewAverageResponse getAverageScoreByHospital(String hospitalYkiho) {
+		Double avg = reviewRepository.findAverageScoreByHospitalYkiho(hospitalYkiho);
+		// 리뷰가 하나도 없으면 avg == null이므로, 그대로 넘기거나 0.0으로 바꿀 수 있습니다.
+		return ReviewAverageResponse.builder()
+			.hospitalYkiho(hospitalYkiho)
+			.averageScore(avg)
+			.build();
+	}
+
+	@Transactional(readOnly = true)
+	public ReviewStatsResponse getStatsByHospital(String hospitalYkiho) {
+		long count = reviewRepository.countByHospital_Ykiho(hospitalYkiho);
+		Double avg = reviewRepository.findAverageScoreByHospitalYkiho(hospitalYkiho);
+
+		// 리뷰가 없으면 avg == null이므로 0.0으로 설정
+		double averageScore = (avg == null) ? 0.0 : avg;
+
+		return ReviewStatsResponse.builder()
+			.hospitalYkiho(hospitalYkiho)
+			.reviewCount(count)
+			.averageScore(averageScore)
 			.build();
 	}
 }
