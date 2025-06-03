@@ -2,11 +2,9 @@ package com.onebridge.ouch.domain.mapping;
 
 import java.time.LocalDate;
 
-import com.onebridge.ouch.domain.Summary;
 import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.common.BaseEntity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -44,19 +41,23 @@ public class MedicalRecord extends BaseEntity {
 
 	private String symptoms;
 
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	@JoinColumn(name = "summary_id")
-	private Summary summary;
+	private String summary;
+
+	// @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	// @JoinColumn(name = "summary_id")
+	// private Summary summary;
 
 	public void updateMedicalRecord(
 		LocalDate visitDate,
 		String hospital,
 		String department,
-		String symptoms
+		String symptoms,
+		String summary
 	) {
 		this.visitDate = visitDate;
 		this.hospital = hospital;
 		this.department = department;
 		this.symptoms = symptoms;
+		this.summary = summary;
 	}
 }
