@@ -9,7 +9,6 @@ import com.onebridge.ouch.apiPayload.code.error.CommonErrorCode;
 import com.onebridge.ouch.apiPayload.code.error.MedicalRecordErrorCode;
 import com.onebridge.ouch.apiPayload.exception.OuchException;
 import com.onebridge.ouch.converter.MedicalRecordConverter;
-import com.onebridge.ouch.domain.Summary;
 import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.mapping.MedicalRecord;
 import com.onebridge.ouch.dto.medicalRecord.request.MedicalRecordCreateRequest;
@@ -39,12 +38,11 @@ public class MedicalRecordService {
 			.orElseThrow(() -> new OuchException(CommonErrorCode.MEMBER_NOT_FOUND));
 
 		// Summary 생성
-		Summary summary = Summary.builder()
-			.contents_summary(request.getTreatmentSummary())
-			.build();
+		// Summary summary = Summary.builder()
+		// 	.contents_summary(request.getTreatmentSummary())
+		// 	.build();
 
-		MedicalRecord medicalRecord = medicalRecordConverter.medicalRecordCreateRequestToMedicalRecord(request, user,
-			summary);
+		MedicalRecord medicalRecord = medicalRecordConverter.medicalRecordCreateRequestToMedicalRecord(request, user);
 
 		medicalRecordRepository.save(medicalRecord);
 	}
@@ -82,13 +80,14 @@ public class MedicalRecordService {
 		MedicalRecord medicalRecord = medicalRecordRepository.findByIdAndUserId(medicalRecordId, userId)
 			.orElseThrow(() -> new OuchException(MedicalRecordErrorCode.MEDICAL_RECORD_NOT_FOUND));
 
-		medicalRecord.getSummary().updateSummary(request.getTreatmentSummary());
+		//medicalRecord.getSummary().updateSummary(request.getTreatmentSummary());
 
 		medicalRecord.updateMedicalRecord(
 			request.getVisitDate(),
 			request.getVisitingHospital(),
 			request.getMedicalSubject(),
-			request.getSymptoms()
+			request.getSymptoms(),
+			request.getTreatmentSummary()
 		);
 	}
 }

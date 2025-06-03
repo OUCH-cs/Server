@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.onebridge.ouch.domain.Summary;
 import com.onebridge.ouch.domain.User;
 import com.onebridge.ouch.domain.mapping.MedicalRecord;
 import com.onebridge.ouch.dto.medicalRecord.request.MedicalRecordCreateRequest;
@@ -22,7 +21,7 @@ public class MedicalRecordConverter {
 		return new GetMedicalRecordResponse(medicalRecord.getId(), medicalRecord.getVisitDate().toString(),
 			medicalRecord.getHospital(),
 			medicalRecord.getDepartment(), medicalRecord.getSymptoms(),
-			medicalRecord.getSummary().getContents_summary());
+			medicalRecord.getSummary());
 	}
 
 	public List<DateAndHospital> medicalRecordToGetUsersAllMedicalRecordResponse(List<MedicalRecord> medicalRecords) {
@@ -34,15 +33,14 @@ public class MedicalRecordConverter {
 		return list;
 	}
 
-	public MedicalRecord medicalRecordCreateRequestToMedicalRecord(MedicalRecordCreateRequest request, User user,
-		Summary summary) {
+	public MedicalRecord medicalRecordCreateRequestToMedicalRecord(MedicalRecordCreateRequest request, User user) {
 		return MedicalRecord.builder()
 			.user(user)
 			.visitDate(request.getVisitDate())
 			.hospital(request.getVisitingHospital())
 			.department(request.getMedicalSubject())
 			.symptoms(request.getSymptoms())
-			.summary(summary)
+			.summary(request.getTreatmentSummary())
 			.build();
 	}
 }
