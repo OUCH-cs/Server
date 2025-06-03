@@ -525,5 +525,702 @@
       "en": "Yes. Some offer services in Chinese, Vietnamese, and other languages.",
       "zh": "部分医院可提供中文、越南语等多语言翻译服务。"
     }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System",
+      "zh": "了解韩国医疗系统"
+    },
+    "question": {
+      "ko": "진료 예약 없이 바로 방문해도 되나요?",
+      "en": "Can I visit the hospital without an appointment?",
+      "zh": "不预约可以直接去医院就诊吗？"
+    },
+    "answer": {
+      "ko": "일부 병원은 예약 없이 방문이 가능하지만, 대형병원은 예약이 필수인 경우가 많습니다.",
+      "en": "Some clinics allow walk-ins, but large hospitals usually require appointments.",
+      "zh": "部分医院无需预约可直接就诊，但大型医院一般需要提前预约。"
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System",
+      "zh": "了解韩国医疗系统"
+    },
+    "question": {
+      "ko": "여러 진료과를 동시에 방문할 수 있나요?",
+      "en": "Can I visit multiple departments on the same day?",
+      "zh": "可以一天内同时去多个科室看病吗？"
+    },
+    "answer": {
+      "ko": "진료 일정과 병원 정책에 따라 가능하며, 미리 문의해야 합니다.",
+      "en": "It depends on the schedule and hospital policy. Please ask in advance.",
+      "zh": "取决于医院安排和政策，建议提前咨询。"
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs",
+      "zh": "保险与费用"
+    },
+    "question": {
+      "ko": "진료비는 신용카드로 결제할 수 있나요?",
+      "en": "Can I pay medical fees with a credit card?",
+      "zh": "医疗费用可以用信用卡支付吗？"
+    },
+    "answer": {
+      "ko": "대부분의 병원과 약국에서 신용카드 결제가 가능합니다.",
+      "en": "Most hospitals and pharmacies accept credit cards.",
+      "zh": "大部分医院和药房都可以用信用卡支付。"
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs",
+      "zh": "保险与费用"
+    },
+    "question": {
+      "ko": "진료비는 언제 결제해야 하나요?",
+      "en": "When do I have to pay for the medical service?",
+      "zh": "医疗费用需要什么时候结算？"
+    },
+    "answer": {
+      "ko": "진료 후 병원 안내에 따라 즉시 결제하는 것이 일반적입니다.",
+      "en": "You are usually expected to pay immediately after the consultation.",
+      "zh": "通常需要在就诊后根据医院指引立即结算。"
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies",
+      "zh": "紧急情况"
+    },
+    "question": {
+      "ko": "응급실 진료도 건강보험이 적용되나요?",
+      "en": "Does health insurance cover emergency room treatment?",
+      "zh": "急诊治疗也可以用健康保险吗？"
+    },
+    "answer": {
+      "ko": "네, 건강보험 가입자는 응급실 진료에도 보험이 적용됩니다.",
+      "en": "Yes, emergency room treatment is covered if you have health insurance.",
+      "zh": "可以，拥有健康保险的话急诊治疗也可报销。"
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies",
+      "zh": "紧急情况"
+    },
+    "question": {
+      "ko": "응급 상황에서 원하는 병원을 선택할 수 있나요?",
+      "en": "Can I choose the hospital in an emergency?",
+      "zh": "紧急情况下可以自己选择医院吗？"
+    },
+    "answer": {
+      "ko": "가능하지만, 환자의 상태에 따라 가까운 병원으로 이송될 수 있습니다.",
+      "en": "You can request a hospital, but in critical cases, you may be taken to the nearest hospital.",
+      "zh": "可以要求，但紧急时一般会送到最近的医院。"
+    }
+  },
+  {
+    "category": {
+      "ko": "약국 및 약물",
+      "en": "Pharmacy & Medication",
+      "zh": "药房与药物"
+    },
+    "question": {
+      "ko": "처방전 유효기간이 얼마나 되나요?",
+      "en": "How long is a prescription valid for?",
+      "zh": "处方的有效期是多久？"
+    },
+    "answer": {
+      "ko": "일반적으로 처방전은 발급일로부터 7일간 유효합니다.",
+      "en": "Prescriptions are usually valid for 7 days from the date of issue.",
+      "zh": "处方一般自开具之日起7天内有效。"
+    }
+  },
+  {
+    "category": {
+      "ko": "약국 및 약물",
+      "en": "Pharmacy & Medication",
+      "zh": "药房与药物"
+    },
+    "question": {
+      "ko": "약국에서 외국어 통역을 받을 수 있나요?",
+      "en": "Can I get interpretation at the pharmacy?",
+      "zh": "在药房可以获得翻译服务吗？"
+    },
+    "answer": {
+      "ko": "일부 약국에서는 통역 서비스나 번역 앱을 이용할 수 있습니다.",
+      "en": "Some pharmacies offer interpretation services or support translation apps.",
+      "zh": "部分药房可提供翻译服务或支持翻译App。"
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication",
+      "zh": "文化与交流"
+    },
+    "question": {
+      "ko": "진료 기록을 영어로 받을 수 있나요?",
+      "en": "Can I get my medical records in English?",
+      "zh": "可以要求英文版的病历吗？"
+    },
+    "answer": {
+      "ko": "일부 병원은 영문 진단서 및 기록 발급이 가능합니다. 미리 문의하세요.",
+      "en": "Some hospitals issue records in English. Ask in advance.",
+      "zh": "部分医院可提供英文诊断证明，建议提前询问。"
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication",
+      "zh": "文化与交流"
+    },
+    "question": {
+      "ko": "혼자 방문해도 문제가 없나요?",
+      "en": "Is it okay to visit the hospital alone?",
+      "zh": "自己一个人去医院会有问题吗？"
+    },
+    "answer": {
+      "ko": "혼자 방문해도 진료에 제한은 없습니다.",
+      "en": "There is no disadvantage if you visit alone.",
+      "zh": "独自前往不会有任何限制。"
+    }
+  },
+  {
+    "category": {
+      "ko": "여성 전용",
+      "en": "Women",
+      "zh": "女性专用"
+    },
+    "question": {
+      "ko": "외국인도 산전 검사나 여성 건강검진이 가능한가요?",
+      "en": "Can foreigners receive prenatal or women’s health checkups?",
+      "zh": "外国人也可以做产前检查或女性健康体检吗？"
+    },
+    "answer": {
+      "ko": "네, 대부분의 병원에서 외국인도 검진을 받을 수 있습니다.",
+      "en": "Yes, most hospitals offer these checkups to foreigners.",
+      "zh": "可以，大部分医院为外国人提供这些检查。"
+    }
+  },
+  {
+    "category": {
+      "ko": "장애인/취약 계층",
+      "en": "Accessibility",
+      "zh": "无障碍/弱势群体"
+    },
+    "question": {
+      "ko": "외국인 장애인도 보조기기 대여가 가능한가요?",
+      "en": "Can foreigners with disabilities rent assistive devices?",
+      "zh": "外国残疾人可以租借辅助器材吗？"
+    },
+    "answer": {
+      "ko": "일부 병원과 기관에서 보조기기 대여 서비스를 제공합니다.",
+      "en": "Some hospitals and organizations offer assistive device rental services.",
+      "zh": "部分医院和机构提供辅助器材租借服务。"
+    }
+  },
+  {
+    "category": {
+      "ko": "언어 지원",
+      "en": "Language Support",
+      "zh": "语言支持"
+    },
+    "question": {
+      "ko": "통역사가 없는 경우 어떻게 해야 하나요?",
+      "en": "What should I do if there is no interpreter available?",
+      "zh": "没有翻译员时该怎么办？"
+    },
+    "answer": {
+      "ko": "번역 앱이나 병원 안내 자료를 활용할 수 있습니다.",
+      "en": "You can use translation apps or written hospital guides.",
+      "zh": "可以使用翻译App或医院的书面指南。"
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System",
+      "zh": "了解韩国医疗系统"
+    },
+    "question": {
+      "ko": "진료 시 가족이나 친구가 함께 들어갈 수 있나요?",
+      "en": "Can my family or friend accompany me during the consultation?",
+      "zh": "看病时家人或朋友可以陪同进入诊室吗？"
+    },
+    "answer": {
+      "ko": "병원 정책에 따라 다르지만 대부분 동행이 가능합니다.",
+      "en": "It depends on hospital policy, but most allow a companion.",
+      "zh": "视医院政策而定，大部分医院允许陪同。"
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System",
+      "zh": "了解韩国医疗系统"
+    },
+    "question": {
+      "ko": "진료과를 잘못 선택했을 때 변경이 가능한가요?",
+      "en": "Can I change the department if I made a mistake?",
+      "zh": "挂错科室可以更改吗？"
+    },
+    "answer": {
+      "ko": "진료 전 접수 데스크에 요청하면 변경이 가능합니다.",
+      "en": "You can request a change at the reception desk before your consultation.",
+      "zh": "看病前可在前台申请更改科室。"
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs",
+      "zh": "保险与费用"
+    },
+    "question": {
+      "ko": "건강보험 없이도 외국인 전용 진료비 할인이 있나요?",
+      "en": "Are there any discounts for foreigners without health insurance?",
+      "zh": "没有健康保险的外国人有专属优惠吗？"
+    },
+    "answer": {
+      "ko": "일부 지자체나 기관에서 외국인 대상 할인이나 지원이 있습니다.",
+      "en": "Some local governments or organizations offer discounts or support for foreigners.",
+      "zh": "部分地方政府或机构为外国人提供优惠或补贴。"
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs",
+      "zh": "保险与费用"
+    },
+    "question": {
+      "ko": "입원 시 보증금이 필요한가요?",
+      "en": "Is a deposit required for hospitalization?",
+      "zh": "住院需要缴纳押金吗？"
+    },
+    "answer": {
+      "ko": "일부 병원에서는 입원 전에 보증금을 요구할 수 있습니다.",
+      "en": "Some hospitals may require a deposit before admission.",
+      "zh": "部分医院住院前可能需要交押金。"
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies",
+      "zh": "紧急情况"
+    },
+    "question": {
+      "ko": "야간이나 휴일에 진료 가능한 병원은 어떻게 찾나요?",
+      "en": "How can I find hospitals open at night or on holidays?",
+      "zh": "如何查询夜间或节假日营业的医院？"
+    },
+    "answer": {
+      "ko": "응급의료정보센터 또는 지역 보건소 홈페이지에서 확인할 수 있습니다.",
+      "en": "You can check the Emergency Medical Information Center or local health center websites.",
+      "zh": "可在急救信息中心或当地保健所网站查询。"
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies",
+      "zh": "紧急情况"
+    },
+    "question": {
+      "ko": "응급실 대기 시간이 길 때 우선 진료를 요청할 수 있나요?",
+      "en": "Can I request priority treatment if the ER wait time is long?",
+      "zh": "急诊室等候时间长时可以要求优先就诊吗？"
+    },
+    "answer": {
+      "ko": "환자의 상태가 위급할 경우 우선 진료가 가능하며, 현장 의료진이 판단합니다.",
+      "en": "Priority is given to those in critical condition, as determined by medical staff.",
+      "zh": "如情况危急可优先就诊，由现场医务人员判断。"
+    }
+  },
+  {
+    "category": {
+      "ko": "약국 및 약물",
+      "en": "Pharmacy & Medication",
+      "zh": "药房与药物"
+    },
+    "question": {
+      "ko": "외국에서 가져온 약을 한국에서 계속 복용해도 되나요?",
+      "en": "Can I continue taking medication brought from my home country?",
+      "zh": "可以继续服用自己带来的国外药物吗？"
+    },
+    "answer": {
+      "ko": "일부 약물은 한국에서 사용이 제한될 수 있으니, 의사나 약사와 상담하세요.",
+      "en": "Some medicines may be restricted; consult a doctor or pharmacist.",
+      "zh": "部分药物在韩国可能有限制，请咨询医生或药师。"
+    }
+  },
+  {
+    "category": {
+      "ko": "약국 및 약물",
+      "en": "Pharmacy & Medication",
+      "zh": "药房与药物"
+    },
+    "question": {
+      "ko": "한국 약국에서 외국 처방전을 사용할 수 있나요?",
+      "en": "Can I use a foreign prescription at a Korean pharmacy?",
+      "zh": "在韩国药房可以使用国外开的处方吗？"
+    },
+    "answer": {
+      "ko": "외국 처방전은 대부분 인정되지 않으므로, 한국 의사에게 재처방을 받아야 합니다.",
+      "en": "Foreign prescriptions are usually not accepted; you need a Korean doctor's prescription.",
+      "zh": "大部分情况下不能直接用，需要韩国医生重新开具处方。"
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication",
+      "zh": "文化与交流"
+    },
+    "question": {
+      "ko": "의료진이 영어로 의사소통이 어려우면 어떻게 하나요?",
+      "en": "What if the medical staff cannot communicate in English?",
+      "zh": "医务人员不会英语怎么办？"
+    },
+    "answer": {
+      "ko": "통역 서비스 또는 번역 앱을 활용하거나, 간호사의 도움을 요청할 수 있습니다.",
+      "en": "Use interpretation services, translation apps, or ask a nurse for assistance.",
+      "zh": "可使用翻译服务、翻译App或请求护士帮助。"
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication",
+      "zh": "文化与交流"
+    },
+    "question": {
+      "ko": "진료 중 의사에게 동의하지 않는 경우 어떻게 해야 하나요?",
+      "en": "What should I do if I disagree with the doctor during the consultation?",
+      "zh": "看病时如不同意医生的意见该怎么办？"
+    },
+    "answer": {
+      "ko": "질문을 하거나, 다른 의사에게 2차 소견을 요청할 수 있습니다.",
+      "en": "You can ask questions or request a second opinion from another doctor.",
+      "zh": "可以提出疑问，或要求其他医生进行二次诊断。"
+    }
+  },
+  {
+    "category": {
+      "ko": "여성 전용",
+      "en": "Women",
+      "zh": "女性专用"
+    },
+    "question": {
+      "ko": "산부인과 진료 시 남성 의료진을 거부할 수 있나요?",
+      "en": "Can I refuse to see a male doctor at the gynecology department?",
+      "zh": "妇科可以拒绝由男医生诊疗吗？"
+    },
+    "answer": {
+      "ko": "가능하나, 인력 상황에 따라 대기 시간이 길어질 수 있습니다.",
+      "en": "Yes, but it may result in longer waiting times depending on staff availability.",
+      "zh": "可以，但因医生安排可能需要等待更长时间。"
+    }
+  },
+  {
+    "category": {
+      "ko": "여성 전용",
+      "en": "Women",
+      "zh": "女性专用"
+    },
+    "question": {
+      "ko": "여성 건강 문제로 상담 시 통역사가 동반해도 되나요?",
+      "en": "Can I have an interpreter with me for women's health consultations?",
+      "zh": "女性健康咨询时可以带翻译员一起吗？"
+    },
+    "answer": {
+      "ko": "네, 통역사 동반이 가능하며, 필요시 병원에서 통역 지원을 요청할 수 있습니다.",
+      "en": "Yes, you may bring an interpreter. Hospitals can also provide support if needed.",
+      "zh": "可以带翻译员，必要时医院也可提供翻译支持。"
+    }
+  },
+  {
+    "category": {
+      "ko": "장애인/취약 계층",
+      "en": "Accessibility",
+      "zh": "无障碍/弱势群体"
+    },
+    "question": {
+      "ko": "청각장애인을 위한 수화 통역 지원이 항상 제공되나요?",
+      "en": "Is sign language interpretation always available for hearing-impaired patients?",
+      "zh": "为听障人士提供的手语翻译服务随时都能获得吗？"
+    },
+    "answer": {
+      "ko": "일부 대형병원에서 제공되며, 사전 예약이 필요할 수 있습니다.",
+      "en": "Some large hospitals offer this, but advance reservation may be required.",
+      "zh": "部分大型医院提供此服务，可能需要提前预约。"
+    }
+  },
+  {
+    "category": {
+      "ko": "장애인/취약 계층",
+      "en": "Accessibility",
+      "zh": "无障碍/弱势群体"
+    },
+    "question": {
+      "ko": "휠체어 대여 서비스가 병원마다 다르나요?",
+      "en": "Is wheelchair rental service different by hospital?",
+      "zh": "每家医院的轮椅租借服务都一样吗？"
+    },
+    "answer": {
+      "ko": "병원마다 대여 가능 여부와 절차가 다르므로 미리 문의하세요.",
+      "en": "Availability and procedures differ by hospital, so check in advance.",
+      "zh": "各医院政策不同，建议提前咨询。"
+    }
+  },
+  {
+    "category": {
+      "ko": "언어 지원",
+      "en": "Language Support",
+      "zh": "语言支持"
+    },
+    "question": {
+      "ko": "병원 웹사이트에서도 다국어 정보 제공이 되나요?",
+      "en": "Do hospital websites offer multilingual information?",
+      "zh": "医院网站也提供多语言信息吗？"
+    },
+    "answer": {
+      "ko": "대형 병원은 보통 영어, 중국어 등으로 홈페이지 안내가 제공됩니다.",
+      "en": "Large hospitals usually provide information in English, Chinese, etc. on their websites.",
+      "zh": "大型医院网站通常提供英文、中文等多语种信息。"
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System",
+      "zh": "了解韩国医疗系统"
+    },
+    "question": {
+      "ko": "병원 예약을 어플이나 전화로 할 때 본인 인증이 꼭 필요한가요?",
+      "en": "Do I need to verify my identity when making a hospital appointment by phone or app?",
+      "zh": "用App或电话预约医院时一定要进行身份认证吗？"
+    },
+    "answer": {
+      "ko": "대부분 본인 인증이 필요하며, 외국인등록번호나 여권번호가 요구될 수 있습니다.",
+      "en": "Yes, most hospitals require identity verification, such as your alien registration or passport number.",
+      "zh": "大多数医院需要进行身份认证，可能需要外国人登录证号码或护照号码。"
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System",
+      "zh": "了解韩国医疗系统"
+    },
+    "question": {
+      "ko": "진료 불만이나 문제가 있을 때 어디에 이의 제기할 수 있나요?",
+      "en": "Where can I file a complaint if I have a problem with medical care?",
+      "zh": "医疗过程中遇到问题或不满可以向哪里申诉？"
+    },
+    "answer": {
+      "ko": "병원 고객센터나 국민신문고, 관할 보건소에 민원을 제기할 수 있습니다.",
+      "en": "You can contact the hospital’s customer service, file a complaint with e-People, or visit your local public health center.",
+      "zh": "可以向医院客服、韩国政府“国民申诉”网站或当地保健所投诉。"
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs",
+      "zh": "保险与费用"
+    },
+    "question": {
+      "ko": "진료비 영수증을 분실했을 때 재발급은 어떻게 하나요?",
+      "en": "How can I get a reissued receipt if I lose my medical bill?",
+      "zh": "医疗费用收据丢失后如何补打？"
+    },
+    "answer": {
+      "ko": "병원 수납 창구에서 신분증을 제시하고 재발급을 요청하면 됩니다.",
+      "en": "Go to the hospital payment counter with your ID and request a reprint.",
+      "zh": "可持身份证到医院收费窗口申请补打收据。"
+    }
+  },
+  {
+    "category": {
+      "ko": "보험 및 비용",
+      "en": "Insurance & Costs",
+      "zh": "保险与费用"
+    },
+    "question": {
+      "ko": "병원비를 나중에 환불받거나 정산받을 수 있나요?",
+      "en": "Can I get a refund or settle my hospital bill after payment?",
+      "zh": "医院费用可以事后退款或结算吗？"
+    },
+    "answer": {
+      "ko": "과오납이 있으면 병원 또는 보험사를 통해 환불이 가능합니다.",
+      "en": "If you overpaid, you can get a refund through the hospital or your insurance company.",
+      "zh": "如有多缴费用，可通过医院或保险公司申请退款。"
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies",
+      "zh": "紧急情况"
+    },
+    "question": {
+      "ko": "구급차 호출 시 정확한 위치 설명이 어려우면 어떻게 하나요?",
+      "en": "What if I have difficulty explaining my location when calling an ambulance?",
+      "zh": "叫救护车时如果无法准确描述位置怎么办？"
+    },
+    "answer": {
+      "ko": "주소, 가까운 건물명, GPS 위치 전송 등을 활용하면 됩니다.",
+      "en": "Use your address, nearby landmarks, or send your GPS location if possible.",
+      "zh": "可提供详细地址、附近建筑物名称或发送GPS定位信息。"
+    }
+  },
+  {
+    "category": {
+      "ko": "응급 상황",
+      "en": "Emergencies",
+      "zh": "紧急情况"
+    },
+    "question": {
+      "ko": "병원에서 가족이나 보호자 연락이 꼭 필요한가요?",
+      "en": "Is it necessary to have a guardian or family contact at the hospital?",
+      "zh": "医院就诊时一定要有家人或监护人联系方式吗？"
+    },
+    "answer": {
+      "ko": "중증·입원 시 보호자 연락처를 요구할 수 있으나, 혼자 방문도 가능합니다.",
+      "en": "Hospitals may ask for a guardian’s contact for serious cases or admission, but solo visits are allowed.",
+      "zh": "重症或住院时医院可能要求提供家属联系方式，但也可单独就诊。"
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication",
+      "zh": "文化与交流"
+    },
+    "question": {
+      "ko": "병원 내에서 사진이나 녹음이 허용되나요?",
+      "en": "Is it allowed to take photos or record audio in the hospital?",
+      "zh": "在医院内可以拍照或录音吗？"
+    },
+    "answer": {
+      "ko": "개인정보 보호와 병원 정책에 따라 촬영·녹음이 금지될 수 있습니다.",
+      "en": "Taking photos or recording may be prohibited to protect privacy and according to hospital policy.",
+      "zh": "为保护隐私及遵守医院规定，可能禁止拍照和录音。"
+    }
+  },
+  {
+    "category": {
+      "ko": "문화 & 커뮤니케이션",
+      "en": "Culture & Communication",
+      "zh": "文化与交流"
+    },
+    "question": {
+      "ko": "병원 내에서 통역사를 직접 구할 수 있나요?",
+      "en": "Can I directly find an interpreter inside the hospital?",
+      "zh": "在医院内能直接找到翻译员吗？"
+    },
+    "answer": {
+      "ko": "일부 대형병원은 국제진료센터에서 통역사를 배정해주기도 합니다.",
+      "en": "Some large hospitals have international centers that can assign interpreters.",
+      "zh": "部分大型医院的国际医疗中心可安排翻译员。"
+    }
+  },
+  {
+    "category": {
+      "ko": "여성 전용",
+      "en": "Women",
+      "zh": "女性专用"
+    },
+    "question": {
+      "ko": "임신부가 응급상황 시 별도 지원을 받을 수 있나요?",
+      "en": "Are there special supports for pregnant women in emergencies?",
+      "zh": "孕妇遇到紧急情况时有专门的支持吗？"
+    },
+    "answer": {
+      "ko": "응급실에서 임신부는 우선 진료를 받을 수 있으며, 별도 진료 공간이 제공되기도 합니다.",
+      "en": "Pregnant women can get priority care in the ER, and sometimes separate spaces are available.",
+      "zh": "孕妇在急诊室可优先就诊，有时会有专门的诊疗区。"
+    }
+  },
+  {
+    "category": {
+      "ko": "여성 전용",
+      "en": "Women",
+      "zh": "女性专用"
+    },
+    "question": {
+      "ko": "산모수첩은 어디서 발급받나요?",
+      "en": "Where can I get a maternity (mother’s) handbook?",
+      "zh": "母子健康手册在哪里领取？"
+    },
+    "answer": {
+      "ko": "보건소나 산부인과에서 무료로 발급받을 수 있습니다.",
+      "en": "You can get it for free at public health centers or OB/GYN clinics.",
+      "zh": "可在保健所或妇产科免费领取。"
+    }
+  },
+  {
+    "category": {
+      "ko": "장애인/취약 계층",
+      "en": "Accessibility",
+      "zh": "无障碍/弱势群体"
+    },
+    "question": {
+      "ko": "시각장애인을 위한 안내 서비스가 있나요?",
+      "en": "Are there guidance services for visually impaired patients?",
+      "zh": "医院为视障人士提供引导服务吗？"
+    },
+    "answer": {
+      "ko": "일부 병원에서 안내 도우미나 촉지도, 점자 표지 등을 제공합니다.",
+      "en": "Some hospitals provide guides, tactile maps, or Braille signage.",
+      "zh": "部分医院有引导员、触摸地图或盲文标识等。"
+    }
+  },
+  {
+    "category": {
+      "ko": "언어 지원",
+      "en": "Language Support",
+      "zh": "语言支持"
+    },
+    "question": {
+      "ko": "병원 편의시설 안내도 외국어로 제공되나요?",
+      "en": "Are hospital facility guides available in foreign languages?",
+      "zh": "医院便利设施指南有外语版本吗？"
+    },
+    "answer": {
+      "ko": "대형 병원은 외국어로 안내판이나 리플릿을 제공하는 경우가 많습니다.",
+      "en": "Large hospitals often provide facility guides and leaflets in foreign languages.",
+      "zh": "大型医院常提供外语版指示牌和宣传册。"
+    }
+  },
+  {
+    "category": {
+      "ko": "의료 시스템 이해",
+      "en": "Understanding the System",
+      "zh": "了解韩国医疗系统"
+    },
+    "question": {
+      "ko": "병원 내 편의시설(식당, 와이파이, 휴게실 등)은 어떻게 이용하나요?",
+      "en": "How can I use convenience facilities like restaurants, Wi-Fi, or lounges in the hospital?",
+      "zh": "如何使用医院内的便利设施（餐厅、Wi-Fi、休息室等）？"
+    },
+    "answer": {
+      "ko": "병원 안내데스크에서 위치와 이용방법을 문의하면 안내받을 수 있습니다.",
+      "en": "Ask at the hospital information desk about locations and how to use these facilities.",
+      "zh": "可向医院服务台咨询具体位置和使用方法。"
+    }
   }
 ]
