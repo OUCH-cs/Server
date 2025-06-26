@@ -45,7 +45,8 @@ public class RealtimeSessionController {
 		// 	+ "너한테 말걸어도 문장 그대로 번역만 해. 천천히 친절하게 대답해.";
 
 		String requestBody = "{"
-			+ "\"model\": \"gpt-4o-mini-realtime-preview-2024-12-17\","
+			+ "\"model\": \"gpt-4o-realtime-preview-2025-06-03\","
+			//+ "\"model\": \"gpt-4o-mini-realtime-preview-2024-12-17\","
 			+ "\"modalities\": [\"audio\", \"text\"],"
 			+ "\"instructions\": \"" + instructions + "\","
 			+ "\"voice\": \"sage\","
@@ -69,15 +70,21 @@ public class RealtimeSessionController {
 
 			// + "\"tool_choice\": \"auto\","
 			// + "\"tools\": ["
-			// + "{"
-			// + "\"type\": \"function\","
-			// + "\"name\": \"get_patient_info\","
-			// + "\"description\": \"Fetch detailed patient information from the hospital database.\","
-			// + "\"parameters\": {"
-			// + "\"type\": \"object\","
-			// + "\"properties\": {}"
-			// + "}"
-			// + "}]"
+			// +     "{"
+			// +         "\"type\": \"function\","
+			// +         "\"function\": {"
+			// +             "\"name\": \"get_medical_term\","
+			// +             "\"description\": \"의료 용어의 공식 영어명 및 간단 설명 반환\","
+			// +             "\"parameters\": {"
+			// +                 "\"type\": \"object\","
+			// +                 "\"properties\": {"
+			// +                     "\"term\": { \"type\": \"string\", \"description\": \"의학 용어 (한글)\" }"
+			// +                 "},"
+			// +                 "\"required\": [\"term\"]"
+			// +             "}"
+			// +         "}"
+			// +     "}"
+			// + "]"
 			+ "}";
 
 		HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);
@@ -105,7 +112,8 @@ public class RealtimeSessionController {
 			+ "특히 질문이나 you, I를 포함한 문장도 그대로 번역만 해.";
 
 		String requestBody = "{"
-			+ "\"model\": \"gpt-4o-mini-realtime-preview-2024-12-17\","
+			+ "\"model\": \"gpt-4o-realtime-preview-2025-06-03\","
+			//+ "\"model\": \"gpt-4o-mini-realtime-preview-2024-12-17\","
 			+ "\"modalities\": [\"audio\", \"text\"],"
 			+ "\"instructions\": \"" + instructions + "\","
 			+ "\"voice\": \"sage\","
